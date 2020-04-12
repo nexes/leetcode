@@ -1,6 +1,6 @@
 #pragma once
 
-#include <algorithm>
+#include <unordered_map>
 #include <vector>
 
 namespace Leet::Easy {
@@ -14,8 +14,18 @@ namespace Leet::Easy {
     struct TwoSums {
         std::vector<int> twoSum(std::vector<int> &nums, int target)
         {
-            std::sort(nums.begin(), nums.end());
-            return std::vector{11, 3};
+            int len = nums.size();
+            std::unordered_map<int, int> result;
+
+            for (int i = 0; i < len; i++) {
+                if (auto found = result.find(target - nums.at(i)); found != result.end()) {
+                    return std::vector{found->second, i};
+                }
+
+                result.emplace(std::make_pair(nums.at(i), i));
+            }
+
+            return std::vector{0, 0};
         }
     };
 }  // namespace Leet::Easy
