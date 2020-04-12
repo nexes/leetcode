@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Test easy problems",
+      "label": "Build all",
       "type": "shell",
       "presentation": {
         "echo": false,
@@ -14,11 +14,42 @@
         "showReuseMessage": true,
         "clear": true
       },
+      "command": "cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/build",
+        "--config",
+        "Debug",
+        "--target",
+        "all",
+        "--",
+        "-j",
+        "14"
+      ],
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Test",
+      "type": "shell",
       "problemMatcher": "$gcc",
       "command": "./LeetCodeTests --gtest_color=yes",
       "options": {
         "cwd": "${workspaceFolder}/build/test"
       }
+    },
+    {
+      "label": "Build and Test",
+      "type": "shell",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Build all",
+        "Test"
+      ],
+      "problemMatcher": [
+        "$gcc"
+      ]
     }
   ]
 }
