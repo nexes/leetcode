@@ -25,7 +25,18 @@ namespace Leet::Easy {
     struct Palindrome {
         bool isPalindrome(int x)
         {
-            return false;
+            int reverse = 0;
+            int value = x;
+
+            if (x == 0) return true;
+            if (x < 0 || x % 10 == 0) return false;
+
+            while (value > 0) {
+                reverse = reverse * 10 + (value % 10);
+                value /= 10;
+            }
+
+            return reverse == x;
         }
     };
 }  // namespace Leet::Easy

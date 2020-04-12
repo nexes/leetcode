@@ -33,3 +33,25 @@ TEST(Easy, TwoSums_duplicate)
 
     ASSERT_EQ(t.twoSum(sums, 6), result);
 }
+
+TEST(Easy, Palindrome)
+{
+    Leet::Easy::Palindrome p;
+
+    ASSERT_TRUE(p.isPalindrome(121));
+    ASSERT_FALSE(p.isPalindrome(10));
+}
+
+TEST(Easy, Palindrome_negative)
+{
+    Leet::Easy::Palindrome p;
+
+    ASSERT_FALSE(p.isPalindrome(-121));
+}
+
+TEST(Easy, Palindrome_zero)
+{
+    Leet::Easy::Palindrome p;
+
+    ASSERT_TRUE(p.isPalindrome(0));
+}
