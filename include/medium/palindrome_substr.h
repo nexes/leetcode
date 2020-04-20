@@ -26,38 +26,49 @@ namespace Leet::Medium {
             // O(n^3) brute force
             for (int i = 0; i < len; i++) {
                 for (int j = len - 1; j > i; j--) {
-                    if (better_is_palindrome(s, i, j)) {
-                        if (found.length() <= j - i) {
-                            found = s.substr(i, j - i + 1);
-
-                            // ugly hack
-                            if (j == len - 1) return found;
-                        }
-                    }
+                    if (found.length() <= j - i && is_palindrome(s, i, j))
+                        found = s.substr(i, j - i + 1);
                 }
             }
 
             return found;
         }
 
-        // doesn't require a string.substr call each time to call
-        bool better_is_palindrome(std::string_view v, int start, int end)
+        std::string longestPalindrome_faster(std::string s)
+        {
+            const int len = s.length();
+            std::string found = "";
+
+            // O(n^2)
+            // this needs to be looped over twice
+            for (int mid = 0; mid < len; mid++) {
+                for (int offset = 0; mid - offset >= 0 && mid + offset < len; offset++) {
+                    if (s.at(mid - offset) != s.at(mid + offset)) break;
+
+                    int size = offset * 2 + 1;
+                    if (found.length() < size) found = s.substr(mid - offset, size);
+                }
+            }
+
+            for (int mid = 0; mid < len; mid++) {
+                for (int offset = 1; mid - offset + 1 >= 0 && mid + offset < len; offset++) {
+                    if (s.at(mid - offset + 1) != s.at(mid + offset)) break;
+
+                    int size = offset * 2;
+                    if (found.length() < size) found = s.substr(mid - offset + 1, size);
+                }
+            }
+
+            return found;
+        }
+
+        bool is_palindrome(std::string_view v, int start, int end)
         {
             if (start >= end || end > v.length() - 1)
                 return false;
 
             for (; start < end; start++, end--)
                 if (v.at(start) != v.at(end)) return false;
-
-            return true;
-        }
-
-        bool is_palindrome(std::string_view v)
-        {
-            const int len = v.length();
-
-            for (int i = 0, j = len - 1; i < len; i++, j--)
-                if (v.at(i) != v.at(j)) return false;
 
             return true;
         }
