@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <palindrome.h>
+#include <plusone.h>
 #include <twosums.h>
 
 #include <vector>
@@ -54,4 +55,21 @@ TEST(Easy, Palindrome_zero)
     Leet::Easy::Palindrome p;
 
     ASSERT_TRUE(p.isPalindrome(0));
+}
+
+TEST(Easy, Plus_one)
+{
+    Leet::Easy::PlusOne p;
+
+    std::vector check{4, 3, 2, 1};
+    std::vector result{4, 3, 2, 2};
+    ASSERT_EQ(p.plusone(check), result) << "Test Case: {4, 3, 2, 1}";
+
+    check = {4, 3, 9};
+    result = {4, 4, 0};
+    ASSERT_EQ(p.plusone(check), result) << "Test Case: {4, 3, 9}";
+
+    check = {9, 9};
+    result = {1, 0, 0};
+    ASSERT_EQ(p.plusone(check), result) << "Test Case: {9, 9}";
 }
