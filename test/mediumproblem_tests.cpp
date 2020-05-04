@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <palindrome_substr.h>
+#include <swapnodes.h>
 
+#include <iostream>
 #include <string>
 
 TEST(Medium, Palindrome_isPalindrome)
@@ -23,4 +25,29 @@ TEST(Medium, Palindrome_substring)
     ASSERT_EQ(p.longestPalindrome_faster("bxb"), "bxb") << "bxb";
     ASSERT_EQ(p.longestPalindrome_faster("ac"), "a") << "a";
     ASSERT_EQ(p.longestPalindrome_faster("dddddddddddddddddddddddddddddddddddddddddddddddd"), "dddddddddddddddddddddddddddddddddddddddddddddddd");
+}
+
+TEST(Medium, Swap_Nodes)
+{
+    Leet::Medium::SwapNodes s;
+
+    auto *list = new Leet::Medium::ListNode(1);
+    list->next = new Leet::Medium::ListNode(2);
+    list->next->next = new Leet::Medium::ListNode(3);
+    list->next->next->next = new Leet::Medium::ListNode(4);
+
+    auto *swap = s.swapPairs(list);
+    int numbers[] = {2, 1, 4, 3};
+    auto idx = 0;
+
+    while (swap) {
+        std::cout << "\nswap: " << swap->val << ", ";
+        ASSERT_EQ(swap->val, numbers[idx++]);
+        swap = swap->next;
+    }
+
+    while (list) {
+        std::cout << "\noriginal: " << list->val << ", ";
+        list = list->next;
+    }
 }
