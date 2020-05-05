@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 namespace Leet::Medium {
 
     // Given a linked list, swap every two adjacent nodes and return its head.
@@ -23,7 +21,7 @@ namespace Leet::Medium {
 
     struct SwapNodes
     {
-        // swap every pair while maintaining the original list
+        // swap every pair while maintaining the original list, creating a new swapped list
         ListNode *swapPairs(ListNode *head)
         {
             if (head == nullptr || head->next == nullptr)
@@ -49,15 +47,14 @@ namespace Leet::Medium {
         // swap every pair, not maintaining the original list
         ListNode *swap_pairs_inplace(ListNode *head)
         {
-            auto *swapped = new ListNode(0);
-            swapped->next = head;
+            auto *orig_head = head;
 
             while (head && head->next) {
                 std::swap(head->val, head->next->val);
                 head = head->next->next;
             }
 
-            return swapped->next;
+            return orig_head;
         }
     };
 }  // namespace Leet::Medium
