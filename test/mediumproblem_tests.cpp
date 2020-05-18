@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 #include <palindrome_substr.h>
+#include <simplifypath.h>
 #include <swapnodes.h>
 
-#include <iostream>
 #include <string>
 
 TEST(Medium, Palindrome_isPalindrome)
@@ -40,14 +40,20 @@ TEST(Medium, Swap_Nodes)
     int numbers[] = {2, 1, 4, 3};
     auto idx = 0;
 
-    while (swap) {
-        std::cout << "\nswap: " << swap->val << ", ";
+    while (swap)
+    {
         ASSERT_EQ(swap->val, numbers[idx++]);
         swap = swap->next;
     }
+}
 
-    while (list) {
-        std::cout << "\noriginal: " << list->val << ", ";
-        list = list->next;
-    }
+TEST(Medium, Simple_path)
+{
+    Leet::Medium::Path p;
+
+    ASSERT_EQ(p.simplifyPath_better("/home/"), "/home");
+    ASSERT_EQ(p.simplifyPath_better("/../"), "/");
+    ASSERT_EQ(p.simplifyPath_better("/a/../../b/../c//.//"), "/c");
+    ASSERT_EQ(p.simplifyPath_better("/a//b////c/d//././/.."), "/a/b/c");
+    ASSERT_EQ(p.simplifyPath_better("/..."), "/...");
 }
