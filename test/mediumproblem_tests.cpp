@@ -2,8 +2,10 @@
 #include <palindrome_substr.h>
 #include <simplifypath.h>
 #include <swapnodes.h>
+#include <anagrams_in_string.h>
 
 #include <string>
+#include <vector>
 
 TEST(Medium, Palindrome_isPalindrome)
 {
@@ -56,4 +58,25 @@ TEST(Medium, Simple_path)
     ASSERT_EQ(p.simplifyPath_better("/a/../../b/../c//.//"), "/c");
     ASSERT_EQ(p.simplifyPath_better("/a//b////c/d//././/.."), "/a/b/c");
     ASSERT_EQ(p.simplifyPath_better("/..."), "/...");
+}
+
+TEST(Medium, Anagram_in_strings)
+{
+    Leet::Medium::Anagram a;
+
+    auto index = a.findAnagrams_sliding_window("abcdebacb", "cab");
+    std::vector s{0, 5, 6};
+    ASSERT_EQ(index, s);
+
+    index = a.findAnagrams_sliding_window("abab", "ab");
+    s = {0, 1, 2};
+    ASSERT_EQ(index, s);
+
+    index = a.findAnagrams_sliding_window("baa", "aa");
+    s = {1};
+    ASSERT_EQ(index, s);
+
+    index = a.findAnagrams_sliding_window("cbaebabacd", "abc");
+    s = {0, 6};
+    ASSERT_EQ(index, s);
 }
