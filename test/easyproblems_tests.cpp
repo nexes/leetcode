@@ -2,6 +2,7 @@
 #include <palindrome.h>
 #include <plusone.h>
 #include <twosums.h>
+#include <sqrt.h>
 
 #include <vector>
 
@@ -72,4 +73,16 @@ TEST(Easy, Plus_one)
     check = {9, 9};
     result = {1, 0, 0};
     ASSERT_EQ(p.plusone(check), result) << "Test Case: {9, 9}";
+}
+
+TEST(Easy, square_root)
+{
+    Leet::Easy::Sqrt s;
+
+    ASSERT_EQ(s.mySqrt(8), 2);
+    ASSERT_EQ(s.mySqrt(0), 0);
+    ASSERT_EQ(s.mySqrt(5), 2);
+    ASSERT_EQ(s.mySqrt(99), 9);
+    ASSERT_EQ(s.mySqrt(2), 1);
+    ASSERT_EQ(s.mySqrt(2147395599), 46339);
 }
