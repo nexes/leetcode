@@ -3,6 +3,7 @@
 #include <plusone.h>
 #include <twosums.h>
 #include <sqrt.h>
+#include <strstr.h>
 
 #include <vector>
 
@@ -85,4 +86,14 @@ TEST(Easy, square_root)
     ASSERT_EQ(s.mySqrt(99), 9);
     ASSERT_EQ(s.mySqrt(2), 1);
     ASSERT_EQ(s.mySqrt(2147395599), 46339);
+}
+
+TEST(Easy, strstr)
+{
+    Leet::Easy::Str s;
+
+    ASSERT_EQ(s.strStr("hello", "ll"), 2);
+    ASSERT_EQ(s.strStr("aaaaa", "bcb"), -1);
+    ASSERT_EQ(s.strStr("aabbaabba", "bb"), 2);
+    ASSERT_EQ(s.strStr("a", ""), 0);
 }
