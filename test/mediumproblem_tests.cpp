@@ -3,6 +3,7 @@
 #include <simplifypath.h>
 #include <swapnodes.h>
 #include <anagrams_in_string.h>
+#include <add_two_numbers.h>
 
 #include <string>
 #include <vector>
@@ -33,10 +34,10 @@ TEST(Medium, Swap_Nodes)
 {
     Leet::Medium::SwapNodes s;
 
-    auto *list = new Leet::Medium::ListNode(1);
-    list->next = new Leet::Medium::ListNode(2);
-    list->next->next = new Leet::Medium::ListNode(3);
-    list->next->next->next = new Leet::Medium::ListNode(4);
+    auto *list = new Leet::ListNode(1);
+    list->next = new Leet::ListNode(2);
+    list->next->next = new Leet::ListNode(3);
+    list->next->next->next = new Leet::ListNode(4);
 
     auto *swap = s.swapPairs(list);
     int numbers[] = {2, 1, 4, 3};
@@ -79,4 +80,22 @@ TEST(Medium, Anagram_in_strings)
     index = a.findAnagrams_sliding_window("cbaebabacd", "abc");
     s = {0, 6};
     ASSERT_EQ(index, s);
+}
+
+TEST(Medium, Add_two_numbers)
+{
+    Leet::Medium::TwoNumbers t;
+    auto *l1 = new Leet::ListNode(2);
+    l1->next = new Leet::ListNode(4);
+    l1->next->next = new Leet::ListNode(3);
+
+    auto *l2 = new Leet::ListNode(5);
+    l2->next = new Leet::ListNode(6);
+    l2->next->next = new Leet::ListNode(4);
+
+    auto *result = t.addTwoNumbers(l1, l2);
+
+    ASSERT_EQ(result->val, 7);
+    ASSERT_EQ(result->next->val, 0);
+    ASSERT_EQ(result->next->next->val, 8);
 }
