@@ -4,6 +4,7 @@
 #include <swapnodes.h>
 #include <anagrams_in_string.h>
 #include <add_two_numbers.h>
+#include <longest_substr.h>
 
 #include <string>
 #include <vector>
@@ -98,4 +99,21 @@ TEST(Medium, Add_two_numbers)
     ASSERT_EQ(result->val, 7);
     ASSERT_EQ(result->next->val, 0);
     ASSERT_EQ(result->next->next->val, 8);
+}
+
+TEST(Medium, Longest_substr)
+{
+    Leet::Medium::LongestSubString l;
+
+    auto i = l.lengthOfLongestSubstring("abcabcbb");
+    ASSERT_EQ(i, 3);
+
+    i = l.lengthOfLongestSubstring("bbbbb");
+    ASSERT_EQ(i, 1);
+
+    i = l.lengthOfLongestSubstring("pwwkew");
+    ASSERT_EQ(i, 3);
+
+    i = l.lengthOfLongestSubstring("dvdf");
+    ASSERT_EQ(i, 3);
 }
