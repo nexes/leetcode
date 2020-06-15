@@ -4,6 +4,7 @@
 #include <twosums.h>
 #include <sqrt.h>
 #include <strstr.h>
+#include <reverse_integer.h>
 
 #include <vector>
 
@@ -96,4 +97,14 @@ TEST(Easy, strstr)
     ASSERT_EQ(s.strStr("aaaaa", "bcb"), -1);
     ASSERT_EQ(s.strStr("aabbaabba", "bb"), 2);
     ASSERT_EQ(s.strStr("a", ""), 0);
+}
+
+TEST(Easy, reverse_int)
+{
+    Leet::Easy::Reverse_int r;
+
+    ASSERT_EQ(r.reverse(123), 321);
+    ASSERT_EQ(r.reverse(-123), -321);
+    ASSERT_EQ(r.reverse(120), 21);
+    ASSERT_EQ(r.reverse(9), 9);
 }
