@@ -5,6 +5,7 @@
 #include <anagrams_in_string.h>
 #include <add_two_numbers.h>
 #include <longest_substr.h>
+#include <string_to_integer.h>
 
 #include <string>
 #include <vector>
@@ -116,4 +117,20 @@ TEST(Medium, Longest_substr)
 
     i = l.lengthOfLongestSubstring("dvdf");
     ASSERT_EQ(i, 3);
+}
+
+TEST(Medium, string_to_int)
+{
+    Leet::Medium::Atoi a;
+
+    ASSERT_EQ(a.myAtoi("42"), 42);
+    ASSERT_EQ(a.myAtoi("      -42"), -42);
+    ASSERT_EQ(a.myAtoi("4193 with words"), 4193);
+    ASSERT_EQ(a.myAtoi("words and 987"), 0);
+    // Input: "-91283472332"
+    // Output: -2147483648
+    // Explanation: The number "-91283472332" is out of the range of a 32-bit signed integer.
+    //              Thefore INT_MIN (−231) is returned.
+    ASSERT_EQ(a.myAtoi("-91283472332"), -2147483648);
+    ASSERT_EQ(a.myAtoi(""), 0);
 }
