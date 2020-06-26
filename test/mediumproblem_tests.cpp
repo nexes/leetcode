@@ -6,6 +6,7 @@
 #include <add_two_numbers.h>
 #include <longest_substr.h>
 #include <string_to_integer.h>
+#include <first_last_pos.h>
 
 #include <string>
 #include <vector>
@@ -133,4 +134,39 @@ TEST(Medium, string_to_int)
     //              Thefore INT_MIN (−231) is returned.
     ASSERT_EQ(a.myAtoi("-91283472332"), -2147483648);
     ASSERT_EQ(a.myAtoi(""), 0);
+}
+
+TEST(Medium, first_last_position)
+{
+    Leet::Medium::FirstLastPos f;
+
+    std::vector<int> r{5, 7, 7, 8, 8, 10};
+    auto range = f.searchRange(r, 8);
+
+    ASSERT_EQ(range[0], 3);
+    ASSERT_EQ(range[1], 4);
+
+    r = {5, 7, 7, 8, 8, 10};
+    range = f.searchRange(r, 6);
+
+    ASSERT_EQ(range[0], -1);
+    ASSERT_EQ(range[1], -1);
+
+    r = {1};
+    range = f.searchRange(r, 0);
+
+    ASSERT_EQ(range[0], -1);
+    ASSERT_EQ(range[1], -1);
+
+    r = {1};
+    range = f.searchRange(r, 1);
+
+    ASSERT_EQ(range[0], 0);
+    ASSERT_EQ(range[1], 0);
+
+    r = {2, 2};
+    range = f.searchRange(r, 2);
+
+    ASSERT_EQ(range[0], 0);
+    ASSERT_EQ(range[1], 1);
 }
