@@ -7,6 +7,7 @@
 #include <longest_substr.h>
 #include <string_to_integer.h>
 #include <first_last_pos.h>
+#include <rotated_array.h>
 
 #include <string>
 #include <vector>
@@ -169,4 +170,19 @@ TEST(Medium, first_last_position)
 
     ASSERT_EQ(range[0], 0);
     ASSERT_EQ(range[1], 1);
+}
+
+TEST(Medium, rotated_array)
+{
+    Leet::Medium::RotatedArray r;
+
+    std::vector<int> f{4, 5, 6, 7, 0, 1, 2};
+    auto index = r.search(f, 0);
+
+    ASSERT_EQ(index, 4);
+
+    f = {4, 5, 6, 7, 0, 1, 2};
+    index = r.search(f, 3);
+
+    ASSERT_EQ(index, -1);
 }
