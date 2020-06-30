@@ -8,7 +8,6 @@
 #include <string_to_integer.h>
 #include <first_last_pos.h>
 #include <rotated_array.h>
-#include <rotated_array_search.h>
 
 #include <string>
 #include <vector>

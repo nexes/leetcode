@@ -5,6 +5,7 @@
 #include <sqrt.h>
 #include <strstr.h>
 #include <reverse_integer.h>
+#include <rotate_array.h>
 
 #include <vector>
 
@@ -107,4 +108,19 @@ TEST(Easy, reverse_int)
     ASSERT_EQ(r.reverse(-123), -321);
     ASSERT_EQ(r.reverse(120), 21);
     ASSERT_EQ(r.reverse(9), 9);
+}
+
+TEST(Easy, rotated_array)
+{
+    Leet::Easy::RotateArray r;
+
+    std::vector<int> input{1, 2, 3, 4, 5, 6, 7};
+    std::vector<int> output{5, 6, 7, 1, 2, 3, 4};
+    r.rotate(input, 3);
+    ASSERT_EQ(input, output);
+
+    input = {-1, -100, 3, 99};
+    output = {3, 99, -1, -100};
+    r.rotate(input, 2);
+    ASSERT_EQ(input, output);
 }
