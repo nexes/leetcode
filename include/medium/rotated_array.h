@@ -35,6 +35,10 @@ namespace Leet::Medium
                 if (nums[mid] == target)
                     return mid;
 
+                // a sorted rotated array, when taken the mid point will have either the right
+                // or the left side sorted. Both if the pivot happens to be the mid point.
+                // start with the sorted side, that way we can see if our target is on the right or the
+                // left
                 if (nums[mid] >= nums[l])
                 {
                     if (target > nums[mid] || target < nums[l])

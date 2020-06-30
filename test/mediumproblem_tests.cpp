@@ -8,6 +8,7 @@
 #include <string_to_integer.h>
 #include <first_last_pos.h>
 #include <rotated_array.h>
+#include <rotated_array_search.h>
 
 #include <string>
 #include <vector>
@@ -172,7 +173,7 @@ TEST(Medium, first_last_position)
     ASSERT_EQ(range[1], 1);
 }
 
-TEST(Medium, rotated_array)
+TEST(Medium, rotated_array_search)
 {
     Leet::Medium::RotatedArray r;
 
