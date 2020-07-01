@@ -6,6 +6,7 @@
 #include <strstr.h>
 #include <reverse_integer.h>
 #include <rotate_array.h>
+#include <valid_parentheses.h>
 
 #include <vector>
 
@@ -123,4 +124,27 @@ TEST(Easy, rotated_array)
     output = {3, 99, -1, -100};
     r.rotate(input, 2);
     ASSERT_EQ(input, output);
+}
+
+TEST(Easy, valid_parentheses)
+{
+    Leet::Easy::Parentheses p;
+
+    std::string s = "()";
+    ASSERT_TRUE(p.isValid(s));
+
+    s = "(){}[]";
+    ASSERT_TRUE(p.isValid(s));
+
+    s = "(]";
+    ASSERT_FALSE(p.isValid(s));
+
+    s = "([)]";
+    ASSERT_FALSE(p.isValid(s));
+
+    s = "{[]}";
+    ASSERT_TRUE(p.isValid(s));
+
+    s = "]";
+    ASSERT_FALSE(p.isValid(s));
 }
