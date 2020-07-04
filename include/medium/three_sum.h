@@ -17,31 +17,22 @@ namespace Leet::Medium
     //   [-1, 0, 1],
     //   [-1, -1, 2]
     // ]
-
-    // [-4, -1, -1, 0, 1, 2]
     struct ThreeSum
     {
         std::vector<std::vector<int>> threeSum(std::vector<int> &nums)
         {
-            int len = nums.size();
             std::vector<std::vector<int>> result;
-
-            return result;
-        }
-
-        int threeSum_test(std::vector<int> &nums)
-        {
             int len = nums.size();
             int l = 1;
             int r = len - 1;
-
-            if (len < 3)
-                return -1;
 
             std::sort(nums.begin(), nums.end());
 
             for (int i = 0; i < len - 1; i++)
             {
+                if (i > 0 && nums[i] == nums[i - 1])
+                    continue;
+
                 l = i + 1;
                 r = len - 1;
 
@@ -49,20 +40,25 @@ namespace Leet::Medium
                 {
                     if (nums[i] + nums[l] + nums[r] == 0)
                     {
-                        std::cout << "found: " << nums[i] << " + " << nums[l] << " + " << nums[r] << "\n";
+                        result.emplace_back(std::vector{nums[i], nums[l], nums[r]});
+                        while (l < r && nums[l] == nums[l + 1])
+                            l++;
+                        while (l < r && nums[r] == nums[r - 1])
+                            r--;
                         l++;
+                        r--;
                     }
                     else
                     {
-                        if (std::abs(nums[i] + nums[l]) <= std::abs(nums[i] + nums[r]))
-                            r--;
-                        else
+                        if (nums[i] + nums[l] + nums[r] < 0)
                             l++;
+                        else
+                            r--;
                     }
                 }
             }
 
-            return 1;
+            return result;
         }
     };
 } // namespace Leet::Medium

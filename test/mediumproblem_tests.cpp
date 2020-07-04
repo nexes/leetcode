@@ -8,6 +8,7 @@
 #include <string_to_integer.h>
 #include <first_last_pos.h>
 #include <rotated_array.h>
+#include <three_sum.h>
 
 #include <string>
 #include <vector>
@@ -185,4 +186,21 @@ TEST(Medium, rotated_array_search)
     index = r.search(f, 3);
 
     ASSERT_EQ(index, -1);
+}
+
+TEST(Medium, three_sum)
+{
+    Leet::Medium::ThreeSum t;
+
+    std::vector<int> f{-1, 0, 1, 2, -1, -4};
+    std::vector<std::vector<int>> v{
+        {-1, 0, 1},
+        {-1, -1, 2}};
+    ASSERT_EQ(t.threeSum(f), v);
+
+    f = {-2, 0, 1, 1, 2};
+    v = {
+        {-2, 0, 2},
+        {-2, 1, 1}};
+    ASSERT_EQ(t.threeSum(f), v);
 }
