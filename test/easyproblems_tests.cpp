@@ -7,6 +7,7 @@
 #include <reverse_integer.h>
 #include <rotate_array.h>
 #include <valid_parentheses.h>
+#include <insert_position.h>
 
 #include <vector>
 
@@ -147,4 +148,15 @@ TEST(Easy, valid_parentheses)
 
     s = "]";
     ASSERT_FALSE(p.isValid(s));
+}
+
+TEST(Easy, insert_position)
+{
+    Leet::Easy::InsertPos::InsertPosition i;
+
+    std::vector<int> f{1, 3, 5, 6};
+    ASSERT_EQ(i.searchInsert(f, 5), 2);
+    ASSERT_EQ(i.searchInsert(f, 2), 1);
+    ASSERT_EQ(i.searchInsert(f, 7), 4);
+    ASSERT_EQ(i.searchInsert(f, 0), 0);
 }
