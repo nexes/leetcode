@@ -9,6 +9,7 @@
 #include <first_last_pos.h>
 #include <rotated_array.h>
 #include <three_sum.h>
+#include <multiply_strings.h>
 
 #include <string>
 #include <vector>
@@ -203,4 +204,13 @@ TEST(Medium, three_sum)
         {-2, 0, 2},
         {-2, 1, 1}};
     ASSERT_EQ(t.threeSum(f), v);
+}
+
+TEST(Medium, multiply_string)
+{
+    Leet::Medium::MultiplyString m;
+
+    ASSERT_EQ(m.multiply("2", "3"), "6");
+    ASSERT_EQ(m.multiply("123", "456"), "56088");
+    ASSERT_EQ(m.multiply("123456789", "987654321"), "121932631112635269");
 }
