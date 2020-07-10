@@ -10,6 +10,7 @@
 #include <rotated_array.h>
 #include <three_sum.h>
 #include <multiply_strings.h>
+#include <nth_node.h>
 
 #include <string>
 #include <vector>
@@ -54,6 +55,8 @@ TEST(Medium, Swap_Nodes)
         ASSERT_EQ(swap->val, numbers[idx++]);
         swap = swap->next;
     }
+
+    delete list;
 }
 
 TEST(Medium, Simple_path)
@@ -104,6 +107,8 @@ TEST(Medium, Add_two_numbers)
     ASSERT_EQ(result->val, 7);
     ASSERT_EQ(result->next->val, 0);
     ASSERT_EQ(result->next->next->val, 8);
+
+    delete l1;
 }
 
 TEST(Medium, Longest_substr)
@@ -213,4 +218,27 @@ TEST(Medium, multiply_string)
     ASSERT_EQ(m.multiply("2", "3"), "6");
     ASSERT_EQ(m.multiply("123", "456"), "56088");
     ASSERT_EQ(m.multiply("123456789", "987654321"), "121932631112635269");
+}
+
+TEST(Medium, nth_node)
+{
+    Leet::Medium::NthNode n;
+
+    auto *list = new Leet::ListNode(1);
+    list->next = new Leet::ListNode(2);
+    list->next->next = new Leet::ListNode(3);
+    list->next->next->next = new Leet::ListNode(4);
+    list->next->next->next->next = new Leet::ListNode(5);
+
+    auto i = 0;
+    auto h = n.removeNthFromEnd_one_pass(list, 2);
+    int val[5] = {1, 2, 3, 5};
+
+    while (h)
+    {
+        ASSERT_EQ(h->val, val[i++]);
+        h = h->next;
+    }
+
+    delete list;
 }
