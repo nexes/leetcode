@@ -8,8 +8,10 @@
 #include <rotate_array.h>
 #include <valid_parentheses.h>
 #include <insert_position.h>
+#include <min_depth_tree.h>
 
 #include <vector>
+#include <../treenode.h>
 
 TEST(Easy, TwoSums)
 {
@@ -159,4 +161,18 @@ TEST(Easy, insert_position)
     ASSERT_EQ(i.searchInsert(f, 2), 1);
     ASSERT_EQ(i.searchInsert(f, 7), 4);
     ASSERT_EQ(i.searchInsert(f, 0), 0);
+}
+
+TEST(Easy, min_depth)
+{
+    Leet::Easy::MinDepthTree d;
+    Leet::TreeNode *tree = new Leet::TreeNode(3);
+    tree->left = new Leet::TreeNode(9);
+    tree->right = new Leet::TreeNode(20);
+    tree->right->left = new Leet::TreeNode(15);
+    tree->right->right = new Leet::TreeNode(7);
+
+    ASSERT_EQ(d.minDepth(tree), 2);
+
+    delete tree;
 }
