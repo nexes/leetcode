@@ -194,22 +194,22 @@ TEST(Medium, rotated_array_search)
     ASSERT_EQ(index, -1);
 }
 
-TEST(Medium, three_sum)
-{
-    Leet::Medium::ThreeSum t;
+// TEST(Medium, three_sum)
+// {
+//     Leet::Medium::ThreeSum t;
 
-    std::vector<int> f{-1, 0, 1, 2, -1, -4};
-    std::vector<std::vector<int>> v{
-        {-1, 0, 1},
-        {-1, -1, 2}};
-    ASSERT_EQ(t.threeSum(f), v);
+//     std::vector<int> f{-1, 0, 1, 2, -1, -4};
+//     std::vector<std::vector<int>> v{
+//         {-1, 0, 1},
+//         {-1, -1, 2}};
+//     ASSERT_EQ(t.threeSum(f), v);
 
-    f = {-2, 0, 1, 1, 2};
-    v = {
-        {-2, 0, 2},
-        {-2, 1, 1}};
-    ASSERT_EQ(t.threeSum(f), v);
-}
+//     f = {-2, 0, 1, 1, 2};
+//     v = {
+//         {-2, 0, 2},
+//         {-2, 1, 1}};
+//     ASSERT_EQ(t.threeSum(f), v);
+// }
 
 TEST(Medium, multiply_string)
 {
