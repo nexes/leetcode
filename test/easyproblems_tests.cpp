@@ -9,6 +9,10 @@
 #include <valid_parentheses.h>
 #include <insert_position.h>
 #include <min_depth_tree.h>
+#include <balanced_binary_tree.h>
+#include <merge_sorted_array.h>
+#include <symmetric_tree.h>
+#include <same_tree.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -175,4 +179,64 @@ TEST(Easy, min_depth)
     ASSERT_EQ(d.minDepth(tree), 2);
 
     delete tree;
+}
+
+TEST(Easy, balanced_tree)
+{
+    Leet::Easy::BalancedTree b;
+    Leet::TreeNode *tree = new Leet::TreeNode(3);
+    tree->left = new Leet::TreeNode(9);
+    tree->right = new Leet::TreeNode(20);
+    tree->right->left = new Leet::TreeNode(15);
+    tree->right->right = new Leet::TreeNode(7);
+
+    Leet::TreeNode *tree2 = new Leet::TreeNode(1);
+    tree2->right = new Leet::TreeNode(2);
+    tree2->left = new Leet::TreeNode(2);
+    tree2->left->right = new Leet::TreeNode(3);
+    tree2->left->left = new Leet::TreeNode(3);
+    tree2->left->left->left = new Leet::TreeNode(4);
+    tree2->left->left->right = new Leet::TreeNode(4);
+
+    ASSERT_TRUE(b.isBalanced(tree));
+    ASSERT_FALSE(b.isBalanced(tree2));
+
+    delete tree;
+    delete tree2;
+}
+
+TEST(Easy, merged_array)
+{
+    Leet::Easy::MergeSorted m;
+
+    std::vector<int> m1{1, 2, 3, 0, 0, 0};
+    std::vector<int> m2{2, 5, 6};
+    std::vector<int> out{1, 2, 2, 3, 5, 6};
+
+    m.merge(m1, 3, m2, 3);
+    ASSERT_EQ(m1, out);
+
+    m1 = {1, 2, 5, 5, 6, 0, 0, 0, 0};
+    m2 = {3, 4, 8, 9};
+    out = {1, 2, 3, 4, 5, 5, 6, 8, 9};
+
+    m.merge(m1, 5, m2, 4);
+    ASSERT_EQ(m1, out);
+
+    m1 = {4, 0, 0, 0, 0, 0};
+    m2 = {1, 2, 3, 5, 6};
+    out = {1, 2, 3, 4, 5, 6};
+
+    m.merge(m1, 1, m2, 5);
+    ASSERT_EQ(m1, out);
+}
+
+TEST(Easy, symmetric_tree)
+{
+    Leet::Easy::SymmetricTree t;
+}
+
+TEST(Easy, same_tree)
+{
+    Leet::Easy::SameTree t;
 }
