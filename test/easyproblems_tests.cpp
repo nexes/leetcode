@@ -239,4 +239,17 @@ TEST(Easy, symmetric_tree)
 TEST(Easy, same_tree)
 {
     Leet::Easy::SameTree t;
+
+    Leet::TreeNode *tree1 = new Leet::TreeNode(1);
+    tree1->left = new Leet::TreeNode(2);
+    tree1->right = new Leet::TreeNode(3);
+
+    Leet::TreeNode *tree2 = new Leet::TreeNode(1);
+    tree2->left = new Leet::TreeNode(2);
+    tree2->right = new Leet::TreeNode(3);
+
+    ASSERT_TRUE(t.isSameTree_no_preorder(tree1, tree2));
+
+    delete tree1;
+    delete tree2;
 }
