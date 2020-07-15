@@ -234,6 +234,27 @@ TEST(Easy, merged_array)
 TEST(Easy, symmetric_tree)
 {
     Leet::Easy::SymmetricTree t;
+
+    Leet::TreeNode *tree1 = new Leet::TreeNode(1);
+    tree1->left = new Leet::TreeNode(2);
+    tree1->right = new Leet::TreeNode(2);
+    tree1->left->left = new Leet::TreeNode(3);
+    tree1->left->right = new Leet::TreeNode(4);
+    tree1->right->left = new Leet::TreeNode(4);
+    tree1->right->right = new Leet::TreeNode(3);
+
+    ASSERT_TRUE(t.isSymmetric_recursive(tree1));
+
+    Leet::TreeNode *tree2 = new Leet::TreeNode(1);
+    tree2->left = new Leet::TreeNode(2);
+    tree2->right = new Leet::TreeNode(2);
+    tree2->left->right = new Leet::TreeNode(3);
+    tree2->right->right = new Leet::TreeNode(3);
+
+    ASSERT_FALSE(t.isSymmetric_recursive(tree2));
+
+    delete tree1;
+    delete tree2;
 }
 
 TEST(Easy, same_tree)
