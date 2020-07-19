@@ -1,10 +1,11 @@
 #pragma once
 
 #include <../listnode.h>
+#include <iostream>
 
 namespace Leet::Easy
 {
-    // Given a sorted linked list, delete all duplicates such that each element appear only once.
+    // Given a sorted linked list, delete all duplicates such that each element appear only once
 
     // Example 1:
     // Input: 1->1->2
@@ -17,7 +18,30 @@ namespace Leet::Easy
     {
         Leet::ListNode *deleteDuplicates(Leet::ListNode *head)
         {
-            return nullptr;
+            if (!head || !head->next)
+                return head;
+
+            Leet::ListNode *dummy = new Leet::ListNode(0);
+            Leet::ListNode *slow = head;
+            Leet::ListNode *fast = head->next;
+            dummy->next = head;
+
+            while (fast)
+            {
+                if (slow->val == fast->val)
+                {
+                    fast = fast->next;
+                }
+                else
+                {
+                    slow->next = fast;
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+            }
+
+            slow->next = nullptr;
+            return dummy->next;
         }
     };
 } // namespace Leet::Easy

@@ -279,4 +279,21 @@ TEST(Easy, same_tree)
 TEST(Easy, remove_duplicate_item)
 {
     Leet::Easy::DeleteDuplicate d;
+
+    Leet::ListNode *n = new Leet::ListNode(1);
+    n->next = new Leet::ListNode(1);
+    n->next->next = new Leet::ListNode(2);
+    n->next->next->next = new Leet::ListNode(3);
+    n->next->next->next->next = new Leet::ListNode(3);
+
+    auto non_dup = d.deleteDuplicates(n);
+
+    auto val = {1, 2, 3};
+    for (auto &v : val)
+    {
+        ASSERT_EQ(non_dup->val, v);
+        non_dup = non_dup->next;
+    }
+
+    delete n;
 }
