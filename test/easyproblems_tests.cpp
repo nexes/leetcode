@@ -14,6 +14,7 @@
 #include <symmetric_tree.h>
 #include <same_tree.h>
 #include <remove_duplicate_list.h>
+#include <max_subarray.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -296,4 +297,12 @@ TEST(Easy, remove_duplicate_item)
     }
 
     delete n;
+}
+
+TEST(Easy, maximum_subarray)
+{
+    Leet::Easy::MaxSubArray m;
+
+    std::vector<int> v{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    ASSERT_EQ(m.maxSubArray(v), 6);
 }
