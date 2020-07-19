@@ -13,6 +13,7 @@
 #include <merge_sorted_array.h>
 #include <symmetric_tree.h>
 #include <same_tree.h>
+#include <remove_duplicate_list.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -273,4 +274,9 @@ TEST(Easy, same_tree)
 
     delete tree1;
     delete tree2;
+}
+
+TEST(Easy, remove_duplicate_item)
+{
+    Leet::Easy::DeleteDuplicate d;
 }
