@@ -15,6 +15,7 @@
 #include <same_tree.h>
 #include <remove_duplicate_list.h>
 #include <max_subarray.h>
+#include <greedy_sellstock.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -305,4 +306,21 @@ TEST(Easy, maximum_subarray)
 
     std::vector<int> v{-2, 1, -3, 4, -1, 2, 1, -5, 4};
     ASSERT_EQ(m.maxSubArray(v), 6);
+}
+
+TEST(Easy, greedy_sellstock)
+{
+    Leet::Easy::SellStock s;
+
+    std::vector<int> v{7, 1, 5, 3, 6, 4};
+    ASSERT_EQ(s.maxProfit(v), 7);
+
+    v = {1, 2, 3, 4, 5};
+    ASSERT_EQ(s.maxProfit(v), 4);
+
+    v = {7, 6, 4, 3, 1};
+    ASSERT_EQ(s.maxProfit(v), 0);
+
+    v = {1, 4, 2};
+    ASSERT_EQ(s.maxProfit(v), 3);
 }
