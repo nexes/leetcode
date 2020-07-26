@@ -11,6 +11,8 @@
 #include <three_sum.h>
 #include <multiply_strings.h>
 #include <nth_node.h>
+#include <greedy_sellstock_fee.h>
+#include <reverse_words.h>
 
 #include <string>
 #include <vector>
@@ -241,4 +243,24 @@ TEST(Medium, nth_node)
     }
 
     delete list;
+}
+
+TEST(Medium, greedy_sellstock_fee)
+{
+    Leet::Medium::SellStock s;
+
+    // std::vector<int> v{1, 3, 2, 8, 4, 9};
+    // ASSERT_EQ(s.maxProfit(v, 2), 8);
+
+    // v = {4, 5, 2, 4, 3, 3, 1, 2, 5, 4, 1};
+    // ASSERT_EQ(s.maxProfit(v, 1), 4);
+}
+
+TEST(Medium, reverse_words)
+{
+    Leet::Medium::ReverseWords r;
+
+    ASSERT_EQ(r.reverseWords("the sky is blue"), "blue is sky the");
+    ASSERT_EQ(r.reverseWords("    hello world!   "), "world! hello");
+    ASSERT_EQ(r.reverseWords("a good    example "), "example good a");
 }
