@@ -13,6 +13,8 @@
 #include <nth_node.h>
 #include <greedy_sellstock_fee.h>
 #include <reverse_words.h>
+#include <bst_iterator.h>
+#include <permutations.h>
 
 #include <string>
 #include <vector>
@@ -263,4 +265,32 @@ TEST(Medium, reverse_words)
     ASSERT_EQ(r.reverseWords("the sky is blue"), "blue is sky the");
     ASSERT_EQ(r.reverseWords("    hello world!   "), "world! hello");
     ASSERT_EQ(r.reverseWords("a good    example "), "example good a");
+}
+
+TEST(Medium, bst_iterator)
+{
+    Leet::TreeNode *root = new Leet::TreeNode(7);
+    root->left = new Leet::TreeNode(3);
+    root->right = new Leet::TreeNode(15);
+    root->right->left = new Leet::TreeNode(9);
+    root->right->right = new Leet::TreeNode(20);
+
+    Leet::Medium::BSTIterator b(root);
+
+    ASSERT_EQ(b.next(), 3);
+    ASSERT_EQ(b.next(), 7);
+    ASSERT_TRUE(b.hasNext());
+    ASSERT_EQ(b.next(), 9);
+    ASSERT_TRUE(b.hasNext());
+    ASSERT_EQ(b.next(), 15);
+    ASSERT_TRUE(b.hasNext());
+    ASSERT_EQ(b.next(), 20);
+    ASSERT_FALSE(b.hasNext());
+
+    delete root;
+}
+
+TEST(Medium, permutation)
+{
+    Leet::Medium::Permutation p;
 }
