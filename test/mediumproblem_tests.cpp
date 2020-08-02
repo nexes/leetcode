@@ -249,11 +249,11 @@ TEST(Medium, greedy_sellstock_fee)
 {
     Leet::Medium::SellStock s;
 
-    // std::vector<int> v{1, 3, 2, 8, 4, 9};
-    // ASSERT_EQ(s.maxProfit(v, 2), 8);
+    std::vector<int> v{1, 3, 2, 8, 4, 9};
+    ASSERT_EQ(s.maxProfit(v, 2), 8);
 
-    // v = {4, 5, 2, 4, 3, 3, 1, 2, 5, 4, 1};
-    // ASSERT_EQ(s.maxProfit(v, 1), 4);
+    v = {4, 5, 2, 4, 3, 3, 1, 2, 5, 4, 1};
+    ASSERT_EQ(s.maxProfit(v, 1), 4);
 }
 
 TEST(Medium, reverse_words)
