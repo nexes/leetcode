@@ -293,4 +293,15 @@ TEST(Medium, bst_iterator)
 TEST(Medium, permutation)
 {
     Leet::Medium::Permutation p;
+    std::vector<int> in{1, 2, 3};
+    std::vector<std::vector<int>> out{
+        {1, 2, 3},
+        {1, 3, 2},
+        {2, 1, 3},
+        {2, 3, 1},
+        {3, 2, 1},
+        {3, 1, 2},
+    };
+
+    ASSERT_EQ(p.permute(in), out);
 }
