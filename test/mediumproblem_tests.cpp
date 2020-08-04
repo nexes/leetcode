@@ -15,6 +15,8 @@
 #include <reverse_words.h>
 #include <bst_iterator.h>
 #include <permutations.h>
+#include <unique_path.h>
+#include <unique_path2.h>
 
 #include <string>
 #include <vector>
@@ -304,4 +306,17 @@ TEST(Medium, permutation)
     };
 
     ASSERT_EQ(p.permute(in), out);
+}
+
+TEST(Medium, unique_path)
+{
+    Leet::Medium::UniquePath p;
+
+    ASSERT_EQ(p.uniquePath(3, 2), 3);
+    ASSERT_EQ(p.uniquePath(7, 3), 28);
+}
+
+TEST(Medium, unique_path2)
+{
+    Leet::Medium::UniquePath2 p;
 }
