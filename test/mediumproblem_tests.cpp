@@ -319,4 +319,11 @@ TEST(Medium, unique_path)
 TEST(Medium, unique_path2)
 {
     Leet::Medium::UniquePath2 p;
+    std::vector<std::vector<int>> grid{
+        {0, 0, 0},
+        {0, 1, 0},
+        {0, 0, 0},
+    };
+
+    ASSERT_EQ(p.uniquePathWithObstacles(grid), 2);
 }
