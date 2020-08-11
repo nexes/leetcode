@@ -16,6 +16,7 @@
 #include <remove_duplicate_list.h>
 #include <max_subarray.h>
 #include <greedy_sellstock.h>
+#include <min_stack.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -323,4 +324,18 @@ TEST(Easy, greedy_sellstock)
 
     v = {1, 4, 2};
     ASSERT_EQ(s.maxProfit(v), 3);
+}
+
+TEST(Easy, min_stack)
+{
+    Leet::Easy::MinStack m;
+    m.push(-2);
+    m.push(0);
+    m.push(-3);
+
+    ASSERT_EQ(m.getMin(), -3);
+    m.pop();
+
+    ASSERT_EQ(m.top(), 0);
+    ASSERT_EQ(m.getMin(), -2);
 }
