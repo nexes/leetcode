@@ -17,6 +17,7 @@
 #include <permutations.h>
 #include <unique_path.h>
 #include <unique_path2.h>
+#include <find_peak.h>
 
 #include <string>
 #include <vector>
@@ -326,4 +327,22 @@ TEST(Medium, unique_path2)
     };
 
     ASSERT_EQ(p.uniquePathWithObstacles(grid), 2);
+}
+
+TEST(Medium, find_peak_element)
+{
+    Leet::Medium::FindPeak f;
+
+    std::vector<int> nums{1, 2, 3, 1};
+
+    ASSERT_EQ(f.findPeakElement_linear(nums), 2);
+
+    nums = {1, 2, 1, 3, 5, 6, 4};
+    ASSERT_EQ(f.findPeakElement_linear(nums), 1);
+
+    nums = {1, 2, 3, 1};
+    ASSERT_EQ(f.findPeakElement_logarithmic(nums), 2);
+
+    nums = {1, 2, 1, 3, 5, 6, 4};
+    ASSERT_EQ(f.findPeakElement_logarithmic(nums), 5);
 }
