@@ -18,6 +18,7 @@
 #include <unique_path.h>
 #include <unique_path2.h>
 #include <find_peak.h>
+#include <bitwise_and_range.h>
 
 #include <string>
 #include <vector>
@@ -345,4 +346,19 @@ TEST(Medium, find_peak_element)
 
     nums = {1, 2, 1, 3, 5, 6, 4};
     ASSERT_EQ(f.findPeakElement_logarithmic(nums), 5);
+}
+
+TEST(Medium, bitwise_and_range)
+{
+    Leet::Medium::BitwiseAnd b;
+
+    ASSERT_EQ(b.rangeBitwiseAnd(5, 7), 4);
+    ASSERT_EQ(b.rangeBitwiseAnd(0, 1), 0);
+
+    // takes to long
+    // ASSERT_EQ(b.rangeBitwiseAnd(20000, 2147483647), 0);
+
+    ASSERT_EQ(b.rangeBitwiseAnd_clever(5, 7), 4);
+    ASSERT_EQ(b.rangeBitwiseAnd_clever(0, 1), 0);
+    ASSERT_EQ(b.rangeBitwiseAnd_clever(20000, 2147483647), 0);
 }
