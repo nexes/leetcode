@@ -19,6 +19,7 @@
 #include <unique_path2.h>
 #include <find_peak.h>
 #include <bitwise_and_range.h>
+#include <min_subarray.h>
 
 #include <string>
 #include <vector>
@@ -361,4 +362,18 @@ TEST(Medium, bitwise_and_range)
     ASSERT_EQ(b.rangeBitwiseAnd_clever(5, 7), 4);
     ASSERT_EQ(b.rangeBitwiseAnd_clever(0, 1), 0);
     ASSERT_EQ(b.rangeBitwiseAnd_clever(20000, 2147483647), 0);
+}
+
+TEST(Medium, min_sub_array)
+{
+    Leet::Medium::MinSubArray m;
+
+    std::vector<int> nums{2, 3, 1, 2, 4, 3};
+    ASSERT_EQ(m.minSubArrayLen(7, nums), 2);
+
+    nums = {1, 4, 4};
+    ASSERT_EQ(m.minSubArrayLen(4, nums), 1);
+
+    nums = {1, 2, 3, 4, 5};
+    ASSERT_EQ(m.minSubArrayLen(11, nums), 3);
 }
