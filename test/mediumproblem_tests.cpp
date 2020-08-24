@@ -20,6 +20,8 @@
 #include <find_peak.h>
 #include <bitwise_and_range.h>
 #include <min_subarray.h>
+#include <kth_largest.h>
+#include <duplicate_number.h>
 
 #include <string>
 #include <vector>
@@ -376,4 +378,29 @@ TEST(Medium, min_sub_array)
 
     nums = {1, 2, 3, 4, 5};
     ASSERT_EQ(m.minSubArrayLen(11, nums), 3);
+}
+
+TEST(Medium, kth_largest_element)
+{
+    Leet::Medium::KthLargest k;
+
+    std::vector nums{3, 2, 1, 5, 6, 4};
+    ASSERT_EQ(k.findKthLargest_queue(nums, 2), 5);
+
+    nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+    ASSERT_EQ(k.findKthLargest(nums, 4), 4);
+}
+
+TEST(Medium, dupicate_number)
+{
+    Leet::Medium::DuplicateNumber d;
+
+    std::vector<int> nums{1, 3, 4, 2, 2};
+    ASSERT_EQ(d.findDuplicate(nums), 2);
+
+    nums = {3, 1, 3, 4, 2};
+    ASSERT_EQ(d.findDuplicate(nums), 3);
+
+    nums = {2, 5, 9, 6, 9, 3, 8, 9, 7, 1};
+    ASSERT_EQ(d.findDuplicate(nums), 9);
 }
