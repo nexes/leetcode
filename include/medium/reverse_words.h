@@ -30,18 +30,17 @@ namespace Leet::Medium
     // two words to a single space in the reversed string.
     struct ReverseWords
     {
-
         // honestly I'm just having fun writing the common string functions found in include/common.h
         // this was more about writing the trim, split and reverse functions than solving this problem :)
         std::string reverseWords(std::string s)
         {
             std::string return_str = "";
 
-            Leet::ltrim(s);
-            Leet::rtrim(s);
+            algo.ltrim(s);
+            algo.rtrim(s);
 
-            auto sv = Leet::split(s);
-            Leet::reverse(sv);
+            auto sv = algo.split(s);
+            algo.reverse(sv);
 
             for (auto &word : sv)
             {
@@ -52,5 +51,8 @@ namespace Leet::Medium
 
             return return_str;
         }
+
+    private:
+        Leet::Algorithm algo;
     };
 } // namespace Leet::Medium
