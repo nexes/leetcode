@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 add_executable(
   LeetCodeTests
-  easyproblems_tests.cpp mediumproblem_tests.cpp hardproblem_tests.cpp
+  easyproblems_tests.cpp mediumproblem_tests.cpp hardproblem_tests.cpp common_tests.cpp
 )
 
 target_include_directories(
