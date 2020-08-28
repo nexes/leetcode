@@ -22,6 +22,7 @@
 #include <min_subarray.h>
 #include <kth_largest.h>
 #include <duplicate_number.h>
+#include <rotate_function.h>
 
 #include <string>
 #include <vector>
@@ -403,4 +404,9 @@ TEST(Medium, dupicate_number)
 
     nums = {2, 5, 9, 6, 9, 3, 8, 9, 7, 1};
     ASSERT_EQ(d.findDuplicate(nums), 9);
+}
+
+TEST(Medium, rotate_function)
+{
+    Leet::Medium::RotateFunc r;
 }
