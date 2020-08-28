@@ -1,30 +1,3 @@
-# LeetCode Problems
-
-## Project
-I like and try to do daily (hopefully) exersices in programming problems to have a better understanding of the language and have fun learning how to solve different problems.
-
-I've decided to do these problems as header only, just so I don't have a .h and .cpp file for each problem. Since each problem is just a function (usually) I find it's easier this way.
-
-## Build
-* CMake 3.16
-* C++17
-* Google test 1.10.0
-
-To build you can use the cmake extension in vscode. For command line I use the following.
-
-    cmake --build ./build --config Debug --target all -j 14
-
-    or simply cmake.
-
-## Running and testing
-There is no binary to "run". I write tests for all problems and this is how I know they are correct. So all we do is just run the tests.
-
-    Running the test binary from the build directory
-    ./build/test/LeetCodeTests
-
-## License
-MIT License
-
 Copyright (c) 2020 Joe Berria
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
