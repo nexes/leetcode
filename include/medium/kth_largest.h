@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <queue>
+#include <algorithm>
 #include <iostream>
 
 namespace Leet::Medium
@@ -23,7 +24,6 @@ namespace Leet::Medium
         // cheating???
         int findKthLargest(std::vector<int> &nums, int k)
         {
-
             std::sort(nums.begin(), nums.end());
 
             return nums[nums.size() - k];
