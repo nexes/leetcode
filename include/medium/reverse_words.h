@@ -1,12 +1,11 @@
 #pragma once
 
-#include <string>
-#include <algorithm>
-
 #include <../common.h>
 
-namespace Leet::Medium
-{
+#include <algorithm>
+#include <string>
+
+namespace Leet::Medium {
     // Given an input string, reverse the string word by word.
 
     // Example 1:
@@ -55,4 +54,4 @@ namespace Leet::Medium
     private:
         Leet::Algorithm algo;
     };
-} // namespace Leet::Medium
+}  // namespace Leet::Medium

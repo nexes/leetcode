@@ -1,9 +1,8 @@
 #pragma once
 
-#include <../treendoe.h>
+#include "../treenode.h"
 
-namespace Leet::Easy
-{
+namespace Leet::Easy {
     struct InvertTree
     {
         Leet::TreeNode *invertTree(Leet::TreeNode *root)
@@ -21,4 +20,4 @@ namespace Leet::Easy
             return root;
         }
     };
-} // namespace Leet::Easy
+}  // namespace Leet::Easy

@@ -1,12 +1,10 @@
 #pragma once
 
-#include <vector>
-#include <queue>
 #include <algorithm>
-#include <iostream>
+#include <queue>
+#include <vector>
 
-namespace Leet::Medium
-{
+namespace Leet::Medium {
     // Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
     // Example 1:
@@ -44,4 +42,4 @@ namespace Leet::Medium
             return queue.top();
         }
     };
-} // namespace Leet::Medium
+}  // namespace Leet::Medium
