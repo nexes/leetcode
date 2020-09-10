@@ -1,28 +1,29 @@
-#include <gtest/gtest.h>
-#include <palindrome_substr.h>
-#include <simplifypath.h>
-#include <swapnodes.h>
-#include <anagrams_in_string.h>
+#include <LRUCache.h>
 #include <add_two_numbers.h>
-#include <longest_substr.h>
-#include <string_to_integer.h>
+#include <anagrams_in_string.h>
+#include <bitwise_and_range.h>
+#include <bst_iterator.h>
+#include <duplicate_number.h>
+#include <find_peak.h>
 #include <first_last_pos.h>
-#include <rotated_array.h>
-#include <three_sum.h>
+#include <greedy_sellstock_fee.h>
+#include <gtest/gtest.h>
+#include <kth_largest.h>
+#include <longest_substr.h>
+#include <min_subarray.h>
 #include <multiply_strings.h>
 #include <nth_node.h>
-#include <greedy_sellstock_fee.h>
-#include <reverse_words.h>
-#include <bst_iterator.h>
+#include <palindrome_substr.h>
 #include <permutations.h>
+#include <reverse_words.h>
+#include <rotate_function.h>
+#include <rotated_array.h>
+#include <simplifypath.h>
+#include <string_to_integer.h>
+#include <swapnodes.h>
+#include <three_sum.h>
 #include <unique_path.h>
 #include <unique_path2.h>
-#include <find_peak.h>
-#include <bitwise_and_range.h>
-#include <min_subarray.h>
-#include <kth_largest.h>
-#include <duplicate_number.h>
-#include <rotate_function.h>
 
 #include <string>
 #include <vector>
@@ -62,8 +63,7 @@ TEST(Medium, Swap_Nodes)
     int numbers[] = {2, 1, 4, 3};
     auto idx = 0;
 
-    while (swap)
-    {
+    while (swap) {
         ASSERT_EQ(swap->val, numbers[idx++]);
         swap = swap->next;
     }
@@ -246,8 +246,7 @@ TEST(Medium, nth_node)
     auto h = n.removeNthFromEnd_one_pass(list, 2);
     int val[5] = {1, 2, 3, 5};
 
-    while (h)
-    {
+    while (h) {
         ASSERT_EQ(h->val, val[i++]);
         h = h->next;
     }
@@ -409,4 +408,22 @@ TEST(Medium, dupicate_number)
 TEST(Medium, rotate_function)
 {
     Leet::Medium::RotateFunc r;
+}
+
+TEST(Medium, LRU_caceh)
+{
+    Leet::Medium::LRUCache c(2);
+    c.put(1, 1);
+    c.put(2, 2);
+
+    ASSERT_EQ(c.get(1), 1);
+
+    c.put(3, 3);  // evicts key 2
+
+    ASSERT_EQ(c.get(2), -1);  // returns -1 (not found)
+    c.put(4, 4);              // evicts key 1
+
+    ASSERT_EQ(c.get(1), -1);  // returns -1 (not found)
+    ASSERT_EQ(c.get(3), 3);   // returns 3
+    ASSERT_EQ(c.get(4), 4);   // returns 4
 }
