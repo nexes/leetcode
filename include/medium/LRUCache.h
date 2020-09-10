@@ -56,6 +56,14 @@ namespace Leet::Medium {
         // O(1)
         void put(int key, int value)
         {
+            if (auto item = lookup.find(key); item != lookup.end()) {
+                lru.erase(lookup.at(key));
+                auto new_pos = lru.insert(lru.begin(), {key, value});
+
+                lookup[key] = new_pos;
+                return;
+            }
+
             if (lru.size() >= capacity) {
                 auto rem = lru.back();
 
