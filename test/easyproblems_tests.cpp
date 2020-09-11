@@ -17,6 +17,7 @@
 #include <max_subarray.h>
 #include <greedy_sellstock.h>
 #include <min_stack.h>
+#include <kth_missing_number.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -338,4 +339,12 @@ TEST(Easy, min_stack)
 
     ASSERT_EQ(m.top(), 0);
     ASSERT_EQ(m.getMin(), -2);
+}
+
+TEST(Easy, kth_missing_number)
+{
+    Leet::Easy::KthMissing k;
+    std::vector<int> s{2, 3, 4, 7, 11};
+
+    ASSERT_EQ(k.findKthPositive(s, 5), 9);
 }
