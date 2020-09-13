@@ -18,6 +18,7 @@
 #include <greedy_sellstock.h>
 #include <min_stack.h>
 #include <kth_missing_number.h>
+#include <contain_duplicate.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -347,4 +348,18 @@ TEST(Easy, kth_missing_number)
     std::vector<int> s{2, 3, 4, 7, 11};
 
     ASSERT_EQ(k.findKthPositive(s, 5), 9);
+}
+
+TEST(Easy, contains_duplicate)
+{
+    Leet::Easy::Duplicates d;
+
+    std::vector<int> nums{1,2,3,1};
+    ASSERT_TRUE(d.containsDuplicate(nums));
+
+    nums = {1,2,3,4};
+    ASSERT_FALSE(d.containsDuplicate(nums));
+
+    nums = {1,1,1,1,3,3,4,5,6,7,7};
+    ASSERT_TRUE(d.containsDuplicate(nums));
 }
