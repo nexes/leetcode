@@ -19,6 +19,7 @@
 #include <min_stack.h>
 #include <kth_missing_number.h>
 #include <contain_duplicate.h>
+#include <count_primes.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -362,4 +363,12 @@ TEST(Easy, contains_duplicate)
 
     nums = {1,1,1,1,3,3,4,5,6,7,7};
     ASSERT_TRUE(d.containsDuplicate(nums));
+}
+
+TEST(Easy, count_primes)
+{
+    Leet::Easy::CountPrimes c;
+
+    ASSERT_EQ(c.countPrimes(10), 4);
+    ASSERT_EQ(c.countPrimes(1000), 168);
 }
