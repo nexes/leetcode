@@ -19,6 +19,7 @@
 #include <min_stack.h>
 #include <kth_missing_number.h>
 #include <contain_duplicate.h>
+#include <contain_duplicate_2.h>
 #include <count_primes.h>
 
 #include <vector>
@@ -363,6 +364,20 @@ TEST(Easy, contains_duplicate)
 
     nums = {1,1,1,1,3,3,4,5,6,7,7};
     ASSERT_TRUE(d.containsDuplicate(nums));
+}
+
+TEST(Easy, contains_duplicate_2)
+{
+    Leet::Easy::Duplicate2 d;
+
+    std::vector<int> nums{1,2,3,1};
+    ASSERT_TRUE(d.containsNearbyDuplicate(nums, 3));
+
+    nums = {1, 0, 1, 1};
+    ASSERT_TRUE(d.containsNearbyDuplicate(nums, 1));
+
+    nums = {1, 2, 3, 1, 2, 3};
+    ASSERT_FALSE(d.containsNearbyDuplicate(nums, 2));
 }
 
 TEST(Easy, count_primes)
