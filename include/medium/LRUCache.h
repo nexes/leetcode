@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <iterator>
-#include <unordered_map>
 #include <list>
+#include <unordered_map>
 
 namespace Leet::Medium {
     // Design and implement a data structure for Least Recently Used (LRU) cache.
@@ -56,7 +56,8 @@ namespace Leet::Medium {
         // O(1)
         void put(int key, int value)
         {
-            if (auto item = lookup.find(key); item != lookup.end()) {
+            if (auto item = lookup.find(key); item != lookup.end())
+            {
                 lru.erase(lookup.at(key));
                 auto new_pos = lru.insert(lru.begin(), {key, value});
 
@@ -64,7 +65,8 @@ namespace Leet::Medium {
                 return;
             }
 
-            if (lru.size() >= capacity) {
+            if (lru.size() >= capacity)
+            {
                 auto rem = lru.back();
 
                 lru.pop_back();
