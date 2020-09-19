@@ -20,8 +20,10 @@
 #include <rotated_array.h>
 #include <simplifypath.h>
 #include <string_to_integer.h>
+#include <summary_ranges.h>
 #include <swapnodes.h>
 #include <three_sum.h>
+#include <trie.h>
 #include <unique_path.h>
 #include <unique_path2.h>
 
@@ -63,7 +65,8 @@ TEST(Medium, Swap_Nodes)
     int numbers[] = {2, 1, 4, 3};
     auto idx = 0;
 
-    while (swap) {
+    while (swap)
+    {
         ASSERT_EQ(swap->val, numbers[idx++]);
         swap = swap->next;
     }
@@ -246,7 +249,8 @@ TEST(Medium, nth_node)
     auto h = n.removeNthFromEnd_one_pass(list, 2);
     int val[5] = {1, 2, 3, 5};
 
-    while (h) {
+    while (h)
+    {
         ASSERT_EQ(h->val, val[i++]);
         h = h->next;
     }
@@ -426,4 +430,18 @@ TEST(Medium, LRU_caceh)
     ASSERT_EQ(c.get(1), -1);  // returns -1 (not found)
     ASSERT_EQ(c.get(3), 3);   // returns 3
     ASSERT_EQ(c.get(4), 4);   // returns 4
+}
+
+TEST(Medium, summary_ranges)
+{
+    Leet::Medium::SummaryRange s;
+
+    std::vector<int> nums{0, 1, 2, 4, 5, 7};
+    std::vector<std::string> output{"0->2", "4->5", "7"};
+
+    ASSERT_EQ(s.summaryRanges(nums), output);
+
+    nums = {0, 2, 3, 4, 6, 8, 9};
+    output = {"0", "2->4", "6", "8->9"};
+    ASSERT_EQ(s.summaryRanges(nums), output);
 }
