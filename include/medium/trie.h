@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <string>
 #include <unordered_map>
 
@@ -29,29 +30,56 @@ namespace Leet::Medium {
 
         void insert(std::string word)
         {
-            for (int i = 0; i < word.size(); i++)
+            auto* curr = &root;
+
+            for (auto& c : word)
             {
+                if (curr->children.find(c) == curr->children.end())
+                    curr->children[c] = std::make_shared<node>();
+
+                curr = curr->children[c].get();
             }
+
+            curr->is_word = true;
         }
 
         bool search(std::string word)
         {
-            return false;
+            auto* curr = &root;
+
+            for (auto& c : word)
+            {
+                if (curr->children.find(c) == curr->children.end())
+                    return false;
+
+                curr = curr->children[c].get();
+            }
+
+            return curr->is_word;
         }
 
         bool startsWith(std::string prefix)
         {
-            prefix.push_back('s');
-            return false;
+            auto* curr = &root;
+
+            for (auto& c : prefix)
+            {
+                if (curr->children.find(c) == curr->children.end())
+                    return false;
+
+                curr = curr->children[c].get();
+            }
+
+            return true;
         }
 
     private:
         struct node
         {
-            node() : children(), is_word(false) {}
+            node() : is_word(false), children() {}
 
-            std::unordered_map<char, node *> children;
             bool is_word;
+            std::unordered_map<char, std::shared_ptr<node>> children;
         };
 
     private:

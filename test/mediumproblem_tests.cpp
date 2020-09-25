@@ -445,3 +445,17 @@ TEST(Medium, summary_ranges)
     output = {"0", "2->4", "6", "8->9"};
     ASSERT_EQ(s.summaryRanges(nums), output);
 }
+
+TEST(Medium, trie)
+{
+    Leet::Medium::Trie t;
+
+    t.insert("apple");
+
+    ASSERT_TRUE(t.search("apple"));
+    ASSERT_FALSE(t.search("app"));
+    ASSERT_TRUE(t.startsWith("app"));
+
+    t.insert("app");
+    ASSERT_TRUE(t.search("app"));
+}
