@@ -21,6 +21,7 @@
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
 #include <count_primes.h>
+#include <reverse_string.h>
 
 #include <vector>
 #include <../treenode.h>
@@ -386,4 +387,15 @@ TEST(Easy, count_primes)
 
     ASSERT_EQ(c.countPrimes(10), 4);
     ASSERT_EQ(c.countPrimes(1000), 168);
+}
+
+TEST(Easy, reverse_string)
+{
+    Leet::Easy::ReverseString r;
+
+    std::vector<char> input{'h', 'e', 'l', 'l', 'o'};
+    std::vector<char> output{'o', 'l', 'l', 'e', 'h'};
+
+    r.reverseString(input);
+    ASSERT_EQ(input, output);
 }
