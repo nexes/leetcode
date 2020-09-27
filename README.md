@@ -1,7 +1,7 @@
 # LeetCode Problems
 
 ## Project
-I like and try to do daily (hopefully) exersices in programming problems to have a better understanding of the language and have fun learning how to solve different problems.
+I like to do daily (hopefully) programming problems to have a better understanding of the language and have fun learning how to solve different problems.
 
 I've decided to do these problems as header only, just so I don't have a .h and .cpp file for each problem. Since each problem is just a function (usually) I find it's easier this way.
 
