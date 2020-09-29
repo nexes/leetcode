@@ -1,30 +1,31 @@
-#include <gtest/gtest.h>
-#include <palindrome.h>
-#include <plusone.h>
-#include <twosums.h>
-#include <sqrt.h>
-#include <strstr.h>
-#include <reverse_integer.h>
-#include <rotate_array.h>
-#include <valid_parentheses.h>
-#include <insert_position.h>
-#include <min_depth_tree.h>
+#include <../treenode.h>
 #include <balanced_binary_tree.h>
-#include <merge_sorted_array.h>
-#include <symmetric_tree.h>
-#include <same_tree.h>
-#include <remove_duplicate_list.h>
-#include <max_subarray.h>
-#include <greedy_sellstock.h>
-#include <min_stack.h>
-#include <kth_missing_number.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
 #include <count_primes.h>
+#include <greedy_sellstock.h>
+#include <gtest/gtest.h>
+#include <insert_position.h>
+#include <kth_missing_number.h>
+#include <max_subarray.h>
+#include <merge_sorted_array.h>
+#include <min_depth_tree.h>
+#include <min_stack.h>
+#include <palindrome.h>
+#include <plusone.h>
+#include <power_of_three.h>
+#include <remove_duplicate_list.h>
+#include <reverse_integer.h>
 #include <reverse_string.h>
+#include <rotate_array.h>
+#include <same_tree.h>
+#include <sqrt.h>
+#include <strstr.h>
+#include <symmetric_tree.h>
+#include <twosums.h>
+#include <valid_parentheses.h>
 
 #include <vector>
-#include <../treenode.h>
 
 TEST(Easy, TwoSums)
 {
@@ -357,13 +358,13 @@ TEST(Easy, contains_duplicate)
 {
     Leet::Easy::Duplicates d;
 
-    std::vector<int> nums{1,2,3,1};
+    std::vector<int> nums{1, 2, 3, 1};
     ASSERT_TRUE(d.containsDuplicate(nums));
 
-    nums = {1,2,3,4};
+    nums = {1, 2, 3, 4};
     ASSERT_FALSE(d.containsDuplicate(nums));
 
-    nums = {1,1,1,1,3,3,4,5,6,7,7};
+    nums = {1, 1, 1, 1, 3, 3, 4, 5, 6, 7, 7};
     ASSERT_TRUE(d.containsDuplicate(nums));
 }
 
@@ -371,7 +372,7 @@ TEST(Easy, contains_duplicate_2)
 {
     Leet::Easy::Duplicate2 d;
 
-    std::vector<int> nums{1,2,3,1};
+    std::vector<int> nums{1, 2, 3, 1};
     ASSERT_TRUE(d.containsNearbyDuplicate(nums, 3));
 
     nums = {1, 0, 1, 1};
@@ -398,4 +399,14 @@ TEST(Easy, reverse_string)
 
     r.reverseString(input);
     ASSERT_EQ(input, output);
+}
+
+TEST(Easy, power_of_three)
+{
+    Leet::Easy::PowerOfThree p;
+
+    ASSERT_TRUE(p.isPowerOfThree_linear(27));
+    ASSERT_FALSE(p.isPowerOfThree_linear(0));
+    ASSERT_TRUE(p.isPowerOfThree_linear(9));
+    ASSERT_FALSE(p.isPowerOfThree_linear(45));
 }
