@@ -46,6 +46,7 @@ namespace Leet::Medium {
             return out;
         }
 
+        // O(n)
         std::vector<int> countBits(int num)
         {
             // note 1: x * 2 is the same as x << 1. Multiplying by 2 is the same as left shift
