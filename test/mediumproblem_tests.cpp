@@ -26,6 +26,7 @@
 #include <trie.h>
 #include <unique_path.h>
 #include <unique_path2.h>
+#include <counting_bits.h>
 
 #include <string>
 #include <vector>
@@ -458,4 +459,15 @@ TEST(Medium, trie)
 
     t.insert("app");
     ASSERT_TRUE(t.search("app"));
+}
+
+TEST(Medium, counting_bits)
+{
+    Leet::Medium::CountBits c;
+
+    std::vector<int> out{0, 1, 1};
+    ASSERT_EQ(c.countBits(2), out);
+
+    out = {0,1,1,2,1,2};
+    ASSERT_EQ(c.countBits(5), out);
 }
