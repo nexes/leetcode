@@ -5,6 +5,7 @@
 #include <count_primes.h>
 #include <greedy_sellstock.h>
 #include <gtest/gtest.h>
+#include <hamming_distance.h>
 #include <insert_position.h>
 #include <kth_missing_number.h>
 #include <max_subarray.h>
@@ -409,4 +410,11 @@ TEST(Easy, power_of_three)
     ASSERT_FALSE(p.isPowerOfThree_linear(0));
     ASSERT_TRUE(p.isPowerOfThree_linear(9));
     ASSERT_FALSE(p.isPowerOfThree_linear(45));
+}
+
+TEST(Easy, hamming_distance)
+{
+    Leet::Easy::HammingDistance h;
+
+    ASSERT_EQ(h.hammingDistance(1, 4), 2);
 }
