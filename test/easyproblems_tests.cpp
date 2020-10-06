@@ -16,6 +16,7 @@
 #include <plusone.h>
 #include <power_of_three.h>
 #include <remove_duplicate_list.h>
+#include <reverse_bits.h>
 #include <reverse_integer.h>
 #include <reverse_string.h>
 #include <rotate_array.h>
@@ -417,4 +418,15 @@ TEST(Easy, hamming_distance)
     Leet::Easy::HammingDistance h;
 
     ASSERT_EQ(h.hammingDistance(1, 4), 2);
+}
+
+TEST(Easy, reverse_bits)
+{
+    Leet::Easy::ReverseBits r;
+
+    auto rev = r.reverseBits(43261596);
+    ASSERT_EQ(rev, 964176192);
+
+    rev = r.reverseBits(4294967293);
+    ASSERT_EQ(rev, 3221225471);
 }
