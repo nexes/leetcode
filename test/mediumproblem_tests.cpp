@@ -1,8 +1,10 @@
 #include <LRUCache.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
+#include <balance_parentheses.h>
 #include <bitwise_and_range.h>
 #include <bst_iterator.h>
+#include <counting_bits.h>
 #include <duplicate_number.h>
 #include <find_peak.h>
 #include <first_last_pos.h>
@@ -26,7 +28,6 @@
 #include <trie.h>
 #include <unique_path.h>
 #include <unique_path2.h>
-#include <counting_bits.h>
 
 #include <string>
 #include <vector>
@@ -468,6 +469,26 @@ TEST(Medium, counting_bits)
     std::vector<int> out{0, 1, 1};
     ASSERT_EQ(c.countBits(2), out);
 
-    out = {0,1,1,2,1,2};
+    out = {0, 1, 1, 2, 1, 2};
     ASSERT_EQ(c.countBits(5), out);
+}
+
+TEST(Medium, balance_parentheses)
+{
+    Leet::Medium::BalancedParens b;
+
+    std::string s = "(()))";
+    ASSERT_EQ(b.minInsertions(s), 1) << "(()))";
+
+    s = "())";
+    ASSERT_EQ(b.minInsertions(s), 0) << "())";
+
+    s = "))())(";
+    ASSERT_EQ(b.minInsertions(s), 3) << "))())(";
+
+    s = "((((((";
+    ASSERT_EQ(b.minInsertions(s), 12) << "((((((";
+
+    s = ")))))))";
+    ASSERT_EQ(b.minInsertions(s), 5) << ")))))))";
 }
