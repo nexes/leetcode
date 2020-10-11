@@ -7,6 +7,7 @@
 #include <gtest/gtest.h>
 #include <hamming_distance.h>
 #include <insert_position.h>
+#include <is_subsequence.h>
 #include <kth_missing_number.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
@@ -429,4 +430,16 @@ TEST(Easy, reverse_bits)
 
     rev = r.reverseBits(4294967293);
     ASSERT_EQ(rev, 3221225471);
+}
+
+TEST(Easy, is_subsequence)
+{
+    Leet::Easy::IsSubsequence i;
+
+    auto s = "abc";
+    auto t = "ahbgdc";
+    ASSERT_TRUE(i.isSubsequence(s, t));
+
+    s = "axc";
+    ASSERT_FALSE(i.isSubsequence(s, t));
 }
