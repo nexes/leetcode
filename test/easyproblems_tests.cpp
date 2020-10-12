@@ -3,6 +3,7 @@
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
 #include <count_primes.h>
+#include <disappeared_nums.h>
 #include <greedy_sellstock.h>
 #include <gtest/gtest.h>
 #include <hamming_distance.h>
@@ -442,4 +443,14 @@ TEST(Easy, is_subsequence)
 
     s = "axc";
     ASSERT_FALSE(i.isSubsequence(s, t));
+}
+
+TEST(Easy, disappeared_nums)
+{
+    Leet::Easy::DisappearNums n;
+
+    auto s = std::vector<int>{4, 3, 2, 7, 8, 2, 3, 1};
+    auto out = std::vector<int>{5,6};
+
+    ASSERT_EQ(n.findDisappearedNumbers(s), out);
 }
