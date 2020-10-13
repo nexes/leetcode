@@ -6,6 +6,7 @@
 #include <bst_iterator.h>
 #include <counting_bits.h>
 #include <duplicate_number.h>
+#include <duplicates_in_array.h>
 #include <find_peak.h>
 #include <first_last_pos.h>
 #include <greedy_sellstock_fee.h>
@@ -26,6 +27,7 @@
 #include <swapnodes.h>
 #include <three_sum.h>
 #include <trie.h>
+#include <twitter.h>
 #include <unique_path.h>
 #include <unique_path2.h>
 
@@ -491,4 +493,14 @@ TEST(Medium, balance_parentheses)
 
     s = ")))))))";
     ASSERT_EQ(b.minInsertions(s), 5) << ")))))))";
+}
+
+TEST(Medium, duplicate_in_array)
+{
+    Leet::Medium::DuplicatesArray d;
+
+    auto s = std::vector<int>{4, 3, 2, 7, 8, 2, 3, 1};
+    auto out = std::vector<int>{2, 3};
+
+    ASSERT_EQ(d.findDuplicates(s), out);
 }
