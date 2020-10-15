@@ -23,6 +23,7 @@
 #include <rotated_array.h>
 #include <simplifypath.h>
 #include <string_to_integer.h>
+#include <subsets.h>
 #include <summary_ranges.h>
 #include <swapnodes.h>
 #include <three_sum.h>
@@ -503,4 +504,23 @@ TEST(Medium, duplicate_in_array)
     auto out = std::vector<int>{2, 3};
 
     ASSERT_EQ(d.findDuplicates(s), out);
+}
+
+TEST(Medium, subsets)
+{
+    Leet::Medium::SubSets s;
+
+    auto arr = std::vector<int>{1, 2, 3};
+    auto out = std::vector<std::vector<int>>{
+        {1, 2, 3},
+        {1, 2},
+        {1, 3},
+        {1},
+        {2, 3},
+        {2},
+        {3},
+        {},
+    };
+
+    ASSERT_EQ(s.subsets(arr), out);
 }
