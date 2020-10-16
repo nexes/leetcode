@@ -13,6 +13,7 @@
 #include <gtest/gtest.h>
 #include <kth_largest.h>
 #include <longest_substr.h>
+#include <max_length_subarray.h>
 #include <min_subarray.h>
 #include <multiply_strings.h>
 #include <nth_node.h>
@@ -21,6 +22,7 @@
 #include <reverse_words.h>
 #include <rotate_function.h>
 #include <rotated_array.h>
+#include <sequential_digits.h>
 #include <simplifypath.h>
 #include <string_to_integer.h>
 #include <subsets.h>
@@ -523,4 +525,31 @@ TEST(Medium, subsets)
     };
 
     ASSERT_EQ(s.subsets(arr), out);
+}
+
+TEST(Medium, sequential_digits)
+{
+    Leet::Medium::SequentialDigit s;
+    ASSERT_EQ(s.digit_length(321), 3);
+
+    auto out = std::vector<int>{123, 234};
+    ASSERT_EQ(s.sequentialDigits(100, 300), out);
+
+    out = {1234, 2345, 3456, 4567, 5678, 6789, 12345};
+    ASSERT_EQ(s.sequentialDigits(1000, 13000), out);
+}
+
+TEST(Medium, max_subarray)
+{
+    Leet::Medium::MaxSubArray m;
+
+    auto a = std::vector<int>{1, 2, 3, 2, 1};
+    auto b = std::vector<int>{3, 2, 1, 4, 7};
+
+    ASSERT_EQ(m.findLength(a, b), 3);
+
+    a = std::vector<int>{0, 1, 1, 1, 1};
+    b = std::vector<int>{1, 0, 1, 0, 1};
+
+    ASSERT_EQ(m.findLength(a, b), 2);
 }
