@@ -45,8 +45,7 @@ namespace Leet::Medium {
             std::vector<int> found{-1, -1};
 
             // left index
-            while (l < r)
-            {
+            while (l < r) {
                 mid = (r + l) / 2;
 
                 if (nums[mid] >= target)
@@ -63,8 +62,7 @@ namespace Leet::Medium {
             l = 0;
             r = len;
             // right index
-            while (l < r)
-            {
+            while (l < r) {
                 mid = (r + l) / 2;
 
                 if (nums[mid] > target)
