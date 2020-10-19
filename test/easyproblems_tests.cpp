@@ -10,6 +10,7 @@
 #include <insert_position.h>
 #include <is_subsequence.h>
 #include <kth_missing_number.h>
+#include <length_last_word.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
 #include <min_depth_tree.h>
@@ -302,8 +303,7 @@ TEST(Easy, remove_duplicate_item)
     auto non_dup = d.deleteDuplicates(n);
 
     auto val = {1, 2, 3};
-    for (auto &v : val)
-    {
+    for (auto &v : val) {
         ASSERT_EQ(non_dup->val, v);
         non_dup = non_dup->next;
     }
@@ -450,7 +450,14 @@ TEST(Easy, disappeared_nums)
     Leet::Easy::DisappearNums n;
 
     auto s = std::vector<int>{4, 3, 2, 7, 8, 2, 3, 1};
-    auto out = std::vector<int>{5,6};
+    auto out = std::vector<int>{5, 6};
 
     ASSERT_EQ(n.findDisappearedNumbers(s), out);
+}
+
+TEST(Easy, length_last_word)
+{
+    Leet::Easy::LengthLastWord l;
+
+    ASSERT_EQ(l.lengthOfLastWord("Hello World"), 5);
 }
