@@ -21,6 +21,7 @@
 #include <permutations.h>
 #include <reverse_words.h>
 #include <rotate_function.h>
+#include <rotate_list.h>
 #include <rotated_array.h>
 #include <sequential_digits.h>
 #include <simplifypath.h>
@@ -72,8 +73,7 @@ TEST(Medium, Swap_Nodes)
     int numbers[] = {2, 1, 4, 3};
     auto idx = 0;
 
-    while (swap)
-    {
+    while (swap) {
         ASSERT_EQ(swap->val, numbers[idx++]);
         swap = swap->next;
     }
@@ -256,8 +256,7 @@ TEST(Medium, nth_node)
     auto h = n.removeNthFromEnd_one_pass(list, 2);
     int val[5] = {1, 2, 3, 5};
 
-    while (h)
-    {
+    while (h) {
         ASSERT_EQ(h->val, val[i++]);
         h = h->next;
     }
@@ -419,6 +418,10 @@ TEST(Medium, dupicate_number)
 TEST(Medium, rotate_function)
 {
     Leet::Medium::RotateFunc r;
+
+    auto arr = std::vector<int>{4, 3, 2, 6};
+
+    ASSERT_EQ(r.maxRotateFunction(arr), 26);
 }
 
 TEST(Medium, LRU_caceh)
@@ -552,4 +555,9 @@ TEST(Medium, max_subarray)
     b = std::vector<int>{1, 0, 1, 0, 1};
 
     ASSERT_EQ(m.findLength(a, b), 2);
+}
+
+TEST(Medium, rotate_list)
+{
+    Leet::Medium::RotateList r;
 }

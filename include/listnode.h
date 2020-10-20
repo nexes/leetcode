@@ -1,7 +1,6 @@
 #pragma once
 
-namespace Leet
-{
+namespace Leet {
     // Definition for singly-linked list from leetcode problems
     struct ListNode
     {
@@ -12,4 +11,4 @@ namespace Leet
         ListNode(int x) : val(x), next(nullptr) {}
         ListNode(int x, ListNode *next) : val(x), next(next) {}
     };
-} // namespace Leet
+}  // namespace Leet
