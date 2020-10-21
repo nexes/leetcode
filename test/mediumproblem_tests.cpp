@@ -14,6 +14,7 @@
 #include <kth_largest.h>
 #include <longest_substr.h>
 #include <max_length_subarray.h>
+#include <merge_intervals.h>
 #include <min_subarray.h>
 #include <multiply_strings.h>
 #include <nth_node.h>
@@ -560,4 +561,28 @@ TEST(Medium, max_subarray)
 TEST(Medium, rotate_list)
 {
     Leet::Medium::RotateList r;
+}
+
+TEST(Medium, merge_interval)
+{
+    Leet::Medium::MergeInterval m;
+
+    std::vector<std::vector<int>> arr = {
+        {1, 9},
+        {2, 5},
+        {19, 20},
+        {10, 11},
+        {12, 20},
+        {0, 3},
+        {0, 1},
+        {0, 2},
+    };
+
+    std::vector<std::vector<int>> out = {
+        {0, 9},
+        {10, 11},
+        {12, 20},
+    };
+
+    ASSERT_EQ(m.merge(arr), out);
 }
