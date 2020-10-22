@@ -1,0 +1,61 @@
+#pragma once
+
+#include "../treenode.h"
+
+namespace Leet::Easy {
+    // Given the root node of a binary search tree, return the sum of values of all nodes
+    // with value between L and R (inclusive). The binary search tree is guaranteed to
+    // have unique values.
+
+    // Example 1:
+    // Input: root = [10,5,15,3,7,null,18], L = 7, R = 15
+    // Output: 32
+
+    // Example 2:
+    // Input: root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
+    // Output: 23
+
+    // Note:
+    // The number of nodes in the tree is at most 10000.
+    // The final answer is guaranteed to be less than 2^31.
+    struct RangeBST
+    {
+        int rangeSumBST(Leet::TreeNode* root, int l, int r)
+        {
+            int sum = 0;
+
+            sumTree(root, l, r, sum);
+
+            return sum;
+        }
+
+        void sumTree(Leet::TreeNode* node, int l, int r, int& sum)
+        {
+            if (!node)
+                return;
+
+            if (node->val >= l && node->val <= r)
+                sum += node->val;
+
+            sumTree(node->left, l, r, sum);
+            sumTree(node->right, l, r, sum);
+        }
+
+        // backtrack, excluding nodes not needed.
+        int rangeSumBST_backtrack(Leet::TreeNode* node, int l, int r)
+        {
+            int sum = 0;
+
+            if (!node)
+                return 0;
+
+            if (node->val >= l && node->val <= r)
+                sum = node->val;
+
+            if (l < node->val) sum += rangeSumBST_backtrack(node->left, l, r);
+            if (r > node->val) sum += rangeSumBST_backtrack(node->right, l, r);
+
+            return sum;
+        }
+    };
+}  // namespace Leet::Easy
