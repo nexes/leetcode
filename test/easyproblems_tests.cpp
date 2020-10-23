@@ -24,6 +24,7 @@
 #include <reverse_string.h>
 #include <rotate_array.h>
 #include <same_tree.h>
+#include <sort_array_parity.h>
 #include <sqrt.h>
 #include <strstr.h>
 #include <symmetric_tree.h>
@@ -460,4 +461,14 @@ TEST(Easy, length_last_word)
     Leet::Easy::LengthLastWord l;
 
     ASSERT_EQ(l.lengthOfLastWord("Hello World"), 5);
+}
+
+TEST(Easy, sort_array_parity)
+{
+    Leet::Easy::SortByParity s;
+
+    auto in = std::vector<int>{3, 1, 2, 4};
+    auto out = std::vector<int>{2, 4, 3, 1};
+
+    ASSERT_EQ(s.sortArrayByParity(in), out);
 }
