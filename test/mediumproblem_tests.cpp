@@ -26,6 +26,7 @@
 #include <rotated_array.h>
 #include <sequential_digits.h>
 #include <simplifypath.h>
+#include <sort_array.h>
 #include <string_to_integer.h>
 #include <subsets.h>
 #include <summary_ranges.h>
@@ -585,4 +586,17 @@ TEST(Medium, merge_interval)
     };
 
     ASSERT_EQ(m.merge(arr), out);
+}
+
+TEST(Medium, sort_array)
+{
+    Leet::Medium::SortArray s;
+
+    auto in = std::vector<int>{5, 2, 3, 1};
+    auto out = std::vector<int>{1, 2, 3, 5};
+    ASSERT_EQ(s.sortArray(in), out);
+
+    in = {5, 1, 1, 2, 0, 0};
+    out = {0, 0, 1, 1, 2, 5};
+    ASSERT_EQ(s.sortArray(in), out);
 }
