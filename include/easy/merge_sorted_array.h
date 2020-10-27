@@ -1,10 +1,10 @@
 #pragma once
 
-#include <vector>
 #include <../treenode.h>
 
-namespace Leet::Easy
-{
+#include <vector>
+
+namespace Leet::Easy {
     // Given two sorted integer arrays nums1 and nums2, merge nums2
     // into nums1 as one sorted array.
 
@@ -33,19 +33,16 @@ namespace Leet::Easy
             int num1_idx = 0;
 
             // O(m)
-            for (; num1_idx < m; num1_idx++)
-            {
-                if (nums2[0] < nums1[num1_idx])
-                {
+            for (; num1_idx < m; num1_idx++) {
+                if (nums2[0] < nums1[num1_idx]) {
                     int temp = nums1[num1_idx];
+
                     nums1[num1_idx] = nums2[0];
                     nums2[0] = temp;
 
                     //O(n)
-                    for (int i = 0; i < n - 1; i++)
-                    {
-                        if (nums2[i + 1] < nums2[i])
-                        {
+                    for (int i = 0; i < n - 1; i++) {
+                        if (nums2[i + 1] < nums2[i]) {
                             temp = nums2[i];
                             nums2[i] = nums2[i + 1];
                             nums2[i + 1] = temp;
@@ -69,8 +66,7 @@ namespace Leet::Easy
             int first = m - 1;
             int second = n - 1;
 
-            for (int i = m + n - 1; i >= 0; i--)
-            {
+            for (int i = m + n - 1; i >= 0; i--) {
                 if (second < 0)
                     break;
 
@@ -81,4 +77,4 @@ namespace Leet::Easy
             }
         }
     };
-} // namespace Leet::Easy
+}  // namespace Leet::Easy
