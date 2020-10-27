@@ -2,8 +2,7 @@
 
 #include <../listnode.h>
 
-namespace Leet::Medium
-{
+namespace Leet::Medium {
     // You are given two non-empty linked lists representing two non-negative integers. The digits are
     // stored in reverse order and each of their nodes contain a single digit. Add the two numbers and
     // return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.
@@ -27,14 +26,10 @@ namespace Leet::Medium
             int n = rem;
             rem = 0;
 
-            if (l1 == nullptr && l2 == nullptr)
-            {
-                if (n > 0 && n < 10)
-                {
+            if (l1 == nullptr && l2 == nullptr) {
+                if (n > 0 && n < 10) {
                     head->next = new Leet::ListNode(n);
-                }
-                else if (n >= 10)
-                {
+                } else if (n >= 10) {
                     head->next = new Leet::ListNode(n % 10);
                     head->next->next = new Leet::ListNode(n / 10);
                 }
@@ -47,8 +42,7 @@ namespace Leet::Medium
             if (l2)
                 n += l2->val;
 
-            if (n > 9)
-            {
+            if (n > 9) {
                 rem = n / 10;
                 n = n % 10;
             }
@@ -60,4 +54,4 @@ namespace Leet::Medium
             add(head->next, ll, rl, rem);
         }
     };
-} // namespace Leet::Medium
+}  // namespace Leet::Medium

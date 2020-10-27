@@ -30,6 +30,7 @@
 #include <symmetric_tree.h>
 #include <twosums.h>
 #include <valid_parentheses.h>
+#include <unique_char_str.h>
 
 #include <vector>
 
@@ -471,4 +472,12 @@ TEST(Easy, sort_array_parity)
     auto out = std::vector<int>{2, 4, 3, 1};
 
     ASSERT_EQ(s.sortArrayByParity(in), out);
+}
+
+TEST(Easy, unique_char_string)
+{
+    Leet::Easy::UniqueChar c;
+
+    ASSERT_EQ(c.firstUniqChar("leetcode"), 0);
+    ASSERT_EQ(c.firstUniqChar("loveleetcode"), 2);
 }
