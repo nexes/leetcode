@@ -2,8 +2,7 @@
 
 #include <vector>
 
-namespace Leet::Easy
-{
+namespace Leet::Easy {
     // Given an integer array nums, find the contiguous subarray (containing at least one number)
     // which has the largest sum and return its sum.
 
@@ -26,8 +25,7 @@ namespace Leet::Easy
             int sum = nums[0];
             int curr = 0;
 
-            for (auto &val : nums)
-            {
+            for (auto &val : nums) {
                 if (curr < 0)
                     curr = 0;
                 curr += val;
@@ -37,4 +35,4 @@ namespace Leet::Easy
             return sum;
         }
     };
-} // namespace Leet::Easy
+}  // namespace Leet::Easy
