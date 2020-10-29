@@ -26,10 +26,8 @@ namespace Leet::Easy {
         {
             std::unordered_map<int, int> map;
 
-            for (int i = 0; i < nums.size(); i++)
-            {
-                if (auto check = map.insert(std::make_pair(nums[i], i)); !check.second)
-                {
+            for (int i = 0; i < nums.size(); i++) {
+                if (auto check = map.insert(std::make_pair(nums[i], i)); !check.second) {
                     if (i - check.first->second <= k)
                         return true;
 

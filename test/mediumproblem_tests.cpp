@@ -22,7 +22,6 @@
 #include <permutations.h>
 #include <reverse_words.h>
 #include <rotate_function.h>
-#include <rotate_list.h>
 #include <rotated_array.h>
 #include <sequential_digits.h>
 #include <simplifypath.h>
@@ -33,7 +32,6 @@
 #include <swapnodes.h>
 #include <three_sum.h>
 #include <trie.h>
-#include <twitter.h>
 #include <unique_path.h>
 #include <unique_path2.h>
 
@@ -557,11 +555,6 @@ TEST(Medium, max_subarray)
     b = std::vector<int>{1, 0, 1, 0, 1};
 
     ASSERT_EQ(m.findLength(a, b), 2);
-}
-
-TEST(Medium, rotate_list)
-{
-    Leet::Medium::RotateList r;
 }
 
 TEST(Medium, merge_interval)

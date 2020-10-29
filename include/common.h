@@ -1,11 +1,10 @@
 #pragma once
 
-#include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <vector>
 
-namespace Leet
-{
+namespace Leet {
     // Wrapped in a class to avoid duplicate definition errors
     class Algorithm
     {
@@ -59,28 +58,25 @@ namespace Leet
             auto right = size - (k % size);
 
             // reverse the array from 0 to k
-            for (int i = 0, j = right - 1; i < j; i++, j--)
-            {
+            for (int i = 0, j = right - 1; i < j; i++, j--) {
                 auto temp = v[i];
                 v[i] = v[j];
                 v[j] = temp;
             }
 
             // reverse the array from k to size - 1
-            for (int i = right, j = size - 1; i < j; i++, j--)
-            {
+            for (int i = right, j = size - 1; i < j; i++, j--) {
                 auto temp = v[i];
                 v[i] = v[j];
                 v[j] = temp;
             }
 
             // reverse the hole list
-            for (int i = 0, j = size - 1; i < j; i++, j--)
-            {
+            for (int i = 0, j = size - 1; i < j; i++, j--) {
                 auto temp = v[i];
                 v[i] = v[j];
                 v[j] = temp;
             }
         }
     };
-} // namespace Leet
+}  // namespace Leet
