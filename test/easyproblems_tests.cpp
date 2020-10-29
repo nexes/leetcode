@@ -3,6 +3,7 @@
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
 #include <count_primes.h>
+#include <defang_ip.h>
 #include <disappeared_nums.h>
 #include <greedy_sellstock.h>
 #include <gtest/gtest.h>
@@ -29,8 +30,8 @@
 #include <strstr.h>
 #include <symmetric_tree.h>
 #include <twosums.h>
-#include <valid_parentheses.h>
 #include <unique_char_str.h>
+#include <valid_parentheses.h>
 
 #include <vector>
 
@@ -480,4 +481,12 @@ TEST(Easy, unique_char_string)
 
     ASSERT_EQ(c.firstUniqChar("leetcode"), 0);
     ASSERT_EQ(c.firstUniqChar("loveleetcode"), 2);
+}
+
+TEST(Easy, defang_ip)
+{
+    Leet::Easy::Defang d;
+
+    ASSERT_EQ(d.defangIPaddr("1.1.1.1"), "1[.]1[.]1[.]1");
+    ASSERT_EQ(d.defangIPaddr("255.255.255.255"), "255[.]255[.]255[.]255");
 }
