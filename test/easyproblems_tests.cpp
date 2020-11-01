@@ -14,6 +14,7 @@
 #include <length_last_word.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
+#include <min_absolute_diff.h>
 #include <min_depth_tree.h>
 #include <min_stack.h>
 #include <palindrome.h>
@@ -489,4 +490,25 @@ TEST(Easy, defang_ip)
 
     ASSERT_EQ(d.defangIPaddr("1.1.1.1"), "1[.]1[.]1[.]1");
     ASSERT_EQ(d.defangIPaddr("255.255.255.255"), "255[.]255[.]255[.]255");
+}
+
+TEST(Easy, diff_min)
+{
+    Leet::Easy::MinAbsDiff m;
+
+    auto in = std::vector<int>{4, 2, 1, 3};
+    auto out = std::vector<std::vector<int>>{
+        {1, 2},
+        {2, 3},
+        {3, 4},
+    };
+    ASSERT_EQ(m.minimumAbsDifference(in), out);
+
+    in = {3, 8, -10, 23, 19, -4, -14, 27};
+    out = {
+        {-14, -10},
+        {19, 23},
+        {23, 27},
+    };
+    ASSERT_EQ(m.minimumAbsDifference(in), out);
 }
