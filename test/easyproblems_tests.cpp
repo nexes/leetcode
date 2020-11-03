@@ -2,6 +2,7 @@
 #include <balanced_binary_tree.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
+#include <count_chars.h>
 #include <count_primes.h>
 #include <defang_ip.h>
 #include <disappeared_nums.h>
@@ -511,4 +512,15 @@ TEST(Easy, diff_min)
         {23, 27},
     };
     ASSERT_EQ(m.minimumAbsDifference(in), out);
+}
+
+TEST(Easy, count_characters)
+{
+    Leet::Easy::CountChars c;
+
+    auto arr = std::vector<std::string>{"cat", "bt", "hat", "tree"};
+    ASSERT_EQ(c.countCharacters(arr, "atach"), 6);
+
+    arr = {"hello", "world", "leetcode"};
+    ASSERT_EQ(c.countCharacters(arr, "welldonehoneyr"), 10);
 }
