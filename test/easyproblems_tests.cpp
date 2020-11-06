@@ -7,6 +7,7 @@
 #include <count_primes.h>
 #include <defang_ip.h>
 #include <disappeared_nums.h>
+#include <find_pivot.h>
 #include <greedy_sellstock.h>
 #include <gtest/gtest.h>
 #include <hamming_distance.h>
@@ -558,4 +559,15 @@ TEST(Easy, check_straight_line)
         {-5, 2},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
+}
+
+TEST(Easy, find_pivot)
+{
+    Leet::Easy::FindPivot f;
+
+    auto arr = std::vector<int>{1, 7, 3, 6, 5, 6};
+    ASSERT_EQ(f.pivotIndex(arr), 3);
+
+    arr = {1, 2, 3};
+    ASSERT_EQ(f.pivotIndex(arr), -1);
 }
