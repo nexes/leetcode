@@ -14,6 +14,7 @@
 #include <kth_largest.h>
 #include <longest_substr.h>
 #include <max_length_subarray.h>
+#include <max_width_ramp.h>
 #include <merge_intervals.h>
 #include <min_subarray.h>
 #include <multiply_strings.h>
@@ -592,4 +593,15 @@ TEST(Medium, sort_array)
     in = {5, 1, 1, 2, 0, 0};
     out = {0, 0, 1, 1, 2, 5};
     ASSERT_EQ(s.sortArray(in), out);
+}
+
+TEST(Medium, max_width_ramp)
+{
+    Leet::Medium::MaxWidthRamp m;
+
+    auto in = std::vector<int>{6, 0, 8, 2, 1, 5};
+    ASSERT_EQ(m.maxWidthRamp(in), 4);
+
+    in = {9, 8, 1, 0, 1, 9, 4, 0, 4, 1};
+    ASSERT_EQ(m.maxWidthRamp(in), 7);
 }
