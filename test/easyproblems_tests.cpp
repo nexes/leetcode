@@ -1,4 +1,5 @@
 #include <../treenode.h>
+#include <alien_dictionary.h>
 #include <balanced_binary_tree.h>
 #include <check_straight_line.h>
 #include <contain_duplicate.h>
@@ -570,4 +571,18 @@ TEST(Easy, find_pivot)
 
     arr = {1, 2, 3};
     ASSERT_EQ(f.pivotIndex(arr), -1);
+}
+
+TEST(Easy, alien_dictionary)
+{
+    Leet::Easy::AlienDictionary a;
+
+    auto arr = std::vector<std::string>{"hello", "leetcode"};
+    ASSERT_TRUE(a.isAlienSorted(arr, "hlabcdefgijkmnopqrstuvwxyz"));
+
+    arr = {"word", "world", "row"};
+    ASSERT_FALSE(a.isAlienSorted(arr, "worldabcefghijkmnpqstuvxyz"));
+
+    arr = {"apple", "app"};
+    ASSERT_FALSE(a.isAlienSorted(arr, "abcdefghijklmnopqrstuvwxyz"));
 }
