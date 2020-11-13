@@ -20,6 +20,7 @@
 #include <multiply_strings.h>
 #include <nth_node.h>
 #include <palindrome_substr.h>
+#include <pancake_sort.h>
 #include <permutations.h>
 #include <reverse_words.h>
 #include <rotate_function.h>
@@ -604,4 +605,27 @@ TEST(Medium, max_width_ramp)
 
     in = {9, 8, 1, 0, 1, 9, 4, 0, 4, 1};
     ASSERT_EQ(m.maxWidthRamp(in), 7);
+}
+
+TEST(Medium, pancake_sort)
+{
+    Leet::Medium::Pancake p;
+
+    auto in = std::vector<int>{3, 2, 4, 1};
+    auto out = std::vector<int>{1, 2, 3, 4};
+
+    p.pancakeSort(in);
+    ASSERT_EQ(in, out);
+
+    in = {-23, 5, 6, 8, 334, 0, 1};
+    out = {-23, 0, 1, 5, 6, 8, 334};
+
+    p.pancakeSort(in);
+    ASSERT_EQ(in, out);
+
+    in = {-23, -5, -6, 8, 334, 8, 1};
+    out = {-23, -6, -5, 1, 8, 8, 334};
+
+    p.pancakeSort(in);
+    ASSERT_EQ(in, out);
 }
