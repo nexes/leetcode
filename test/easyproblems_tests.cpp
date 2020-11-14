@@ -21,6 +21,7 @@
 #include <min_absolute_diff.h>
 #include <min_depth_tree.h>
 #include <min_stack.h>
+#include <n_repeated_array.h>
 #include <palindrome.h>
 #include <plusone.h>
 #include <power_of_three.h>
@@ -585,4 +586,19 @@ TEST(Easy, alien_dictionary)
 
     arr = {"apple", "app"};
     ASSERT_FALSE(a.isAlienSorted(arr, "abcdefghijklmnopqrstuvwxyz"));
+}
+
+TEST(Easy, n_repeated_array)
+{
+    Leet::Easy::NRepeated n;
+
+    auto arr = std::vector<int>{1, 2, 3, 3};
+
+    ASSERT_EQ(n.repeatedNTimes(arr), 3);
+
+    arr = {2, 1, 2, 5, 3, 2};
+    ASSERT_EQ(n.repeatedNTimes(arr), 2);
+
+    arr = {5, 1, 5, 2, 5, 3, 5, 4};
+    ASSERT_EQ(n.repeatedNTimes(arr), 5);
 }
