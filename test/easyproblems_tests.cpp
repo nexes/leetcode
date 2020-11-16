@@ -6,6 +6,7 @@
 #include <contain_duplicate_2.h>
 #include <count_chars.h>
 #include <count_primes.h>
+#include <cousins_binary_tree.h>
 #include <defang_ip.h>
 #include <disappeared_nums.h>
 #include <find_pivot.h>
@@ -601,4 +602,16 @@ TEST(Easy, n_repeated_array)
 
     arr = {5, 1, 5, 2, 5, 3, 5, 4};
     ASSERT_EQ(n.repeatedNTimes(arr), 5);
+}
+
+TEST(Easy, cousins_binary_tree)
+{
+    Leet::Easy::CousinsTree c;
+
+    auto *tree = new Leet::TreeNode(1);
+    tree->left = new Leet::TreeNode(2);
+    tree->right = new Leet::TreeNode(3);
+    tree->left->left = new Leet::TreeNode(4);
+
+    ASSERT_FALSE(c.isCousins(tree, 4, 3));
 }
