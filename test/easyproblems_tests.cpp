@@ -1,5 +1,6 @@
 #include <../treenode.h>
 #include <alien_dictionary.h>
+#include <array_from_integer.h>
 #include <balanced_binary_tree.h>
 #include <check_straight_line.h>
 #include <contain_duplicate.h>
@@ -614,4 +615,18 @@ TEST(Easy, cousins_binary_tree)
     tree->left->left = new Leet::TreeNode(4);
 
     ASSERT_FALSE(c.isCousins(tree, 4, 3));
+}
+
+TEST(Easy, array_form)
+{
+    Leet::Easy::ArrayFromInt a;
+
+    auto arr = std::vector<int>{1, 2, 0, 0};
+    auto out = std::vector<int>{1, 2, 3, 4};
+
+    ASSERT_EQ(a.addToArrayForm(arr, 34), out);
+
+    arr = {9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
+    out = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    ASSERT_EQ(a.addToArrayForm(arr, 1), out);
 }
