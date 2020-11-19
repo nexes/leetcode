@@ -22,6 +22,7 @@
 #include <palindrome_substr.h>
 #include <pancake_sort.h>
 #include <permutations.h>
+#include <pow.h>
 #include <reverse_words.h>
 #include <rotate_function.h>
 #include <rotated_array.h>
@@ -628,4 +629,13 @@ TEST(Medium, pancake_sort)
 
     p.pancakeSort(in);
     ASSERT_EQ(in, out);
+}
+
+TEST(Medium, pow)
+{
+    Leet::Medium::Pow p;
+
+    ASSERT_DOUBLE_EQ(p.myPow(2, 10), 1024);
+    ASSERT_DOUBLE_EQ(p.myPow(2.1, 3), 9.261);
+    ASSERT_DOUBLE_EQ(p.myPow(2, -2), 0.25);
 }
