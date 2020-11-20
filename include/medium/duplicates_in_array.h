@@ -36,8 +36,7 @@ namespace Leet::Medium {
         {
             std::vector<int> out{};
 
-            for (int i = 0; i < nums.size(); i++)
-            {
+            for (int i = 0; i < nums.size(); i++) {
                 auto idx = std::abs(nums[i]) - 1;
 
                 if (nums[idx] < 0)
