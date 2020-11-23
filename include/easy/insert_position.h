@@ -1,13 +1,11 @@
 #pragma once
 
 #include <vector>
-#include <iostream>
 
-namespace Leet::Easy::InsertPos
-{
-    // Given a sorted array and a target value, return the index if the target is found.
-    // If not, return the index where it would be if it were inserted in order.
-    // You may assume no duplicates in the array.
+namespace Leet::Easy::InsertPos {
+    // Given a sorted array and a target value, return the index if the target is
+    // found. If not, return the index where it would be if it were inserted in
+    // order. You may assume no duplicates in the array.
 
     // Example 1:
     // Input: [1,3,5,6], 5
@@ -32,8 +30,7 @@ namespace Leet::Easy::InsertPos
             int l = 0;
             int r = nums.size() - 1;
 
-            while (l <= r)
-            {
+            while (l <= r) {
                 mid = (l + r) / 2;
 
                 if (target == nums[mid])
@@ -47,4 +44,4 @@ namespace Leet::Easy::InsertPos
             return l;
         }
     };
-} // namespace Leet::Easy::InsertPos
+}  // namespace Leet::Easy::InsertPos
