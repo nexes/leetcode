@@ -2,9 +2,7 @@
 
 #include <vector>
 
-namespace Leet::Medium
-{
-
+namespace Leet::Medium {
     // Given a collection of distinct integers, return all possible permutations.
 
     // Example:
@@ -32,14 +30,12 @@ namespace Leet::Medium
         {
             int len = nums.size();
 
-            if (start == len - 1)
-            {
+            if (start == len - 1) {
                 out.push_back(nums);
                 return;
             }
 
-            for (int i = start; i < len; i++)
-            {
+            for (int i = start; i < len; i++) {
                 std::swap(nums[i], nums[start]);
                 helper(nums, out, start + 1);
                 std::swap(nums[i], nums[start]);
