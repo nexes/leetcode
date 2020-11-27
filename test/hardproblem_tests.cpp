@@ -1,3 +1,4 @@
+#include <edit_distance.h>
 #include <gtest/gtest.h>
 #include <median.h>
 
@@ -14,4 +15,12 @@ TEST(Hard, Median)
 
     // force fail
     // ASSERT_EQ(1, 2);
+}
+
+TEST(Hard, edit_distance)
+{
+    Leet::Hard::EditDistance e;
+
+    ASSERT_EQ(e.minDistance("horse", "ros"), 3);
+    ASSERT_EQ(e.minDistance("intention", "execution"), 5);
 }
