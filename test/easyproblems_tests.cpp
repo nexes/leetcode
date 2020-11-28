@@ -18,6 +18,7 @@
 #include <is_subsequence.h>
 #include <kth_missing_number.h>
 #include <length_last_word.h>
+#include <majority_element.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
 #include <min_absolute_diff.h>
@@ -629,4 +630,16 @@ TEST(Easy, array_form)
     arr = {9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
     out = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     ASSERT_EQ(a.addToArrayForm(arr, 1), out);
+}
+
+TEST(Easy, majority_element)
+{
+    Leet::Easy::MajorityElement m;
+
+    auto arr = std::vector<int>{3, 2, 3};
+
+    ASSERT_EQ(m.majorityElement(arr), 3);
+
+    arr = {2, 2, 1, 1, 1, 2, 2};
+    ASSERT_EQ(m.majorityElement(arr), 2);
 }
