@@ -5,8 +5,8 @@
 #include <vector>
 
 namespace Leet::Medium {
-    // Find the kth largest element in an unsorted array. Note that it is the kth largest element 
-    // in the sorted order, not the kth distinct element.
+    // Find the kth largest element in an unsorted array. Note that it is the
+    // kth largest element in the sorted order, not the kth distinct element.
 
     // Example 1:
     // Input: [3,2,1,5,6,4] and k = 2
@@ -35,8 +35,7 @@ namespace Leet::Medium {
 
             for (auto i : nums) {
                 qq.emplace(i);
-                if (qq.size() > k)
-                    qq.pop();
+                if (qq.size() > k) qq.pop();
             }
 
             return qq.top();
