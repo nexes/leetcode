@@ -12,8 +12,10 @@
 #include <greedy_sellstock_fee.h>
 #include <gtest/gtest.h>
 #include <kth_largest.h>
+#include <largest_number.h>
 #include <longest_substr.h>
 #include <max_length_subarray.h>
+#include <max_product_subarray.h>
 #include <max_width_ramp.h>
 #include <merge_intervals.h>
 #include <min_subarray.h>
@@ -60,7 +62,9 @@ TEST(Medium, Palindrome_substring)
     ASSERT_EQ(p.longestPalindrome_faster("bb"), "bb") << "bb";
     ASSERT_EQ(p.longestPalindrome_faster("bxb"), "bxb") << "bxb";
     ASSERT_EQ(p.longestPalindrome_faster("ac"), "a") << "a";
-    ASSERT_EQ(p.longestPalindrome_faster("dddddddddddddddddddddddddddddddddddddddddddddddd"), "dddddddddddddddddddddddddddddddddddddddddddddddd");
+    ASSERT_EQ(p.longestPalindrome_faster(
+                  "dddddddddddddddddddddddddddddddddddddddddddddddd"),
+              "dddddddddddddddddddddddddddddddddddddddddddddddd");
 }
 
 TEST(Medium, Swap_Nodes)
@@ -163,7 +167,8 @@ TEST(Medium, string_to_int)
     ASSERT_EQ(a.myAtoi("words and 987"), 0);
     // Input: "-91283472332"
     // Output: -2147483648
-    // Explanation: The number "-91283472332" is out of the range of a 32-bit signed integer.
+    // Explanation: The number "-91283472332" is out of the range of a 32-bit
+    // signed integer.
     //              Thefore INT_MIN (−231) is returned.
     ASSERT_EQ(a.myAtoi("-91283472332"), -2147483648);
     ASSERT_EQ(a.myAtoi(""), 0);
@@ -315,12 +320,7 @@ TEST(Medium, permutation)
     Leet::Medium::Permutation p;
     std::vector<int> in{1, 2, 3};
     std::vector<std::vector<int>> out{
-        {1, 2, 3},
-        {1, 3, 2},
-        {2, 1, 3},
-        {2, 3, 1},
-        {3, 2, 1},
-        {3, 1, 2},
+        {1, 2, 3}, {1, 3, 2}, {2, 1, 3}, {2, 3, 1}, {3, 2, 1}, {3, 1, 2},
     };
 
     ASSERT_EQ(p.permute(in), out);
@@ -520,14 +520,7 @@ TEST(Medium, subsets)
 
     auto arr = std::vector<int>{1, 2, 3};
     auto out = std::vector<std::vector<int>>{
-        {1, 2, 3},
-        {1, 2},
-        {1, 3},
-        {1},
-        {2, 3},
-        {2},
-        {3},
-        {},
+        {1, 2, 3}, {1, 2}, {1, 3}, {1}, {2, 3}, {2}, {3}, {},
     };
 
     ASSERT_EQ(s.subsets(arr), out);
@@ -565,14 +558,7 @@ TEST(Medium, merge_interval)
     Leet::Medium::MergeInterval m;
 
     std::vector<std::vector<int>> arr = {
-        {1, 9},
-        {2, 5},
-        {19, 20},
-        {10, 11},
-        {12, 20},
-        {0, 3},
-        {0, 1},
-        {0, 2},
+        {1, 9}, {2, 5}, {19, 20}, {10, 11}, {12, 20}, {0, 3}, {0, 1}, {0, 2},
     };
 
     std::vector<std::vector<int>> out = {
@@ -638,4 +624,38 @@ TEST(Medium, pow)
     ASSERT_DOUBLE_EQ(p.myPow(2, 10), 1024);
     ASSERT_DOUBLE_EQ(p.myPow(2.1, 3), 9.261);
     ASSERT_DOUBLE_EQ(p.myPow(2, -2), 0.25);
+}
+
+TEST(Medium, max_product_subarray)
+{
+    Leet::Medium::MaxProduct m;
+
+    auto arr = std::vector<int>{2, 3, -1, 4};
+    ASSERT_EQ(m.maxProduct(arr), 6);
+
+    arr = {-2, 0, -1};
+    ASSERT_EQ(m.maxProduct(arr), 0);
+
+    arr = {0, 2};
+    ASSERT_EQ(m.maxProduct(arr), 2);
+
+    arr = {2, 3, -2, 4};
+    ASSERT_EQ(m.maxProduct_linear(arr), 6);
+}
+
+TEST(Medium, largest_number)
+{
+    Leet::Medium::LargestNum n;
+
+    auto arr = std::vector<int>{3, 30, 34, 5, 9};
+    ASSERT_EQ(n.largestNumber(arr), "9534330");
+
+    arr = {1};
+    ASSERT_EQ(n.largestNumber(arr), "1");
+
+    arr = {10, 2};
+    ASSERT_EQ(n.largestNumber(arr), "210");
+
+    arr = {0, 0};
+    ASSERT_EQ(n.largestNumber(arr), "0");
 }
