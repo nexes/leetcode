@@ -25,6 +25,7 @@
 #include <pancake_sort.h>
 #include <permutations.h>
 #include <pow.h>
+#include <remove_k_digits.h>
 #include <reverse_words.h>
 #include <rotate_function.h>
 #include <rotated_array.h>
@@ -658,4 +659,14 @@ TEST(Medium, largest_number)
 
     arr = {0, 0};
     ASSERT_EQ(n.largestNumber(arr), "0");
+}
+
+TEST(Medium, remove_k_digits)
+{
+    Leet::Medium::RemoveDigits r;
+
+    ASSERT_EQ(r.removeKdigits("1432219", 3), "1219");
+    ASSERT_EQ(r.removeKdigits("10200", 1), "200");
+    ASSERT_EQ(r.removeKdigits("10", 2), "0");
+    ASSERT_EQ(r.removeKdigits("5337", 2), "33");
 }
