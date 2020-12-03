@@ -1,4 +1,5 @@
 #include <../treenode.h>
+#include <add_strings.h>
 #include <alien_dictionary.h>
 #include <array_from_integer.h>
 #include <balanced_binary_tree.h>
@@ -642,4 +643,13 @@ TEST(Easy, majority_element)
 
     arr = {2, 2, 1, 1, 1, 2, 2};
     ASSERT_EQ(m.majorityElement(arr), 2);
+}
+
+TEST(Easy, add_strings)
+{
+    Leet::Easy::AddString a;
+
+    ASSERT_EQ(a.addStrings("123", "9"), "132");
+    ASSERT_EQ(a.addStrings("0", "10"), "10");
+    ASSERT_EQ(a.addStrings("999", "1"), "1000");
 }
