@@ -39,7 +39,8 @@ namespace Leet::Medium {
     {
         bool is_mutual_anagram(std::string word, std::string anagram)
         {
-            if (word.length() != anagram.length()) return false;
+            if (word.length() != anagram.length())
+                return false;
 
             std::sort(word.begin(), word.end());
             std::sort(anagram.begin(), anagram.end());
@@ -66,12 +67,12 @@ namespace Leet::Medium {
         }
 
         // using a sliding window algorithm. O(n)
-        std::vector<int> findAnagrams_sliding_window(std::string s,
-                                                     std::string p)
+        std::vector<int> findAnagrams_sliding_window(std::string s, std::string p)
         {
             std::vector<int> indices;
 
-            if (s.length() < p.length()) return indices;
+            if (s.length() < p.length())
+                return indices;
 
             int win_begin = 0;
             int win_end = 0;
@@ -81,17 +82,20 @@ namespace Leet::Medium {
             std::array<int, 26> s_hash{0};
             std::array<int, 26> p_hash{0};
 
-            for (auto &c : p) p_hash[c - 'a']++;
+            for (auto &c : p)
+                p_hash[c - 'a']++;
 
             // extend our window to p.size
-            while (win_end - win_begin < p_len) s_hash[s.at(win_end++) - 'a']++;
+            while (win_end - win_begin < p_len)
+                s_hash[s.at(win_end++) - 'a']++;
 
             while (win_end <= s_len) {
                 if (p_hash == s_hash) indices.push_back(win_begin);
 
                 s_hash[s.at(win_begin++) - 'a']--;
 
-                if (win_end < s_len) s_hash[s.at(win_end) - 'a']++;
+                if (win_end < s_len)
+                    s_hash[s.at(win_end) - 'a']++;
 
                 win_end++;
             }
