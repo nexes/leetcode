@@ -4,13 +4,15 @@
 #include <string>
 
 namespace Leet::Easy {
-    // Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+    // Given two non-negative integers num1 and num2 represented as string,
+    // return the sum of num1 and num2.
 
     // Note:
     // The length of both num1 and num2 is < 5100.
     // Both num1 and num2 contains only digits 0-9.
     // Both num1 and num2 does not contain any leading zero.
-    // You must not use any built-in BigInteger library or convert the inputs to integer directly.
+    // You must not use any built-in BigInteger library or convert the inputs to
+    // integer directly.
     struct AddString
     {
         std::string addStrings(std::string num1, std::string num2)
