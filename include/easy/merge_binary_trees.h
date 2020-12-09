@@ -1,8 +1,6 @@
 #pragma once
 
-#include <../treenode.h>
-
-#include <queue>
+#include "../treenode.h"
 
 namespace Leet::Easy {
     // Given two binary trees and imagine that when you put one of them to cover

@@ -30,11 +30,9 @@ namespace Leet::Medium {
             std::vector<int> out{0};
 
             // O(n*sizeof(integer))
-            for (int i = 1; i <= num; i++)
-            {
+            for (int i = 1; i <= num; i++) {
                 int val = i;
-                while (val > 0)
-                {
+                while (val > 0) {
                     if (val & 0x01) count++;
                     val = val >> 1;
                 }
@@ -65,8 +63,7 @@ namespace Leet::Medium {
             std::vector<int> out(num + 1, 0);
             out[0] = 0;
 
-            for (int i = 1; i <= num; i++)
-            {
+            for (int i = 1; i <= num; i++) {
                 if (i % 2 == 0)
                     out[i] = out[i / 2];
                 else
