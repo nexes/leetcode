@@ -20,6 +20,7 @@
 #include <kth_missing_number.h>
 #include <length_last_word.h>
 #include <majority_element.h>
+#include <max_product_three.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
 #include <min_absolute_diff.h>
@@ -652,4 +653,15 @@ TEST(Easy, add_strings)
     ASSERT_EQ(a.addStrings("123", "9"), "132");
     ASSERT_EQ(a.addStrings("0", "10"), "10");
     ASSERT_EQ(a.addStrings("999", "1"), "1000");
+}
+
+TEST(Easy, max_three_product)
+{
+    Leet::Easy::MaxProduct m;
+
+    auto arr = std::vector<int>{1, 2, 3, 4};
+    ASSERT_EQ(m.maximumProduct(arr), 24);
+
+    arr = {-100, -98, -1, 2, 3, 4};
+    ASSERT_EQ(m.maximumProduct(arr), 39200);
 }
