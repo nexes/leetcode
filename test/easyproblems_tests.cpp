@@ -13,6 +13,7 @@
 #include <defang_ip.h>
 #include <disappeared_nums.h>
 #include <find_pivot.h>
+#include <find_the_difference.h>
 #include <greedy_sellstock.h>
 #include <gtest/gtest.h>
 #include <hamming_distance.h>
@@ -662,4 +663,13 @@ TEST(Easy, binary_substring)
 
     str = "10101";
     ASSERT_EQ(b.countBinarySubstrings(str), 4);
+}
+
+TEST(Easy, find_difference_string)
+{
+    Leet::Easy::FindDiff f;
+
+    ASSERT_EQ(f.findTheDifference("abcd", "abcde"), 'e');
+    ASSERT_EQ(f.findTheDifference("", "y"), 'y');
+    ASSERT_EQ(f.findTheDifference("a", "aa"), 'a');
 }
