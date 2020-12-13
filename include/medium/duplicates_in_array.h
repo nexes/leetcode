@@ -1,7 +1,7 @@
 #pragma once
 
-#include <vector>
 #include <cmath>
+#include <vector>
 
 namespace Leet::Medium {
     // Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements
@@ -26,8 +26,7 @@ namespace Leet::Medium {
                 freq[v]++;
 
             for (int i = 0; i < freq.size(); i++)
-                if (freq[i] > 1)
-                    out.push_back(i);
+                if (freq[i] > 1) out.push_back(i);
 
             return out;
         }
