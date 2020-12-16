@@ -7,6 +7,7 @@
 #include <check_straight_line.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
+#include <convert_to_hex.h>
 #include <count_chars.h>
 #include <count_primes.h>
 #include <cousins_binary_tree.h>
@@ -705,4 +706,17 @@ TEST(Easy, ransom_note)
     ASSERT_FALSE(r.canConstruct("a", "b"));
     ASSERT_FALSE(r.canConstruct("aa", "ab"));
     ASSERT_TRUE(r.canConstruct("aa", "aab"));
+}
+
+TEST(Easy, convert_to_hex)
+{
+    Leet::Easy::ConvertToHex h;
+
+    ASSERT_EQ(h.toHex(26), "1a");
+    ASSERT_EQ(h.toHex(8547), "2163");
+    ASSERT_EQ(h.toHex(0), "0");
+    ASSERT_EQ(h.toHex(999993), "f4239");
+    ASSERT_EQ(h.toHex(-4), "fffffffc");
+    ASSERT_EQ(h.toHex(-123), "ffffff85");
+    ASSERT_EQ(h.toHex(-1), "ffffffff");
 }
