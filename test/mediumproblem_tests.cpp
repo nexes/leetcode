@@ -5,6 +5,7 @@
 #include <bitwise_and_range.h>
 #include <bst_iterator.h>
 #include <counting_bits.h>
+#include <decode_string.h>
 #include <duplicate_number.h>
 #include <duplicates_in_array.h>
 #include <find_peak.h>
@@ -32,6 +33,7 @@
 #include <sequential_digits.h>
 #include <simplifypath.h>
 #include <sort_array.h>
+#include <string_compression.h>
 #include <string_to_integer.h>
 #include <subsets.h>
 #include <summary_ranges.h>
@@ -687,4 +689,27 @@ TEST(Medium, remove_k_digits)
     ASSERT_EQ(r.removeKdigits("1432219", 3), "1219");
     ASSERT_EQ(r.removeKdigits("10200", 1), "200");
     ASSERT_EQ(r.removeKdigits("5337", 2), "33");
+}
+
+// TEST(Medium, decode_string)
+// {
+//     Leet::Medium::DecodeStr d;
+
+//     ASSERT_EQ(d.decodeString("abc3[cd]xyz"), "abccdcdcdxyz");
+//     ASSERT_EQ(d.decodeString("3[a]2[bc]"), "aaabcbc");
+//     ASSERT_EQ(d.decodeString("3[a2[c]]"), "accaccacc");
+// }
+
+TEST(Medium, compress_string)
+{
+    Leet::Medium::StringCompress s;
+
+    auto arr = std::vector<char>{'a', 'a', 'b', 'b', 'c', 'c', 'c'};
+    ASSERT_EQ(s.compress(arr), 6);
+
+    arr = {'a'};
+    ASSERT_EQ(s.compress(arr), 1);
+
+    arr = {'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'};
+    ASSERT_EQ(s.compress(arr), 4);
 }
