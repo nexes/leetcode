@@ -33,6 +33,7 @@
 #include <perfect_square.h>
 #include <plusone.h>
 #include <power_of_three.h>
+#include <ransom_note.h>
 #include <remove_duplicate_list.h>
 #include <reverse_bits.h>
 #include <reverse_integer.h>
@@ -695,4 +696,13 @@ TEST(Easy, perfect_square)
 
     ASSERT_TRUE(p.isPerfectSquare(16));
     ASSERT_FALSE(p.isPerfectSquare(14));
+}
+
+TEST(Easy, ransom_note)
+{
+    Leet::Easy::RansomNote r;
+
+    ASSERT_FALSE(r.canConstruct("a", "b"));
+    ASSERT_FALSE(r.canConstruct("aa", "ab"));
+    ASSERT_TRUE(r.canConstruct("aa", "aab"));
 }
