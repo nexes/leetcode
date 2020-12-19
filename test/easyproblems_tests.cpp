@@ -22,6 +22,7 @@
 #include <is_subsequence.h>
 #include <kth_missing_number.h>
 #include <length_last_word.h>
+#include <longest_palindrome.h>
 #include <majority_element.h>
 #include <max_product_three.h>
 #include <max_subarray.h>
@@ -719,4 +720,13 @@ TEST(Easy, convert_to_hex)
     ASSERT_EQ(h.toHex(-4), "fffffffc");
     ASSERT_EQ(h.toHex(-123), "ffffff85");
     ASSERT_EQ(h.toHex(-1), "ffffffff");
+}
+
+TEST(Easy, longest_palindrome)
+{
+    Leet::Easy::LongestPalindrome p;
+
+    ASSERT_EQ(p.longestPalindrome("abccccdd"), 7);
+    ASSERT_EQ(p.longestPalindrome("a"), 1);
+    ASSERT_EQ(p.longestPalindrome("bb"), 2);
 }
