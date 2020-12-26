@@ -33,6 +33,7 @@
 #include <sequential_digits.h>
 #include <simplifypath.h>
 #include <sort_array.h>
+#include <sort_by_frequency.h>
 #include <string_compression.h>
 #include <string_to_integer.h>
 #include <subsets.h>
@@ -712,4 +713,13 @@ TEST(Medium, compress_string)
 
     arr = {'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'};
     ASSERT_EQ(s.compress(arr), 4);
+}
+
+TEST(Medium, sort_by_frequency)
+{
+    Leet::Medium::CharFrequency c;
+
+    ASSERT_EQ(c.frequencySort("tree"), "eert");
+    ASSERT_EQ(c.frequencySort("cccaaa"), "aaaccc");
+    ASSERT_EQ(c.frequencySort("Aabb"), "bbaA");
 }
