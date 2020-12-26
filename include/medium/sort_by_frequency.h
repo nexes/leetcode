@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <queue>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -65,6 +66,34 @@ namespace Leet::Medium {
             // O(n)
             for (auto& s : freq_str)
                 out.append(s);
+
+            return out;
+        }
+
+        // priority queue
+        std::string frequencySort_queue(std::string s)
+        {
+            std::string out{""};
+            auto freq_map = std::unordered_map<char, std::string>{};
+            auto freq_queue = std::priority_queue<std::pair<int, std::string>>{};
+
+            for (const auto& c : s) {
+                if (auto it = freq_map.emplace(c, std::string{c}); !it.second) {
+                    freq_map[c].push_back(c);
+                }
+            }
+
+            for (const auto [k, v] : freq_map) {
+                std::cout << "inserting " << v << "\n";
+                freq_queue.emplace(v.length(), v);
+            }
+
+            while (!freq_queue.empty()) {
+                auto str = freq_queue.top();
+                freq_queue.pop();
+
+                out.append(str.second);
+            }
 
             return out;
         }
