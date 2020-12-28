@@ -39,6 +39,7 @@
 #include <subsets.h>
 #include <summary_ranges.h>
 #include <swapnodes.h>
+#include <target_sum.h>
 #include <three_sum.h>
 #include <trie.h>
 #include <unique_path.h>
@@ -722,4 +723,12 @@ TEST(Medium, sort_by_frequency)
     ASSERT_EQ(c.frequencySort("tree"), "eert");
     ASSERT_EQ(c.frequencySort("cccaaa"), "aaaccc");
     ASSERT_EQ(c.frequencySort("Aabb"), "bbaA");
+}
+
+TEST(Medium, target_sum)
+{
+    Leet::Medium::TargetSum t;
+
+    auto arr = std::vector<int>{1, 1, 1, 1, 1};
+    ASSERT_EQ(t.findTargetSumWays(arr, 3), 5);
 }
