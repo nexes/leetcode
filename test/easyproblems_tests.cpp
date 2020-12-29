@@ -42,6 +42,7 @@
 #include <reverse_string.h>
 #include <rotate_array.h>
 #include <same_tree.h>
+#include <single_number.h>
 #include <sort_array_parity.h>
 #include <sqrt.h>
 #include <strstr.h>
@@ -729,4 +730,18 @@ TEST(Easy, longest_palindrome)
     ASSERT_EQ(p.longestPalindrome("abccccdd"), 7);
     ASSERT_EQ(p.longestPalindrome("a"), 1);
     ASSERT_EQ(p.longestPalindrome("bb"), 2);
+}
+
+TEST(Easy, single_number)
+{
+    Leet::Easy::SingleNumber s;
+
+    auto arr = std::vector<int>{2, 2, 1};
+    ASSERT_EQ(s.singleNumber(arr), 1);
+
+    arr = {4, 1, 2, 1, 2};
+    ASSERT_EQ(s.singleNumber(arr), 4);
+
+    arr = {1};
+    ASSERT_EQ(s.singleNumber(arr), 1);
 }
