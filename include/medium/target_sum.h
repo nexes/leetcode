@@ -28,7 +28,7 @@ namespace Leet::Medium {
 
     struct TargetSum
     {
-        // brute force
+        // brute force DFS
         int findTargetSumWays(std::vector<int>& nums, int s)
         {
             int count = 0;

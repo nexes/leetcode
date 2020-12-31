@@ -1,3 +1,4 @@
+#include <132pattern.h>
 #include <LRUCache.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
@@ -731,4 +732,18 @@ TEST(Medium, target_sum)
 
     auto arr = std::vector<int>{1, 1, 1, 1, 1};
     ASSERT_EQ(t.findTargetSumWays(arr, 3), 5);
+}
+
+TEST(Medium, pattern_132)
+{
+    Leet::Medium::Pattern132 p;
+
+    auto arr = std::vector<int>{1, 2, 3, 4};
+    ASSERT_FALSE(p.find132pattern_cubic(arr));
+
+    arr = {3, 1, 4, 2};
+    ASSERT_TRUE(p.find132pattern_cubic(arr));
+
+    arr = {-1, 3, 2, 0};
+    ASSERT_TRUE(p.find132pattern_cubic(arr));
 }
