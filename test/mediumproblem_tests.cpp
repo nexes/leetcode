@@ -13,6 +13,7 @@
 #include <first_last_pos.h>
 #include <greedy_sellstock_fee.h>
 #include <gtest/gtest.h>
+#include <k_frequent_elements.h>
 #include <kth_largest.h>
 #include <largest_number.h>
 #include <longest_substr.h>
@@ -746,4 +747,18 @@ TEST(Medium, pattern_132)
 
     arr = {-1, 3, 2, 0};
     ASSERT_TRUE(p.find132pattern_cubic(arr));
+}
+
+TEST(Medium, k_freq_elements)
+{
+    Leet::Medium::KFreqElements k;
+
+    auto arr = std::vector<int>{1, 1, 1, 2, 2, 3};
+    auto out = std::vector<int>{1, 2};
+
+    ASSERT_EQ(k.topKFrequent(arr, 2), out);
+
+    arr = {1};
+    out = {1};
+    ASSERT_EQ(k.topKFrequent(arr, 1), out);
 }
