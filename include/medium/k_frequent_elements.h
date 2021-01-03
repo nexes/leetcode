@@ -1,7 +1,7 @@
 #pragma once
 
-#include <map>
 #include <queue>
+#include <unordered_map>
 #include <vector>
 
 namespace Leet::Medium {
@@ -25,9 +25,9 @@ namespace Leet::Medium {
     {
         std::vector<int> topKFrequent(std::vector<int>& nums, int k)
         {
-            auto largest = std::vector<int>{};
-            auto freq_map = std::unordered_map<int, int>{};
-            auto heap = std::priority_queue<std::pair<int, int>>{};
+            std::vector<int> largest{};
+            std::unordered_map<int, int> freq_map{};
+            std::priority_queue<std::pair<int, int>> heap{};
 
             for (const auto& val : nums) {
                 if (auto it = freq_map.emplace(val, 1); !it.second) {
