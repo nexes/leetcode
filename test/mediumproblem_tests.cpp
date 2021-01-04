@@ -28,6 +28,7 @@
 #include <pancake_sort.h>
 #include <permutations.h>
 #include <pow.h>
+#include <remove_duplicate_letters.h>
 #include <remove_k_digits.h>
 #include <reverse_words.h>
 #include <rotate_function.h>
@@ -69,9 +70,9 @@ TEST(Medium, Palindrome_substring)
     ASSERT_EQ(p.longestPalindrome_faster("bb"), "bb") << "bb";
     ASSERT_EQ(p.longestPalindrome_faster("bxb"), "bxb") << "bxb";
     ASSERT_EQ(p.longestPalindrome_faster("ac"), "a") << "a";
-    ASSERT_EQ(p.longestPalindrome_faster(
-                  "dddddddddddddddddddddddddddddddddddddddddddddddd"),
-              "dddddddddddddddddddddddddddddddddddddddddddddddd");
+    ASSERT_EQ(
+        p.longestPalindrome_faster("dddddddddddddddddddddddddddddddddddddddddddddddd"),
+        "dddddddddddddddddddddddddddddddddddddddddddddddd");
 }
 
 TEST(Medium, Swap_Nodes)
@@ -761,4 +762,13 @@ TEST(Medium, k_freq_elements)
     arr = {1};
     out = {1};
     ASSERT_EQ(k.topKFrequent(arr, 1), out);
+}
+
+TEST(Medium, remove_dup_letters)
+{
+    Leet::Medium::RemoveDuplicate r;
+
+    // ASSERT_EQ(r.removeDuplicateLetters("bcabc"), "abc");
+    // ASSERT_EQ(r.removeDuplicateLetters("cbacdcbc"), "acdb");
+    ASSERT_EQ(r.removeDuplicateLetters("cdadabcc"), "adbc");
 }
