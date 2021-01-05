@@ -7,6 +7,7 @@
 #include <bst_iterator.h>
 #include <counting_bits.h>
 // #include <decode_string.h>
+#include <coin_change.h>
 #include <duplicate_number.h>
 #include <duplicates_in_array.h>
 #include <find_peak.h>
@@ -771,4 +772,24 @@ TEST(Medium, remove_dup_letters)
     // ASSERT_EQ(r.removeDuplicateLetters("bcabc"), "abc");
     // ASSERT_EQ(r.removeDuplicateLetters("cbacdcbc"), "acdb");
     ASSERT_EQ(r.removeDuplicateLetters("cdadabcc"), "adbc");
+}
+
+TEST(Medium, coin_change)
+{
+    Leet::Medium::CoinChange c;
+
+    auto arr = std::vector<int>{1, 2, 5};
+    ASSERT_EQ(c.coinChange(arr, 11), 3);
+
+    arr = {2};
+    ASSERT_EQ(c.coinChange(arr, 3), -1);
+
+    arr = {0};
+    ASSERT_EQ(c.coinChange(arr, 0), 0);
+
+    arr = {1};
+    ASSERT_EQ(c.coinChange(arr, 1), 1);
+
+    arr = {1};
+    ASSERT_EQ(c.coinChange(arr, 2), 2);
 }
