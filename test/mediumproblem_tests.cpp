@@ -14,6 +14,7 @@
 #include <first_last_pos.h>
 #include <greedy_sellstock_fee.h>
 #include <gtest/gtest.h>
+#include <increasing_subsequence.h>
 #include <k_frequent_elements.h>
 #include <kth_largest.h>
 #include <largest_number.h>
@@ -792,4 +793,21 @@ TEST(Medium, coin_change)
 
     arr = {1};
     ASSERT_EQ(c.coinChange(arr, 2), 2);
+}
+
+TEST(Medium, increasing_subsequence)
+{
+    Leet::Medium::IncreasingSubSeq i;
+
+    auto arr = std::vector<int>{10, 9, 2, 5, 3, 7, 101, 18};
+    ASSERT_EQ(i.lengthOfLIS(arr), 4);
+
+    arr = {0, 1, 0, 3, 2, 3};
+    ASSERT_EQ(i.lengthOfLIS(arr), 4);
+
+    arr = {7, 7, 7, 7, 7};
+    ASSERT_EQ(i.lengthOfLIS(arr), 1);
+
+    arr = {4, 10, 4, 3, 8, 9};
+    ASSERT_EQ(i.lengthOfLIS(arr), 3);
 }
