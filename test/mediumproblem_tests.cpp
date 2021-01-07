@@ -42,6 +42,7 @@
 #include <string_compression.h>
 #include <string_to_integer.h>
 #include <subsets.h>
+#include <sum_two_integers.h>
 #include <summary_ranges.h>
 #include <swapnodes.h>
 #include <target_sum.h>
@@ -810,4 +811,15 @@ TEST(Medium, increasing_subsequence)
 
     arr = {4, 10, 4, 3, 8, 9};
     ASSERT_EQ(i.lengthOfLIS(arr), 3);
+}
+
+TEST(Medium, sum_two_ints)
+{
+    Leet::Medium::SumTwo s;
+
+    ASSERT_EQ(s.getSum(5, 3), 8);
+    ASSERT_EQ(s.getSum(5, -3), 2);
+    ASSERT_EQ(s.getSum(-5, 3), -2);
+    ASSERT_EQ(s.getSum(1, 2), 3);
+    ASSERT_EQ(s.getSum(1, -1), 0);
 }
