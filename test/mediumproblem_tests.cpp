@@ -24,6 +24,7 @@
 #include <max_width_ramp.h>
 #include <merge_intervals.h>
 #include <min_subarray.h>
+#include <missing_element_array.h>
 #include <multiply_strings.h>
 #include <nth_node.h>
 #include <palindrome_substr.h>
@@ -822,4 +823,17 @@ TEST(Medium, sum_two_ints)
     ASSERT_EQ(s.getSum(-5, 3), -2);
     ASSERT_EQ(s.getSum(1, 2), 3);
     ASSERT_EQ(s.getSum(1, -1), 0);
+}
+
+TEST(Medium, missing_element)
+{
+    Leet::Medium::MissingElement m;
+
+    auto arr = std::vector<int>{4, 7, 9, 10};
+    ASSERT_EQ(m.missingElement(arr, 1), 5);
+
+    ASSERT_EQ(m.missingElement(arr, 3), 8);
+
+    arr = {1, 2, 3, 4, 5, 6};
+    ASSERT_EQ(m.missingElement(arr, 1), 0);
 }
