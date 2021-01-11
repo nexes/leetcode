@@ -32,6 +32,7 @@
 #include <min_depth_tree.h>
 #include <min_stack.h>
 #include <n_repeated_array.h>
+#include <number_complement.h>
 #include <palindrome.h>
 #include <perfect_square.h>
 #include <plusone.h>
@@ -747,4 +748,13 @@ TEST(Easy, island_perimeter)
 
     island = {{1, 0}};
     ASSERT_EQ(i.islandPerimeter(island), 4);
+}
+
+TEST(Easy, number_complement)
+{
+    Leet::Easy::NumComplement n;
+
+    ASSERT_EQ(n.findComplement(5), 2);
+    ASSERT_EQ(n.findComplement(10), 5);
+    ASSERT_EQ(n.findComplement(14), 1);
 }
