@@ -49,6 +49,7 @@
 #include <sqrt.h>
 #include <strstr.h>
 #include <symmetric_tree.h>
+#include <third_max_number.h>
 #include <twosums.h>
 #include <unique_char_str.h>
 #include <valid_parentheses.h>
@@ -757,4 +758,18 @@ TEST(Easy, number_complement)
     ASSERT_EQ(n.findComplement(5), 2);
     ASSERT_EQ(n.findComplement(10), 5);
     ASSERT_EQ(n.findComplement(14), 1);
+}
+
+TEST(Easy, third_max_number)
+{
+    Leet::Easy::ThirdMax t;
+
+    auto arr = std::vector<int>{3, 2, 1};
+    ASSERT_EQ(t.thirdMax(arr), 1);
+
+    arr = {1, 2};
+    ASSERT_EQ(t.thirdMax(arr), 2);
+
+    arr = {2, 2, 3, 1};
+    ASSERT_EQ(t.thirdMax(arr), 1);
 }
