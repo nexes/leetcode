@@ -7,6 +7,7 @@
 #include <bst_iterator.h>
 #include <counting_bits.h>
 // #include <decode_string.h>
+#include <arithmetic_slices.h>
 #include <coin_change.h>
 #include <duplicate_number.h>
 #include <duplicates_in_array.h>
@@ -828,4 +829,12 @@ TEST(Medium, longest_common_subsequence)
     ASSERT_EQ(l.longestCommonSubsequence("abc", "abc"), 3);
     ASSERT_EQ(l.longestCommonSubsequence("abcde", "dog"), 1);
     ASSERT_EQ(l.longestCommonSubsequence("abce", "dog"), 0);
+}
+
+TEST(Medium, arithmetic_slices)
+{
+    Leet::Medium::ArithmeticSlice a;
+
+    auto arr = std::vector<int>{1, 2, 3, 4};
+    ASSERT_EQ(a.numberOfArithmeticSlices(arr), 3);
 }
