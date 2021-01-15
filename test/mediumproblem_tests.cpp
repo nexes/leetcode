@@ -29,6 +29,7 @@
 #include <missing_element_array.h>
 #include <multiply_strings.h>
 #include <nth_node.h>
+#include <number_of_islands.h>
 #include <palindrome_substr.h>
 #include <pancake_sort.h>
 #include <permutations.h>
@@ -334,7 +335,12 @@ TEST(Medium, permutation)
     Leet::Medium::Permutation p;
     std::vector<int> in{1, 2, 3};
     std::vector<std::vector<int>> out{
-        {1, 2, 3}, {1, 3, 2}, {2, 1, 3}, {2, 3, 1}, {3, 2, 1}, {3, 1, 2},
+        {1, 2, 3},
+        {1, 3, 2},
+        {2, 1, 3},
+        {2, 3, 1},
+        {3, 2, 1},
+        {3, 1, 2},
     };
 
     ASSERT_EQ(p.permute(in), out);
@@ -534,7 +540,14 @@ TEST(Medium, subsets)
 
     auto arr = std::vector<int>{1, 2, 3};
     auto out = std::vector<std::vector<int>>{
-        {1, 2, 3}, {1, 2}, {1, 3}, {1}, {2, 3}, {2}, {3}, {},
+        {1, 2, 3},
+        {1, 2},
+        {1, 3},
+        {1},
+        {2, 3},
+        {2},
+        {3},
+        {},
     };
 
     ASSERT_EQ(s.subsets(arr), out);
@@ -572,7 +585,14 @@ TEST(Medium, merge_interval)
     Leet::Medium::MergeInterval m;
 
     std::vector<std::vector<int>> arr = {
-        {1, 9}, {2, 5}, {19, 20}, {10, 11}, {12, 20}, {0, 3}, {0, 1}, {0, 2},
+        {1, 9},
+        {2, 5},
+        {19, 20},
+        {10, 11},
+        {12, 20},
+        {0, 3},
+        {0, 1},
+        {0, 2},
     };
 
     std::vector<std::vector<int>> out = {
