@@ -1,12 +1,11 @@
 #pragma once
 
-#include <../listnode.h>
+#include "../listnode.h"
 
-namespace Leet::Easy
-{
+namespace Leet::Easy {
 
-    // Merge two sorted linked lists and return it as a new sorted list. The new list should be
-    // made by splicing together the nodes of the first two lists.
+    // Merge two sorted linked lists and return it as a new sorted list. The new list
+    // should be made by splicing together the nodes of the first two lists.
 
     // Example:
     // Input: 1->2->4, 1->3->4
@@ -18,17 +17,13 @@ namespace Leet::Easy
             ListNode *merged = new ListNode();
             ListNode *curr = merged;
 
-            while (l1 && l2)
-            {
-                if (l1->val <= l2->val)
-                {
+            while (l1 && l2) {
+                if (l1->val <= l2->val) {
                     // faster not calling a cstr
                     // curr->next = new ListNode(l1->val);
                     curr->next = l1;
                     l1 = l1->next;
-                }
-                else
-                {
+                } else {
                     // faster not calling a cstr
                     // curr->next = new ListNode(l2->val);
                     curr->next = l2;
@@ -46,4 +41,4 @@ namespace Leet::Easy
             return merged->next;
         }
     };
-} // namespace Leet::Easy
+}  // namespace Leet::Easy
