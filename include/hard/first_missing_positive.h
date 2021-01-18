@@ -16,10 +16,6 @@ namespace Leet::Hard {
     // Input: nums = [3,4,-1,1]
     // Output: 2
 
-    // -1, 4, 3, 1
-    // -1, 1, 3, 4
-    // 1, -1, 3, 4
-
     // Example 3:
     // Input: nums = [7,8,9,11,12]
     // Output: 1
