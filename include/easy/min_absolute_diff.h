@@ -15,7 +15,8 @@ namespace Leet::Easy {
     // Example 1:
     // Input: arr = [4,2,1,3]
     // Output: [[1,2],[2,3],[3,4]]
-    // Explanation: The minimum absolute difference is 1. List all pairs with difference equal to 1 in ascending order.
+    // Explanation: The minimum absolute difference is 1. List all pairs with difference
+    // equal to 1 in ascending order.
 
     // Example 2:
     // Input: arr = [1,3,6,10,15]
