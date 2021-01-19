@@ -26,7 +26,7 @@ namespace Leet::Hard {
     struct FirstPositive
     {
         // sorting O(nlog(n)) space: O(1)
-        int firstMissingPositive_log(std::vector<int>& nums)
+        int firstMissingPositive(std::vector<int>& nums)
         {
             int missing = 1;
 

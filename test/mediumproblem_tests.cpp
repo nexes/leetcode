@@ -9,6 +9,7 @@
 // #include <decode_string.h>
 #include <arithmetic_slices.h>
 #include <coin_change.h>
+#include <count_complete_tree_node.h>
 #include <duplicate_number.h>
 #include <duplicates_in_array.h>
 #include <find_peak.h>
