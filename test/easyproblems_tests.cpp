@@ -39,6 +39,7 @@
 #include <power_of_three.h>
 #include <ransom_note.h>
 #include <remove_duplicate_list.h>
+#include <remove_list_elements.h>
 #include <reverse_bits.h>
 #include <reverse_integer.h>
 #include <reverse_string.h>

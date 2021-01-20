@@ -69,7 +69,7 @@ namespace Leet::Medium {
         }
 
         // DFS time: O(n) space: O(1)
-        int countNodes(Leet::TreeNode* root)
+        int countNodes_dfs(Leet::TreeNode* root)
         {
             if (!root)
                 return 0;
