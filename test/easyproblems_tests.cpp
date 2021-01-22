@@ -54,6 +54,7 @@
 #include <two_sum_2.h>
 #include <twosums.h>
 #include <unique_char_str.h>
+#include <valid_anagram.h>
 #include <valid_parentheses.h>
 
 #include <vector>
@@ -805,4 +806,12 @@ TEST(Easy, two_sum_2)
     arr = {-1, 0};
     out = {1, 2};
     ASSERT_EQ(t.twoSum(arr, -1), out);
+}
+
+TEST(Easy, valid_anagram)
+{
+    Leet::Easy::ValidAnagram v;
+
+    ASSERT_TRUE(v.isAnagram("anagram", "nagaram"));
+    ASSERT_FALSE(v.isAnagram("rat", "car"));
 }
