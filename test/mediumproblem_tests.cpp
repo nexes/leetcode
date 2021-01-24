@@ -7,6 +7,7 @@
 #include <bst_iterator.h>
 #include <counting_bits.h>
 #include <maximal_square.h>
+#include <subarray_sum_k.h>
 // #include <decode_string.h>
 #include <arithmetic_slices.h>
 #include <coin_change.h>
@@ -840,4 +841,21 @@ TEST(Medium, arithmetic_slices)
 
     auto arr = std::vector<int>{1, 2, 3, 4};
     ASSERT_EQ(a.numberOfArithmeticSlices(arr), 3);
+}
+
+TEST(Medium, subarry_sum_k)
+{
+    Leet::Medium::SubarraySum s;
+
+    auto arr = std::vector<int>{1, 1, 1};
+    ASSERT_EQ(s.subarraySum(arr, 2), 2);
+
+    arr = {1, 2, 3};
+    ASSERT_EQ(s.subarraySum(arr, 3), 2);
+
+    arr = {1, -1, 0};
+    ASSERT_EQ(s.subarraySum(arr, 0), 3);
+
+    arr = {0, 0};
+    ASSERT_EQ(s.subarraySum(arr, 0), 3);
 }
