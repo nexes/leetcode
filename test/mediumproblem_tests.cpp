@@ -7,6 +7,7 @@
 #include <bst_iterator.h>
 #include <counting_bits.h>
 #include <maximal_square.h>
+#include <rotate_image.h>
 #include <subarray_sum_k.h>
 // #include <decode_string.h>
 #include <arithmetic_slices.h>
@@ -338,7 +339,12 @@ TEST(Medium, permutation)
     Leet::Medium::Permutation p;
     std::vector<int> in{1, 2, 3};
     std::vector<std::vector<int>> out{
-        {1, 2, 3}, {1, 3, 2}, {2, 1, 3}, {2, 3, 1}, {3, 2, 1}, {3, 1, 2},
+        {1, 2, 3},
+        {1, 3, 2},
+        {2, 1, 3},
+        {2, 3, 1},
+        {3, 2, 1},
+        {3, 1, 2},
     };
 
     ASSERT_EQ(p.permute(in), out);
@@ -538,7 +544,14 @@ TEST(Medium, subsets)
 
     auto arr = std::vector<int>{1, 2, 3};
     auto out = std::vector<std::vector<int>>{
-        {1, 2, 3}, {1, 2}, {1, 3}, {1}, {2, 3}, {2}, {3}, {},
+        {1, 2, 3},
+        {1, 2},
+        {1, 3},
+        {1},
+        {2, 3},
+        {2},
+        {3},
+        {},
     };
 
     ASSERT_EQ(s.subsets(arr), out);
@@ -576,7 +589,14 @@ TEST(Medium, merge_interval)
     Leet::Medium::MergeInterval m;
 
     std::vector<std::vector<int>> arr = {
-        {1, 9}, {2, 5}, {19, 20}, {10, 11}, {12, 20}, {0, 3}, {0, 1}, {0, 2},
+        {1, 9},
+        {2, 5},
+        {19, 20},
+        {10, 11},
+        {12, 20},
+        {0, 3},
+        {0, 1},
+        {0, 2},
     };
 
     std::vector<std::vector<int>> out = {
@@ -858,4 +878,31 @@ TEST(Medium, subarry_sum_k)
 
     arr = {0, 0};
     ASSERT_EQ(s.subarraySum(arr, 0), 3);
+}
+
+TEST(Medium, rotate_image)
+{
+    Leet::Medium::RotateImage r;
+
+    auto matrix = std::vector<std::vector<int>>{
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}};
+    auto rotated = std::vector<std::vector<int>>{
+        {7, 4, 1},
+        {8, 5, 2},
+        {9, 6, 3}};
+
+    r.rotate(matrix);
+    ASSERT_EQ(matrix, rotated);
+
+    matrix = {
+        {1, 2},
+        {3, 4}};
+    rotated = {
+        {3, 1},
+        {4, 2}};
+
+    r.rotate(matrix);
+    ASSERT_EQ(matrix, rotated);
 }
