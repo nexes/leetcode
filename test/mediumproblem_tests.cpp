@@ -6,6 +6,7 @@
 #include <bitwise_and_range.h>
 #include <bst_iterator.h>
 #include <counting_bits.h>
+#include <inorder_traversal.h>
 #include <maximal_square.h>
 #include <rotate_image.h>
 #include <subarray_sum_k.h>

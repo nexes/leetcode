@@ -48,7 +48,7 @@ namespace Leet::Medium {
         }
 
         // using transpose, time: O(n^2) space: O(1)
-        void rotate_with_transpose(std::vector<std::vector<int>>& matrix)
+        void rotate(std::vector<std::vector<int>>& matrix)
         {
             int size = matrix.size();
 
