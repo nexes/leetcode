@@ -9,6 +9,7 @@
 #include <inorder_traversal.h>
 #include <maximal_square.h>
 #include <rotate_image.h>
+#include <search_2d_matrix.h>
 #include <subarray_sum_k.h>
 // #include <decode_string.h>
 #include <arithmetic_slices.h>
