@@ -13,6 +13,7 @@
 #include <cousins_binary_tree.h>
 #include <defang_ip.h>
 #include <disappeared_nums.h>
+#include <distribute_candies.h>
 #include <find_pivot.h>
 #include <find_the_difference.h>
 #include <greedy_sellstock.h>
@@ -824,4 +825,18 @@ TEST(Easy, word_pattern)
     ASSERT_TRUE(w.wordPattern("abba", "dog cat cat dog"));
     ASSERT_TRUE(w.wordPattern("rqqr", "dog cat cat dog"));
     ASSERT_FALSE(w.wordPattern("rqqr", "dog dog dog dog"));
+}
+
+TEST(Easy, distribute_candy)
+{
+    Leet::Easy::Candies c;
+
+    auto arr = std::vector<int>{1, 1, 2, 2, 3, 3};
+    ASSERT_EQ(c.distributeCandies(arr), 3);
+
+    arr = {1, 1, 2, 3};
+    ASSERT_EQ(c.distributeCandies(arr), 2);
+
+    arr = {6, 6, 6, 6, 6};
+    ASSERT_EQ(c.distributeCandies(arr), 1);
 }
