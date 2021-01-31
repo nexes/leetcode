@@ -56,6 +56,7 @@
 #include <unique_char_str.h>
 #include <valid_anagram.h>
 #include <valid_parentheses.h>
+#include <word_pattern.h>
 
 #include <vector>
 
@@ -814,4 +815,13 @@ TEST(Easy, valid_anagram)
 
     ASSERT_TRUE(v.isAnagram("anagram", "nagaram"));
     ASSERT_FALSE(v.isAnagram("rat", "car"));
+}
+
+TEST(Easy, word_pattern)
+{
+    Leet::Easy::WordPattern w;
+
+    ASSERT_TRUE(w.wordPattern("abba", "dog cat cat dog"));
+    ASSERT_TRUE(w.wordPattern("rqqr", "dog cat cat dog"));
+    ASSERT_FALSE(w.wordPattern("rqqr", "dog dog dog dog"));
 }
