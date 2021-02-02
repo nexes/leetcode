@@ -44,6 +44,7 @@
 #include <reverse_bits.h>
 #include <reverse_integer.h>
 #include <reverse_string.h>
+#include <reverse_words_3.h>
 #include <rotate_array.h>
 #include <same_tree.h>
 #include <single_number.h>
@@ -839,4 +840,13 @@ TEST(Easy, distribute_candy)
 
     arr = {6, 6, 6, 6, 6};
     ASSERT_EQ(c.distributeCandies(arr), 1);
+}
+
+TEST(Easy, reverse_words)
+{
+    Leet::Easy::ReverseWords r;
+
+    ASSERT_EQ(r.reverseWords("Let's take LeetCode contest"),
+              "s'teL ekat edoCteeL tsetnoc");
+    ASSERT_EQ(r.reverseWords("leetcodechallenge!"), "!egnellahcedocteel");
 }
