@@ -8,6 +8,7 @@
 #include <counting_bits.h>
 #include <inorder_traversal.h>
 #include <maximal_square.h>
+#include <permutation_string.h>
 #include <rotate_image.h>
 #include <search_2d_matrix.h>
 #include <subarray_sum_k.h>
@@ -886,25 +887,23 @@ TEST(Medium, rotate_image)
 {
     Leet::Medium::RotateImage r;
 
-    auto matrix = std::vector<std::vector<int>>{
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}};
-    auto rotated = std::vector<std::vector<int>>{
-        {7, 4, 1},
-        {8, 5, 2},
-        {9, 6, 3}};
+    auto matrix = std::vector<std::vector<int>>{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    auto rotated = std::vector<std::vector<int>>{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
 
     r.rotate(matrix);
     ASSERT_EQ(matrix, rotated);
 
-    matrix = {
-        {1, 2},
-        {3, 4}};
-    rotated = {
-        {3, 1},
-        {4, 2}};
+    matrix = {{1, 2}, {3, 4}};
+    rotated = {{3, 1}, {4, 2}};
 
     r.rotate(matrix);
     ASSERT_EQ(matrix, rotated);
+}
+
+TEST(Medium, permutation_in_string)
+{
+    Leet::Medium::PermutationString p;
+
+    ASSERT_TRUE(p.checkInclusion("ab", "eidbaooo"));
+    ASSERT_FALSE(p.checkInclusion("ab", "eidbxaooo"));
 }
