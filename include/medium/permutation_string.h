@@ -1,7 +1,9 @@
 #pragma once
 
 #include <algorithm>
+#include <iostream>
 #include <string>
+#include <vector>
 
 namespace Leet::Medium {
     // Given two strings s1 and s2, write a function to return true if
@@ -31,7 +33,7 @@ namespace Leet::Medium {
             return s1 == s2;
         }
 
-        // slow, time: O(n^2log(n))
+        // slow, time: O(n^2 log(n)) ish
         bool checkInclusion_slow(std::string s1, std::string s2)
         {
             int s1_len = s1.length();
@@ -50,8 +52,30 @@ namespace Leet::Medium {
             return false;
         }
 
+        // accepted but is still slow
         bool checkInclusion(std::string s1, std::string s2)
         {
+            std::vector<int> s1_freq(26, 0);
+            std::vector<int> substr_freq(26, 0);
+
+            if (s1.length() > s2.length())
+                return false;
+
+            for (const auto& c : s1)
+                s1_freq[c - 'a']++;
+
+            // O(n * m)
+            for (int i = 0; i <= s2.length() - s1.length(); i++) {
+                for (int j = 0; j < s1.length(); j++)
+                    substr_freq[s2[i + j] - 'a']++;
+
+                if (s1_freq == substr_freq)
+                    return true;
+
+                for (int i = 0; i < 26; i++)
+                    substr_freq[i] = 0;
+            }
+
             return false;
         }
     };
