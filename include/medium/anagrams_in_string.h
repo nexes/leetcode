@@ -90,7 +90,8 @@ namespace Leet::Medium {
                 s_hash[s.at(win_end++) - 'a']++;
 
             while (win_end <= s_len) {
-                if (p_hash == s_hash) indices.push_back(win_begin);
+                if (p_hash == s_hash)
+                    indices.push_back(win_begin);
 
                 s_hash[s.at(win_begin++) - 'a']--;
 
