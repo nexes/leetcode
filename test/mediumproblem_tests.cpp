@@ -6,6 +6,7 @@
 #include <bitwise_and_range.h>
 #include <bst_iterator.h>
 #include <counting_bits.h>
+#include <group_anagrams.h>
 #include <inorder_traversal.h>
 #include <maximal_square.h>
 #include <permutation_string.h>
@@ -907,3 +908,14 @@ TEST(Medium, permutation_in_string)
     ASSERT_TRUE(p.checkInclusion("ab", "eidbaooo"));
     ASSERT_FALSE(p.checkInclusion("ab", "eidbxaooo"));
 }
+
+// TEST(Medium, group_anagrams)
+// {
+//     Leet::Medium::GroupAnagram g;
+
+//     auto str = std::vector<std::string>{"eat", "tea", "tan", "ate", "nat", "bat"};
+//     auto out = std::vector<std::vector<std::string>>{
+//         {"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}};
+
+//     ASSERT_EQ(g.groupAnagrams(str), out);
+// }
