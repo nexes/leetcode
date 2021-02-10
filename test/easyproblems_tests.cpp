@@ -1,4 +1,5 @@
 #include <../treenode.h>
+#include <add_binary.h>
 #include <add_strings.h>
 #include <alien_dictionary.h>
 #include <array_from_integer.h>
@@ -849,4 +850,12 @@ TEST(Easy, reverse_words)
     ASSERT_EQ(r.reverseWords("Let's take LeetCode contest"),
               "s'teL ekat edoCteeL tsetnoc");
     ASSERT_EQ(r.reverseWords("leetcodechallenge!"), "!egnellahcedocteel");
+}
+
+TEST(Easy, add_binary)
+{
+    Leet::Easy::AddBinary a;
+
+    ASSERT_EQ(a.addBinary("11", "1"), "100");
+    ASSERT_EQ(a.addBinary("1010", "1011"), "10101");
 }
