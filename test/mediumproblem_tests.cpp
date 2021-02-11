@@ -12,6 +12,7 @@
 #include <permutation_string.h>
 #include <rotate_image.h>
 #include <search_2d_matrix.h>
+#include <sort_colors.h>
 #include <subarray_sum_k.h>
 // #include <decode_string.h>
 #include <arithmetic_slices.h>
@@ -919,3 +920,14 @@ TEST(Medium, permutation_in_string)
 
 //     ASSERT_EQ(g.groupAnagrams(str), out);
 // }
+
+TEST(Medium, sort_color)
+{
+    Leet::Medium::SortColor s;
+
+    auto arr = std::vector<int>{2, 0, 2, 1, 1, 0};
+    auto sorted = std::vector<int>{0, 0, 1, 1, 2, 2};
+
+    s.sortColors(arr);
+    ASSERT_EQ(arr, sorted);
+}
