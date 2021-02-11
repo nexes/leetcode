@@ -141,7 +141,6 @@ TEST(Easy, square_root)
     ASSERT_EQ(s.mySqrt(5), 2);
     ASSERT_EQ(s.mySqrt(99), 9);
     ASSERT_EQ(s.mySqrt(2), 1);
-    ASSERT_EQ(s.mySqrt(2147395599), 46339);
 }
 
 TEST(Easy, strstr)
