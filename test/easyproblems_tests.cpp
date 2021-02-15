@@ -36,6 +36,7 @@
 #include <n_repeated_array.h>
 #include <number_complement.h>
 #include <palindrome.h>
+#include <pascals_triangle.h>
 #include <perfect_square.h>
 #include <plusone.h>
 #include <power_of_three.h>
