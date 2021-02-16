@@ -59,6 +59,7 @@
 #include <twosums.h>
 #include <unique_char_str.h>
 #include <valid_anagram.h>
+#include <valid_palindrome.h>
 #include <valid_parentheses.h>
 #include <word_pattern.h>
 
@@ -556,31 +557,17 @@ TEST(Easy, check_straight_line)
     Leet::Easy::StraightLine s;
 
     auto out = std::vector<std::vector<int>>{
-        {1, 2},
-        {2, 3},
-        {3, 4},
-        {4, 5},
-        {5, 6},
-        {6, 7},
+        {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7},
     };
     ASSERT_TRUE(s.checkStraightLine(out));
 
     out = {
-        {1, 1},
-        {2, 2},
-        {3, 4},
-        {4, 5},
-        {5, 6},
-        {7, 7},
+        {1, 1}, {2, 2}, {3, 4}, {4, 5}, {5, 6}, {7, 7},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 
     out = {
-        {-4, -3},
-        {1, 0},
-        {3, -1},
-        {0, -1},
-        {-5, 2},
+        {-4, -3}, {1, 0}, {3, -1}, {0, -1}, {-5, 2},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 }
@@ -858,4 +845,12 @@ TEST(Easy, add_binary)
 
     ASSERT_EQ(a.addBinary("11", "1"), "100");
     ASSERT_EQ(a.addBinary("1010", "1011"), "10101");
+}
+
+TEST(Easy, valid_palindrome)
+{
+    Leet::Easy::ValidPalindrome v;
+
+    ASSERT_TRUE(v.isPalindrome("A man, a plan, a canal: Panama"));
+    ASSERT_FALSE(v.isPalindrome("race a car"));
 }
