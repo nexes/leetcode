@@ -22,7 +22,8 @@ namespace Leet::Medium {
             const int len = s.length();
             std::string found = s.substr(0, 1);
 
-            if (len == 1) return s;
+            if (len == 1)
+                return s;
 
             // O(n^3) brute force
             for (int i = 0; i < len; i++) {
@@ -44,19 +45,24 @@ namespace Leet::Medium {
             // this needs to be looped over twice
             for (int mid = 0; mid < len; mid++) {
                 for (int offset = 0; mid - offset >= 0 && mid + offset < len; offset++) {
-                    if (s.at(mid - offset) != s.at(mid + offset)) break;
+                    if (s.at(mid - offset) != s.at(mid + offset))
+                        break;
 
                     int size = offset * 2 + 1;
-                    if (found.length() < size) found = s.substr(mid - offset, size);
+                    if (found.length() < size)
+                        found = s.substr(mid - offset, size);
                 }
             }
 
             for (int mid = 0; mid < len; mid++) {
-                for (int offset = 1; mid - offset + 1 >= 0 && mid + offset < len; offset++) {
-                    if (s.at(mid - offset + 1) != s.at(mid + offset)) break;
+                for (int offset = 1; mid - offset + 1 >= 0 && mid + offset < len;
+                     offset++) {
+                    if (s.at(mid - offset + 1) != s.at(mid + offset))
+                        break;
 
                     int size = offset * 2;
-                    if (found.length() < size) found = s.substr(mid - offset + 1, size);
+                    if (found.length() < size)
+                        found = s.substr(mid - offset + 1, size);
                 }
             }
 
@@ -69,7 +75,8 @@ namespace Leet::Medium {
                 return false;
 
             for (; start < end; start++, end--)
-                if (v.at(start) != v.at(end)) return false;
+                if (v.at(start) != v.at(end))
+                    return false;
 
             return true;
         }
