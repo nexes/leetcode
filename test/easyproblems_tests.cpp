@@ -33,6 +33,7 @@
 #include <min_absolute_diff.h>
 #include <min_depth_tree.h>
 #include <min_stack.h>
+#include <move_zeroes.h>
 #include <n_repeated_array.h>
 #include <number_complement.h>
 #include <palindrome.h>
@@ -853,4 +854,15 @@ TEST(Easy, valid_palindrome)
 
     ASSERT_TRUE(v.isPalindrome("A man, a plan, a canal: Panama"));
     ASSERT_FALSE(v.isPalindrome("race a car"));
+}
+
+TEST(Easy, move_zeroes)
+{
+    Leet::Easy::MoveZeroes m;
+
+    auto arr = std::vector<int>{0, 1, 0, 3, 12};
+    auto zero = std::vector<int>{1, 3, 12, 0, 0};
+
+    m.moveZeroes(arr);
+    ASSERT_EQ(arr, zero);
 }
