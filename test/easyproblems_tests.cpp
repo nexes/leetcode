@@ -47,6 +47,7 @@
 #include <reverse_bits.h>
 #include <reverse_integer.h>
 #include <reverse_string.h>
+#include <reverse_string_2.h>
 #include <reverse_words_3.h>
 #include <rotate_array.h>
 #include <same_tree.h>
@@ -865,4 +866,14 @@ TEST(Easy, move_zeroes)
 
     m.moveZeroes(arr);
     ASSERT_EQ(arr, zero);
+}
+
+TEST(Easy, reverse_string_2)
+{
+    Leet::Easy::ReverseString2 r;
+
+    auto str{"abcdefg"};
+    auto out{"bacdfeg"};
+
+    ASSERT_EQ(r.reverseStr(str, 2), out);
 }
