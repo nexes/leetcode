@@ -23,6 +23,7 @@
 #include <insert_position.h>
 #include <is_subsequence.h>
 #include <island_perimeter.h>
+#include <isomorphic_string.h>
 #include <kth_missing_number.h>
 #include <length_last_word.h>
 #include <longest_palindrome.h>
@@ -559,17 +560,31 @@ TEST(Easy, check_straight_line)
     Leet::Easy::StraightLine s;
 
     auto out = std::vector<std::vector<int>>{
-        {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7},
+        {1, 2},
+        {2, 3},
+        {3, 4},
+        {4, 5},
+        {5, 6},
+        {6, 7},
     };
     ASSERT_TRUE(s.checkStraightLine(out));
 
     out = {
-        {1, 1}, {2, 2}, {3, 4}, {4, 5}, {5, 6}, {7, 7},
+        {1, 1},
+        {2, 2},
+        {3, 4},
+        {4, 5},
+        {5, 6},
+        {7, 7},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 
     out = {
-        {-4, -3}, {1, 0}, {3, -1}, {0, -1}, {-5, 2},
+        {-4, -3},
+        {1, 0},
+        {3, -1},
+        {0, -1},
+        {-5, 2},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 }
@@ -876,4 +891,13 @@ TEST(Easy, reverse_string_2)
     auto out{"bacdfeg"};
 
     ASSERT_EQ(r.reverseStr(str, 2), out);
+}
+
+TEST(Easy, isomorphic_string)
+{
+    Leet::Easy::IsomorphicStrings i;
+
+    ASSERT_TRUE(i.isIsomorphic("egg", "add"));
+    ASSERT_TRUE(i.isIsomorphic("paper", "title"));
+    ASSERT_FALSE(i.isIsomorphic("foo", "bar"));
 }
