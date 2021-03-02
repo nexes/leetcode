@@ -5,6 +5,7 @@
 #include <array_from_integer.h>
 #include <balanced_binary_tree.h>
 #include <binary_substring.h>
+#include <binary_tree_mode.h>
 #include <check_straight_line.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
@@ -560,31 +561,17 @@ TEST(Easy, check_straight_line)
     Leet::Easy::StraightLine s;
 
     auto out = std::vector<std::vector<int>>{
-        {1, 2},
-        {2, 3},
-        {3, 4},
-        {4, 5},
-        {5, 6},
-        {6, 7},
+        {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7},
     };
     ASSERT_TRUE(s.checkStraightLine(out));
 
     out = {
-        {1, 1},
-        {2, 2},
-        {3, 4},
-        {4, 5},
-        {5, 6},
-        {7, 7},
+        {1, 1}, {2, 2}, {3, 4}, {4, 5}, {5, 6}, {7, 7},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 
     out = {
-        {-4, -3},
-        {1, 0},
-        {3, -1},
-        {0, -1},
-        {-5, 2},
+        {-4, -3}, {1, 0}, {3, -1}, {0, -1}, {-5, 2},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 }
