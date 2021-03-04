@@ -10,6 +10,7 @@
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
 #include <maximal_square.h>
+#include <next_greater_element_2.h>
 #include <path_sum_2.h>
 #include <permutation_string.h>
 #include <rotate_image.h>
@@ -933,4 +934,14 @@ TEST(Medium, sort_color)
 
     s.sortColors(arr);
     ASSERT_EQ(arr, sorted);
+}
+
+TEST(Medium, greater_element_2)
+{
+    Leet::Medium::NextGreater2 n;
+
+    auto arr = std::vector<int>{1, 2, 1};
+    auto greater = std::vector<int>{2, -1, 2};
+
+    ASSERT_EQ(n.nextGreaterElements(arr), greater);
 }
