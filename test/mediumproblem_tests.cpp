@@ -5,6 +5,7 @@
 #include <balance_parentheses.h>
 #include <binary_tree_level_order.h>
 #include <bitwise_and_range.h>
+#include <bottom_left_tree_value.h>
 #include <bst_iterator.h>
 #include <counting_bits.h>
 #include <group_anagrams.h>
