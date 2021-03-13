@@ -34,8 +34,7 @@ namespace Leet::Easy {
 
             if (!root || !root->next) return false;
 
-            while (fast && fast->next)
-            {
+            while (fast && fast->next) {
                 slow = slow->next;
                 fast = fast->next->next;
 

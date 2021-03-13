@@ -32,9 +32,7 @@ namespace Leet::Easy {
             int check2 = nums[len - 1] * nums[len - 2] * nums[len - 3];
             int check3 = nums[0] * nums[1] * nums[len - 1];
 
-            int prod = std::max(check1, std::max(check2, check3));
-
-            return prod;
+            return std::max(check1, std::max(check2, check3));
         }
     };
 }  // namespace Leet::Easy
