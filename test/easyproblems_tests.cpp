@@ -4,6 +4,7 @@
 #include <alien_dictionary.h>
 #include <array_from_integer.h>
 #include <balanced_binary_tree.h>
+#include <base7.h>
 #include <binary_substring.h>
 #include <binary_tree_mode.h>
 #include <check_straight_line.h>
@@ -911,4 +912,20 @@ TEST(Easy, fibonacci_number)
     ASSERT_EQ(f.fib(2), 1);
     ASSERT_EQ(f.fib(4), 3);
     ASSERT_EQ(f.fib(30), 832040);
+}
+
+TEST(Easy, base_seven)
+{
+    Leet::Easy::BaseSeven b;
+
+    // Example 1:
+    // Input: 100
+    // Output: "202"
+
+    // Example 2:
+    // Input: -7
+    // Output: "-10"
+
+    ASSERT_EQ(b.convertToBase7(100), "202");
+    ASSERT_EQ(b.convertToBase7(-7), "-10");
 }
