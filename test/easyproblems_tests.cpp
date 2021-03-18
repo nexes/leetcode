@@ -918,14 +918,6 @@ TEST(Easy, base_seven)
 {
     Leet::Easy::BaseSeven b;
 
-    // Example 1:
-    // Input: 100
-    // Output: "202"
-
-    // Example 2:
-    // Input: -7
-    // Output: "-10"
-
     ASSERT_EQ(b.convertToBase7(100), "202");
     ASSERT_EQ(b.convertToBase7(-7), "-10");
 }
