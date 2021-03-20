@@ -48,33 +48,26 @@ namespace Leet::Medium {
             int len = s.length();
             int err = 0;
 
-            for (int i = 0; i < len; i++)
-            {
-                if (s[i] == '(')
-                {
+            for (int i = 0; i < len; i++) {
+                if (s[i] == '(') {
                     // (
                     stack.push('(');
                     continue;
                 }
 
-                if (i + 1 < len)
-                {
-                    if (s[i + 1] == ')')
-                    {
+                if (i + 1 < len) {
+                    if (s[i + 1] == ')') {
                         // ))
                         if (stack.size() > 0)
                             stack.pop();
                         else
                             err++;
-                    } else
-                    {
+                    } else {
                         // )(
-                        if (stack.size() > 0)
-                        {
+                        if (stack.size() > 0) {
                             err++;
                             stack.pop();
-                        } else
-                        {
+                        } else {
                             err += 2;
                         }
 
@@ -83,16 +76,13 @@ namespace Leet::Medium {
 
                     i++;
 
-                } else
-                {
+                } else {
                     // ) at the end
-                    if (stack.size() > 0)
-                    {
+                    if (stack.size() > 0) {
                         stack.pop();
                         err++;
 
-                    } else
-                    {
+                    } else {
                         err += 2;
                     }
                 }
