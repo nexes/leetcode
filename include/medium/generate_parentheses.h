@@ -28,7 +28,8 @@ namespace Leet::Medium {
             return parens;
         }
 
-        void generate(std::vector<std::string>& arr, std::string curr, int open, int close, int len)
+        void generate(std::vector<std::string>& arr, std::string curr, int open,
+                      int close, int len)
         {
             if (curr.length() == len * 2) {
                 arr.push_back(curr);
