@@ -1,8 +1,8 @@
 #pragma once
 
-namespace Leet::Medium
-{
-    // Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+namespace Leet::Medium {
+    // Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all
+    // numbers in this range, inclusive.
 
     // Example 1:
     // Input: [5,7]
@@ -35,8 +35,7 @@ namespace Leet::Medium
 
             int i = 0;
 
-            while (m != n)
-            {
+            while (m != n) {
                 m >>= 1;
                 n >>= 1;
                 i++;
@@ -45,4 +44,4 @@ namespace Leet::Medium
             return m << i;
         }
     };
-} // namespace Leet::Medium
+}  // namespace Leet::Medium
