@@ -10,6 +10,7 @@
 #include <counting_bits.h>
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
+#include <interleave_string.h>
 #include <maximal_square.h>
 #include <next_greater_element_2.h>
 #include <path_sum_2.h>
@@ -945,4 +946,12 @@ TEST(Medium, greater_element_2)
     auto greater = std::vector<int>{2, -1, 2};
 
     ASSERT_EQ(n.nextGreaterElements(arr), greater);
+}
+
+TEST(Medium, interleave_string)
+{
+    Leet::Medium::InterleaveString i;
+
+    ASSERT_TRUE(i.isInterrleave("aabcc", "dbbca", "aadbbcbcac"));
+    ASSERT_FALSE(i.isInterrleave("aabcc", "dbbca", "aadbbbaccc"));
 }
