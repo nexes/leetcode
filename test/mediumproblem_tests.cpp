@@ -2,6 +2,7 @@
 #include <LRUCache.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
+#include <array_nesting.h>
 #include <balance_parentheses.h>
 #include <binary_tree_level_order.h>
 #include <bitwise_and_range.h>
@@ -935,4 +936,13 @@ TEST(Medium, interleave_string)
 
     ASSERT_TRUE(i.isInterrleave("aabcc", "dbbca", "aadbbcbcac"));
     ASSERT_FALSE(i.isInterrleave("aabcc", "dbbca", "aadbbbaccc"));
+}
+
+TEST(Medium, nested_array)
+{
+    Leet::Medium::ArrayNested a;
+
+    auto arr = std::vector<int>{5, 4, 0, 3, 1, 6, 2};
+
+    ASSERT_EQ(a.arrayNesting(arr), 4);
 }
