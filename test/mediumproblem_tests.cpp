@@ -20,6 +20,7 @@
 #include <rotate_image.h>
 #include <search_2d_matrix.h>
 #include <search_2d_matrix_2.h>
+#include <shortest_unsorted_subarray.h>
 #include <sort_colors.h>
 #include <subarray_sum_k.h>
 // #include <decode_string.h>
@@ -955,4 +956,15 @@ TEST(Medium, delete_two_strings)
     ASSERT_EQ(d.minDistance("leetcode", "etco"), 4);
     ASSERT_EQ(d.minDistance("sea", "eat"), 2);
     ASSERT_EQ(d.minDistance("sea", "ate"), 4);
+}
+
+TEST(Medium, shortest_unsorted_cont_subarray)
+{
+    Leet::Medium::ShortestSubarray s;
+
+    auto arr = std::vector<int>{2, 6, 4, 8, 10, 9, 15};
+    ASSERT_EQ(s.findUnsortedSubarray(arr), 5);
+
+    arr = {1, 2, 3, 4};
+    ASSERT_EQ(s.findUnsortedSubarray(arr), 0);
 }
