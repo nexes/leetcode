@@ -9,6 +9,7 @@
 #include <bottom_left_tree_value.h>
 #include <bst_iterator.h>
 #include <counting_bits.h>
+#include <delete_two_strings.h>
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
 #include <interleave_string.h>
@@ -945,4 +946,13 @@ TEST(Medium, nested_array)
     auto arr = std::vector<int>{5, 4, 0, 3, 1, 6, 2};
 
     ASSERT_EQ(a.arrayNesting(arr), 4);
+}
+
+TEST(Medium, delete_two_strings)
+{
+    Leet::Medium::DeleteTwoStrings d;
+
+    ASSERT_EQ(d.minDistance("leetcode", "etco"), 4);
+    ASSERT_EQ(d.minDistance("sea", "eat"), 2);
+    ASSERT_EQ(d.minDistance("sea", "ate"), 4);
 }
