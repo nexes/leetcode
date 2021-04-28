@@ -24,16 +24,37 @@ namespace Leet::Easy {
     // The height of the n-ary tree is less than or equal to 1000.
     struct NaryTreeTraversal
     {
-        std::vector<int> preorder(Leet::Node* root)
+        std::vector<int> postorder(Leet::Node* root)
         {
             std::vector<int> order{};
 
-            helper(root, order);
+            postorder_helper(root, order);
 
             return order;
         }
 
-        void helper(Leet::Node* node, std::vector<int>& values)
+        std::vector<int> preorder(Leet::Node* root)
+        {
+            std::vector<int> order{};
+
+            preorder_helper(root, order);
+
+            return order;
+        }
+
+        void postorder_helper(Leet::Node* node, std::vector<int>& values)
+        {
+            if (!node)
+                return;
+
+            for (auto& child : node->children) {
+                postorder_helper(child, values);
+            }
+
+            values.push_back(node->val);
+        }
+
+        void preorder_helper(Leet::Node* node, std::vector<int>& values)
         {
             if (!node)
                 return;
@@ -41,7 +62,7 @@ namespace Leet::Easy {
             values.push_back(node->val);
 
             for (auto& child : node->children) {
-                helper(child, values);
+                preorder_helper(child, values);
             }
         }
     };
