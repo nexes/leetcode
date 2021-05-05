@@ -3,6 +3,7 @@
 #include <add_strings.h>
 #include <alien_dictionary.h>
 #include <array_from_integer.h>
+#include <average_level_tree.h>
 #include <balanced_binary_tree.h>
 #include <base7.h>
 #include <binary_substring.h>
