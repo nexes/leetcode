@@ -13,6 +13,7 @@
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
 #include <interleave_string.h>
+#include <max_binary_tree.h>
 #include <max_length_pair_chain.h>
 #include <maximal_square.h>
 #include <next_greater_element_2.h>
