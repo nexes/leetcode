@@ -47,7 +47,7 @@ namespace Leet::Medium {
                 sorted_strs.emplace_back(word);
             }
 
-            // O(n^2)
+            // O(n ^2)
             for (int i = 0; i < strs.size(); i++) {
                 if (sorted_strs[i] == "*")
                     continue;
