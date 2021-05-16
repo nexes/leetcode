@@ -19,18 +19,17 @@ namespace Leet::Easy {
             int count;
             int size;
 
-            for (int i = 2; i < n; i++)
+            for (int i = 2; i < n; i++) {
                 seive.push_back(i);
+            }
 
             size = seive.size();
             count = 0;
 
-            for (int i = 0; i < size; i++)
-            {
+            for (int i = 0; i < size; i++) {
                 int value = seive[i];
 
-                if (value != -1)
-                {
+                if (value != -1) {
                     count++;
                     for (int j = value * 2 - 2; j < size; j += value)
                         seive[j] = -1;
