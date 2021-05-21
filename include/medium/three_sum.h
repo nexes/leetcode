@@ -1,10 +1,9 @@
 #pragma once
 
-#include <vector>
 #include <iostream>
+#include <vector>
 
-namespace Leet::Medium
-{
+namespace Leet::Medium {
     // Given an array nums of n integers, are there elements a, b, c in nums such
     // that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
     // Note:
@@ -28,18 +27,15 @@ namespace Leet::Medium
 
             std::sort(nums.begin(), nums.end());
 
-            for (int i = 0; i < len - 1; i++)
-            {
+            for (int i = 0; i < len - 1; i++) {
                 if (i > 0 && nums[i] == nums[i - 1])
                     continue;
 
                 l = i + 1;
                 r = len - 1;
 
-                while (l < r)
-                {
-                    if (nums[i] + nums[l] + nums[r] == 0)
-                    {
+                while (l < r) {
+                    if (nums[i] + nums[l] + nums[r] == 0) {
                         result.emplace_back(std::vector{nums[i], nums[l], nums[r]});
                         while (l < r && nums[l] == nums[l + 1])
                             l++;
@@ -47,9 +43,7 @@ namespace Leet::Medium
                             r--;
                         l++;
                         r--;
-                    }
-                    else
-                    {
+                    } else {
                         if (nums[i] + nums[l] + nums[r] < 0)
                             l++;
                         else
@@ -61,4 +55,4 @@ namespace Leet::Medium
             return result;
         }
     };
-} // namespace Leet::Medium
+}  // namespace Leet::Medium
