@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <unordered_map>
 #include <vector>
 
 namespace Leet::Medium {
@@ -46,10 +47,33 @@ namespace Leet::Medium {
             return std::max(length, count);
         }
 
-        // time: O(n) space: O(1)
+        // time: O(n) space: O(n)
         int longestConsecutive_linear(std::vector<int>& nums)
         {
-            return 0;
+            if (nums.size() < 1)
+                return 0;
+
+            std::unordered_map<int, int> values{};
+            int length = 1;
+
+            for (auto num : nums)
+                values[num]++;
+
+            for (auto num : nums) {
+                if (values.find(num - 1) != values.end())
+                    continue;
+
+                int current = num;
+                int current_len = 1;
+                while (values.find(current + 1) != values.end()) {
+                    current++;
+                    current_len++;
+                }
+
+                length = std::max(length, current_len);
+            }
+
+            return length;
         }
     };
 }  // namespace Leet::Medium
