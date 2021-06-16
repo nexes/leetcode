@@ -22,7 +22,32 @@ namespace Leet::Medium {
     // -109 <= nums[i] <= 109
     struct LongestSequence
     {
+        // time: O(nlog(n)) space: O(1)
         int longestConsecutive(std::vector<int>& nums)
+        {
+            if (nums.size() < 1)
+                return 0;
+
+            int length = 1;
+            int count = 1;
+            std::sort(nums.begin(), nums.end());
+
+            for (int i = 1; i < nums.size(); i++) {
+                if (nums[i - 1] != nums[i]) {
+                    if (nums[i - 1] == nums[i] - 1) {
+                        count++;
+                    } else {
+                        length = std::max(length, count);
+                        count = 1;
+                    }
+                }
+            }
+
+            return std::max(length, count);
+        }
+
+        // time: O(n) space: O(1)
+        int longestConsecutive_linear(std::vector<int>& nums)
         {
             return 0;
         }
