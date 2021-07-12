@@ -14,6 +14,7 @@
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
 #include <interleave_string.h>
+#include <k_closest_elements.h>
 #include <max_binary_tree.h>
 #include <max_length_pair_chain.h>
 #include <maximal_square.h>
@@ -997,4 +998,19 @@ TEST(Medium, gray_code)
 
     auto arr = std::vector<int>{0, 1, 3, 2, 6, 7, 5, 4};
     ASSERT_EQ(g.grayCode(3), arr);
+}
+
+TEST(Medium, k_closest_element)
+{
+    Leet::Medium::KClosestElements k;
+
+    auto arr = std::vector<int>{1, 2, 3, 4, 5};
+    auto ans = std::vector<int>{1, 2, 3, 4};
+
+    ASSERT_EQ(k.findClosestElements(arr, 4, 3), ans);
+    ASSERT_EQ(k.findClosestElements(arr, 4, -1), ans);
+
+    arr = std::vector<int>{1, 1, 1, 10, 10, 10};
+    ans = std::vector<int>{10};
+    ASSERT_EQ(k.findClosestElements(arr, 1, 9), ans);
 }
