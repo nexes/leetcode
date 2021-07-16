@@ -51,7 +51,23 @@ namespace Leet::Medium {
 
         std::vector<int> findClosestElements(std::vector<int>& arr, int k, int x)
         {
-            return {};
+            std::vector<int> elements{};
+            int high = arr.size() - k;
+            int low = 0;
+
+            while (low < high) {
+                int mid = (low + high) / 2;
+
+                if (x - arr[mid] > arr[mid + k] - x)
+                    low = mid + 1;
+                else
+                    high = mid;
+            }
+
+            for (int i = low; i < low + k; i++)
+                elements.push_back(arr[i]);
+
+            return elements;
         }
     };
 }  // namespace Leet::Medium
