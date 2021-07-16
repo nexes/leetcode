@@ -21,6 +21,7 @@
 #include <next_greater_element_2.h>
 #include <path_sum_2.h>
 #include <permutation_string.h>
+#include <reduce_array_half.h>
 #include <rotate_image.h>
 #include <search_2d_matrix.h>
 #include <search_2d_matrix_2.h>
@@ -1013,4 +1014,21 @@ TEST(Medium, k_closest_element)
     arr = std::vector<int>{1, 1, 1, 10, 10, 10};
     ans = std::vector<int>{10};
     ASSERT_EQ(k.findClosestElements(arr, 1, 9), ans);
+}
+
+TEST(Medium, reduce_array_half)
+{
+    Leet::Medium::ReduceArray r;
+
+    auto arr = std::vector<int>{3, 3, 3, 3, 5, 5, 5, 2, 2, 7};
+    ASSERT_EQ(r.minSetSize(arr), 2);
+
+    arr = std::vector<int>{7, 7, 7, 7, 7, 7};
+    ASSERT_EQ(r.minSetSize(arr), 1);
+
+    arr = std::vector<int>{1, 9};
+    ASSERT_EQ(r.minSetSize(arr), 1);
+
+    arr = std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    ASSERT_EQ(r.minSetSize(arr), 5);
 }
