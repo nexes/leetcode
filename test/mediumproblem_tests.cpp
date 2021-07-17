@@ -15,6 +15,7 @@
 #include <inorder_traversal.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
+#include <kth_smallest_element_matrix.h>
 #include <max_binary_tree.h>
 #include <max_length_pair_chain.h>
 #include <maximal_square.h>
