@@ -10,6 +10,7 @@
 #include <bst_iterator.h>
 #include <counting_bits.h>
 #include <delete_two_strings.h>
+#include <divide_integers.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
@@ -1032,4 +1033,13 @@ TEST(Medium, reduce_array_half)
 
     arr = std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     ASSERT_EQ(r.minSetSize(arr), 5);
+}
+
+TEST(Medium, divide_integer)
+{
+    Leet::Medium::DivideInteger d;
+
+    ASSERT_EQ(d.divide(12, 6), 2);
+    ASSERT_EQ(d.divide(93, 5), 18);
+    ASSERT_EQ(d.divide(20, -6), -3);
 }
