@@ -35,7 +35,6 @@ namespace Leet::Medium {
             int rows = matrix.size();
             int cols = matrix[0].size();
 
-            // O(n^2)
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
                     flatten.emplace_back(matrix[i][j]);
