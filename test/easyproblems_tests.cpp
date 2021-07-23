@@ -49,6 +49,7 @@
 #include <ransom_note.h>
 #include <remove_duplicate_list.h>
 #include <remove_list_elements.h>
+#include <reshape_matrix.h>
 #include <reverse_bits.h>
 #include <reverse_integer.h>
 #include <reverse_string.h>
@@ -565,17 +566,31 @@ TEST(Easy, check_straight_line)
     Leet::Easy::StraightLine s;
 
     auto out = std::vector<std::vector<int>>{
-        {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7},
+        {1, 2},
+        {2, 3},
+        {3, 4},
+        {4, 5},
+        {5, 6},
+        {6, 7},
     };
     ASSERT_TRUE(s.checkStraightLine(out));
 
     out = {
-        {1, 1}, {2, 2}, {3, 4}, {4, 5}, {5, 6}, {7, 7},
+        {1, 1},
+        {2, 2},
+        {3, 4},
+        {4, 5},
+        {5, 6},
+        {7, 7},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 
     out = {
-        {-4, -3}, {1, 0}, {3, -1}, {0, -1}, {-5, 2},
+        {-4, -3},
+        {1, 0},
+        {3, -1},
+        {0, -1},
+        {-5, 2},
     };
     ASSERT_FALSE(s.checkStraightLine(out));
 }

@@ -33,7 +33,28 @@ namespace Leet::Easy {
     {
         vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c)
         {
-            return {};
+            int row_len = mat.size();
+            int col_len = mat[0].size();
+
+            if (row_len * col_len != r * c)
+                return mat;
+
+            auto reshaped = vector(r, vector(c, 0));
+
+            int a = 0;
+            int b = 0;
+            for (int i = 0; i < row_len; i++) {
+                for (int j = 0; j < col_len; j++) {
+                    reshaped[a][b++] = mat[i][j];
+
+                    if (b == c) {
+                        b = 0;
+                        a++;
+                    }
+                }
+            }
+
+            return reshaped;
         }
     };
 }  // namespace Leet::Easy
