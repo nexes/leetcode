@@ -29,6 +29,7 @@
 #include <island_perimeter.h>
 #include <isomorphic_string.h>
 #include <kth_missing_number.h>
+#include <largest_odd_number_string.h>
 #include <length_last_word.h>
 #include <longest_palindrome.h>
 #include <majority_element.h>
@@ -923,4 +924,13 @@ TEST(Easy, base_seven)
 
     ASSERT_EQ(b.convertToBase7(100), "202");
     ASSERT_EQ(b.convertToBase7(-7), "-10");
+}
+
+TEST(Easy, largest_odd_number_string)
+{
+    Leet::Easy::LargestOddNumber l;
+
+    ASSERT_EQ(l.largestOddNumber("52"), "5");
+    ASSERT_EQ(l.largestOddNumber("4206"), "");
+    ASSERT_EQ(l.largestOddNumber("35427"), "35427");
 }
