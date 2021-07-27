@@ -8,6 +8,7 @@
 #include <bitwise_and_range.h>
 #include <bottom_left_tree_value.h>
 #include <bst_iterator.h>
+#include <count_sub_island.h>
 #include <counting_bits.h>
 #include <delete_two_strings.h>
 #include <divide_integers.h>
