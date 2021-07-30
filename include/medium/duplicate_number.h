@@ -18,19 +18,20 @@ namespace Leet::Medium
     // You must not modify the array (assume the array is read only).
     // You must use only constant, O(1) extra space.
     // Your runtime complexity should be less than O(n2).
-    // There is only one duplicate number in the array, but it could be repeated more than once.
+    // There is only one duplicate number in the array, but it could be repeated
+    // more than once.
     struct DuplicateNumber
     {
         // tortoise and the hare
         // https://en.wikipedia.org/wiki/Cycle_detection
-        int findDuplicate(std::vector<int> &nums)
-        {
+        int findDuplicate(std::vector<int> &nums) {
             int tortoise = nums[0];
             int hare = nums[0];
 
             do
             {
-                // per the problem description, nums will contain [1,n] numbers, so we don't need to check bounds
+                // per the problem description, nums will contain [1,n] numbers,
+                // so we don't need to check bounds
                 tortoise = nums[tortoise];
                 hare = nums[nums[hare]];
 
