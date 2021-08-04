@@ -2,9 +2,10 @@
 
 #include <vector>
 
-namespace Leet::Medium
-{
-    // Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
+namespace Leet::Medium {
+    // Given an array nums containing n + 1 integers where each integer is
+    // between 1 and n (inclusive), prove that at least one duplicate number
+    // must exist. Assume that there is only one duplicate number, find the duplicate one.
 
     // Example 1:
     // Input: [1,3,4,2,2]
@@ -24,12 +25,12 @@ namespace Leet::Medium
     {
         // tortoise and the hare
         // https://en.wikipedia.org/wiki/Cycle_detection
-        int findDuplicate(std::vector<int> &nums) {
+        int findDuplicate(std::vector<int> &nums)
+        {
             int tortoise = nums[0];
             int hare = nums[0];
 
-            do
-            {
+            do {
                 // per the problem description, nums will contain [1,n] numbers,
                 // so we don't need to check bounds
                 tortoise = nums[tortoise];
@@ -38,8 +39,7 @@ namespace Leet::Medium
             } while (tortoise != hare);
 
             tortoise = nums[0];
-            while (tortoise != hare)
-            {
+            while (tortoise != hare) {
                 tortoise = nums[tortoise];
                 hare = nums[hare];
             }
@@ -47,4 +47,4 @@ namespace Leet::Medium
             return hare;
         }
     };
-} // namespace Leet::Medium
+}  // namespace Leet::Medium
