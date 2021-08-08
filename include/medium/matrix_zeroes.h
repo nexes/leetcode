@@ -73,8 +73,10 @@ namespace Leet::Medium {
             for (int row = 0; row < row_size; row++) {
                 for (int col = 0; col < col_size; col++) {
                     if (matrix[row][col] == 0) {
-                        if (row == 0) zero_row = true;
-                        if (col == 0) zero_col = true;
+                        if (row == 0)
+                            zero_row = true;
+                        if (col == 0)
+                            zero_col = true;
 
                         matrix[row][0] = 0;
                         matrix[0][col] = 0;
