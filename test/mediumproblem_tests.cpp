@@ -7,6 +7,7 @@
 #include <binary_tree_level_order.h>
 #include <bitwise_and_range.h>
 #include <bottom_left_tree_value.h>
+#include <browser_history.h>
 #include <bst_iterator.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
