@@ -11,10 +11,10 @@ namespace Leet::Easy {
     // Note:
     // All letters in hexadecimal (a-f) must be in lowercase.
     // The hexadecimal string must not contain extra leading 0s. If the number is zero, it
-    // is represented by a single zero character '0'; otherwise, the first character in the
-    // hexadecimal string will not be the zero character. The given number is guaranteed to
-    // fit within the range of a 32-bit signed integer. You must not use any method provided
-    // by the library which converts/formats the number to hex directly.
+    // is represented by a single zero character '0'; otherwise, the first character in
+    // the hexadecimal string will not be the zero character. The given number is
+    // guaranteed to fit within the range of a 32-bit signed integer. You must not use any
+    // method provided by the library which converts/formats the number to hex directly.
 
     // Example 1:
     // Input: 26
@@ -28,28 +28,15 @@ namespace Leet::Easy {
         // convert to two's complement
         // Ignore sign and convert to binary system: 4(dec)=00000100(bin)=0x04(hex)
         // Invert, as the value is negative: 11111011(bin)=0xFB(hex)
-        // Add 1, as figure is negative: 11111011(bin) + 00000001(bin) = 11111100(bin) = 0xFC(hex)= -4(dec)
+        // Add 1, as figure is negative: 11111011(bin) + 00000001(bin) = 11111100(bin) =
+        // 0xFC(hex)= -4(dec)
         std::string toHex(int num)
         {
             long lnum = num;
             std::string hex{""};
             std::vector<char> hex_map{
-                '0',
-                '1',
-                '2',
-                '3',
-                '4',
-                '5',
-                '6',
-                '7',
-                '8',
-                '9',
-                'a',
-                'b',
-                'c',
-                'd',
-                'e',
-                'f',
+                '0', '1', '2', '3', '4', '5', '6', '7',
+                '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',
             };
 
             if (num == 0)
