@@ -69,6 +69,7 @@
 #include <two_sum_2.h>
 #include <twosums.h>
 #include <unique_char_str.h>
+#include <unique_num_occurrences.h>
 #include <valid_anagram.h>
 #include <valid_palindrome.h>
 #include <valid_parentheses.h>
@@ -920,4 +921,22 @@ TEST(Easy, largest_odd_number_string)
     ASSERT_EQ(l.largestOddNumber("52"), "5");
     ASSERT_EQ(l.largestOddNumber("4206"), "");
     ASSERT_EQ(l.largestOddNumber("35427"), "35427");
+}
+
+TEST(Easy, unique_num_occurrence)
+{
+    Leet::Easy::UniqueOccurrences u;
+
+    auto arr = std::vector<int>{1, 2, 2, 1, 1, 3};
+
+    ASSERT_TRUE(u.uniqueOccurrences(arr));
+
+    arr = {1, 2};
+    ASSERT_FALSE(u.uniqueOccurrences(arr));
+
+    arr = {3, 3, 3, 3};
+    ASSERT_TRUE(u.uniqueOccurrences(arr));
+
+    arr = {-3, 0, 1, -3, 1, 1, 1, -3, 10, 0};
+    ASSERT_TRUE(u.uniqueOccurrences(arr));
 }
