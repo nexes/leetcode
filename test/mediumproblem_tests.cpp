@@ -26,6 +26,7 @@
 #include <path_sum_2.h>
 #include <permutation_string.h>
 #include <reduce_array_half.h>
+#include <rle_iterator.h>
 #include <rotate_image.h>
 #include <search_2d_matrix.h>
 #include <search_2d_matrix_2.h>
