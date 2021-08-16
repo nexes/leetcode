@@ -52,7 +52,7 @@ namespace Leet::Medium {
     class RLEIterator
     {
     public:
-        RLEIterator(std::vector<int>& encoding) : pos(0), encoded()
+        RLEIterator(std::vector<int>& encoding) : pos(0), encoded(encoding)
         {
         }
 
