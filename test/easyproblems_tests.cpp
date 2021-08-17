@@ -40,6 +40,7 @@
 #include <min_absolute_diff.h>
 #include <min_depth_tree.h>
 #include <min_stack.h>
+#include <monotonic_array.h>
 #include <move_zeroes.h>
 #include <n_repeated_array.h>
 #include <number_complement.h>
@@ -939,4 +940,21 @@ TEST(Easy, unique_num_occurrence)
 
     arr = {-3, 0, 1, -3, 1, 1, 1, -3, 10, 0};
     ASSERT_TRUE(u.uniqueOccurrences(arr));
+}
+
+TEST(Easy, monotonic_array)
+{
+    Leet::Easy::Monotonic m;
+
+    auto arr = std::vector<int>{1, 2, 2, 3};
+    ASSERT_TRUE(m.isMonotonic_onepass(arr));
+
+    arr = std::vector<int>{1, 1, 1, 1};
+    ASSERT_TRUE(m.isMonotonic_onepass(arr));
+
+    arr = std::vector<int>{6, 5, 4, 4};
+    ASSERT_TRUE(m.isMonotonic_onepass(arr));
+
+    arr = std::vector<int>{6, 9, 4, 4};
+    ASSERT_FALSE(m.isMonotonic_onepass(arr));
 }
