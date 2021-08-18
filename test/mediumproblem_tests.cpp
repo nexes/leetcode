@@ -13,6 +13,7 @@
 #include <counting_bits.h>
 #include <delete_two_strings.h>
 #include <divide_integers.h>
+#include <find_replace_pattern.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
