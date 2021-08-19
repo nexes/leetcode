@@ -67,6 +67,7 @@
 #include <strstr.h>
 #include <symmetric_tree.h>
 #include <third_max_number.h>
+#include <transpose_matrix.h>
 #include <two_sum_2.h>
 #include <twosums.h>
 #include <unique_char_str.h>
