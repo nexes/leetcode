@@ -63,10 +63,10 @@ namespace Leet::Medium {
             long temp = sum;
 
             // you can see this working if you look at the system of equations
-            // F(0) = (0 * a) + (1 * b) + (2 * c) + (3 * d) + (4 * e) = 0 + b + 2c + 3d + 4e
-            // F(1) = (1 * a) + (2 * b) + (3 * c) + (4 * d) + (0 * e) = a + 2b + 3c + 4d + 0
-            // F(2) = (2 * a) + (3 * b) + (4 * c) + (0 * d) + (1 * e) = 2a + 3b + 4c + 0 + e
-            // etc
+            // F(0) = (0 * a) + (1 * b) + (2 * c) + (3 * d) + (4 * e) = 0 + b + 2c + 3d +
+            // 4e F(1) = (1 * a) + (2 * b) + (3 * c) + (4 * d) + (0 * e) = a + 2b + 3c +
+            // 4d + 0 F(2) = (2 * a) + (3 * b) + (4 * c) + (0 * d) + (1 * e) = 2a + 3b +
+            // 4c + 0 + e etc
             for (int i = 1; i < len; i++) {
                 temp = temp + arr_sum - len * a[len - i];
                 sum = std::max(sum, temp);
