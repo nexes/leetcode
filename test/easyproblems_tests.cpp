@@ -37,6 +37,7 @@
 #include <max_product_three.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
+#include <middle_of_linked_list.h>
 #include <min_absolute_diff.h>
 #include <min_depth_tree.h>
 #include <min_stack.h>
