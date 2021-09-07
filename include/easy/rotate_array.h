@@ -2,13 +2,12 @@
 
 #include <vector>
 
-namespace Leet::Easy
-{
+namespace Leet::Easy {
     // Given an array, rotate the array to the right by k steps, where k is non-negative.
 
     // Follow up:
-    // Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
-    // Could you do it in-place with O(1) extra space?
+    // Try to come up as many solutions as you can, there are at least 3 different ways to
+    // solve this problem. Could you do it in-place with O(1) extra space?
 
     // Example 1:
     // Input: nums = [1,2,3,4,5,6,7], k = 3
@@ -53,10 +52,9 @@ namespace Leet::Easy
 
             std::vector<int> temp(nums);
 
-            for (int i = 0; i < len; i++)
-            {
+            for (int i = 0; i < len; i++) {
                 nums[(i + k) % len] = temp[i];
             }
         }
     };
-} // namespace Leet::Easy
+}  // namespace Leet::Easy
