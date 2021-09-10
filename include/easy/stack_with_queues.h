@@ -86,12 +86,11 @@ namespace Leet::Easy {
             int value;
             int size = stack.size();
 
-            while (size > 1) {
+            while (size-- > 1) {
                 top_value = stack.front();
 
                 stack.pop();
                 stack.push(top_value);
-                size--;
             }
 
             value = stack.front();
