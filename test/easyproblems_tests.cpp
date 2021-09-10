@@ -65,6 +65,7 @@
 #include <single_number.h>
 #include <sort_array_parity.h>
 #include <sqrt.h>
+#include <stack_with_queues.h>
 #include <string_from_tree.h>
 #include <strstr.h>
 #include <symmetric_tree.h>
