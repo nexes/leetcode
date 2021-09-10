@@ -61,6 +61,7 @@
 #include <reverse_words_3.h>
 #include <rotate_array.h>
 #include <same_tree.h>
+#include <search_bst.h>
 #include <single_number.h>
 #include <sort_array_parity.h>
 #include <sqrt.h>
