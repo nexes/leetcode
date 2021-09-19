@@ -40,6 +40,7 @@
 #include <middle_of_linked_list.h>
 #include <min_absolute_diff.h>
 #include <min_depth_tree.h>
+#include <min_ops_increasing_array.h>
 #include <min_stack.h>
 #include <monotonic_array.h>
 #include <move_zeroes.h>
@@ -961,4 +962,15 @@ TEST(Easy, monotonic_array)
 
     arr = std::vector<int>{6, 9, 4, 4};
     ASSERT_FALSE(m.isMonotonic_onepass(arr));
+}
+
+TEST(Easy, min_ops_increasing_array)
+{
+    Leet::Easy::IncreasingArray i;
+
+    auto arr = std::vector<int>{9};
+    ASSERT_EQ(i.minOperations(arr), 0);
+
+    arr = {1, 5, 2, 4, 1};
+    ASSERT_EQ(i.minOperations(arr), 14);
 }
