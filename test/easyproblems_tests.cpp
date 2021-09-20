@@ -63,6 +63,7 @@
 #include <rotate_array.h>
 #include <same_tree.h>
 #include <search_bst.h>
+#include <sign_product_array.h>
 #include <single_number.h>
 #include <sort_array_parity.h>
 #include <sqrt.h>
@@ -973,4 +974,18 @@ TEST(Easy, min_ops_increasing_array)
 
     arr = {1, 5, 2, 4, 1};
     ASSERT_EQ(i.minOperations(arr), 14);
+}
+
+TEST(Easy, sign_product_array)
+{
+    Leet::Easy::SignProductArray s;
+
+    auto arr = std::vector<int>{-1, -2, -3, -4, 3, 2, 1};
+    ASSERT_EQ(s.arraySign(arr), 1);
+
+    arr = {1, 5, 0, 2, -3};
+    ASSERT_EQ(s.arraySign(arr), 0);
+
+    arr = {-1, 1, -1, 1, -1};
+    ASSERT_EQ(s.arraySign(arr), -1);
 }
