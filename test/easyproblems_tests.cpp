@@ -73,6 +73,7 @@
 #include <symmetric_tree.h>
 #include <third_max_number.h>
 #include <transpose_matrix.h>
+#include <truncate_sentence.h>
 #include <two_sum_2.h>
 #include <twosums.h>
 #include <unique_char_str.h>
@@ -988,4 +989,18 @@ TEST(Easy, sign_product_array)
 
     arr = {-1, 1, -1, 1, -1};
     ASSERT_EQ(s.arraySign(arr), -1);
+}
+
+TEST(Easy, truncate_sentence)
+{
+    Leet::Easy::TruncateSentence t;
+
+    auto s = "Hello how are you Contestant";
+    ASSERT_EQ(t.truncateSentence(s, 4), "Hello how are you");
+
+    s = "What is the solution to this problem";
+    ASSERT_EQ(t.truncateSentence(s, 4), "What is the solution");
+
+    s = "chopper is not a tanuki";
+    ASSERT_EQ(t.truncateSentence(s, 5), "chopper is not a tanuki");
 }
