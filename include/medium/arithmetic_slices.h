@@ -18,8 +18,8 @@ namespace Leet::Medium {
     // any pair of integers (P, Q) such that 0 <= P < Q < N.
 
     // A slice (P, Q) of the array A is called arithmetic if the sequence:
-    // A[P], A[P + 1], ..., A[Q - 1], A[Q] is arithmetic. In particular, this means that P
-    // + 1 < Q.
+    // A[P], A[P + 1], ..., A[Q - 1], A[Q] is arithmetic. In particular, this means that
+    // P + 1 < Q.
 
     // The function should return the number of arithmetic slices in the array A.
 
