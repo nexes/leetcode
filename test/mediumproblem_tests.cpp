@@ -24,6 +24,7 @@
 #include <max_length_pair_chain.h>
 #include <maximal_square.h>
 #include <next_greater_element_2.h>
+#include <nth_digit.h>
 #include <path_sum_2.h>
 #include <permutation_string.h>
 #include <reduce_array_half.h>
@@ -1028,4 +1029,13 @@ TEST(Medium, divide_integer)
     ASSERT_EQ(d.divide(12, 6), 2);
     ASSERT_EQ(d.divide(93, 5), 18);
     ASSERT_EQ(d.divide(20, -6), -3);
+}
+
+TEST(Medium, nth_digit)
+{
+    Leet::Medium::NthDigit d;
+
+    ASSERT_EQ(d.findNthDigit(15), 2);
+    ASSERT_EQ(d.findNthDigit(3), 3);
+    ASSERT_EQ(d.findNthDigit(11), 0);
 }
