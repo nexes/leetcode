@@ -11,12 +11,14 @@
 #include <bst_iterator.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
+#include <decode_string.h>
 #include <delete_two_strings.h>
 #include <divide_integers.h>
 #include <find_replace_pattern.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
+#include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
 #include <kth_smallest_element_matrix.h>
@@ -1038,4 +1040,14 @@ TEST(Medium, nth_digit)
     ASSERT_EQ(d.findNthDigit(15), 2);
     ASSERT_EQ(d.findNthDigit(3), 3);
     ASSERT_EQ(d.findNthDigit(11), 0);
+}
+
+TEST(Medium, decode_string)
+{
+    Leet::Medium::DecodeString d;
+
+    ASSERT_EQ(d.decodeString("3[a]2[bc]"), "aaabcbc");
+    ASSERT_EQ(d.decodeString("3[a2[c]]"), "accaccacc");
+    ASSERT_EQ(d.decodeString("2[abc]3[cd]ef"), "abcabccdcdcdef");
+    ASSERT_EQ(d.decodeString("abc3[cd]xyz"), "abccdcdcdxyz");
 }
