@@ -27,6 +27,7 @@
 #include <maximal_square.h>
 #include <next_greater_element_2.h>
 #include <nth_digit.h>
+#include <ocean_view.h>
 #include <path_sum_2.h>
 #include <permutation_string.h>
 #include <reduce_array_half.h>
@@ -1050,4 +1051,21 @@ TEST(Medium, decode_string)
     ASSERT_EQ(d.decodeString("3[a2[c]]"), "accaccacc");
     ASSERT_EQ(d.decodeString("2[abc]3[cd]ef"), "abcabccdcdcdef");
     ASSERT_EQ(d.decodeString("abc3[cd]xyz"), "abccdcdcdxyz");
+}
+
+TEST(Medium, ocean_view)
+{
+    Leet::Medium::OceanView o;
+
+    auto arr = std::vector<int>{4, 2, 3, 1};
+    auto ans = std::vector<int>{0, 2, 3};
+    ASSERT_EQ(o.findBuildings(arr), ans);
+
+    arr = {4, 3, 2, 1};
+    ans = {0, 1, 2, 3};
+    ASSERT_EQ(o.findBuildings(arr), ans);
+
+    arr = {1, 3, 2, 4};
+    ans = {3};
+    ASSERT_EQ(o.findBuildings(arr), ans);
 }
