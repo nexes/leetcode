@@ -17,6 +17,7 @@ namespace Leet::Easy {
     // 1 <= num <= 2^31 - 1
     struct PerfectSqr
     {
+        // binary search our way to a perfect square if it exists
         bool isPerfectSquare(int num)
         {
             long low = 1;
@@ -36,6 +37,21 @@ namespace Leet::Easy {
                     return true;
                 }
             }
+
+            return false;
+        }
+
+        // easier to understand but slower solution.
+        bool isPerfectSquare_slower(int num)
+        {
+            int limit = num / 2;
+
+            if (num == 1)
+                return true;
+
+            for (long long i = 2; i <= limit; i++)
+                if (i * i == num)
+                    return true;
 
             return false;
         }
