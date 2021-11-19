@@ -61,6 +61,7 @@
 #include <reverse_integer.h>
 #include <reverse_string.h>
 #include <reverse_string_2.h>
+#include <reverse_vowels.h>
 #include <reverse_words_3.h>
 #include <rotate_array.h>
 #include <same_tree.h>
@@ -1005,4 +1006,15 @@ TEST(Easy, truncate_sentence)
 
     s = "chopper is not a tanuki";
     ASSERT_EQ(t.truncateSentence(s, 5), "chopper is not a tanuki");
+}
+
+TEST(Easy, reverse_vowels)
+{
+    Leet::Easy::ReverseVowel r;
+
+    auto s = "hello";
+    ASSERT_EQ(r.reverseVowels(s), "holle");
+
+    s = "leetcode";
+    ASSERT_EQ(r.reverseVowels(s), "leotcede");
 }
