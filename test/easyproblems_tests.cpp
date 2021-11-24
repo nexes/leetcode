@@ -8,6 +8,7 @@
 #include <base7.h>
 #include <binary_substring.h>
 #include <binary_tree_mode.h>
+#include <check_if_rotated.h>
 #include <check_straight_line.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
@@ -1017,4 +1018,18 @@ TEST(Easy, reverse_vowels)
 
     s = "leetcode";
     ASSERT_EQ(r.reverseVowels(s), "leotcede");
+}
+
+TEST(Easy, check_if_sorted_rotated)
+{
+    Leet::Easy::IsRotatedArray r;
+
+    auto arr = std::vector<int>{1, 2, 3};
+    ASSERT_TRUE(r.check(arr));
+
+    arr = std::vector<int>{3, 4, 5, 1, 2};
+    ASSERT_TRUE(r.check(arr));
+
+    arr = std::vector<int>{2, 1, 3, 4};
+    ASSERT_FALSE(r.check(arr));
 }

@@ -35,7 +35,8 @@ namespace Leet::Medium {
 
             for (auto i : nums) {
                 qq.emplace(i);
-                if (qq.size() > k) qq.pop();
+                if (qq.size() > k)
+                    qq.pop();
             }
 
             return qq.top();
