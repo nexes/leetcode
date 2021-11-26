@@ -22,6 +22,7 @@
 #include <interleave_string.h>
 #include <k_closest_elements.h>
 #include <kth_smallest_element_matrix.h>
+#include <largest_merge_string.h>
 #include <max_binary_tree.h>
 #include <max_length_pair_chain.h>
 #include <maximal_square.h>
@@ -1068,4 +1069,12 @@ TEST(Medium, ocean_view)
     arr = {1, 3, 2, 4};
     ans = {3};
     ASSERT_EQ(o.findBuildings(arr), ans);
+}
+
+TEST(Medium, largest_merge_string)
+{
+    Leet::Medium::LargestMergeString l;
+
+    ASSERT_EQ(l.largestMerge("cabaa", "bcaaa"), "cbcabaaaaa");
+    ASSERT_EQ(l.largestMerge("abcabc", "abdcaba"), "abdcabcabcaba");
 }
