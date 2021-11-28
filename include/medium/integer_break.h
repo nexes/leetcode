@@ -33,7 +33,8 @@ namespace Leet::Medium {
             for (int i = n - 1; i > 1; i--) {
                 for (int j = 2; j < n; j++) {
                     if (i + j == n) {
-                        int p = std::max(i, integerBreak(i)) * std::max(j, integerBreak(j));
+                        int p =
+                            std::max(i, integerBreak(i)) * std::max(j, integerBreak(j));
                         prod = std::max(prod, p);
                     }
                 }
