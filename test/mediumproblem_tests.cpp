@@ -40,6 +40,7 @@
 #include <sort_colors.h>
 #include <subarray_sum_k.h>
 #include <top_k_frequent_words.h>
+#include <validate_binary_search_tree.h>
 // #include <decode_string.h>
 #include <arithmetic_slices.h>
 #include <coin_change.h>
