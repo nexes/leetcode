@@ -11,7 +11,7 @@ namespace Leet::Easy {
             std::string bit;
 
             while (n > 0) {
-                bit = n & 0x01 == 1 ? "1" : "0";
+                bit = (n & 0x01) == 1 ? "1" : "0";
                 binary = bit + binary;
                 n = n >> 1;
             }
@@ -24,7 +24,7 @@ namespace Leet::Easy {
             std::string binary;
 
             while (n > 0) {
-                binary += n & 0x01 == 1 ? "1" : "0";
+                binary += (n & 0x01) == 1 ? "1" : "0";
                 n = n >> 1;
             }
 
