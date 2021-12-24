@@ -18,9 +18,10 @@
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
-#include <integer_replacement.h>
+// #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
+#include <k_pairs_smallest_sum.h>
 #include <kth_smallest_element_matrix.h>
 #include <largest_merge_string.h>
 #include <max_binary_tree.h>
