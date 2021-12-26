@@ -36,7 +36,8 @@ namespace Leet::Medium {
     // 1 <= k <= 1000
     struct KPairsSmallSum
     {
-        vector<vector<int>> kSmallestPairs(vector<int> &nums1, vector<int> &nums2, int k)
+        vector<vector<int>> kSmallestPairs_naive(vector<int> &nums1, vector<int> &nums2,
+                                                 int k)
         {
             // <sum, [x, y]>
             priority_queue<std::pair<int, std::pair<int, int>>,
@@ -64,6 +65,43 @@ namespace Leet::Medium {
                 pair[1] = top.second.second;
 
                 pairs.emplace_back(pair);
+            }
+
+            return pairs;
+        }
+
+        vector<vector<int>> kSmallestPairs(vector<int> &nums1, vector<int> &nums2, int k)
+        {
+            // <sum, [x, y]>
+            using sum_pair = std::pair<int, std::pair<int, int>>;
+
+            vector<int> pair(2);
+            vector<vector<int>> pairs;
+            priority_queue<sum_pair, vector<sum_pair>, std::greater<sum_pair>> pair_queue;
+
+            // pair_queue is a priority queue that will hold the sum and the indices where
+            // that sum was found
+            for (int i = 0; i < nums1.size(); i++)
+                pair_queue.push({nums1[i] + nums2[0], {i, 0}});
+
+            while (k-- && !pair_queue.empty()) {
+                auto top_pair = pair_queue.top();
+
+                pair[0] = nums1[top_pair.second.first];
+                pair[1] = nums2[top_pair.second.second];
+                pairs.emplace_back(pair);
+
+                // we want to 'walk' down the second array, keeping the index in place
+                // of the first array. We will create a new sum and place it into the
+                // priority queue (this will put it in its place based on the sum).
+                if (top_pair.second.second + 1 < nums2.size()) {
+                    int first = top_pair.second.first;
+                    int second = top_pair.second.second + 1;
+
+                    pair_queue.push({nums1[first] + nums2[second], {first, second}});
+                }
+
+                pair_queue.pop();
             }
 
             return pairs;
