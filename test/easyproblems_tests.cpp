@@ -6,6 +6,7 @@
 #include <average_level_tree.h>
 #include <balanced_binary_tree.h>
 #include <base7.h>
+#include <binary_alternating_bits.h>
 #include <binary_substring.h>
 #include <binary_tree_mode.h>
 #include <check_if_rotated.h>
@@ -1032,4 +1033,13 @@ TEST(Easy, check_if_sorted_rotated)
 
     arr = std::vector<int>{2, 1, 3, 4};
     ASSERT_FALSE(r.check(arr));
+}
+
+TEST(Easy, binary_alternating_bits)
+{
+    Leet::Easy::BinaryAltBits b;
+
+    ASSERT_TRUE(b.hasAlternatingBits(5));
+    ASSERT_FALSE(b.hasAlternatingBits(7));
+    ASSERT_FALSE(b.hasAlternatingBits(11));
 }
