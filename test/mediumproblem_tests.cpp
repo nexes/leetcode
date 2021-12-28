@@ -18,6 +18,7 @@
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <inorder_traversal.h>
+#include <insert_binary_tree.h>
 // #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
