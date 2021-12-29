@@ -49,6 +49,7 @@
 #include <monotonic_array.h>
 #include <move_zeroes.h>
 #include <n_repeated_array.h>
+#include <nth_tribonacci_number.h>
 #include <number_complement.h>
 #include <palindrome.h>
 #include <pascals_triangle.h>
@@ -1042,4 +1043,12 @@ TEST(Easy, binary_alternating_bits)
     ASSERT_TRUE(b.hasAlternatingBits(5));
     ASSERT_FALSE(b.hasAlternatingBits(7));
     ASSERT_FALSE(b.hasAlternatingBits(11));
+}
+
+TEST(Easy, nth_tribonacci)
+{
+    Leet::Easy::Tribonacci t;
+
+    ASSERT_EQ(t.tribonacci(4), 4);
+    ASSERT_EQ(t.tribonacci(25), 1389537);
 }
