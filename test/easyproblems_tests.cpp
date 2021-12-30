@@ -11,6 +11,7 @@
 #include <binary_tree_mode.h>
 #include <check_if_rotated.h>
 #include <check_straight_line.h>
+#include <climbing_stairs.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
 #include <convert_to_hex.h>
@@ -1051,4 +1052,12 @@ TEST(Easy, nth_tribonacci)
 
     ASSERT_EQ(t.tribonacci(4), 4);
     ASSERT_EQ(t.tribonacci(25), 1389537);
+}
+
+TEST(Easy, climbing_stairs)
+{
+    Leet::Easy::ClimbingStairs c;
+
+    ASSERT_EQ(c.climbStairs(2), 2);
+    ASSERT_EQ(c.climbStairs(3), 3);
 }
