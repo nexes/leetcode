@@ -17,6 +17,7 @@
 #include <find_replace_pattern.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
+#include <house_robber.h>
 #include <inorder_traversal.h>
 #include <insert_binary_tree.h>
 // #include <integer_replacement.h>
@@ -1080,4 +1081,18 @@ TEST(Medium, largest_merge_string)
 
     ASSERT_EQ(l.largestMerge("cabaa", "bcaaa"), "cbcabaaaaa");
     ASSERT_EQ(l.largestMerge("abcabc", "abdcaba"), "abdcabcabcaba");
+}
+
+TEST(Medium, house_robber)
+{
+    Leet::Medium::HouseRobber r;
+
+    auto arr = std::vector<int>{2, 1, 1, 2};
+    ASSERT_EQ(r.rob(arr), 4);
+
+    arr = {1, 2, 3, 1};
+    ASSERT_EQ(r.rob(arr), 4);
+
+    arr = {2, 7, 9, 3, 1};
+    ASSERT_EQ(r.rob(arr), 12);
 }
