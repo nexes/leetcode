@@ -29,22 +29,24 @@ namespace Leet::Easy {
         // Could you do it without using any loop / recursion?
         bool isPowerOfThree(int n)
         {
-            // In particular, n is of type int. In Java for example, this means it is a 4 byte, signed integer.
-            // The maximum value of this data type is 2147483647. Three ways of calculating this value are
-            // −1 since we use 32 bits to represent the number, half of the range is used for negative numbers
-            // and 0 is part of the positive numbers Knowing the limitation of n, we can now deduce that the
-            // maximum value of n that is also a power of three is 1162261467. We calculate this as:
+            // In particular, n is of type int. In Java for example, this means it is a 4
+            // byte, signed integer. The maximum value of this data type is 2147483647.
+            // Three ways of calculating this value are −1 since we use 32 bits to
+            // represent the number, half of the range is used for negative numbers and 0
+            // is part of the positive numbers Knowing the limitation of n, we can now
+            // deduce that the maximum value of n that is also a power of three is
+            // 1162261467. We calculate this as:
 
-            // 3^{19} = 11622614673 which is the highest power of 3 before we pass the limit of an int
-            // because this limit is a power of three, all other power of threes will divide without a remainder
+            // 3^{19} = 11622614673 which is the highest power of 3 before we pass the
+            // limit of an int because this limit is a power of three, all other power of
+            // threes will divide without a remainder
             auto limit = static_cast<int>(std::pow(3.0, 19.0));
             return n > 0 && limit % n == 0;
         }
 
         bool isPowerOfThree_linear(int n)
         {
-            while (n > 1 && n % 3 == 0)
-            {
+            while (n > 1 && n % 3 == 0) {
                 n /= 3;
             }
 

@@ -57,6 +57,7 @@
 #include <perfect_square.h>
 #include <plusone.h>
 #include <power_of_three.h>
+#include <power_of_two.h>
 #include <ransom_note.h>
 #include <remove_duplicate_list.h>
 #include <remove_list_elements.h>
@@ -1060,4 +1061,13 @@ TEST(Easy, climbing_stairs)
 
     ASSERT_EQ(c.climbStairs(2), 2);
     ASSERT_EQ(c.climbStairs(3), 3);
+}
+
+TEST(Easy, power_of_two)
+{
+    Leet::Easy::PowerOfTwo p;
+
+    ASSERT_TRUE(p.isPowerOfTwo_bit(1));
+    ASSERT_TRUE(p.isPowerOfTwo_bit(16));
+    ASSERT_FALSE(p.isPowerOfTwo_bit(3));
 }
