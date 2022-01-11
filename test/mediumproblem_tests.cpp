@@ -20,6 +20,7 @@
 #include <house_robber.h>
 #include <inorder_traversal.h>
 #include <insert_binary_tree.h>
+#include <product_array_except.h>
 // #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
@@ -116,9 +117,9 @@ TEST(Medium, Palindrome_substring)
     ASSERT_EQ(p.longestPalindrome_faster("bb"), "bb") << "bb";
     ASSERT_EQ(p.longestPalindrome_faster("bxb"), "bxb") << "bxb";
     ASSERT_EQ(p.longestPalindrome_faster("ac"), "a") << "a";
-    ASSERT_EQ(
-        p.longestPalindrome_faster("dddddddddddddddddddddddddddddddddddddddddddddddd"),
-        "dddddddddddddddddddddddddddddddddddddddddddddddd");
+    ASSERT_EQ(p.longestPalindrome_faster(
+                  "dddddddddddddddddddddddddddddddddddddddddddddddd"),
+              "dddddddddddddddddddddddddddddddddddddddddddddddd");
 }
 
 TEST(Medium, Swap_Nodes)
@@ -900,8 +901,10 @@ TEST(Medium, rotate_image)
 {
     Leet::Medium::RotateImage r;
 
-    auto matrix = std::vector<std::vector<int>>{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    auto rotated = std::vector<std::vector<int>>{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
+    auto matrix =
+        std::vector<std::vector<int>>{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    auto rotated =
+        std::vector<std::vector<int>>{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
 
     r.rotate(matrix);
     ASSERT_EQ(matrix, rotated);
@@ -925,8 +928,8 @@ TEST(Medium, permutation_in_string)
 // {
 //     Leet::Medium::GroupAnagram g;
 
-//     auto str = std::vector<std::string>{"eat", "tea", "tan", "ate", "nat", "bat"};
-//     auto out = std::vector<std::vector<std::string>>{
+//     auto str = std::vector<std::string>{"eat", "tea", "tan", "ate", "nat",
+//     "bat"}; auto out = std::vector<std::vector<std::string>>{
 //         {"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}};
 
 //     ASSERT_EQ(g.groupAnagrams(str), out);
@@ -1095,4 +1098,24 @@ TEST(Medium, house_robber)
 
     arr = {2, 7, 9, 3, 1};
     ASSERT_EQ(r.rob(arr), 12);
+}
+
+TEST(Medium, total_product_except_self)
+{
+    Leet::Medium::ProductArray p;
+
+    auto arr = std::vector<int>{1, 2, 3, 4};
+    auto ans = std::vector<int>{24, 12, 8, 6};
+
+    ASSERT_EQ(p.productExceptSelf(arr), ans);
+
+    arr = {-1, 1, 0, -3, 3};
+    ans = {0, 0, 9, 0, 0};
+
+    ASSERT_EQ(p.productExceptSelf(arr), ans);
+
+    arr = {0, 0};
+    ans = {0, 0};
+
+    ASSERT_EQ(p.productExceptSelf(arr), ans);
 }
