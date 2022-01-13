@@ -21,6 +21,7 @@
 #include <inorder_traversal.h>
 #include <insert_binary_tree.h>
 #include <product_array_except.h>
+#include <single_element_sorted_array.h>
 // #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
@@ -1118,4 +1119,21 @@ TEST(Medium, total_product_except_self)
     ans = {0, 0};
 
     ASSERT_EQ(p.productExceptSelf(arr), ans);
+}
+
+TEST(Meidum, single_element_sorted_array)
+{
+    Leet::Medium::SingleElementArray s;
+
+    auto arr = std::vector<int>{1, 1, 2, 3, 3, 4, 4, 8, 8};
+    ASSERT_EQ(s.singleNonDuplicate(arr), 2);
+
+    arr = {3, 3, 5, 5, 6, 6, 10, 11, 11};
+    ASSERT_EQ(s.singleNonDuplicate(arr), 10);
+
+    arr = {1};
+    ASSERT_EQ(s.singleNonDuplicate(arr), 1);
+
+    arr = {1, 1, 2};
+    ASSERT_EQ(s.singleNonDuplicate(arr), 2);
 }
