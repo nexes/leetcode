@@ -43,7 +43,34 @@ namespace Leet::Medium {
         // time: O(log(n)) space: O(1)
         int singleNonDuplicate(std::vector<int> &nums)
         {
-            return 0;
+            int l = 0;
+            int r = nums.size() - 1;
+            int mid;
+
+            if (r == 0)
+                return nums[0];
+
+            while (l <= r) {
+                mid = (l + r) / 2;
+
+                // bounds check at zero
+                if (mid == 0 && nums[mid] != nums[mid + 1])
+                    return nums[mid];
+
+                // unique number is at mid
+                if (nums[mid - 1] != nums[mid] && nums[mid + 1] != nums[mid])
+                    return nums[mid];
+
+                // go left
+                if (mid % 2 == 0 && nums[mid] == nums[mid - 1] ||
+                    mid % 2 != 0 && nums[mid] == nums[mid + 1]) {
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+
+            return -1;
         }
     };
 }  // namespace Leet::Medium
