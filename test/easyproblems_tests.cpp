@@ -20,6 +20,7 @@
 #include <cousins_binary_tree.h>
 #include <decode_xor_arr.h>
 #include <defang_ip.h>
+#include <degree_of_array.h>
 #include <disappeared_nums.h>
 #include <distribute_candies.h>
 #include <fibonacci_number.h>
@@ -1070,4 +1071,16 @@ TEST(Easy, power_of_two)
     ASSERT_TRUE(p.isPowerOfTwo_bit(1));
     ASSERT_TRUE(p.isPowerOfTwo_bit(16));
     ASSERT_FALSE(p.isPowerOfTwo_bit(3));
+}
+
+TEST(Easy, degree_of_array)
+{
+    Leet::Easy::DegreeArray d;
+
+    std::vector<int> arr{1, 2, 2, 3, 1};
+
+    ASSERT_EQ(d.findShortestSubArray(arr), 2);
+
+    arr = {1, 2, 2, 3, 1, 4, 2};
+    ASSERT_EQ(d.findShortestSubArray(arr), 6);
 }
