@@ -53,6 +53,7 @@
 #include <n_repeated_array.h>
 #include <nth_tribonacci_number.h>
 #include <number_complement.h>
+#include <number_different_ints.h>
 #include <palindrome.h>
 #include <pascals_triangle.h>
 #include <perfect_square.h>
@@ -1083,4 +1084,14 @@ TEST(Easy, degree_of_array)
 
     arr = {1, 2, 2, 3, 1, 4, 2};
     ASSERT_EQ(d.findShortestSubArray(arr), 6);
+}
+
+TEST(Easy, number_of_different_ints)
+{
+    Leet::Easy::IntegersInString i;
+
+    ASSERT_EQ(i.numDifferentIntegers("a123bc34d8ef34"), 3);
+    ASSERT_EQ(i.numDifferentIntegers("leet1234code234"), 2);
+    ASSERT_EQ(i.numDifferentIntegers("a1b01c001"), 1);
+    ASSERT_EQ(i.numDifferentIntegers("0a0"), 1);
 }
