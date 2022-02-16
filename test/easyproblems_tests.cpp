@@ -79,6 +79,7 @@
 #include <sqrt.h>
 #include <stack_with_queues.h>
 #include <string_from_tree.h>
+#include <string_halves_alike.h>
 #include <strstr.h>
 #include <symmetric_tree.h>
 #include <third_max_number.h>
@@ -1094,4 +1095,12 @@ TEST(Easy, number_of_different_ints)
     ASSERT_EQ(i.numDifferentIntegers("leet1234code234"), 2);
     ASSERT_EQ(i.numDifferentIntegers("a1b01c001"), 1);
     ASSERT_EQ(i.numDifferentIntegers("0a0"), 1);
+}
+
+TEST(Easy, string_halves_alike)
+{
+    Leet::Easy::StringHalvesAlike s;
+
+    ASSERT_TRUE(s.halvesAreAlike("book"));
+    ASSERT_FALSE(s.halvesAreAlike("textbook"));
 }
