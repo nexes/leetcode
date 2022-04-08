@@ -23,6 +23,7 @@
 #include <kth_smallest_element_tree.h>
 #include <minimum_path_sum.h>
 #include <product_array_except.h>
+#include <recover_bst.h>
 #include <single_element_sorted_array.h>
 // #include <integer_replacement.h>
 #include <interleave_string.h>
