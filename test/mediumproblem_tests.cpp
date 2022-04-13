@@ -25,6 +25,7 @@
 #include <product_array_except.h>
 #include <recover_bst.h>
 #include <single_element_sorted_array.h>
+#include <unique_bst.h>
 // #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
@@ -1124,7 +1125,7 @@ TEST(Medium, total_product_except_self)
     ASSERT_EQ(p.productExceptSelf(arr), ans);
 }
 
-TEST(Meidum, single_element_sorted_array)
+TEST(Medium, single_element_sorted_array)
 {
     Leet::Medium::SingleElementArray s;
 
@@ -1139,4 +1140,12 @@ TEST(Meidum, single_element_sorted_array)
 
     arr = {1, 1, 2};
     ASSERT_EQ(s.singleNonDuplicate(arr), 2);
+}
+
+TEST(Medium, unique_bst)
+{
+    Leet::Medium::UniqueBST ub;
+
+    ASSERT_EQ(ub.numTrees(3), 5);
+    ASSERT_EQ(ub.numTrees(1), 1);
 }
