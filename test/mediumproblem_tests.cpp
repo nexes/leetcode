@@ -22,6 +22,7 @@
 #include <insert_binary_tree.h>
 #include <kth_smallest_element_tree.h>
 #include <minimum_path_sum.h>
+#include <minimum_rotated_array.h>
 #include <product_array_except.h>
 #include <recover_bst.h>
 #include <single_element_sorted_array.h>
@@ -1148,4 +1149,19 @@ TEST(Medium, unique_bst)
 
     ASSERT_EQ(ub.numTrees(3), 5);
     ASSERT_EQ(ub.numTrees(1), 1);
+}
+
+TEST(Medium, minimum_rotated_array)
+{
+    Leet::Medium::MinimumRotatedArray m;
+
+    auto arr = std::vector<int>{3, 4, 5, 1, 2};
+
+    ASSERT_EQ(m.findMin(arr), 1);
+
+    arr = {4, 5, 6, 7, 0, 1, 2};
+    ASSERT_EQ(m.findMin(arr), 0);
+
+    arr = {11, 13, 15, 17};
+    ASSERT_EQ(m.findMin(arr), 11);
 }
