@@ -30,6 +30,7 @@
 #include <greedy_sellstock.h>
 #include <gtest/gtest.h>
 #include <hamming_distance.h>
+#include <happy_numer.h>
 #include <insert_position.h>
 #include <integer_to_binary.h>
 #include <is_subsequence.h>
@@ -1103,4 +1104,12 @@ TEST(Easy, string_halves_alike)
 
     ASSERT_TRUE(s.halvesAreAlike("book"));
     ASSERT_FALSE(s.halvesAreAlike("textbook"));
+}
+
+TEST(Easy, happy_number)
+{
+    Leet::Easy::HappyNumber h;
+
+    ASSERT_TRUE(h.isHappy(19));
+    ASSERT_FALSE(h.isHappy(2));
 }
