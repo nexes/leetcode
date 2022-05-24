@@ -7,14 +7,16 @@
 #include <vector>
 
 namespace Leet::Medium {
-    // Given a string, sort it in decreasing order based on the frequency of characters.
+    // Given a string, sort it in decreasing order based on the frequency of
+    // characters.
 
     // Example 1:
     // Input: "tree"
     // Output: "eert"
     // Explanation:
     // 'e' appears twice while 'r' and 't' both appear once.
-    // So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+    // So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a
+    // valid answer.
 
     // Example 2:
     // Input: "cccaaa"
@@ -56,12 +58,10 @@ namespace Leet::Medium {
             }
 
             // O(nlog(n))
-            std::sort(
-                freq_str.begin(),
-                freq_str.end(),
-                [](const std::string& a, const std::string& b) {
-                    return a.length() > b.length();
-                });
+            std::sort(freq_str.begin(), freq_str.end(),
+                      [](const std::string& a, const std::string& b) {
+                          return a.length() > b.length();
+                      });
 
             // O(n)
             for (auto& s : freq_str)
@@ -75,7 +75,8 @@ namespace Leet::Medium {
         {
             std::string out{""};
             auto freq_map = std::unordered_map<char, std::string>{};
-            auto freq_queue = std::priority_queue<std::pair<int, std::string>>{};
+            auto freq_queue =
+                std::priority_queue<std::pair<int, std::string>>{};
 
             for (const auto& c : s) {
                 if (auto it = freq_map.emplace(c, std::string{c}); !it.second) {

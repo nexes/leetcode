@@ -68,17 +68,10 @@ namespace Leet::Medium {
             std::stringstream ss(s);
             ss >> s;
 
-            // remove whitespace
-            // if (s.length() > 0)
-            //     s.erase(std::remove_if(s.begin(), s.end(),
-            //                            [](unsigned char c) {
-            //                                return std::isspace(c);
-            //                            }),
-            //             s.end());
-
             if (s.empty())
                 return 0;
 
+            // get the sign
             if (s.at(0) == '+' || s.at(0) == '-') {
                 i = 1;
                 if (s.at(0) == '-')
@@ -88,7 +81,7 @@ namespace Leet::Medium {
             while (i < s.length() && isdigit(s.at(i))) {
                 x = x * 10 + s.at(i++) - '0';
 
-                if (x > max)
+                if (x * sign >= max || x * sign <= min)
                     break;
             }
 
