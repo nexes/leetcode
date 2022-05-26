@@ -56,6 +56,7 @@ namespace Leet::Medium {
 
         Leet::ListNode *sortList(Leet::ListNode *head)
         {
+            return nullptr;
         }
     };
 }  // namespace Leet::Medium
