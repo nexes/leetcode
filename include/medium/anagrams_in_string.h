@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <array>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -67,7 +68,8 @@ namespace Leet::Medium {
         }
 
         // using a sliding window algorithm. O(n)
-        std::vector<int> findAnagrams_sliding_window(std::string s, std::string p)
+        std::vector<int> findAnagrams_sliding_window(std::string s,
+                                                     std::string p)
         {
             std::vector<int> indices;
 
