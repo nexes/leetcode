@@ -50,7 +50,7 @@ namespace Leet::Medium {
             if (r == 0)
                 return nums[0];
 
-            while (l <= r) {
+            while (l < r) {
                 mid = (l + r) / 2;
 
                 // bounds check at zero
@@ -70,7 +70,7 @@ namespace Leet::Medium {
                 }
             }
 
-            return -1;
+            return l;
         }
     };
 }  // namespace Leet::Medium
