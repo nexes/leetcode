@@ -71,9 +71,41 @@ namespace Leet::Medium {
             return head;
         }
 
+        // rotate a linked list without using a vector
         Leet::ListNode* rotateRight(Leet::ListNode* head, int k)
         {
-            return nullptr;
+            int i = 0;
+            int diff = 0;
+            int length = 1;
+            Leet::ListNode* curr = head;
+            Leet::ListNode* newHead = head;
+
+            while (curr && curr->next) {
+                curr = curr->next;
+                length++;
+            }
+
+            k = k % length;
+            diff = length - k;
+            curr = head;
+
+            if (head == nullptr || k == 0 || length == 1)
+                return head;
+
+            while (i++ < diff - 1)
+                curr = curr->next;
+
+            newHead = curr->next;
+            curr->next = nullptr;
+            curr = newHead;
+
+            i = 0;
+            while (i++ < k - 1)
+                curr = curr->next;
+
+            curr->next = head;
+
+            return newHead;
         }
     };
 }  // namespace Leet::Medium
