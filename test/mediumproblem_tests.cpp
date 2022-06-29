@@ -20,6 +20,7 @@
 #include <house_robber.h>
 #include <inorder_traversal.h>
 #include <insert_binary_tree.h>
+#include <insertion_sort_list.h>
 #include <kth_smallest_element_tree.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
