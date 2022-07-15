@@ -24,6 +24,7 @@
 #include <kth_smallest_element_tree.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
+#include <preorder_serialization.h>
 #include <product_array_except.h>
 #include <recover_bst.h>
 #include <rotate_list.h>
@@ -1165,4 +1166,18 @@ TEST(Medium, minimum_rotated_array)
 
     arr = {11, 13, 15, 17};
     ASSERT_EQ(m.findMin(arr), 11);
+}
+TEST(Medium, preorder_serialization)
+{
+    Leet::Medium::PreorderSerialization p;
+
+    string s = "9,3,4,#,#,1,#,#,2,#,6,#,#";
+
+    ASSERT_TRUE(p.isValidSerialization(s));
+
+    s = "9,#,#,1";
+    ASSERT_FALSE(p.isValidSerialization(s));
+
+    s = "9,#,92,#,#";
+    ASSERT_TRUE(p.isValidSerialization(s));
 }
