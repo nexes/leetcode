@@ -41,6 +41,7 @@
 #include <length_last_word.h>
 #include <longest_palindrome.h>
 #include <majority_element.h>
+#include <max_consecutive_ones.h>
 #include <max_product_three.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
@@ -1112,4 +1113,16 @@ TEST(Easy, happy_number)
 
     ASSERT_TRUE(h.isHappy(19));
     ASSERT_FALSE(h.isHappy(2));
+}
+
+TEST(Easy, max_consecutive_ones)
+{
+    Leet::Easy::MaxOnes m;
+
+    std::vector<int> nums{1, 1, 0, 1, 1, 1};
+
+    ASSERT_EQ(m.findMaxConsecutiveOnes(nums), 3);
+
+    nums = {1, 0, 1, 1, 0, 1};
+    ASSERT_EQ(m.findMaxConsecutiveOnes(nums), 2);
 }
