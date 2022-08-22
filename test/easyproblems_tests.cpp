@@ -95,6 +95,7 @@
 #include <valid_palindrome.h>
 #include <valid_parentheses.h>
 #include <word_pattern.h>
+#include <x_matrix.h>
 
 #include <vector>
 
@@ -1125,4 +1126,18 @@ TEST(Easy, max_consecutive_ones)
 
     nums = {1, 0, 1, 1, 0, 1};
     ASSERT_EQ(m.findMaxConsecutiveOnes(nums), 2);
+}
+
+TEST(Easy, check_x_matrix)
+{
+    Leet::Easy::XMatrix m;
+
+    std::vector<std::vector<int>> matrix = {
+        {2, 0, 0, 1},
+        {0, 3, 1, 0},
+        {0, 5, 2, 0},
+        {4, 0, 0, 2},
+    };
+
+    ASSERT_TRUE(m.checkXMatrix(matrix));
 }
