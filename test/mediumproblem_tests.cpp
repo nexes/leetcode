@@ -30,6 +30,7 @@
 #include <rotate_list.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
+#include <triangle.h>
 #include <unique_bst.h>
 // #include <integer_replacement.h>
 #include <interleave_string.h>
@@ -80,6 +81,7 @@
 #include <multiply_strings.h>
 #include <nth_node.h>
 #include <number_of_islands.h>
+#include <palindrome_partition.h>
 #include <palindrome_substr.h>
 #include <pancake_sort.h>
 #include <permutations.h>
@@ -1167,6 +1169,7 @@ TEST(Medium, minimum_rotated_array)
     arr = {11, 13, 15, 17};
     ASSERT_EQ(m.findMin(arr), 11);
 }
+
 TEST(Medium, preorder_serialization)
 {
     Leet::Medium::PreorderSerialization p;
@@ -1180,4 +1183,18 @@ TEST(Medium, preorder_serialization)
 
     s = "9,#,92,#,#";
     ASSERT_TRUE(p.isValidSerialization(s));
+}
+
+TEST(Medium, triangle)
+{
+    Leet::Medium::Triangle t;
+
+    auto arr =
+        std::vector<std::vector<int>>{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
+
+    ASSERT_EQ(t.minimumTotal(arr), 11);
+
+    arr = {{-1}, {2, 3}, {1, -1, -3}};
+
+    ASSERT_EQ(t.minimumTotal(arr), -1);
 }
