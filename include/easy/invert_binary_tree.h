@@ -10,12 +10,11 @@ namespace Leet::Easy {
             if (!root)
                 return root;
 
-            invertTree(root->left);
-            invertTree(root->right);
+            auto left = invertTree(root->left);
+            auto right = invertTree(root->right);
 
-            auto temp = root->left;
-            root->left = root->right;
-            root->right = temp;
+            root->left = right;
+            root->right = left;
 
             return root;
         }
