@@ -7,6 +7,7 @@
 #include <balanced_binary_tree.h>
 #include <base7.h>
 #include <binary_alternating_bits.h>
+#include <binary_search.h>
 #include <binary_substring.h>
 #include <binary_tree_mode.h>
 #include <check_if_rotated.h>
@@ -1140,4 +1141,17 @@ TEST(Easy, check_x_matrix)
     };
 
     ASSERT_TRUE(m.checkXMatrix(matrix));
+}
+
+TEST(Easy, binary_search)
+{
+    Leet::Easy::BinarySearch b;
+
+    std::vector<int> vec = {-1, 0, 3, 5, 9, 12};
+
+    ASSERT_EQ(b.search(vec, 9), 4);
+    ASSERT_EQ(b.search(vec, 2), -1);
+
+    vec = {5};
+    ASSERT_EQ(b.search(vec, -5), -1);
 }
