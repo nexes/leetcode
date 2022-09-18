@@ -28,6 +28,7 @@
 #include <find_pivot.h>
 #include <find_the_difference.h>
 #include <flipping_image.h>
+#include <flood_fill.h>
 #include <greedy_sellstock.h>
 #include <gtest/gtest.h>
 #include <hamming_distance.h>
