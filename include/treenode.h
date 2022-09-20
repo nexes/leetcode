@@ -17,6 +17,16 @@ namespace Leet {
         {
         }
 
+        bool operator<(const TreeNode &rhs)
+        {
+            return rhs.val < this->val;
+        }
+
+        bool operator>(const TreeNode &rhs)
+        {
+            return rhs.val > this->val;
+        }
+
         int val;
         TreeNode *left;
         TreeNode *right;
