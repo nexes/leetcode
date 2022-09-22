@@ -27,6 +27,7 @@
 #include <fibonacci_number.h>
 #include <find_pivot.h>
 #include <find_the_difference.h>
+#include <first_bad_version.h>
 #include <flipping_image.h>
 #include <flood_fill.h>
 #include <greedy_sellstock.h>
@@ -783,8 +784,10 @@ TEST(Easy, island_perimeter)
 {
     Leet::Easy::IslandPerimeter i;
 
-    auto island = std::vector<std::vector<int>>{
-        {0, 1, 0, 0}, {1, 1, 1, 0}, {0, 1, 0, 0}, {1, 1, 0, 0}};
+    auto island = std::vector<std::vector<int>>{{0, 1, 0, 0},
+                                                {1, 1, 1, 0},
+                                                {0, 1, 0, 0},
+                                                {1, 1, 0, 0}};
 
     ASSERT_EQ(i.islandPerimeter(island), 16);
 
@@ -1155,4 +1158,15 @@ TEST(Easy, binary_search)
 
     vec = {5};
     ASSERT_EQ(b.search(vec, -5), -1);
+}
+
+TEST(Easy, first_bad_version)
+{
+    Leet::Easy::FirstBadVersion f;
+
+    f.setBadVersion(4);
+    ASSERT_EQ(f.firstBadVersion(5), 4);
+
+    f.setBadVersion(1);
+    ASSERT_EQ(f.firstBadVersion(1), 1);
 }
