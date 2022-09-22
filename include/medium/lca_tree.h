@@ -46,12 +46,6 @@ namespace Leet::Medium {
             if (p->val > root->val && q->val > root->val)
                 return lowestCommonAncestor(root->right, p, q);
 
-            if (p->val == root->val)
-                return p;
-
-            if (q->val == root->val)
-                return q;
-
             return root;
         }
     };
