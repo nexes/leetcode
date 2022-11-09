@@ -82,7 +82,7 @@
 #include <multiply_strings.h>
 #include <nth_node.h>
 #include <number_of_islands.h>
-#include <palindrome_partition.h>
+// #include <palindrome_partition.h>
 #include <palindrome_substr.h>
 #include <pancake_sort.h>
 #include <permutations.h>
