@@ -63,6 +63,7 @@
 #include <pascals_triangle.h>
 #include <perfect_square.h>
 #include <plusone.h>
+#include <power_of_four.h>
 #include <power_of_three.h>
 #include <power_of_two.h>
 #include <ransom_note.h>
@@ -1169,4 +1170,13 @@ TEST(Easy, first_bad_version)
 
     f.setBadVersion(1);
     ASSERT_EQ(f.firstBadVersion(1), 1);
+}
+
+TEST(Easy, power_of_four)
+{
+    Leet::Easy::PowerFour p;
+
+    ASSERT_TRUE(p.isPowerofFour_noloop(16));
+    ASSERT_FALSE(p.isPowerofFour(5));
+    ASSERT_TRUE(p.isPowerofFour(1));
 }
