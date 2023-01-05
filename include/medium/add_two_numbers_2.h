@@ -5,13 +5,15 @@
 #include "../listnode.h"
 
 namespace Leet::Medium {
-    // You are given two non-empty linked lists representing two non-negative integers.
-    // The most significant digit comes first and each of their nodes contain a single digit.
-    // Add the two numbers and return it as a linked list. You may assume the two numbers
-    // do not contain any leading zero, except the number 0 itself.
+    // You are given two non-empty linked lists representing two non-negative
+    // integers. The most significant digit comes first and each of their nodes
+    // contain a single digit. Add the two numbers and return it as a linked
+    // list. You may assume the two numbers do not contain any leading zero,
+    // except the number 0 itself.
 
     // Follow up:
-    // What if you cannot modify the input lists? In other words, reversing the lists is not allowed.
+    // What if you cannot modify the input lists? In other words, reversing the
+    // lists is not allowed.
 
     // Example:
     // Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
@@ -35,7 +37,8 @@ namespace Leet::Medium {
         }
 
         // with reverse the input linked list
-        Leet::ListNode* addTwoNumbers_reverse(Leet::ListNode* l1, Leet::ListNode* l2)
+        Leet::ListNode* addTwoNumbers_reverse(Leet::ListNode* l1,
+                                              Leet::ListNode* l2)
         {
             Leet::ListNode* sum_list = new Leet::ListNode();
             Leet::ListNode* sum_head = sum_list;
@@ -51,8 +54,10 @@ namespace Leet::Medium {
                 sum_list->next = new Leet::ListNode((val1 + val2 + carry) % 10);
                 carry = (val1 + val2 + carry) / 10;
 
-                if (rev_l1) rev_l1 = rev_l1->next;
-                if (rev_l2) rev_l2 = rev_l2->next;
+                if (rev_l1)
+                    rev_l1 = rev_l1->next;
+                if (rev_l2)
+                    rev_l2 = rev_l2->next;
 
                 sum_list = sum_list->next;
             }
@@ -69,11 +74,15 @@ namespace Leet::Medium {
             auto vec_l2 = std::vector<int>{};
 
             while (l1 || l2) {
-                if (l1) vec_l1.push_back(l1->val);
-                if (l2) vec_l2.push_back(l2->val);
+                if (l1)
+                    vec_l1.push_back(l1->val);
+                if (l2)
+                    vec_l2.push_back(l2->val);
 
-                if (l1) l1 = l1->next;
-                if (l2) l2 = l2->next;
+                if (l1)
+                    l1 = l1->next;
+                if (l2)
+                    l2 = l2->next;
             }
 
             int carry = 0;
