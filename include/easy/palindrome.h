@@ -1,8 +1,8 @@
 #pragma once
 
 namespace Leet::Easy {
-    // Determine whether an integer is a palindrome. An integer is a palindrome when
-    // it reads the same backward as forward.
+    // Determine whether an integer is a palindrome. An integer is a palindrome
+    // when it reads the same backward as forward.
 
     // Example 1:
     // Input: 121
@@ -17,8 +17,8 @@ namespace Leet::Easy {
     // Example 3:
     // Input: 10
     // Output: false
-    // Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
-    // Follow up:
+    // Explanation: Reads 01 from right to left. Therefore it is not a
+    // palindrome. Follow up:
 
     // Coud you solve it without converting the integer to a string?
 
@@ -35,8 +35,7 @@ namespace Leet::Easy {
             if (x < 0 || x % 10 == 0)
                 return false;
 
-            while (value > 0)
-            {
+            while (value > 0) {
                 reverse = reverse * 10 + (value % 10);
                 value /= 10;
             }
