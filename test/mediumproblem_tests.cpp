@@ -8,6 +8,7 @@
 #include <bitwise_and_range.h>
 #include <bottom_left_tree_value.h>
 #include <browser_history.h>
+#include <container_most_water.h>
 #include <bst_iterator.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
@@ -501,7 +502,7 @@ TEST(Medium, LRU_caceh)
 
     ASSERT_EQ(c.get(1), 1);
 
-    c.put(3, 3);  // evicts key 2
+    c.put(3, 3);              // evicts key 2
 
     ASSERT_EQ(c.get(2), -1);  // returns -1 (not found)
     c.put(4, 4);              // evicts key 1
@@ -1198,4 +1199,12 @@ TEST(Medium, triangle)
     arr = {{-1}, {2, 3}, {1, -1, -3}};
 
     ASSERT_EQ(t.minimumTotal(arr), -1);
+}
+
+TEST(Medium, contain_water)
+{
+    Leet::Medium::Most_water w;
+    auto arr = std::vector<int>{1, 8, 6, 2, 5, 4, 8, 3, 7};
+
+    ASSERT_EQ(w.maxArea(arr), 49);
 }
