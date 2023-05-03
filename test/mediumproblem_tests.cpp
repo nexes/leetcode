@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <LRUCache.h>
+#include <jump_game.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
 #include <array_nesting.h>
@@ -1207,4 +1208,15 @@ TEST(Medium, contain_water)
     auto arr = std::vector<int>{1, 8, 6, 2, 5, 4, 8, 3, 7};
 
     ASSERT_EQ(w.maxArea(arr), 49);
+}
+
+TEST(Medium, jump_game)
+{
+    Leet::Medium::JumpGame j;
+
+    auto arr = std::vector<int>{2, 3, 1, 1, 4};
+    ASSERT_TRUE(j.canJump(arr));
+
+    arr = std::vector<int>{3, 2, 1, 0, 4};
+    ASSERT_FALSE(j.canJump(arr));
 }
