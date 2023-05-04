@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <LRUCache.h>
+#include <gas_station.h>
 #include <jump_game.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
@@ -1219,4 +1220,17 @@ TEST(Medium, jump_game)
 
     arr = std::vector<int>{3, 2, 1, 0, 4};
     ASSERT_FALSE(j.canJump(arr));
+}
+
+TEST(Medium, gas_station)
+{
+    Leet::Medium::GasStation g;
+
+    auto gas = std::vector<int>{1, 2, 3, 4, 5};
+    auto cost = std::vector<int>{3, 4, 5, 1, 2};
+    ASSERT_EQ(g.canCompleteCircuit(gas, cost), 3);
+
+    gas = std::vector<int>{2, 3, 4};
+    cost = std::vector<int>{3, 4, 3};
+    ASSERT_EQ(g.canCompleteCircuit(gas, cost), -1);
 }
