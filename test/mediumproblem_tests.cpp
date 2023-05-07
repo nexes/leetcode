@@ -1,6 +1,7 @@
 #include <132pattern.h>
 #include <LRUCache.h>
 #include <gas_station.h>
+#include <integer_replacement.h>
 #include <jump_game.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
@@ -1233,4 +1234,14 @@ TEST(Medium, gas_station)
     gas = std::vector<int>{2, 3, 4};
     cost = std::vector<int>{3, 4, 3};
     ASSERT_EQ(g.canCompleteCircuit(gas, cost), -1);
+}
+
+TEST(Medium, integer_replacement)
+{
+    Leet::Medium::IntegerReplacement i;
+
+    ASSERT_EQ(i.integerReplacement(8), 3);
+    ASSERT_EQ(i.integerReplacement(7), 4);
+    ASSERT_EQ(i.integerReplacement(4), 2);
+    ASSERT_EQ(i.integerReplacement(3), 2);
 }
