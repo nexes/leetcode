@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <LRUCache.h>
+#include <queue_by_height.h>
 #include <gas_station.h>
 #include <integer_replacement.h>
 #include <jump_game.h>
@@ -1244,4 +1245,13 @@ TEST(Medium, integer_replacement)
     ASSERT_EQ(i.integerReplacement(7), 4);
     ASSERT_EQ(i.integerReplacement(4), 2);
     ASSERT_EQ(i.integerReplacement(3), 2);
+}
+
+TEST(Medium, queue_by_height)
+{
+    Leet::Medium::QueueByHeight q;
+    vector<vector<int>> v = {{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}};
+    vector<vector<int>> ans = {{5, 0}, {7, 0}, {5, 2}, {6, 1}, {4, 4}, {7, 1}};
+
+    ASSERT_EQ(q.reconstructQueue(v), ans);
 }
