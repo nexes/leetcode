@@ -1,6 +1,7 @@
 #include <132pattern.h>
 #include <LRUCache.h>
 #include <queue_by_height.h>
+#include <increasing_triplet_subseq.h>
 #include <gas_station.h>
 #include <integer_replacement.h>
 #include <jump_game.h>
@@ -1254,4 +1255,21 @@ TEST(Medium, queue_by_height)
     vector<vector<int>> ans = {{5, 0}, {7, 0}, {5, 2}, {6, 1}, {4, 4}, {7, 1}};
 
     ASSERT_EQ(q.reconstructQueue(v), ans);
+}
+
+TEST(Medium, triplet_subsequence)
+{
+    Leet::Medium::TripletSubsequence t;
+
+    vector<int> nums = {1, 2, 3, 4, 5};
+    ASSERT_TRUE(t.increasingTriplet(nums));
+
+    nums = {5, 4, 3, 2, 1};
+    ASSERT_FALSE(t.increasingTriplet(nums));
+
+    nums = {2, 1, 5, 0, 4, 6};
+    ASSERT_TRUE(t.increasingTriplet(nums));
+
+    nums = {1, 2, 2147483647};
+    ASSERT_TRUE(t.increasingTriplet(nums));
 }
