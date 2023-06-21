@@ -1,5 +1,6 @@
 #include <../treenode.h>
 #include <add_binary.h>
+#include <remove_element.h>
 #include <add_strings.h>
 #include <alien_dictionary.h>
 #include <array_from_integer.h>
