@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <LRUCache.h>
+#include <remove_duplicate_array2.h>
 #include <queue_by_height.h>
 #include <increasing_triplet_subseq.h>
 #include <gas_station.h>
