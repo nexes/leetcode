@@ -1,6 +1,7 @@
 #include <132pattern.h>
 #include <LRUCache.h>
 #include <remove_duplicate_array2.h>
+#include <jump_game2.h>
 #include <queue_by_height.h>
 #include <increasing_triplet_subseq.h>
 #include <gas_station.h>
@@ -1273,4 +1274,15 @@ TEST(Medium, triplet_subsequence)
 
     nums = {1, 2, 2147483647};
     ASSERT_TRUE(t.increasingTriplet(nums));
+}
+
+TEST(Medium, jump_game_2)
+{
+    Leet::Medium::JumpGame2 j;
+
+    vector<int> nums = {2, 3, 1, 1, 4};
+    ASSERT_EQ(j.jump(nums), 2);
+
+    nums = {2, 3, 0, 1, 4};
+    ASSERT_EQ(j.jump(nums), 2);
 }
