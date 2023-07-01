@@ -1,4 +1,5 @@
 #include <132pattern.h>
+#include <h_index.h>
 #include <LRUCache.h>
 #include <remove_duplicate_array2.h>
 #include <jump_game2.h>
@@ -1285,4 +1286,15 @@ TEST(Medium, jump_game_2)
 
     nums = {2, 3, 0, 1, 4};
     ASSERT_EQ(j.jump(nums), 2);
+}
+
+TEST(Medium, H_index)
+{
+    Leet::Medium::HIndex h;
+
+    vector<int> nums = {3, 0, 6, 1, 5};
+    ASSERT_EQ(h.hIndex(nums), 3);
+
+    nums = {1, 3, 1};
+    ASSERT_EQ(h.hIndex(nums), 1);
 }
