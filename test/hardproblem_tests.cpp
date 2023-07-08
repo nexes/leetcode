@@ -1,4 +1,5 @@
 #include <edit_distance.h>
+#include <trapping_water.h>
 #include <candy.h>
 #include <first_missing_positive.h>
 #include <gtest/gtest.h>
@@ -76,4 +77,15 @@ TEST(Hard, candy)
 
     ratings = {1, 2, 2};
     ASSERT_EQ(c.candy(ratings), 4);
+}
+
+TEST(Hard, trapping_water)
+{
+    Leet::Hard::RainWater r;
+
+    std::vector<int> h = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    ASSERT_EQ(r.trap(h), 6);
+
+    h = {4, 2, 0, 3, 2, 5};
+    ASSERT_EQ(r.trap(h), 9);
 }
