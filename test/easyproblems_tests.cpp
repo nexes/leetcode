@@ -1,5 +1,6 @@
 #include <../treenode.h>
 #include <add_binary.h>
+#include <roman_to_integer.h>
 #include <remove_element.h>
 #include <add_strings.h>
 #include <alien_dictionary.h>
@@ -1180,4 +1181,13 @@ TEST(Easy, power_of_four)
     ASSERT_TRUE(p.isPowerofFour_noloop(16));
     ASSERT_FALSE(p.isPowerofFour(5));
     ASSERT_TRUE(p.isPowerofFour(1));
+}
+
+TEST(Easy, roman_to_integer)
+{
+    Leet::Easy::RomanToInt r;
+
+    ASSERT_EQ(r.romanToInt("III"), 3);
+    ASSERT_EQ(r.romanToInt("LVIII"), 58);
+    ASSERT_EQ(r.romanToInt("MCMXCIV"), 1994);
 }
