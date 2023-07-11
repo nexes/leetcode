@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <h_index.h>
+#include <kth_factor.h>
 #include <insert_delete_getrandom.h>
 #include <LRUCache.h>
 #include <remove_duplicate_array2.h>
@@ -1298,4 +1299,13 @@ TEST(Medium, H_index)
 
     nums = {1, 3, 1};
     ASSERT_EQ(h.hIndex(nums), 1);
+}
+
+TEST(Medium, kth_factor)
+{
+    Leet::Medium::KthFactor k;
+
+    ASSERT_EQ(k.kthFactor(12, 3), 3);
+    ASSERT_EQ(k.kthFactor(7, 2), 7);
+    ASSERT_EQ(k.kthFactor(4, 4), -1);
 }
