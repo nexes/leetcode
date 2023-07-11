@@ -485,13 +485,13 @@ TEST(Medium, dupicate_number)
     Leet::Medium::DuplicateNumber d;
 
     std::vector<int> nums{1, 3, 4, 2, 2};
-    ASSERT_EQ(d.findDuplicate(nums), 2);
+    ASSERT_EQ(d.findDuplicate_swap(nums), 2);
 
     nums = {3, 1, 3, 4, 2};
-    ASSERT_EQ(d.findDuplicate(nums), 3);
+    ASSERT_EQ(d.findDuplicate_fast_pointer(nums), 3);
 
     nums = {2, 5, 9, 6, 9, 3, 8, 9, 7, 1};
-    ASSERT_EQ(d.findDuplicate(nums), 9);
+    ASSERT_EQ(d.findDuplicate_sort(nums), 9);
 }
 
 TEST(Medium, rotate_function)
