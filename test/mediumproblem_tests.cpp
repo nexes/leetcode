@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <h_index.h>
+#include <optimal_partition_string.h>
 #include <kth_factor.h>
 #include <insert_delete_getrandom.h>
 #include <LRUCache.h>
@@ -1308,4 +1309,12 @@ TEST(Medium, kth_factor)
     ASSERT_EQ(k.kthFactor(12, 3), 3);
     ASSERT_EQ(k.kthFactor(7, 2), 7);
     ASSERT_EQ(k.kthFactor(4, 4), -1);
+}
+
+TEST(Medium, optimal_partition_string)
+{
+    Leet::Medium::PartitionString p;
+
+    ASSERT_EQ(p.partitionString("abacaba"), 4);
+    ASSERT_EQ(p.partitionString("ssssss"), 6);
 }
