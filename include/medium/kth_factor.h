@@ -50,7 +50,7 @@ namespace Leet::Medium {
 
         // time: O(n)
         // space: O(1)
-        int kthFactor(int n, int k)
+        int kthFactor_const_space(int n, int k)
         {
             int factor = 0;
 
