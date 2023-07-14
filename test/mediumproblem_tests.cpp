@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <h_index.h>
+#include <longest_common_prefix.h>
 #include <optimal_partition_string.h>
 #include <kth_factor.h>
 #include <insert_delete_getrandom.h>
@@ -1317,4 +1318,15 @@ TEST(Medium, optimal_partition_string)
 
     ASSERT_EQ(p.partitionString("abacaba"), 4);
     ASSERT_EQ(p.partitionString("ssssss"), 6);
+}
+
+TEST(Medium, longest_common_prefix)
+{
+    Leet::Medium::LongestPrefix l;
+
+    vector<string> strs = {"flower", "flow", "flight"};
+    ASSERT_EQ(l.longestCommonPrefix(strs), "fl");
+
+    strs = {"dog", "racecar", "car"};
+    ASSERT_EQ(l.longestCommonPrefix(strs), "");
 }
