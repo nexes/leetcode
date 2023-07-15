@@ -1,11 +1,13 @@
 #pragma once
 
+#include <algorithm>
 #include <unordered_map>
 #include <vector>
 
 namespace Leet::Easy {
-    // Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-    // You may assume that each input would have exactly one solution, and you may not use the same element twice.
+    // Given an array of integers, return indices of the two numbers such that
+    // they add up to a specific target. You may assume that each input would
+    // have exactly one solution, and you may not use the same element twice.
 
     // Example:
     // Given nums = [2, 7, 11, 15], target = 9,
@@ -13,20 +15,24 @@ namespace Leet::Easy {
     // return [0, 1].
     struct TwoSums
     {
+        // time: O(n)
+        // space: O(n)
         std::vector<int> twoSum(std::vector<int> &nums, int target)
         {
-            int len = nums.size();
-            std::unordered_map<int, int> result;
+            std::unordered_map<int, int> loc;
+            std::vector<int> pair(2, -1);
 
-            for (int i = 0; i < len; i++) {
-                if (auto found = result.find(target - nums.at(i)); found != result.end()) {
-                    return std::vector{found->second, i};
+            for (int i = 0; i < nums.size(); i++) {
+                if (auto it = loc.find(target - nums[i]); it != loc.end()) {
+                    pair[0] = it->second;
+                    pair[1] = i;
+                    break;
+                } else {
+                    loc[nums[i]] = i;
                 }
-
-                result.emplace(std::make_pair(nums.at(i), i));
             }
 
-            return std::vector{0, 0};
+            return pair;
         }
     };
 }  // namespace Leet::Easy
