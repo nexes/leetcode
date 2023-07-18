@@ -102,6 +102,7 @@
 #include <valid_parentheses.h>
 #include <word_pattern.h>
 #include <x_matrix.h>
+#include <find_first_occurrence.h>
 
 #include <vector>
 
@@ -1190,4 +1191,12 @@ TEST(Easy, roman_to_integer)
     ASSERT_EQ(r.romanToInt("III"), 3);
     ASSERT_EQ(r.romanToInt("LVIII"), 58);
     ASSERT_EQ(r.romanToInt("MCMXCIV"), 1994);
+}
+
+TEST(Easy, find_first_occurrence)
+{
+    Leet::Easy::FirstOccurrence f;
+
+    ASSERT_EQ(f.strStr("sadbutsad", "sad"), 0);
+    ASSERT_EQ(f.strStr("leetcode", "leeto"), -1);
 }
