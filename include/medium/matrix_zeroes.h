@@ -9,8 +9,8 @@ namespace Leet::Medium {
 
     // Follow up:
     // A straight forward solution using O(mn) space is probably a bad idea.
-    // A simple improvement uses O(m + n) space, but still not the best solution.
-    // Could you devise a constant space solution?
+    // A simple improvement uses O(m + n) space, but still not the best
+    // solution. Could you devise a constant space solution?
 
     // Example 1:
     // Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
@@ -27,35 +27,30 @@ namespace Leet::Medium {
     // -231 <= matrix[i][j] <= 231 - 1
     struct MatrixZero
     {
-        // not using constant space.
+        // time: O(m * n)
+        // space: O(m + n)
         void zetZeroes(std::vector<std::vector<int>>& matrix)
         {
-            std::set<int> cols{};
-            std::set<int> rows{};
-            int row_size = matrix.size();
-            int col_size = matrix[0].size();
+            int row_len = matrix.size();
+            int col_len = matrix[0].size();
+            std::vector<bool> row_zero(row_len, false);
+            std::vector<bool> col_zero(col_len, false);
 
-            // find locations of zeros
-            for (int row = 0; row < row_size; row++) {
-                for (int col = 0; col < col_size; col++) {
+            // mark which col or row has a zero in it
+            for (int row = 0; row < row_len; row++) {
+                for (int col = 0; col < col_len; col++) {
                     if (matrix[row][col] == 0) {
-                        rows.emplace(row);
-                        cols.emplace(col);
+                        row_zero[row] = true;
+                        col_zero[col] = true;
                     }
                 }
             }
 
-            // clear rows
-            for (const auto& row : rows) {
-                for (int col = 0; col < col_size; col++) {
-                    matrix[row][col] = 0;
-                }
-            }
-
-            // clear cols
-            for (const auto& col : cols) {
-                for (int row = 0; row < row_size; row++) {
-                    matrix[row][col] = 0;
+            // if this row or col has been marked true, set the whole row/col
+            for (int row = 0; row < row_len; row++) {
+                for (int col = 0; col < col_len; col++) {
+                    if (row_zero[row] || col_zero[col])
+                        matrix[row][col] = 0;
                 }
             }
         }
@@ -84,8 +79,8 @@ namespace Leet::Medium {
                 }
             }
 
-            // start at [1,1] and if the starting cell in that row and col is zero
-            // set [row, col] to zero
+            // start at [1,1] and if the starting cell in that row and col is
+            // zero set [row, col] to zero
             for (int row = 1; row < row_size; row++) {
                 for (int col = 1; col < col_size; col++) {
                     if (matrix[row][0] == 0 || matrix[0][col] == 0)
