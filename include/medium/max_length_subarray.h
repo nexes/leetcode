@@ -3,7 +3,8 @@
 #include <vector>
 
 namespace Leet::Medium {
-    // Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.
+    // Given two integer arrays A and B, return the maximum length of an
+    // subarray that appears in both arrays.
 
     // Example 1:
     // Input:
@@ -21,7 +22,8 @@ namespace Leet::Medium {
     {
         int findLength(std::vector<int>& a, std::vector<int>& b)
         {
-            auto dp = std::vector<std::vector<int>>(a.size() + 1, std::vector<int>(b.size() + 1));
+            auto dp = std::vector<std::vector<int>>(
+                a.size() + 1, std::vector<int>(b.size() + 1));
             int max = 0;
 
             for (int i = 0; i <= a.size(); i++)
