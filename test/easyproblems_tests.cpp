@@ -1,6 +1,7 @@
 #include <../treenode.h>
 #include <add_binary.h>
 #include <roman_to_integer.h>
+#include <sum_of_values.h>
 #include <remove_element.h>
 #include <add_strings.h>
 #include <alien_dictionary.h>
@@ -1199,4 +1200,15 @@ TEST(Easy, find_first_occurrence)
 
     ASSERT_EQ(f.strStr("sadbutsad", "sad"), 0);
     ASSERT_EQ(f.strStr("leetcode", "leeto"), -1);
+}
+
+TEST(Easy, sum_of_values)
+{
+    Leet::Easy::SumValuesAtIndex s;
+
+    std::vector<int> vec = {5, 10, 1, 5, 2};
+    ASSERT_EQ(s.sumIndicesWithKSetBits(vec, 1), 13);
+
+    vec = {4, 3, 2, 1};
+    ASSERT_EQ(s.sumIndicesWithKSetBits(vec, 2), 1);
 }
