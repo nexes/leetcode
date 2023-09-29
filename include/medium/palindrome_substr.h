@@ -55,8 +55,7 @@ namespace Leet::Medium {
             }
 
             for (int mid = 0; mid < len; mid++) {
-                for (int offset = 1; mid - offset + 1 >= 0 && mid + offset < len;
-                     offset++) {
+                for (int offset = 1; mid - offset + 1 >= 0 && mid + offset < len; offset++) {
                     if (s.at(mid - offset + 1) != s.at(mid + offset))
                         break;
 
