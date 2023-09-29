@@ -1,6 +1,7 @@
 #include <132pattern.h>
 #include <h_index.h>
 #include <rotating_box.h>
+#include <max_distance_pairs.h>
 #include <longest_common_prefix.h>
 #include <optimal_partition_string.h>
 #include <kth_factor.h>
@@ -515,7 +516,7 @@ TEST(Medium, LRU_caceh)
 
     ASSERT_EQ(c.get(1), 1);
 
-    c.put(3, 3);              // evicts key 2
+    c.put(3, 3);  // evicts key 2
 
     ASSERT_EQ(c.get(2), -1);  // returns -1 (not found)
     c.put(4, 4);              // evicts key 1
