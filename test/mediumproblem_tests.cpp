@@ -1,5 +1,6 @@
 #include <132pattern.h>
 #include <h_index.h>
+#include <rotating_box.h>
 #include <longest_common_prefix.h>
 #include <optimal_partition_string.h>
 #include <kth_factor.h>
