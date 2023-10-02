@@ -1,9 +1,5 @@
 #include <../treenode.h>
 #include <add_binary.h>
-#include <max_population_year.h>
-#include <roman_to_integer.h>
-#include <sum_of_values.h>
-#include <remove_element.h>
 #include <add_strings.h>
 #include <alien_dictionary.h>
 #include <array_from_integer.h>
@@ -29,6 +25,7 @@
 #include <disappeared_nums.h>
 #include <distribute_candies.h>
 #include <fibonacci_number.h>
+#include <find_first_occurrence.h>
 #include <find_pivot.h>
 #include <find_the_difference.h>
 #include <first_bad_version.h>
@@ -49,6 +46,7 @@
 #include <longest_palindrome.h>
 #include <majority_element.h>
 #include <max_consecutive_ones.h>
+#include <max_population_year.h>
 #include <max_product_three.h>
 #include <max_subarray.h>
 #include <merge_sorted_array.h>
@@ -72,6 +70,7 @@
 #include <power_of_two.h>
 #include <ransom_note.h>
 #include <remove_duplicate_list.h>
+#include <remove_element.h>
 #include <remove_list_elements.h>
 #include <reshape_matrix.h>
 #include <reverse_bits.h>
@@ -80,6 +79,7 @@
 #include <reverse_string_2.h>
 #include <reverse_vowels.h>
 #include <reverse_words_3.h>
+#include <roman_to_integer.h>
 #include <rotate_array.h>
 #include <same_tree.h>
 #include <search_bst.h>
@@ -91,6 +91,8 @@
 #include <string_from_tree.h>
 #include <string_halves_alike.h>
 #include <strstr.h>
+#include <sum_of_values.h>
+#include <sum_xor_subset.h>
 #include <symmetric_tree.h>
 #include <third_max_number.h>
 #include <transpose_matrix.h>
@@ -104,7 +106,6 @@
 #include <valid_parentheses.h>
 #include <word_pattern.h>
 #include <x_matrix.h>
-#include <find_first_occurrence.h>
 
 #include <vector>
 
@@ -1212,4 +1213,18 @@ TEST(Easy, sum_of_values)
 
     vec = {4, 3, 2, 1};
     ASSERT_EQ(s.sumIndicesWithKSetBits(vec, 2), 1);
+}
+
+TEST(Easy, sum_xor_subset)
+{
+    Leet::Easy::SumXORSubset s;
+
+    std::vector<int> vec = {1, 3};
+    ASSERT_EQ(s.subsetXORSum(vec), 6);
+
+    vec = {5, 1, 6};
+    ASSERT_EQ(s.subsetXORSum(vec), 28);
+
+    vec = {3, 4, 5, 6, 7, 8};
+    ASSERT_EQ(s.subsetXORSum(vec), 480);
 }
