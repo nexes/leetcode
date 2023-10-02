@@ -4,3 +4,4 @@
 build/**
 Debug/**
 compile_commands.json
+.clangd
