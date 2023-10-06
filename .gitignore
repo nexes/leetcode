@@ -1,6 +1,7 @@
 .DS_Store
 .vscode/**
 .cache/**
+.idea/**
 build/**
 Debug/**
 compile_commands.json
