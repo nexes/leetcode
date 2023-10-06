@@ -1,19 +1,5 @@
 #include <132pattern.h>
-#include <h_index.h>
-#include <rotating_box.h>
-#include <max_distance_pairs.h>
-#include <longest_common_prefix.h>
-#include <optimal_partition_string.h>
-#include <kth_factor.h>
-#include <insert_delete_getrandom.h>
 #include <LRUCache.h>
-#include <remove_duplicate_array2.h>
-#include <jump_game2.h>
-#include <queue_by_height.h>
-#include <increasing_triplet_subseq.h>
-#include <gas_station.h>
-#include <integer_replacement.h>
-#include <jump_game.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
 #include <array_nesting.h>
@@ -22,28 +8,44 @@
 #include <bitwise_and_range.h>
 #include <bottom_left_tree_value.h>
 #include <browser_history.h>
-#include <container_most_water.h>
 #include <bst_iterator.h>
+#include <container_most_water.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
 #include <decode_string.h>
 #include <delete_two_strings.h>
 #include <divide_integers.h>
 #include <find_replace_pattern.h>
+#include <gas_station.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
+#include <h_index.h>
 #include <house_robber.h>
+#include <increasing_triplet_subseq.h>
 #include <inorder_traversal.h>
 #include <insert_binary_tree.h>
+#include <insert_delete_getrandom.h>
 #include <insertion_sort_list.h>
+#include <integer_replacement.h>
+#include <jump_game.h>
+#include <jump_game2.h>
+#include <kth_factor.h>
 #include <kth_smallest_element_tree.h>
 #include <lca_tree.h>
+#include <longest_common_prefix.h>
+#include <max_distance_pairs.h>
+#include <min_deletions_string_balance.h>
+#include <min_jumps_home.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
+#include <optimal_partition_string.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>
+#include <queue_by_height.h>
 #include <recover_bst.h>
+#include <remove_duplicate_array2.h>
 #include <rotate_list.h>
+#include <rotating_box.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
 #include <triangle.h>
@@ -1331,4 +1333,12 @@ TEST(Medium, longest_common_prefix)
 
     strs = {"dog", "racecar", "car"};
     ASSERT_EQ(l.longestCommonPrefix(strs), "");
+}
+
+TEST(Medium, min_deletion_string_balance)
+{
+    Leet::Medium::MinStringBalance m;
+
+    ASSERT_EQ(m.minimumDeletions("aababbab"), 2);
+    ASSERT_EQ(m.minimumDeletions("bbaaaabb"), 2);
 }
