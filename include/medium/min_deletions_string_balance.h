@@ -1,7 +1,9 @@
 #pragma once
 
+#include <algorithm>
 #include <stack>
 #include <string>
+#include <vector>
 
 namespace Leet::Medium {
     // You are given a string s consisting only of characters 'a' and
@@ -32,7 +34,7 @@ namespace Leet::Medium {
     struct MinStringBalance
     {
         // solution using a stack
-        int minimumDeletions(std::string s)
+        int minimumDeletions_stack(std::string s)
         {
             int ans = 0;
             std::stack<char> stack;
@@ -47,6 +49,36 @@ namespace Leet::Medium {
                     stack.push(c);
                 }
             }
+
+            return ans;
+        }
+
+        // prefix suffix solution
+        int minimumDeletions(std::string s)
+        {
+            std::vector<int> prefix_a(s.length(), 0);
+            std::vector<int> prefix_b(s.length(), 0);
+
+            // how many 'b' are behind at this index
+            for (int i = 1; i < s.length(); i++) {
+                prefix_b[i] = prefix_b[i - 1];
+
+                if (s[i - 1] == 'b')
+                    prefix_b[i] += 1;
+            }
+
+            // how many 'a' are infront of this index
+            for (int i = s.length() - 2; i >= 0; i--) {
+                prefix_a[i] = prefix_a[i + 1];
+
+                if (s[i + 1] == 'a')
+                    prefix_a[i] += 1;
+            }
+
+            int ans = prefix_b[0] + prefix_a[0];
+
+            for (int i = 0; i < s.length(); i++)
+                ans = std::min(ans, prefix_b[i] + prefix_a[i]);
 
             return ans;
         }
