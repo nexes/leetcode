@@ -87,6 +87,7 @@
 #include <single_number.h>
 #include <sort_array_parity.h>
 #include <sqrt.h>
+#include <square_sorted_array.h>
 #include <stack_with_queues.h>
 #include <string_from_tree.h>
 #include <string_halves_alike.h>
@@ -1227,4 +1228,17 @@ TEST(Easy, sum_xor_subset)
 
     vec = {3, 4, 5, 6, 7, 8};
     ASSERT_EQ(s.subsetXORSum(vec), 480);
+}
+
+TEST(Easy, square_sorted_array)
+{
+    Leet::Easy::SquareSortedArray s;
+
+    std::vector<int> nums = {-4, -1, 0, 3, 10};
+    std::vector<int> ans = {0, 1, 9, 16, 100};
+    ASSERT_EQ(s.sortedSquares(nums), ans);
+
+    nums = {-7, -3, 2, 3, 11};
+    ans = {4, 9, 9, 49, 121};
+    ASSERT_EQ(s.sortedSquares(nums), ans);
 }
