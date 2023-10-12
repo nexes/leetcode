@@ -48,6 +48,7 @@
 #include <rotating_box.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
+#include <total_hamming_distance.h>
 #include <triangle.h>
 #include <unique_bst.h>
 // #include <integer_replacement.h>
@@ -1341,4 +1342,15 @@ TEST(Medium, min_deletion_string_balance)
 
     ASSERT_EQ(m.minimumDeletions("aababbab"), 2);
     ASSERT_EQ(m.minimumDeletions("bbaaaabb"), 2);
+}
+
+TEST(Medium, total_hamming_distance)
+{
+    Leet::Medium::TotalHamming t;
+
+    vector<int> nums = {4, 14, 2};
+    ASSERT_EQ(t.totalHammingDistance(nums), 6);
+
+    nums = {4, 14, 4};
+    ASSERT_EQ(t.totalHammingDistance(nums), 4);
 }
