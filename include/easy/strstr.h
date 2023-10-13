@@ -2,10 +2,9 @@
 
 #include <string>
 
-namespace Leet::Easy
-{
-    // Return the index of the first occurrence of needle in haystack, or -1 if needle is not
-    // part of haystack.
+namespace Leet::Easy {
+    // Return the index of the first occurrence of needle in haystack, or -1 if
+    // needle is not part of haystack.
 
     // Example 1:
     // Input: haystack = "hello", needle = "ll"
@@ -16,13 +15,13 @@ namespace Leet::Easy
     // Output: -1
 
     // Clarification:
-    // What should we return when needle is an empty string? This is a great question to ask
-    // during an interview. For the purpose of this problem, we will return 0 when needle is
-    // an empty string. This is consistent to C's strstr() and Java's indexOf().
+    // What should we return when needle is an empty string? This is a great
+    // question to ask during an interview. For the purpose of this problem, we
+    // will return 0 when needle is an empty string. This is consistent to C's
+    // strstr() and Java's indexOf().
     struct Str
     {
-        // works, but I'm not nuts about this solution. I should use a sliding window approach.
-        // Runtime: 4 ms, faster than 90.67% of C++ online submissions for Implement strStr().
+        // works, but I'm not nuts about this solution.
         int strStr(std::string haystack, std::string needle)
         {
             if (needle.empty())
@@ -31,13 +30,33 @@ namespace Leet::Easy
             int stack_len = haystack.length();
             int needle_len = needle.length();
 
-            for (int i = 0; i <= stack_len - needle_len; i++)
-            {
+            for (int i = 0; i <= stack_len - needle_len; i++) {
                 if (haystack.substr(i, needle_len) == needle)
                     return i;
             }
 
             return -1;
         }
-    };
-} // namespace Leet::Easy
+
+        // sliding window naive solution
+        int strStr_window(std::string haystack, std::string needle)
+        {
+            if (needle.empty())
+                return 0;
+
+            int hay_size = haystack.length();
+            int needle_size = needle.length();
+
+            for (int i = 0; i <= hay_size - needle_size; i++) {
+                for (int j = 0; j < needle_size; j++) {
+                    if (needle[j] != haystack[i + j])
+                        break;
+
+                    if (j + 1 == needle_size)
+                        return i;
+                }
+            }
+
+            return -1;
+        }
+
