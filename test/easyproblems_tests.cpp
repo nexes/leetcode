@@ -72,6 +72,7 @@
 #include <remove_duplicate_list.h>
 #include <remove_element.h>
 #include <remove_list_elements.h>
+#include <repeated_substring_pattern.h>
 #include <reshape_matrix.h>
 #include <reverse_bits.h>
 #include <reverse_integer.h>
@@ -81,6 +82,7 @@
 #include <reverse_words_3.h>
 #include <roman_to_integer.h>
 #include <rotate_array.h>
+#include <rotate_string.h>
 #include <same_tree.h>
 #include <search_bst.h>
 #include <sign_product_array.h>
