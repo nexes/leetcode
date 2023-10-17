@@ -1244,3 +1244,12 @@ TEST(Easy, square_sorted_array)
     ans = {4, 9, 9, 49, 121};
     ASSERT_EQ(s.sortedSquares(nums), ans);
 }
+
+TEST(Easy, repeated_substring_pattern)
+{
+    Leet::Easy::RepeatedSubString r;
+
+    ASSERT_TRUE(r.repeatedSubstringPattern("abab"));
+    ASSERT_FALSE(r.repeatedSubstringPattern("aba"));
+    ASSERT_TRUE(r.repeatedSubstringPattern("abcabcabcabc"));
+}
