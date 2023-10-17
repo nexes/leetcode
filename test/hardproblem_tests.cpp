@@ -6,6 +6,7 @@
 #include <median.h>
 #include <merge_k_sorted.h>
 
+#include <string>
 #include <vector>
 
 #include "../include/listnode.h"
