@@ -60,3 +60,5 @@ namespace Leet::Easy {
             return -1;
         }
 
+    };
+}  // namespace Leet::Easy
