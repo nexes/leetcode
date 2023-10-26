@@ -1,10 +1,10 @@
 #pragma once
 
 #include <queue>
-#include <../treenode.h>
 
-namespace Leet::Easy
-{
+#include "../treenode.h"
+
+namespace Leet::Easy {
     // Given a binary tree, check whether it is a mirror
     // of itself (ie, symmetric around its center).
 
@@ -36,8 +36,7 @@ namespace Leet::Easy
             q.push(root->left);
             q.push(root->right);
 
-            while (!q.empty())
-            {
+            while (!q.empty()) {
                 auto topl = q.front();
                 q.pop();
                 auto topr = q.front();
@@ -62,11 +61,11 @@ namespace Leet::Easy
         // recursively
         bool isSymmetric_recursive(Leet::TreeNode *root)
         {
-
             return isSymmetric_recursive_helper(root, root);
         }
 
-        bool isSymmetric_recursive_helper(Leet::TreeNode *left, Leet::TreeNode *right)
+        bool isSymmetric_recursive_helper(Leet::TreeNode *left,
+                                          Leet::TreeNode *right)
         {
             if (!left && !right)
                 return true;
@@ -78,4 +77,4 @@ namespace Leet::Easy
                    isSymmetric_recursive_helper(left->right, right->left);
         }
     };
-} // namespace Leet::Easy
+}  // namespace Leet::Easy
