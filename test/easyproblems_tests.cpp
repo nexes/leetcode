@@ -1253,3 +1253,11 @@ TEST(Easy, repeated_substring_pattern)
     ASSERT_FALSE(r.repeatedSubstringPattern("aba"));
     ASSERT_TRUE(r.repeatedSubstringPattern("abcabcabcabc"));
 }
+
+TEST(Easy, rotate_string)
+{
+    Leet::Easy::RotateString r;
+
+    ASSERT_TRUE(r.rotateString("abcde", "cdeab"));
+    ASSERT_FALSE(r.rotateString("abcde", "abced"));
+}
