@@ -23,13 +23,38 @@ namespace Leet::Easy {
     {
         // concat the string s to itself, and see if goal can be found
         // this works but I feel is 'cheating' a little bit
-        bool rotateString(std::string s, std::string goal)
+        bool rotateString_append(std::string s, std::string goal)
         {
             if (s.length() != goal.length())
                 return false;
 
             std::string ss = s.append(s);
             return ss.find(goal) != std::string::npos;
+        }
+
+        // solves the problem without using the string's 'find' method
+        bool rotateString(std::string s, std::string goal)
+        {
+            int len = s.length();
+
+            if (len != goal.length())
+                return false;
+
+            for (int i = 0; i < len; i++) {
+                if (s[i] == goal[0]) {
+                    int idx;
+
+                    for (idx = 0; idx < len; idx++) {
+                        if (s[(idx + i) % len] != goal[idx])
+                            break;
+                    }
+
+                    if (idx == len)
+                        return true;
+                }
+            }
+
+            return false;
         }
     };
 }  // namespace Leet::Easy
