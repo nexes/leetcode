@@ -13,6 +13,7 @@
 #include <check_if_rotated.h>
 #include <check_straight_line.h>
 #include <climbing_stairs.h>
+#include <construct_rectangle.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
 #include <convert_to_hex.h>
@@ -1260,4 +1261,18 @@ TEST(Easy, rotate_string)
 
     ASSERT_TRUE(r.rotateString("abcde", "cdeab"));
     ASSERT_FALSE(r.rotateString("abcde", "abced"));
+}
+
+TEST(Easy, construct_rectangle)
+{
+    Leet::Easy::ConstructRect c;
+
+    std::vector<int> rect{2, 2};
+    ASSERT_EQ(c.constructRectangle(4), rect);
+
+    rect = {37, 1};
+    ASSERT_EQ(c.constructRectangle(37), rect);
+
+    rect = {427, 286};
+    ASSERT_EQ(c.constructRectangle(122122), rect);
 }
