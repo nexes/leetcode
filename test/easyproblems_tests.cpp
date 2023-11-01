@@ -93,6 +93,7 @@
 #include <sqrt.h>
 #include <square_sorted_array.h>
 #include <stack_with_queues.h>
+#include <string_array_equivalent.h>
 #include <string_from_tree.h>
 #include <string_halves_alike.h>
 #include <strstr.h>
@@ -1278,7 +1279,7 @@ TEST(Easy, construct_rectangle)
     ASSERT_EQ(c.constructRectangle(122122), rect);
 }
 
-TEST(Easy, consisten_string)
+TEST(Easy, consistent_string)
 {
     Leet::Easy::ConsistentStrings c;
 
@@ -1290,4 +1291,21 @@ TEST(Easy, consisten_string)
 
     words = {"cc", "acd", "b", "ba", "bac", "bad", "ac", "d"};
     ASSERT_EQ(c.countConsistentStrings("cad", words), 4);
+}
+
+TEST(Easy, string_array_equivalent)
+{
+    Leet::Easy::StringArray s;
+
+    std::vector<std::string> w1{"ab", "c"};
+    std::vector<std::string> w2{"a", "bc"};
+    ASSERT_TRUE(s.arrayStringAreEqual(w1, w2));
+
+    w1 = {"a", "cb"};
+    w2 = {"ab", "c"};
+    ASSERT_FALSE(s.arrayStringAreEqual(w1, w2));
+
+    w1 = {"abc", "d", "defg"};
+    w2 = {"abcddefg"};
+    ASSERT_TRUE(s.arrayStringAreEqual(w1, w2));
 }
