@@ -13,6 +13,7 @@
 #include <check_if_rotated.h>
 #include <check_straight_line.h>
 #include <climbing_stairs.h>
+#include <consistent_strings.h>
 #include <construct_rectangle.h>
 #include <contain_duplicate.h>
 #include <contain_duplicate_2.h>
@@ -1275,4 +1276,18 @@ TEST(Easy, construct_rectangle)
 
     rect = {427, 286};
     ASSERT_EQ(c.constructRectangle(122122), rect);
+}
+
+TEST(Easy, consisten_string)
+{
+    Leet::Easy::ConsistentStrings c;
+
+    std::vector<std::string> words{"ad", "bd", "aaab", "baa", "badab"};
+    ASSERT_EQ(c.countConsistentStrings("ab", words), 2);
+
+    words = {"a", "b", "c", "ab", "ac", "bc", "abc"};
+    ASSERT_EQ(c.countConsistentStrings("abc", words), 7);
+
+    words = {"cc", "acd", "b", "ba", "bac", "bad", "ac", "d"};
+    ASSERT_EQ(c.countConsistentStrings("cad", words), 4);
 }
