@@ -7,6 +7,7 @@
 #include <binary_tree_level_order.h>
 #include <bitwise_and_range.h>
 #include <bottom_left_tree_value.h>
+#include <break_palindrome.h>
 #include <browser_history.h>
 #include <bst_iterator.h>
 #include <container_most_water.h>
@@ -1353,4 +1354,12 @@ TEST(Medium, total_hamming_distance)
 
     nums = {4, 14, 4};
     ASSERT_EQ(t.totalHammingDistance(nums), 4);
+}
+
+TEST(Medium, break_palindrome)
+{
+    Leet::Medium::BreakPalindrome b;
+
+    ASSERT_EQ(b.breakPalindrome("abccba"), "aaccba");
+    ASSERT_EQ(b.breakPalindrome("a"), "");
 }
