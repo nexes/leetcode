@@ -42,6 +42,7 @@
 #include <is_subsequence.h>
 #include <island_perimeter.h>
 #include <isomorphic_string.h>
+#include <kth_distinct_string_array.h>
 #include <kth_missing_number.h>
 #include <largest_odd_number_string.h>
 #include <length_last_word.h>
@@ -1308,4 +1309,18 @@ TEST(Easy, string_array_equivalent)
     w1 = {"abc", "d", "defg"};
     w2 = {"abcddefg"};
     ASSERT_TRUE(s.arrayStringAreEqual(w1, w2));
+}
+
+TEST(Easy, kth_distinct_string)
+{
+    Leet::Easy::KthDistinctString k;
+
+    std::vector<std::string> arr{"d", "b", "c", "b", "c", "a"};
+    ASSERT_EQ(k.kthDistinct(arr, 2), "a");
+
+    arr = {"aaa", "aa", "a"};
+    ASSERT_EQ(k.kthDistinct(arr, 1), "aaa");
+
+    arr = {"a", "b", "a"};
+    ASSERT_EQ(k.kthDistinct(arr, 3), "");
 }
