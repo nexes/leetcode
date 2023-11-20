@@ -97,6 +97,7 @@
 #include <string_array_equivalent.h>
 #include <string_from_tree.h>
 #include <string_halves_alike.h>
+#include <strings_almost_equivalent.h>
 #include <strstr.h>
 #include <sum_of_values.h>
 #include <sum_xor_subset.h>
@@ -1323,4 +1324,13 @@ TEST(Easy, kth_distinct_string)
 
     arr = {"a", "b", "a"};
     ASSERT_EQ(k.kthDistinct(arr, 3), "");
+}
+
+TEST(Easy, strings_almost_equivalent)
+{
+    Leet::Easy::StringsAlmostEquivalent s;
+
+    ASSERT_FALSE(s.checkAlmostEquivalent("aaaa", "bccb"));
+    ASSERT_TRUE(s.checkAlmostEquivalent("abcdeef", "abaaacc"));
+    ASSERT_TRUE(s.checkAlmostEquivalent("cccddabba", "babababab"));
 }
