@@ -1,4 +1,5 @@
 #include <132pattern.h>
+#include <3sum_closest.h>
 #include <LRUCache.h>
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
@@ -1362,4 +1363,15 @@ TEST(Medium, break_palindrome)
 
     ASSERT_EQ(b.breakPalindrome("abccba"), "aaccba");
     ASSERT_EQ(b.breakPalindrome("a"), "");
+}
+
+TEST(Medium, 3sum_closest)
+{
+    Leet::Medium::ThreeSumClosest t;
+
+    vector<int> nums = {-1, 2, 1, -4};
+    ASSERT_EQ(t.threeSumClosest(nums, 1), 2);
+
+    nums = {0, 0, 0};
+    ASSERT_EQ(t.threeSumClosest(nums, 1), 0);
 }
