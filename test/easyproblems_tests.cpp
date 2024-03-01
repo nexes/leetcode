@@ -49,6 +49,7 @@
 #include <longest_palindrome.h>
 #include <majority_element.h>
 #include <max_consecutive_ones.h>
+#include <max_odd_binary.h>
 #include <max_population_year.h>
 #include <max_product_three.h>
 #include <max_subarray.h>
@@ -116,6 +117,7 @@
 #include <x_matrix.h>
 
 #include <vector>
+
 
 TEST(Easy, TwoSums)
 {
@@ -1333,4 +1335,12 @@ TEST(Easy, strings_almost_equivalent)
     ASSERT_FALSE(s.checkAlmostEquivalent("aaaa", "bccb"));
     ASSERT_TRUE(s.checkAlmostEquivalent("abcdeef", "abaaacc"));
     ASSERT_TRUE(s.checkAlmostEquivalent("cccddabba", "babababab"));
+}
+
+TEST(Easy, max_odd_binary_number)
+{
+    Leet::Easy::MaxOddBinary m;
+
+    ASSERT_EQ(m.maximumOddBinaryNumber("010"), "001");
+    ASSERT_EQ(m.maximumOddBinaryNumber("0101"), "1001");
 }
