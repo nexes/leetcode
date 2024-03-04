@@ -4,6 +4,7 @@
 #include <add_two_numbers.h>
 #include <anagrams_in_string.h>
 #include <array_nesting.h>
+#include <bag_of_tokens.h>
 #include <balance_parentheses.h>
 #include <binary_tree_level_order.h>
 #include <bitwise_and_range.h>
@@ -1374,4 +1375,15 @@ TEST(Medium, 3sum_closest)
 
     nums = {0, 0, 0};
     ASSERT_EQ(t.threeSumClosest(nums, 1), 0);
+}
+
+TEST(Medium, bag_of_tokens)
+{
+    Leet::Medium::BagOfTokens b;
+
+    vector<int> tokens{200, 100};
+    ASSERT_EQ(b.bagOfTokensScore(tokens, 150), 1);
+
+    tokens = {100, 200, 400, 300};
+    ASSERT_EQ(b.bagOfTokensScore(tokens, 200), 2);
 }
