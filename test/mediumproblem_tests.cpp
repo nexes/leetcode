@@ -39,6 +39,7 @@
 #include <max_distance_pairs.h>
 #include <min_deletions_string_balance.h>
 #include <min_jumps_home.h>
+#include <min_length_str.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
 #include <optimal_partition_string.h>
@@ -1386,4 +1387,17 @@ TEST(Medium, bag_of_tokens)
 
     tokens = {100, 200, 400, 300};
     ASSERT_EQ(b.bagOfTokensScore(tokens, 200), 2);
+}
+
+TEST(Medium, min_length_delete_str)
+{
+    Leet::Medium::MinLengthString m;
+
+    ASSERT_EQ(m.minimumLength("ca"), 2);
+    ASSERT_EQ(m.minimumLength("cabaabac"), 0);
+    ASSERT_EQ(m.minimumLength("aabccabba"), 3);
+    ASSERT_EQ(m.minimumLength("aaaaa"), 0);
+    ASSERT_EQ(m.minimumLength(
+                  "bbbbbbbbbbbbbbbbbbbbbbbbbbbabbbbbbbbbbbbbbbccbcbcbccbbabbb"),
+              1);
 }
