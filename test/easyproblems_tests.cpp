@@ -56,6 +56,7 @@
 #include <merge_sorted_array.h>
 #include <middle_of_linked_list.h>
 #include <min_absolute_diff.h>
+#include <min_common_value.h>
 #include <min_depth_tree.h>
 #include <min_ops_increasing_array.h>
 #include <min_stack.h>
@@ -117,7 +118,6 @@
 #include <x_matrix.h>
 
 #include <vector>
-
 
 TEST(Easy, TwoSums)
 {
@@ -1343,4 +1343,17 @@ TEST(Easy, max_odd_binary_number)
 
     ASSERT_EQ(m.maximumOddBinaryNumber("010"), "001");
     ASSERT_EQ(m.maximumOddBinaryNumber("0101"), "1001");
+}
+
+TEST(Easy, min_common_value)
+{
+    Leet::Easy::MinCommonValue m;
+
+    vector<int> nums1{1, 2, 3};
+    vector<int> nums2{2, 4};
+    ASSERT_EQ(m.getCommon(nums1, nums2), 2);
+
+    nums1 = {1, 2, 3, 6};
+    nums2 = {2, 3, 4, 5};
+    ASSERT_EQ(m.getCommon(nums1, nums2), 2);
 }
