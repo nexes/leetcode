@@ -26,8 +26,7 @@ namespace Leet::Easy {
             std::vector<int> out;
 
             // O(n)
-            for (auto &i : q)
-            {
+            for (auto &i : q) {
                 // O(1)
                 if (p.find(i) != p.end())
                     out.emplace_back(i);

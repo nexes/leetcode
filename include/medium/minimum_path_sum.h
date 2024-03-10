@@ -29,23 +29,23 @@ namespace Leet::Medium {
         // time: O(n^2), space: O(n)
         int minPathSum(vector<vector<int>> &grid)
         {
-            int colCount = grid.size();
-            int rowCount = grid[0].size();
+            size_t colCount = grid.size();
+            size_t rowCount = grid[0].size();
 
             vector<vector<int>> dp(colCount, vector<int>(rowCount));
             dp[0][0] = grid[0][0];
 
             // add up the top row
-            for (int i = 1; i < rowCount; i++)
+            for (size_t i = 1; i < rowCount; i++)
                 dp[0][i] = dp[0][i - 1] + grid[0][i];
 
             // add up the first col
-            for (int i = 1; i < colCount; i++)
+            for (size_t i = 1; i < colCount; i++)
                 dp[i][0] = dp[i - 1][0] + grid[i][0];
 
             // find the min sum for the inner grid
-            for (int i = 1; i < grid.size(); i++) {
-                for (int j = 1; j < grid[i].size(); j++) {
+            for (size_t i = 1; i < grid.size(); i++) {
+                for (size_t j = 1; j < grid[i].size(); j++) {
                     dp[i][j] =
                         grid[i][j] + std::min(dp[i - 1][j], +dp[i][j - 1]);
                 }
