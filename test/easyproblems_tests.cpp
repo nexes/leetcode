@@ -29,6 +29,7 @@
 #include <fibonacci_number.h>
 #include <find_first_occurrence.h>
 #include <find_pivot.h>
+#include <find_pivot_int.h>
 #include <find_the_difference.h>
 #include <first_bad_version.h>
 #include <flipping_image.h>
@@ -1356,4 +1357,13 @@ TEST(Easy, min_common_value)
     nums1 = {1, 2, 3, 6};
     nums2 = {2, 3, 4, 5};
     ASSERT_EQ(m.getCommon(nums1, nums2), 2);
+}
+
+TEST(Easy, find_pivot_int)
+{
+    Leet::Easy::PivotInt p;
+
+    ASSERT_EQ(p.pivotInteger(8), 6);
+    ASSERT_EQ(p.pivotInteger(1), 1);
+    ASSERT_EQ(p.pivotInteger(4), -1);
 }
