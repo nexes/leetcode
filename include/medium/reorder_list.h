@@ -27,6 +27,42 @@ namespace Leet::Medium {
     // 1 <= Node.val <= 1000
     struct ReorderList
     {
+        // time: O(n) space: O(1)
+        void reorderList_merge(Leet::ListNode* head)
+        {
+            Leet::ListNode* mid = head;
+            Leet::ListNode* fast = head;
+
+            // get the middle node
+            while (fast != nullptr && fast->next != nullptr) {
+                mid = mid->next;
+                fast = fast->next->next;
+            }
+
+            // reverse the linked list from the middle node on
+            Leet::ListNode* prev = nullptr;
+            Leet::ListNode* next = nullptr;
+            Leet::ListNode* curr = mid->next;
+            while (curr != nullptr) {
+                next = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr = next;
+            }
+            // cut this linked list into two
+            mid->next = nullptr;
+
+            // merge the linked list from the head and tail
+            while (prev != nullptr) {
+                Leet::ListNode* headNext = head->next;
+                Leet::ListNode* prevNext = prev->next;
+                head->next = prev;
+                prev->next = headNext;
+                head = headNext;
+                prev = prevNext;
+            }
+        }
+
         // time: O(n) space: O(n)
         void reorderList(Leet::ListNode* head)
         {
@@ -39,8 +75,6 @@ namespace Leet::Medium {
             }
 
             int size = values.size();
-            int step = size / 2;
-            int i = 1;
 
             curr = head;
             for (int i = 0, j = size - 1; i < size / 2; i++, j--) {
