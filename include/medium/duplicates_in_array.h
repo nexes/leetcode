@@ -26,15 +26,19 @@ namespace Leet::Medium {
                 freq[v]++;
 
             for (int i = 0; i < freq.size(); i++)
-                if (freq[i] > 1) out.push_back(i);
+                if (freq[i] > 1)
+                    out.push_back(i);
 
             return out;
         }
 
+        // time O(n), space: O(1)
         std::vector<int> findDuplicates(std::vector<int> &nums)
         {
             std::vector<int> out{};
 
+            // treat each value in nums as an index. If we have a negative value, we've
+            // been to that index before, marking it as a duplicate
             for (int i = 0; i < nums.size(); i++) {
                 auto idx = std::abs(nums[i]) - 1;
 
