@@ -52,6 +52,8 @@
 #include <rotating_box.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
+#include <subarray_less_k.h>
+#include <subarray_sum_k.h>
 #include <total_hamming_distance.h>
 #include <triangle.h>
 #include <unique_bst.h>
@@ -1400,4 +1402,14 @@ TEST(Medium, min_length_delete_str)
     ASSERT_EQ(m.minimumLength(
                   "bbbbbbbbbbbbbbbbbbbbbbbbbbbabbbbbbbbbbbbbbbccbcbcbccbbabbb"),
               1);
+
+TEST(Medium, subarray_product_less_k)
+{
+    Leet::Medium::SubarrayProductLessK s;
+
+    vector<int> nums{10, 5, 2, 6};
+    ASSERT_EQ(s.numSubarrayProductLessThanK(nums, 100), 8);
+
+    nums = {1, 2, 3};
+    ASSERT_EQ(s.numSubarrayProductLessThanK(nums, 0), 0);
 }
