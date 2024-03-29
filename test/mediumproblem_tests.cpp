@@ -6,6 +6,7 @@
 #include <array_nesting.h>
 #include <bag_of_tokens.h>
 #include <balance_parentheses.h>
+#include <binary_subarray_sum.h>
 #include <binary_tree_level_order.h>
 #include <bitwise_and_range.h>
 #include <bottom_left_tree_value.h>
@@ -57,6 +58,7 @@
 #include <total_hamming_distance.h>
 #include <triangle.h>
 #include <unique_bst.h>
+
 // #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
@@ -154,9 +156,9 @@ TEST(Medium, Palindrome_substring)
     ASSERT_EQ(p.longestPalindrome_faster("bb"), "bb") << "bb";
     ASSERT_EQ(p.longestPalindrome_faster("bxb"), "bxb") << "bxb";
     ASSERT_EQ(p.longestPalindrome_faster("ac"), "a") << "a";
-    ASSERT_EQ(p.longestPalindrome_faster(
-                  "dddddddddddddddddddddddddddddddddddddddddddddddd"),
-              "dddddddddddddddddddddddddddddddddddddddddddddddd");
+    ASSERT_EQ(
+        p.longestPalindrome_faster("dddddddddddddddddddddddddddddddddddddddddddddddd"),
+        "dddddddddddddddddddddddddddddddddddddddddddddddd");
 }
 
 TEST(Medium, Swap_Nodes)
@@ -936,10 +938,8 @@ TEST(Medium, rotate_image)
 {
     Leet::Medium::RotateImage r;
 
-    auto matrix =
-        std::vector<std::vector<int>>{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    auto rotated =
-        std::vector<std::vector<int>>{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
+    auto matrix = std::vector<std::vector<int>>{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    auto rotated = std::vector<std::vector<int>>{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
 
     r.rotate(matrix);
     ASSERT_EQ(matrix, rotated);
@@ -1214,8 +1214,7 @@ TEST(Medium, triangle)
 {
     Leet::Medium::Triangle t;
 
-    auto arr =
-        std::vector<std::vector<int>>{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
+    auto arr = std::vector<std::vector<int>>{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
 
     ASSERT_EQ(t.minimumTotal(arr), 11);
 
@@ -1399,17 +1398,17 @@ TEST(Medium, min_length_delete_str)
     ASSERT_EQ(m.minimumLength("cabaabac"), 0);
     ASSERT_EQ(m.minimumLength("aabccabba"), 3);
     ASSERT_EQ(m.minimumLength("aaaaa"), 0);
-    ASSERT_EQ(m.minimumLength(
-                  "bbbbbbbbbbbbbbbbbbbbbbbbbbbabbbbbbbbbbbbbbbccbcbcbccbbabbb"),
-              1);
+    ASSERT_EQ(
+        m.minimumLength("bbbbbbbbbbbbbbbbbbbbbbbbbbbabbbbbbbbbbbbbbbccbcbcbccbbabbb"), 1);
+}
 
-TEST(Medium, subarray_product_less_k)
+TEST(Medium, binary_subarray_sum)
 {
-    Leet::Medium::SubarrayProductLessK s;
+    Leet::Medium::BinarySubArraySum b;
 
-    vector<int> nums{10, 5, 2, 6};
-    ASSERT_EQ(s.numSubarrayProductLessThanK(nums, 100), 8);
+    vector<int> arr{1, 0, 1, 0, 1};
+    ASSERT_EQ(b.numSubarraysWithSum(arr, 2), 4);
 
-    nums = {1, 2, 3};
-    ASSERT_EQ(s.numSubarrayProductLessThanK(nums, 0), 0);
+    arr = {0, 0, 0, 0, 0};
+    ASSERT_EQ(b.numSubarraysWithSum(arr, 0), 15);
 }
