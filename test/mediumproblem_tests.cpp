@@ -1406,9 +1406,9 @@ TEST(Medium, binary_subarray_sum)
 {
     Leet::Medium::BinarySubArraySum b;
 
-    vector<int> arr{1, 0, 1, 0, 1};
-    ASSERT_EQ(b.numSubarraysWithSum(arr, 2), 4);
+    vector<int> nums{1, 0, 1, 0, 1};
+    ASSERT_EQ(b.numSubarraysWithSum(nums, 2), 4);
 
-    arr = {0, 0, 0, 0, 0};
-    ASSERT_EQ(b.numSubarraysWithSum(arr, 0), 15);
+    nums = {0, 0, 0, 0, 0};
+    ASSERT_EQ(b.numSubarraysWithSum(nums, 0), 15);
 }
