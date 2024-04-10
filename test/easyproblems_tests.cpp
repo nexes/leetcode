@@ -49,6 +49,7 @@
 #include <length_last_word.h>
 #include <longest_palindrome.h>
 #include <majority_element.h>
+#include <make_string_great.h>
 #include <max_consecutive_ones.h>
 #include <max_odd_binary.h>
 #include <max_population_year.h>
@@ -119,6 +120,7 @@
 #include <x_matrix.h>
 
 #include <vector>
+
 
 TEST(Easy, TwoSums)
 {
@@ -1366,4 +1368,13 @@ TEST(Easy, find_pivot_int)
     ASSERT_EQ(p.pivotInteger(8), 6);
     ASSERT_EQ(p.pivotInteger(1), 1);
     ASSERT_EQ(p.pivotInteger(4), -1);
+}
+
+TEST(Easy, make_string_great)
+{
+    Leet::Easy::StringGreat s;
+
+    ASSERT_EQ(s.makeGood("leEeetcode"), "leetcode");
+    ASSERT_EQ(s.makeGood("abBAcC"), "");
+    ASSERT_EQ(s.makeGood("s"), "s");
 }
