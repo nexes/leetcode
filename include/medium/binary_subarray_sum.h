@@ -1,5 +1,6 @@
 #pragma once
 
+#include <unordered_map>
 #include <vector>
 
 namespace Leet::Medium {
@@ -25,16 +26,17 @@ namespace Leet::Medium {
     // 0 <= goal <= nums.length
     struct BinarySubArraySum
     {
-        // time: O(n^2), correct but TLE
-        int numSubarraysWithSum_slow(std::vector<int>& nums, int goal)
+        // naive O(n^2): passes but will exceed the time limit
+        int numSubarraysWithSum_slow(std::vector<int> &nums, int goal)
         {
             int sum = 0;
             int count = 0;
+            int len = nums.size();
 
-            for (int i = 0; i < nums.size(); i++) {
+            for (int i = 0; i < len; i++) {
                 sum = 0;
 
-                for (int j = i; j < nums.size(); j++) {
+                for (int j = i; j < len; j++) {
                     sum += nums[j];
                     if (sum == goal)
                         count++;
@@ -43,3 +45,20 @@ namespace Leet::Medium {
             return count;
         }
 
+        int numSubarraysWithSum(std::vector<int> &nums, int goal)
+        {
+            int count = 0;
+            int sum = 0;
+            std::unordered_map<int, int> map{};
+
+            map[0] = 1;
+            for (int i = 0; i < nums.size(); i++) {
+                sum += nums[i];
+                count += map[sum - goal];
+                map[sum]++;
+            }
+
+            return count;
+        }
+    };
+}  // namespace Leet::Medium
