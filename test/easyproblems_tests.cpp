@@ -103,6 +103,7 @@
 #include <string_halves_alike.h>
 #include <strings_almost_equivalent.h>
 #include <strstr.h>
+#include <sum_left_leaves.h>
 #include <sum_of_values.h>
 #include <sum_xor_subset.h>
 #include <symmetric_tree.h>
@@ -120,7 +121,6 @@
 #include <x_matrix.h>
 
 #include <vector>
-
 
 TEST(Easy, TwoSums)
 {
