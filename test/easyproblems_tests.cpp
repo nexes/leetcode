@@ -83,6 +83,7 @@
 #include <reshape_matrix.h>
 #include <reverse_bits.h>
 #include <reverse_integer.h>
+#include <reverse_prefix.h>
 #include <reverse_string.h>
 #include <reverse_string_2.h>
 #include <reverse_vowels.h>
@@ -1377,4 +1378,13 @@ TEST(Easy, make_string_great)
     ASSERT_EQ(s.makeGood("leEeetcode"), "leetcode");
     ASSERT_EQ(s.makeGood("abBAcC"), "");
     ASSERT_EQ(s.makeGood("s"), "s");
+}
+
+TEST(Easy, reverse_prefix_word)
+{
+    Leet::Easy::ReversePrefixWord r;
+
+    ASSERT_EQ(r.reversePrefix("abcdefd", 'd'), "dcbaefd");
+    ASSERT_EQ(r.reversePrefix("xyxzxe", 'z'), "zxyxxe");
+    ASSERT_EQ(r.reversePrefix("abcd", 'z'), "abcd");
 }
