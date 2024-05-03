@@ -72,6 +72,7 @@
 #include <pascals_triangle.h>
 #include <perfect_square.h>
 #include <plusone.h>
+#include <pos_int_with_neg.h>
 #include <power_of_four.h>
 #include <power_of_three.h>
 #include <power_of_two.h>
@@ -1387,4 +1388,18 @@ TEST(Easy, reverse_prefix_word)
     ASSERT_EQ(r.reversePrefix("abcdefd", 'd'), "dcbaefd");
     ASSERT_EQ(r.reversePrefix("xyxzxe", 'z'), "zxyxxe");
     ASSERT_EQ(r.reversePrefix("abcd", 'z'), "abcd");
+}
+
+TEST(Easy, positive_with_negative)
+{
+    Leet::Easy::PositiveNumWithNegative p;
+
+    std::vector<int> nums{-1, 2, -3, 3};
+    ASSERT_EQ(p.findMaxK(nums), 3);
+
+    nums = {-1, 10, 6, 7, -7, 1};
+    ASSERT_EQ(p.findMaxK(nums), 7);
+
+    nums = {-10, 8, 6, 7, -2, -3};
+    ASSERT_EQ(p.findMaxK(nums), -1);
 }
