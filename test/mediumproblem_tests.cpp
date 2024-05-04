@@ -13,6 +13,7 @@
 #include <break_palindrome.h>
 #include <browser_history.h>
 #include <bst_iterator.h>
+#include <compare_versions.h>
 #include <container_most_water.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
@@ -53,13 +54,13 @@
 #include <rotating_box.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
+#include <string_from_leaf.h>
 #include <subarray_less_k.h>
 #include <subarray_sum_k.h>
 #include <sum_root_to_leaf.h>
 #include <total_hamming_distance.h>
 #include <triangle.h>
 #include <unique_bst.h>
-
 
 // #include <integer_replacement.h>
 #include <interleave_string.h>
@@ -1413,4 +1414,13 @@ TEST(Medium, binary_subarray_sum)
 
     nums = {0, 0, 0, 0, 0};
     ASSERT_EQ(b.numSubarraysWithSum(nums, 0), 15);
+}
+
+TEST(Medium, compare_versions)
+{
+    Leet::Medium::CompareVersions c;
+
+    ASSERT_EQ(c.compareVersion("1.01", "1.001"), 0);
+    ASSERT_EQ(c.compareVersion("1.0", "1.0.0"), 0);
+    ASSERT_EQ(c.compareVersion("0.1", "1.1"), -1);
 }
