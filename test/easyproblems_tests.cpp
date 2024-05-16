@@ -10,6 +10,7 @@
 #include <binary_search.h>
 #include <binary_substring.h>
 #include <binary_tree_mode.h>
+#include <boolean_binary_tree.h>
 #include <check_if_rotated.h>
 #include <check_straight_line.h>
 #include <climbing_stairs.h>
@@ -123,6 +124,7 @@
 #include <x_matrix.h>
 
 #include <vector>
+
 
 TEST(Easy, TwoSums)
 {
