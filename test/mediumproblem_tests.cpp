@@ -13,6 +13,7 @@
 #include <break_palindrome.h>
 #include <browser_history.h>
 #include <bst_iterator.h>
+#include <bulls_cows.h>
 #include <compare_versions.h>
 #include <container_most_water.h>
 #include <count_sub_island.h>
@@ -1423,4 +1424,12 @@ TEST(Medium, compare_versions)
     ASSERT_EQ(c.compareVersion("1.01", "1.001"), 0);
     ASSERT_EQ(c.compareVersion("1.0", "1.0.0"), 0);
     ASSERT_EQ(c.compareVersion("0.1", "1.1"), -1);
+}
+
+TEST(Medium, cows_bulls)
+{
+    Leet::Medium::CowsBulls c;
+
+    ASSERT_EQ(c.getHint("1807", "7810"), "1A3B");
+    ASSERT_EQ(c.getHint("1123", "0111"), "1A1B");
 }
