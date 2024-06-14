@@ -51,14 +51,15 @@ namespace Leet::Medium {
             return total;
         }
 
-        // we found an island, turn the island from '1' to '0' to show we visited the island
-        // and dont' count it more than once.
+        // we found an island, turn the island from '1' to '0' to show we visited the
+        // island and dont' count it more than once.
         void sinkIsland(std::vector<std::vector<char>>& grid, int row, int col)
         {
             int row_len = grid.size();
             int col_len = grid[0].size();
 
-            if (row < 0 || row >= row_len || col < 0 || col >= col_len || grid[row][col] == '0')
+            if (row < 0 || row >= row_len || col < 0 || col >= col_len ||
+                grid[row][col] == '0')
                 return;
 
             grid[row][col] = '0';
