@@ -55,6 +55,7 @@
 #include <rotating_box.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
+#include <spiral_matrix.h>
 #include <string_from_leaf.h>
 #include <subarray_less_k.h>
 #include <subarray_sum_k.h>
