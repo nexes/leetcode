@@ -2,6 +2,7 @@
 #include <3sum_closest.h>
 #include <LRUCache.h>
 #include <add_two_numbers.h>
+#include <additive_number.h>
 #include <anagrams_in_string.h>
 #include <array_nesting.h>
 #include <bag_of_tokens.h>
@@ -16,6 +17,7 @@
 #include <bulls_cows.h>
 #include <compare_versions.h>
 #include <container_most_water.h>
+#include <count_and_say.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
 #include <decode_string.h>
@@ -1433,4 +1435,20 @@ TEST(Medium, cows_bulls)
 
     ASSERT_EQ(c.getHint("1807", "7810"), "1A3B");
     ASSERT_EQ(c.getHint("1123", "0111"), "1A1B");
+}
+
+TEST(Medium, additive_num)
+{
+    Leet::Medium::AdditiveNumber a;
+
+    ASSERT_TRUE(a.isAdditiveNumber("112358"));
+    ASSERT_TRUE(a.isAdditiveNumber("199100199"));
+}
+
+TEST(Medium, count_and_say)
+{
+    Leet::Medium::CountSay c;
+
+    ASSERT_EQ(c.countAndSay(4), "1211");
+    ASSERT_EQ(c.countAndSay(1), "1");
 }
