@@ -95,6 +95,7 @@
 #include <rotate_string.h>
 #include <same_tree.h>
 #include <search_bst.h>
+#include <self_dividing.h>
 #include <sign_product_array.h>
 #include <single_number.h>
 #include <sort_array_parity.h>
@@ -124,7 +125,6 @@
 #include <x_matrix.h>
 
 #include <vector>
-
 
 TEST(Easy, TwoSums)
 {
@@ -1404,4 +1404,15 @@ TEST(Easy, positive_with_negative)
 
     nums = {-10, 8, 6, 7, -2, -3};
     ASSERT_EQ(p.findMaxK(nums), -1);
+}
+
+TEST(Easy, self_dividing)
+{
+    Leet::Easy::SelfDividing s;
+
+    std::vector<int> arr{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22};
+    ASSERT_EQ(s.selfDividingNumbers(1, 22), arr);
+
+    arr = {48, 55, 66, 77};
+    ASSERT_EQ(s.selfDividingNumbers(47, 85), arr);
 }
