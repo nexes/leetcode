@@ -1,11 +1,10 @@
 #pragma once
 
-#include <string>
 #include <map>
 #include <stack>
+#include <string>
 
-namespace Leet::Easy
-{
+namespace Leet::Easy {
 
     // Given a string containing just the characters '(', ')', '{', '}', '[' and ']',
     // determine if the input string is valid.
@@ -36,24 +35,46 @@ namespace Leet::Easy
     // Output: true
     struct Parentheses
     {
+        bool isValid_cleaner(std::string s)
+        {
+            std::stack<char> parens;
+
+            for (char c : s) {
+                switch (c) {
+                case '(':
+                    parens.push(')');
+                    break;
+                case '{':
+                    parens.push('}');
+                    break;
+                case '[':
+                    parens.push(']');
+                    break;
+                case ')':
+                case ']':
+                case '}':
+                    if (parens.empty() || parens.top() != c)
+                        return false;
+                    parens.pop();
+                    break;
+                }
+            }
+
+            return parens.empty();
+        }
+
         bool isValid(std::string s)
         {
             std::stack<char> paren_stack;
-            std::map<char, char> paren_map{{')', '('},
-                                           {']', '['},
-                                           {'}', '{'}};
+            std::map<char, char> paren_map{{')', '('}, {']', '['}, {'}', '{'}};
 
-            for (const auto &c : s)
-            {
-                if (paren_map.find(c) != paren_map.end())
-                {
+            for (const auto &c : s) {
+                if (paren_map.find(c) != paren_map.end()) {
                     if (!paren_stack.empty() && paren_stack.top() == paren_map.at(c))
                         paren_stack.pop();
                     else
                         return false;
-                }
-                else
-                {
+                } else {
                     paren_stack.push(c);
                 }
             }
@@ -61,4 +82,4 @@ namespace Leet::Easy
             return paren_stack.empty();
         }
     };
-} // namespace Leet::Easy
+}  // namespace Leet::Easy
