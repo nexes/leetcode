@@ -1,9 +1,8 @@
 #pragma once
 
 #include <algorithm>
-#include <array>
-#include <iostream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace Leet::Medium {
@@ -68,39 +67,32 @@ namespace Leet::Medium {
         }
 
         // using a sliding window algorithm. O(n)
-        std::vector<int> findAnagrams_sliding_window(std::string s,
-                                                     std::string p)
+        std::vector<int> findAnagrams_sliding_window(std::string s, std::string p)
         {
+            std::unordered_map<char, int> needed;
+            std::unordered_map<char, int> have;
             std::vector<int> indices;
+            int win_size = p.size();
+            int start = 0;
 
-            if (s.length() < p.length())
-                return indices;
+            for (char c : p)
+                needed[c]++;
 
-            int win_begin = 0;
-            int win_end = 0;
-            int p_len = p.length();
-            int s_len = s.length();
+            for (int i = 0; i < s.size(); i++) {
+                have[s[i]]++;
+                start = i - win_size + 1;
 
-            std::array<int, 26> s_hash{0};
-            std::array<int, 26> p_hash{0};
+                // if i has moved past the size of our sliding window
+                // we check if we have an anagram by ==. We will then
+                // remove the left most char
+                if (i >= win_size - 1) {
+                    if (needed == have)
+                        indices.push_back(start);
 
-            for (auto &c : p)
-                p_hash[c - 'a']++;
-
-            // extend our window to p.size
-            while (win_end - win_begin < p_len)
-                s_hash[s.at(win_end++) - 'a']++;
-
-            while (win_end <= s_len) {
-                if (p_hash == s_hash)
-                    indices.push_back(win_begin);
-
-                s_hash[s.at(win_begin++) - 'a']--;
-
-                if (win_end < s_len)
-                    s_hash[s.at(win_end) - 'a']++;
-
-                win_end++;
+                    have[s[start]]--;
+                    if (have[s[start]] <= 0)
+                        have.erase(s[start]);
+                }
             }
 
             return indices;
