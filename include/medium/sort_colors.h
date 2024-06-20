@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <map>
 #include <vector>
 
 namespace Leet::Medium {
@@ -35,31 +36,49 @@ namespace Leet::Medium {
     // Could you come up with a one-pass algorithm using only O(1) constant space?
     struct SortColor
     {
+        // Dutch flag algorithem
+        // time: O(n)
+        // space: O(1)
         void sortColors(std::vector<int>& nums)
         {
-            int zero = 0;
-            int one = 0;
-            int two = 0;
+            int l = 0;
+            int m = 0;
+            int h = nums.size() - 1;
 
-            // get the frequency
-            for (const auto& num : nums) {
-                if (num == 0)
-                    zero++;
-                if (num == 1)
-                    one++;
-                if (num == 2)
-                    two++;
+            while (m <= h) {
+                switch (nums[m]) {
+                case 0:
+                    std::swap(nums[l], nums[m]);
+                    l++;
+                    m++;
+                    break;
+                case 1:
+                    m++;
+                    break;
+                case 2:
+                    std::swap(nums[m], nums[h]);
+                    h--;
+                    break;
+                }
             }
+        }
 
-            // while 'i' is less than the value of that numbers frequency
-            // add it to the array
-            for (int i = 0; i < nums.size(); i++) {
-                if (i < zero)
-                    nums[i] = 0;
-                else if (i < zero + one)
-                    nums[i] = 1;
-                else if (i < zero + one + two)
-                    nums[i] = 2;
+        // use a map to hold the frequency and then place that many items
+        // into the array
+        // time: O(nlog(n))
+        // space: O(n)
+        void sortColors_map(std::vector<int>& nums)
+        {
+            std::map<int, int> freq;
+
+            for (int num : nums)
+                freq[num]++;
+
+            int i = 0;
+            for (auto& value : freq) {
+                int limit = i + value.second;
+                for (i < limit)
+                    nums[i++] = value.first;
             }
         }
 
