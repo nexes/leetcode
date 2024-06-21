@@ -9,6 +9,7 @@
 #include <balance_parentheses.h>
 #include <binary_subarray_sum.h>
 #include <binary_tree_level_order.h>
+#include <binary_tree_right_side.h>
 #include <bitwise_and_range.h>
 #include <bottom_left_tree_value.h>
 #include <break_palindrome.h>
@@ -47,6 +48,7 @@
 #include <min_length_str.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
+#include <most_profit_work.h>
 #include <optimal_partition_string.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>
