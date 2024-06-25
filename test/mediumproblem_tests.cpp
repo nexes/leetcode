@@ -7,6 +7,7 @@
 #include <array_nesting.h>
 #include <bag_of_tokens.h>
 #include <balance_parentheses.h>
+#include <binary_array_one.h>
 #include <binary_subarray_sum.h>
 #include <binary_tree_level_order.h>
 #include <binary_tree_pruning.h>
@@ -1454,4 +1455,15 @@ TEST(Medium, count_and_say)
 
     ASSERT_EQ(c.countAndSay(4), "1211");
     ASSERT_EQ(c.countAndSay(1), "1");
+}
+
+TEST(Medium, binary_array_one)
+{
+    Leet::Medium::BinaryOneArray b;
+
+    std::vector<int> arr{0, 1, 1, 1, 0, 0};
+    ASSERT_EQ(b.minOperations(arr), 3);
+
+    arr = {0, 1, 1, 1};
+    ASSERT_EQ(b.minOperations(arr), -1);
 }
