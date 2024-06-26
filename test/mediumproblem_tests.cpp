@@ -27,6 +27,7 @@
 #include <delete_two_strings.h>
 #include <divide_integers.h>
 #include <find_replace_pattern.h>
+#include <first_last_elm_array.h>
 #include <gas_station.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
@@ -1466,4 +1467,21 @@ TEST(Medium, binary_array_one)
 
     arr = {0, 1, 1, 1};
     ASSERT_EQ(b.minOperations(arr), -1);
+}
+
+TEST(Medium, first_last_elm_array)
+{
+    Leet::Medium::FirstLastElem f;
+
+    std::vector<int> arr{5, 7, 7, 8, 8, 10};
+    std::vector<int> range{3, 4};
+    ASSERT_EQ(f.searchRange(arr, 8), range);
+
+    arr = {5, 7, 7, 8, 8, 10};
+    range = {-1, -1};
+    ASSERT_EQ(f.searchRange(arr, 6), range);
+
+    arr = {};
+    range = {-1, -1};
+    ASSERT_EQ(f.searchRange(arr, 0), range);
 }
