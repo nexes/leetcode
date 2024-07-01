@@ -112,6 +112,7 @@
 #include <sum_xor_subset.h>
 #include <symmetric_tree.h>
 #include <third_max_number.h>
+#include <three_consecutive_odds.h>
 #include <transpose_matrix.h>
 #include <truncate_sentence.h>
 #include <two_sum_2.h>
@@ -125,6 +126,7 @@
 #include <x_matrix.h>
 
 #include <vector>
+
 
 TEST(Easy, TwoSums)
 {
