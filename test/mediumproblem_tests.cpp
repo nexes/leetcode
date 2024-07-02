@@ -26,6 +26,7 @@
 #include <decode_string.h>
 #include <delete_two_strings.h>
 #include <divide_integers.h>
+#include <even_odd_tree.h>
 #include <find_replace_pattern.h>
 #include <first_last_elm_array.h>
 #include <gas_station.h>
