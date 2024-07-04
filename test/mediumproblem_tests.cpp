@@ -47,6 +47,7 @@
 #include <lca_tree.h>
 #include <longest_common_prefix.h>
 #include <max_distance_pairs.h>
+#include <merge_nodes_zero.h>
 #include <min_area_cover.h>
 #include <min_deletions_string_balance.h>
 #include <min_jumps_home.h>
