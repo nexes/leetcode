@@ -41,6 +41,7 @@
 #include <happy_numer.h>
 #include <insert_position.h>
 #include <integer_to_binary.h>
+#include <intersection_array_2.h>
 #include <is_subsequence.h>
 #include <island_perimeter.h>
 #include <isomorphic_string.h>
@@ -126,7 +127,6 @@
 #include <x_matrix.h>
 
 #include <vector>
-
 
 TEST(Easy, TwoSums)
 {
