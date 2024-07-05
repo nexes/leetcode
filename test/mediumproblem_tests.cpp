@@ -52,6 +52,7 @@
 #include <min_deletions_string_balance.h>
 #include <min_jumps_home.h>
 #include <min_length_str.h>
+#include <min_max_critical_points.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
 #include <most_profit_work.h>
