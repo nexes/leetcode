@@ -21,6 +21,7 @@
 #include <compare_versions.h>
 #include <container_most_water.h>
 #include <count_and_say.h>
+#include <count_good_nodes.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
 #include <decode_string.h>
