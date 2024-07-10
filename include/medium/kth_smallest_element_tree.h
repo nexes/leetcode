@@ -26,17 +26,41 @@ namespace Leet::Medium {
     // would you optimize?
     struct KthSmallestTree
     {
+        // time: O(n)
+        // space: O(1)
+        int kthSmallest_linear(Leet::TreeNode *root, int k)
+        {
+            int k_smallest;
+            dfs(root, k, k_smallest);
+            return k_smallest;
+        }
+
+        void dfs(Leet::TreeNode *node, int &count, int &value)
+        {
+            if (node == nullptr)
+                return;
+
+            dfs(node->left, count, value);
+
+            if (count > 0) {
+                count--;
+                value = node->val;
+            }
+
+            dfs(node->right, count, value);
+        }
+
+        // time: O(n)
+        // space: O(n)
         int kthSmallest_with_vector(Leet::TreeNode *root, int k)
         {
             std::vector<int> inorder;
 
             kthSmallest_with_vector_helper(root, inorder);
-
             return inorder[k - 1];
         }
 
-        void kthSmallest_with_vector_helper(Leet::TreeNode *node,
-                                            std::vector<int> &nums)
+        void kthSmallest_with_vector_helper(Leet::TreeNode *node, std::vector<int> &nums)
         {
             if (node == nullptr)
                 return;
