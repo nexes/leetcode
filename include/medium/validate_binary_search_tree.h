@@ -29,7 +29,8 @@ namespace Leet::Medium {
     // -231 <= Node.val <= 231 - 1
     struct ValidateBST
     {
-        // solves the problem using space complexity O(n)
+        // time: O(n)
+        // space: O(n)
         bool isValidBST_memory(Leet::TreeNode *root)
         {
             std::vector<int> inOrder;
@@ -44,10 +45,9 @@ namespace Leet::Medium {
             return true;
         }
 
-        void isValidBST_memory_helper(Leet::TreeNode *node,
-                                      std::vector<int> &arr)
+        void isValidBST_memory_helper(Leet::TreeNode *node, std::vector<int> &arr)
         {
-            if (!node)
+            if (node == nullptr)
                 return;
 
             isValidBST_memory_helper(node->left, arr);
@@ -55,17 +55,16 @@ namespace Leet::Medium {
             isValidBST_memory_helper(node->right, arr);
         }
 
-        // solves the problem using space complexity O(1)
+        // time: O(n)
+        // space: O(1)
         bool isValidBST(Leet::TreeNode *root)
         {
             return isValidBST_helper(root, INT_MIN - 1ll, INT_MAX + 1ll);
         }
 
-        // think of this as a valid "range"
-        bool isValidBST_helper(Leet::TreeNode *node, long long min,
-                               long long max)
+        bool isValidBST_helper(Leet::TreeNode *node, long long min, long long max)
         {
-            if (!node)
+            if (node == nullptr)
                 return true;
 
             if (node->val > min && node->val < max) {
