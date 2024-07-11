@@ -5,6 +5,8 @@
 #include <gtest/gtest.h>
 #include <median.h>
 #include <merge_k_sorted.h>
+#include <serialize_deserialize_bt.h>
+#include <trapping_water.h>
 
 #include <string>
 #include <vector>
