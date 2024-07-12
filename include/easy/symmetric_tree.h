@@ -64,8 +64,7 @@ namespace Leet::Easy {
             return isSymmetric_recursive_helper(root, root);
         }
 
-        bool isSymmetric_recursive_helper(Leet::TreeNode *left,
-                                          Leet::TreeNode *right)
+        bool isSymmetric_recursive_helper(Leet::TreeNode *left, Leet::TreeNode *right)
         {
             if (!left && !right)
                 return true;
