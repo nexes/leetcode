@@ -9,6 +9,7 @@
 #include <balance_parentheses.h>
 #include <binary_array_one.h>
 #include <binary_subarray_sum.h>
+#include <binary_tree_from_array.h>
 #include <binary_tree_level_order.h>
 #include <binary_tree_pruning.h>
 #include <binary_tree_right_side.h>
