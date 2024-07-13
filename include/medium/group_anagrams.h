@@ -2,9 +2,11 @@
 
 #include <algorithm>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 using std::string;
+using std::unordered_map;
 using std::vector;
 
 namespace Leet::Medium {
@@ -33,39 +35,21 @@ namespace Leet::Medium {
     {
         vector<vector<string>> groupAnagrams(vector<string>& strs)
         {
-            vector<string> sorted_strs{};
-            vector<vector<string>> out{};
-
-            if (strs.size() < 2) {
-                out.emplace_back(strs);
-                return out;
-            }
+            unordered_map<string, vector<string>> group_map;
+            vector<vector<string>> groups;
 
             // O(n * mlog(m))
-            for (auto word : strs) {
-                std::sort(word.begin(), word.end());
-                sorted_strs.emplace_back(word);
+            int i = 0;
+            for (string str : strs) {
+                std::sort(str.begin(), str.end());
+                group_map[str].push_back(strs[i++]);
             }
 
-            // O(n ^2)
-            for (int i = 0; i < strs.size(); i++) {
-                if (sorted_strs[i] == "*")
-                    continue;
+            // O(k)
+            for (auto value : group_map)
+                groups.push_back(value.second);
 
-                auto temp = vector<string>{};
-                temp.push_back(strs[i]);
-
-                for (int j = i + 1; j < strs.size(); j++) {
-                    if (sorted_strs[i] == sorted_strs[j]) {
-                        temp.emplace_back(strs[j]);
-                        sorted_strs[j] = "*";
-                    }
-                }
-
-                out.emplace_back(temp);
-            }
-
-            return out;
+            return groups;
         }
     };
 }  // namespace Leet::Medium

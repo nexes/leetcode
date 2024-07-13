@@ -982,9 +982,10 @@ TEST(Medium, permutation_in_string)
 // {
 //     Leet::Medium::GroupAnagram g;
 
-//     auto str = std::vector<std::string>{"eat", "tea", "tan", "ate", "nat",
-//     "bat"}; auto out = std::vector<std::vector<std::string>>{
-//         {"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}};
+//     auto str = std::vector<std::string>{"eat", "tea", "tan", "ate", "nat", "bat"};
+//     auto out = std::vector<std::vector<std::string>>{{"bat"},
+//                                                      {"nat", "tan"},
+//                                                      {"ate", "eat", "tea"}};
 
 //     ASSERT_EQ(g.groupAnagrams(str), out);
 // }
