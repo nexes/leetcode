@@ -65,6 +65,7 @@
 #include <queue_by_height.h>
 #include <recover_bst.h>
 #include <remove_duplicate_array2.h>
+#include <reverse_string_parentheses.h>
 #include <rotate_list.h>
 #include <rotating_box.h>
 #include <single_element_sorted_array.h>
@@ -1492,4 +1493,13 @@ TEST(Medium, first_last_elm_array)
     arr = {};
     range = {-1, -1};
     ASSERT_EQ(f.searchRange(arr, 0), range);
+}
+
+TEST(Medium, reverse_string_in_parens)
+{
+    Leet::Medium::ReverseStringParens r;
+
+    ASSERT_EQ(r.reverseParentheses("(abcd)"), "dcba");
+    ASSERT_EQ(r.reverseParentheses("(u(love)i)"), "iloveu");
+    ASSERT_EQ(r.reverseParentheses("(ed(et(oc))el)"), "leetcode");
 }
