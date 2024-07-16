@@ -70,6 +70,7 @@
 #include <rotating_box.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
+#include <sorted_list_to_bst.h>
 #include <spiral_matrix.h>
 #include <string_from_leaf.h>
 #include <subarray_less_k.h>
@@ -78,7 +79,6 @@
 #include <total_hamming_distance.h>
 #include <triangle.h>
 #include <unique_bst.h>
-
 // #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
