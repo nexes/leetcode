@@ -100,6 +100,7 @@
 #include <sign_product_array.h>
 #include <single_number.h>
 #include <sort_array_parity.h>
+#include <sort_ints_bits.h>
 #include <sqrt.h>
 #include <square_sorted_array.h>
 #include <stack_with_queues.h>
@@ -1418,4 +1419,15 @@ TEST(Easy, self_dividing)
 
     arr = {48, 55, 66, 77};
     ASSERT_EQ(s.selfDividingNumbers(47, 85), arr);
+}
+
+TEST(Easy, sort_by_1_bits)
+{
+    Leet::Easy::SortIntByBits s;
+
+    std::vector<int> input{0, 1, 2, 3, 4, 5, 6, 7, 8};
+    std::vector<int> output{0, 1, 2, 4, 8, 3, 5, 6, 7};
+
+    ASSERT_EQ(s.sortByBits(input), output);
+}
 }
