@@ -109,6 +109,7 @@
 #include <string_halves_alike.h>
 #include <strings_almost_equivalent.h>
 #include <strstr.h>
+#include <subsequence_k_len.h>
 #include <subtree_another_tree.h>
 #include <sum_left_leaves.h>
 #include <sum_of_values.h>
@@ -1430,4 +1431,16 @@ TEST(Easy, sort_by_1_bits)
 
     ASSERT_EQ(s.sortByBits(input), output);
 }
+
+TEST(Easy, subsequence_k_length)
+{
+    Leet::Easy::SubsequenceKLength s;
+
+    std::vector<int> input{2, 1, 3, 3};
+    std::vector<int> output{3, 3};
+    ASSERT_EQ(s.maxSubsequence(input, 2), output);
+
+    input = {-1, -2, 3, 4};
+    output = {-1, 3, 4};
+    ASSERT_EQ(s.maxSubsequence(input, 3), output);
 }
