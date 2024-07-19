@@ -31,46 +31,14 @@ namespace Leet::Medium {
     // analysis.)
     struct ProductArray
     {
-        std::vector<int> productExceptSelf(std::vector<int> &nums)
+        // time: O(n)
+        // space: O(n)
+        std::vector<int> productExceptSelf_linear(std::vector<int> &nums)
         {
-            std::vector<int> products(nums.size(), 0);
-            int totalProduct = nums[0];
-            int zeroIndex = 0;
-            bool foundZero = nums[0] == 0 ? true : false;
-
-            for (int i = 1; i < nums.size(); i++) {
-                if (nums[i] == 0) {
-                    // multiple zeros
-                    if (foundZero)
-                        return products;
-
-                    foundZero = true;
-                    zeroIndex = i;
-                } else {
-                    totalProduct *= nums[i];
-                }
-            }
-
-            if (foundZero) {
-                products[zeroIndex] = totalProduct;
-
-            } else {
-                for (int i = 0; i < products.size(); i++)
-                    products[i] = totalProduct / nums[i];
-            }
-
-            return products;
-        }
-
-        std::vector<int> productExceptSelf_noDivision(std::vector<int> &nums)
-        {
-            int size = nums.size();
-            std::vector<int> products(size, 0);
-            std::vector<int> leftProducts(size);
-            std::vector<int> rightProducts(size);
-
-            leftProducts[0] = 1;
-            rightProducts[size - 1] = 1;
+            size_t size = nums.size();
+            std::vector<int> products(size, 1);
+            std::vector<int> leftProducts(size, 1);
+            std::vector<int> rightProducts(size, 1);
 
             // calculate the product up to this index but not including it.
             // Starting from the left
@@ -87,6 +55,26 @@ namespace Leet::Medium {
                 products[i] = leftProducts[i] * rightProducts[i];
 
             return products;
+        }
+
+        // time: O(n)
+        // space: O(1)
+        std::vector<int> productExceptSelf(std::vector<int> &nums)
+        {
+            size_t size = nums.size();
+            std::vector<int> answer(size, 1);
+
+            for (int i = 1; i < size; i++) {
+                answer[i] = answer[i - 1] * nums[i - 1];
+            }
+
+            int rightprod = 1;
+            for (int i = size - 1; i >= 0; i--) {
+                answer[i] *= rightprod;
+                rightprod *= nums[i];
+            }
+
+            return answer;
         }
     };
 }  // namespace Leet::Medium
