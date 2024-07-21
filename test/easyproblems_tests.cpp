@@ -1443,4 +1443,12 @@ TEST(Easy, subsequence_k_length)
     input = {-1, -2, 3, 4};
     output = {-1, 3, 4};
     ASSERT_EQ(s.maxSubsequence(input, 3), output);
+
+TEST(Easy, bit_changes_equal_ints)
+{
+    Leet::Easy::BitChangesEqualInts b;
+
+    ASSERT_EQ(b.minChanges(13, 4), 2);
+    ASSERT_EQ(b.minChanges(21, 21), 0);
+    ASSERT_EQ(b.minChanges(14, 13), -1);
 }
