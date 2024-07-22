@@ -10,10 +10,12 @@
 #include <binary_search.h>
 #include <binary_substring.h>
 #include <binary_tree_mode.h>
+#include <bit_changes_equal.h>
 #include <boolean_binary_tree.h>
 #include <check_if_rotated.h>
 #include <check_straight_line.h>
 #include <climbing_stairs.h>
+#include <consecutive_characters.h>
 #include <consistent_strings.h>
 #include <construct_rectangle.h>
 #include <contain_duplicate.h>
@@ -1451,4 +1453,12 @@ TEST(Easy, bit_changes_equal_ints)
     ASSERT_EQ(b.minChanges(13, 4), 2);
     ASSERT_EQ(b.minChanges(21, 21), 0);
     ASSERT_EQ(b.minChanges(14, 13), -1);
+}
+
+TEST(Easy, consecutive_chars)
+{
+    Leet::Easy::ConsecutiveChar c;
+
+    ASSERT_EQ(c.maxPower("leetcode"), 2);
+    ASSERT_EQ(c.maxPower("abbcccddddeeeeedcba"), 5);
 }
