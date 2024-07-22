@@ -71,6 +71,7 @@
 #include <rotating_box.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
+#include <sort_matrix_diagonal.h>
 #include <sorted_list_to_bst.h>
 #include <spiral_matrix.h>
 #include <string_from_leaf.h>
