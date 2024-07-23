@@ -69,6 +69,7 @@
 #include <monotonic_array.h>
 #include <move_zeroes.h>
 #include <n_repeated_array.h>
+#include <next_greater_element.h>
 #include <nth_tribonacci_number.h>
 #include <number_complement.h>
 #include <number_different_ints.h>
@@ -1445,6 +1446,18 @@ TEST(Easy, subsequence_k_length)
     input = {-1, -2, 3, 4};
     output = {-1, 3, 4};
     ASSERT_EQ(s.maxSubsequence(input, 3), output);
+}
+
+TEST(Easy, next_greater_element)
+{
+    Leet::Easy::NextGreaterElem n;
+
+    std::vector<int> nums1{4, 1, 2};
+    std::vector<int> nums2{1, 3, 4, 2};
+    std::vector<int> output{-1, 3, -1};
+
+    ASSERT_EQ(n.nextGreaterElement(nums1, nums2), output);
+}
 
 TEST(Easy, bit_changes_equal_ints)
 {
