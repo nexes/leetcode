@@ -1,12 +1,12 @@
 #pragma once
 
 #include <algorithm>
-#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 namespace Leet::Medium {
     // Given an unsorted array of integers nums, return the length of the longest
-    //consecutive elements sequence. You must write an algorithm that runs in O(n) time.
+    // consecutive elements sequence. You must write an algorithm that runs in O(n) time.
 
     // Example 1:
     // Input: nums = [100,4,200,1,3,2]
@@ -26,54 +26,53 @@ namespace Leet::Medium {
         // time: O(nlog(n)) space: O(1)
         int longestConsecutive(std::vector<int>& nums)
         {
-            if (nums.size() < 1)
+            int longest = 0;
+            int current = 1;
+
+            if (nums.empty())
                 return 0;
 
-            int length = 1;
-            int count = 1;
             std::sort(nums.begin(), nums.end());
 
             for (int i = 1; i < nums.size(); i++) {
+                // pass duplicates
                 if (nums[i - 1] != nums[i]) {
-                    if (nums[i - 1] == nums[i] - 1) {
-                        count++;
+                    if (nums[i - 1] + 1 == nums[i]) {
+                        current++;
                     } else {
-                        length = std::max(length, count);
-                        count = 1;
+                        longest = std::max(longest, current);
+                        current = 1;
                     }
                 }
             }
 
-            return std::max(length, count);
+            return std::max(longest, current);
         }
 
         // time: O(n) space: O(n)
         int longestConsecutive_linear(std::vector<int>& nums)
         {
-            if (nums.size() < 1)
-                return 0;
+            int seq_len = 0;
+            std::unordered_set<int> values;
 
-            std::unordered_map<int, int> values{};
-            int length = 1;
+            // O(n)
+            for (int num : nums)
+                values.insert(num);
 
-            for (auto num : nums)
-                values[num]++;
+            // O(n)
+            for (int num : values) {
+                // check if we are the beginning of a sequence
+                // if we are, count from here
+                if (values.count(num - 1) == 0) {
+                    int curr_len = 0;
+                    while (values.count(num++) == 1)
+                        curr_len++;
 
-            for (auto num : nums) {
-                if (values.find(num - 1) != values.end())
-                    continue;
-
-                int current = num;
-                int current_len = 1;
-                while (values.find(current + 1) != values.end()) {
-                    current++;
-                    current_len++;
+                    seq_len = std::max(seq_len, curr_len);
                 }
-
-                length = std::max(length, current_len);
             }
 
-            return length;
+            return seq_len;
         }
     };
 }  // namespace Leet::Medium
