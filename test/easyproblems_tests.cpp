@@ -102,6 +102,7 @@
 #include <self_dividing.h>
 #include <sign_product_array.h>
 #include <single_number.h>
+#include <sort_array_by_frequency.h>
 #include <sort_array_parity.h>
 #include <sort_ints_bits.h>
 #include <sqrt.h>
@@ -133,6 +134,7 @@
 #include <x_matrix.h>
 
 #include <vector>
+
 
 TEST(Easy, TwoSums)
 {
@@ -1474,4 +1476,17 @@ TEST(Easy, consecutive_chars)
 
     ASSERT_EQ(c.maxPower("leetcode"), 2);
     ASSERT_EQ(c.maxPower("abbcccddddeeeeedcba"), 5);
+}
+
+TEST(Easy, sort_by_frequency)
+{
+    Leet::Easy::SortByFrequency s;
+
+    std::vector<int> nums{1, 1, 2, 2, 2, 3};
+    std::vector<int> sorted{3, 1, 1, 2, 2, 2};
+    ASSERT_EQ(s.frequencySort(nums), sorted);
+
+    nums = {2, 3, 1, 3, 2};
+    sorted = {1, 3, 3, 2, 2};
+    ASSERT_EQ(s.frequencySort(nums), sorted);
 }
