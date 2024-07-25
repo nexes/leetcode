@@ -1,7 +1,7 @@
 #pragma once
 
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 namespace Leet::Medium {
     // Given n non-negative integers a1, a2, ..., an , where each represents a
@@ -32,14 +32,16 @@ namespace Leet::Medium {
             while (l < r) {
                 int w = r - l;
                 int h = std::min(height[l], height[r]);
+                area = std::max(area, w * h);
 
-                if ((w * h) > area)
-                    area = w * h;
-
-                if (height[l] < height[r])
+                if (height[l] == height[r]) {
                     l++;
-                else
                     r--;
+                } else if (height[l] < height[r]) {
+                    l++;
+                } else {
+                    r--;
+                }
             }
 
             return area;
