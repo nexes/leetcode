@@ -34,7 +34,7 @@ namespace Leet::Easy {
     // Explanation: In this case, no transaction is done, i.e. max profit = 0.
     struct SellStock
     {
-        // cleaner way
+        // time: O(n)
         int maxProfit(std::vector<int> &prices)
         {
             int buy = prices[0];
@@ -52,27 +52,6 @@ namespace Leet::Easy {
                     profit = std::max(profit, sell - buy);
                 }
             }
-
-            return profit;
-        }
-
-        int maxProfit_old(std::vector<int> &prices)
-        {
-            int size = prices.size();
-            int buy_idx = -1;
-            int profit = 0;
-
-            for (int i = 0; i < size - 1; i++) {
-                if (prices[i + 1] > prices[i] && buy_idx < 0) {
-                    buy_idx = i;
-                } else if (prices[i + 1] < prices[i] && buy_idx >= 0) {
-                    profit += prices[i] - prices[buy_idx];
-                    buy_idx = -1;
-                }
-            }
-
-            if (buy_idx != -1)
-                profit += prices[size - 1] - prices[buy_idx];
 
             return profit;
         }

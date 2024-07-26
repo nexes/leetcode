@@ -24,68 +24,52 @@ namespace Leet::Hard {
     // 0 <= height[i] <= 105
     struct RainWater
     {
-        // this is a naive brute force solution that works but exceeded the time
-        // limit
+        // time: O(n)
+        // space: O(1)
         int trap(std::vector<int>& height)
         {
-            int left = 0;
-            int right = 0;
-            int trapped = 0;
+            int l = 0;
+            int r = height.size() - 1;
+            int maxleft = height[l];
+            int maxright = height[r];
+            int total = 0;
 
-            while (left < height.size()) {
-                if (height[left] == 0) {
-                    left++;
-                    continue;
+            while (l < r) {
+                if (maxleft <= maxright) {
+                    l++;
+                    maxleft = std::max(maxleft, height[l]);
+                    total += maxleft - height[l];
+                } else {
+                    r--;
+                    maxright = std::max(maxright, height[r]);
+                    total += maxright - height[r];
                 }
-
-                // this loop here is why it exceeded the time limit
-                right = left + 1;
-                int local_right = right;
-                while (right < height.size() && height[right] < height[left]) {
-                    if (height[right] > height[local_right])
-                        local_right = right;
-
-                    right++;
-                }
-
-                if (right == height.size()) {
-                    if (local_right >= left + 2 &&
-                        local_right < height.size()) {
-                        right = local_right;
-                    } else {
-                        left++;
-                        continue;
-                    }
-                }
-
-                int l_val = std::min(height[left], height[right]);
-                while (++left < right)
-                    trapped += l_val - height[left];
             }
 
-            return trapped;
+            return total;
         }
 
-        int trap_fast(std::vector<int>& height)
+        // time: O(n)
+        // space: O(n)
+        int trap_second(std::vector<int>& height)
         {
-            int trapped = 0;
-            int left = 0;
-            int right = height.size() - 1;
+            int total = 0;
+            std::vector<int> leftmax(height.size());
+            std::vector<int> rightmax(height.size());
 
-            int left_max = height[left];
-            int right_max = height[right];
+            leftmax[0] = height[0];
+            rightmax[height.size() - 1] = height[height.size() - 1];
 
-            while (left < right) {
-                left_max = std::max(left_max, height[left]);
-                right_max = std::max(right_max, height[right]);
+            for (int i = 1; i < height.size(); i++)
+                leftmax[i] = std::max(leftmax[i - 1], height[i]);
 
-                if (height[left] < height[right])
-                    trapped += left_max - height[left++];
-                else
-                    trapped += right_max - height[right--];
-            }
+            for (int i = height.size() - 2; i >= 0; i--)
+                rightmax[i] = std::max(rightmax[i + 1], height[i]);
 
-            return trapped;
+            for (int i = 0; i < height.size(); i++)
+                total += std::min(leftmax[i], rightmax[i]) - height[i];
+
+            return total;
         }
     };
 }  // namespace Leet::Hard
