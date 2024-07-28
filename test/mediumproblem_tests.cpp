@@ -20,6 +20,7 @@
 #include <browser_history.h>
 #include <bst_iterator.h>
 #include <bulls_cows.h>
+#include <city_smallest_neighbors.h>
 #include <compare_versions.h>
 #include <container_most_water.h>
 #include <count_and_say.h>
@@ -1513,4 +1514,15 @@ TEST(Medium, can_array_sort)
 
     std::vector<int> arr{8, 4, 2, 30, 15};
     ASSERT_TRUE(a.canSortArray(arr));
+}
+
+TEST(Medium, city_smallest_number_neighbors)
+{
+    Leet::Medium::CitySmallestNeighbors c;
+
+    vector<vector<int>> graph = {{0, 1, 3}, {1, 2, 1}, {1, 3, 4}, {2, 3, 1}};
+    ASSERT_EQ(c.findTheCity(4, graph, 4), 3);
+
+    graph = {{0, 1, 2}, {0, 4, 8}, {1, 2, 3}, {1, 4, 2}, {2, 3, 1}, {3, 4, 1}};
+    ASSERT_EQ(c.findTheCity(5, graph, 2), 0);
 }
