@@ -75,6 +75,7 @@
 #include <number_different_ints.h>
 #include <palindrome.h>
 #include <pascals_triangle.h>
+#include <path_exists.h>
 #include <perfect_square.h>
 #include <plusone.h>
 #include <pos_int_with_neg.h>
@@ -134,7 +135,6 @@
 #include <x_matrix.h>
 
 #include <vector>
-
 
 TEST(Easy, TwoSums)
 {
@@ -1489,4 +1489,12 @@ TEST(Easy, sort_by_frequency)
     nums = {2, 3, 1, 3, 2};
     sorted = {1, 3, 3, 2, 2};
     ASSERT_EQ(s.frequencySort(nums), sorted);
+}
+
+TEST(Easy, find_if_path_exists)
+{
+    Leet::Easy::FindIfPathExists f;
+
+    std::vector<std::vector<int>> g{{0, 1}, {1, 2}, {2, 0}};
+    ASSERT_TRUE(f.validPath(3, g, 0, 2));
 }
