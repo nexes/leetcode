@@ -1,14 +1,13 @@
 #pragma once
 
-#include <string>
 #include <algorithm>
-#include <vector>
+#include <string>
 #include <unordered_map>
+#include <unordered_set>
 
-namespace Leet::Medium
-{
-
-    // Given a string, find the length of the longest substring without repeating characters.
+namespace Leet::Medium {
+    // Given a string, find the length of the longest substring without repeating
+    // characters.
 
     // Example 1:
     // Input: "abcabcbb"
@@ -24,32 +23,28 @@ namespace Leet::Medium
     // Input: "pwwkew"
     // Output: 3
     // Explanation: The answer is "wke", with the length of 3.
-    //Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+    // Note that the answer must be a substring, "pwke" is a subsequence and not a
+    // substring.
     struct LongestSubString
     {
-        // this is much faster than the below function. we are using a std::vector in the same we
-        // we are using a map but without the added cost.
+        // using a set to control the sliding window
         int lengthOfLongestSubstring(std::string s)
         {
-            char c;
-            int l = -1;
-            int result = 0;
-            int len = s.length();
-            // 256 to cover the ascii table
-            std::vector<int> c_map(256, -1);
+            int l = 0;
+            int r = 0;
+            int maxlen = 0;
+            std::unordered_set<char> seen;
 
-            for (int i = 0; i < len; i++)
-            {
-                c = s.at(i);
+            while (r < s.length()) {
+                while (seen.count(s[r]) == 1)
+                    seen.erase(s[l++]);
 
-                if (c_map.at(c) > l)
-                    l = c_map.at(c);
-
-                c_map.at(c) = i;
-                result = std::max(i - l, result);
+                seen.insert(s[r]);
+                maxlen = std::max(maxlen, r - l + 1);
+                r++;
             }
 
-            return result;
+            return maxlen;
         }
 
         int lengthOfLongestSubstring_using_map(std::string s)
@@ -60,11 +55,9 @@ namespace Leet::Medium
             int len = s.length();
             std::unordered_map<char, int> c_map;
 
-            for (int i = 0; i < len; i++)
-            {
+            for (int i = 0; i < len; i++) {
                 c = s.at(i);
-                if (auto it = c_map.emplace(c, i); !it.second)
-                {
+                if (auto it = c_map.emplace(c, i); !it.second) {
                     result = std::max(i - l, result);
 
                     if (l <= c_map.at(c))
@@ -78,4 +71,4 @@ namespace Leet::Medium
             return result;
         }
     };
-} // namespace Leet::Medium
+}  // namespace Leet::Medium
