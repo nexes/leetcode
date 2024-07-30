@@ -80,14 +80,12 @@ namespace Leet::Easy {
         {
             vector<vector<int>> graph(n);
             unordered_set<int> seen;
-            std::string path;
 
             for (vector<int> edge : edges) {
                 graph[edge[0]].push_back(edge[1]);
                 graph[edge[1]].push_back(edge[0]);
             }
 
-            path.push_back((char)source);
             return path_dfs(graph, seen, source, destination);
         }
 
