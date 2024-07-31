@@ -1,79 +1,52 @@
 #pragma once
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <vector>
+#include <unordered_map>
 
 namespace Leet::Medium {
-    // Given two strings s1 and s2, write a function to return true if
-    // s2 contains the permutation of s1. In other words, one of the first
-    // string's permutations is the substring of the second string.
+    // Given two strings s1 and s2, return true if s2 contains a permutation of s1, or
+    // false otherwise. In other words, return true if one of s1's permutations is the
+    // substring of s2.
 
     // Example 1:
-    // Input: s1 = "ab" s2 = "eidbaooo"
-    // Output: True
+    // Input: s1 = "ab", s2 = "eidbaooo"
+    // Output: true
     // Explanation: s2 contains one permutation of s1 ("ba").
 
     // Example 2:
-    // Input:s1= "ab" s2 = "eidboaoo"
-    // Output: False
+    // Input: s1 = "ab", s2 = "eidboaoo"
+    // Output: false
 
     // Constraints:
-    // The input strings only contain lower case letters.
-    // The length of both given strings is in range [1, 10,000].
+    // 1 <= s1.length, s2.length <= 104
+    // s1 and s2 consist of lowercase English letters.
     struct PermutationString
     {
-        // time: O(nlog(n))
-        bool checkPermutation(std::string& s1, std::string& s2)
-        {
-            std::sort(s1.begin(), s1.end());
-            std::sort(s2.begin(), s2.end());
-
-            return s1 == s2;
-        }
-
-        // slow, time: O(n^2 log(n)) ish
-        bool checkInclusion_slow(std::string s1, std::string s2)
-        {
-            int s1_len = s1.length();
-            int s2_len = s2.length();
-
-            if (s1_len > s2_len)
-                return false;
-
-            for (int i = 0; i <= s2_len - s1_len; i++) {
-                auto sub_str = s2.substr(i, s1_len);
-
-                if (checkPermutation(s1, sub_str))
-                    return true;
-            }
-
-            return false;
-        }
-
-        // accepted but is still slow
+        // time: O(n)
+        // space: O(n)
         bool checkInclusion(std::string s1, std::string s2)
         {
-            std::vector<int> s1_freq(26, 0);
-            std::vector<int> substr_freq(26, 0);
+            std::unordered_map<char, int> s1freq;
+            std::unordered_map<char, int> windowfreq;
+            int l = 0;
 
-            if (s1.length() > s2.length())
-                return false;
+            for (char c : s1)
+                s1freq[c]++;
 
-            for (const auto& c : s1)
-                s1_freq[c - 'a']++;
+            for (int r = 0; r < s2.length(); r++) {
+                windowfreq[s2[r]]++;
 
-            // O(n * m)
-            for (int i = 0; i <= s2.length() - s1.length(); i++) {
-                for (int j = 0; j < s1.length(); j++)
-                    substr_freq[s2[i + j] - 'a']++;
-
-                if (s1_freq == substr_freq)
+                if (s1freq == windowfreq)
                     return true;
 
-                for (int i = 0; i < 26; i++)
-                    substr_freq[i] = 0;
+                while (r - l + 1 >= s1.length()) {
+                    windowfreq[s2[l]]--;
+
+                    if (windowfreq[s2[l]] <= 0)
+                        windowfreq.erase(s2[l]);
+                    l++;
+                }
             }
 
             return false;
