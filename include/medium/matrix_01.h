@@ -47,26 +47,23 @@ namespace Leet::Medium {
 
             // BFS
             while (!q.empty()) {
-                int len = q.size();
-                for (int i = 0; i < len; i++) {
-                    std::pair<int, int> cell = q.front();
-                    q.pop();
+                std::pair<int, int> cell = q.front();
+                q.pop();
 
-                    // check the four neighbors
-                    for (int j = 0; j < 4; j++) {
-                        int nr = cell.first + dir[j];
-                        int nc = cell.second + dir[j + 1];
+                // check the four neighbors
+                for (int j = 0; j < 4; j++) {
+                    int nr = cell.first + dir[j];
+                    int nc = cell.second + dir[j + 1];
 
-                        if (nr < 0 || nr >= rowlen || nc < 0 || nc >= collen ||
-                            mat[nr][nc] == 0)
-                            continue;
-                        if (seen.count({nr, nc}) == 1)
-                            continue;
+                    if (nr < 0 || nr >= rowlen || nc < 0 || nc >= collen ||
+                        mat[nr][nc] == 0)
+                        continue;
+                    if (seen.count({nr, nc}) == 1)
+                        continue;
 
-                        mat[nr][nc] = mat[cell.first][cell.second] + 1;
-                        seen.insert({nr, nc});
-                        q.push({nr, nc});
-                    }
+                    mat[nr][nc] = mat[cell.first][cell.second] + 1;
+                    seen.insert({nr, nc});
+                    q.push({nr, nc});
                 }
             }
 
