@@ -4,6 +4,8 @@
 #include <queue>
 #include <vector>
 
+using std::vector;
+
 namespace Leet::Medium {
     // Find the kth largest element in an unsorted array. Note that it is the
     // kth largest element in the sorted order, not the kth distinct element.
@@ -20,26 +22,63 @@ namespace Leet::Medium {
     // You may assume k is always valid, 1 ≤ k ≤ array's length.
     struct KthLargest
     {
-        // cheating???
-        int findKthLargest(std::vector<int> &nums, int k)
+        // time: O(nlog(n))
+        int findKthLargest_sorted(std::vector<int> &nums, int k)
         {
             std::sort(nums.begin(), nums.end());
-
             return nums[nums.size() - k];
         }
 
-        // using a priority queue and keeping the smallest number on top
+        // using a priority queue and keeping the largest number on top
+        // time: O(kLog(n))
         int findKthLargest_queue(std::vector<int> &nums, int k)
         {
-            std::priority_queue<int, std::vector<int>, std::greater<int>> qq;
+            int largest = 0;
+            std::priority_queue<int> pq(nums.begin(), nums.end());
 
-            for (auto i : nums) {
-                qq.emplace(i);
-                if (qq.size() > k)
-                    qq.pop();
+            while (!pq.empty() && k-- > 0) {
+                largest = pq.top();
+                pq.pop();
             }
 
-            return qq.top();
+            return largest;
+        }
+
+        // time: O(n)
+        // worst case: O(n^2)
+        // quick select
+        int findKthLargest(vector<int> &nums, int k)
+        {
+            int l = 0;
+            int r = nums.size() - 1;
+            int k_idx = nums.size() - k;
+
+            auto partition = [&](vector<int> &nums, int l, int r) {
+                // nums[r] is the pivot value
+                for (int j = l; j < r; j++) {
+                    if (nums[j] <= nums[r]) {
+                        std::swap(nums[l], nums[j]);
+                        l++;
+                    }
+                }
+                std::swap(nums[l], nums[r]);
+                return l;
+            };
+
+            int index = partition(nums, l, r);
+
+            while (index != k_idx) {
+                if (index < k_idx) {
+                    l = index + 1;
+                    index = partition(nums, l, r);
+                }
+                if (index > k_idx) {
+                    r = index - 1;
+                    index = partition(nums, l, r);
+                }
+            }
+
+            return nums[index];
         }
     };
 }  // namespace Leet::Medium
