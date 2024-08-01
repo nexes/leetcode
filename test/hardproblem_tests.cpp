@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 #include <median.h>
 #include <merge_k_sorted.h>
+#include <min_window_substring.h>
 #include <serialize_deserialize_bt.h>
 #include <trapping_water.h>
 
@@ -91,4 +92,13 @@ TEST(Hard, trapping_water)
 
     h = {4, 2, 0, 3, 2, 5};
     ASSERT_EQ(r.trap(h), 9);
+}
+
+TEST(Hard, min_window_substring)
+{
+    Leet::Hard::MinWinodwSubstring m;
+
+    ASSERT_EQ(m.minWindow("ADOBECODEBANC", "ABC"), "BANC");
+    ASSERT_EQ(m.minWindow("a", "a"), "a");
+    ASSERT_EQ(m.minWindow("a", "aa"), "");
 }
