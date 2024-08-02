@@ -1,6 +1,5 @@
 #include <132pattern.h>
 #include <3sum_closest.h>
-#include <matrix_01.h>
 #include <LRUCache.h>
 #include <add_two_numbers.h>
 #include <additive_number.h>
@@ -52,6 +51,8 @@
 #include <kth_smallest_element_tree.h>
 #include <lca_tree.h>
 #include <longest_common_prefix.h>
+#include <longest_repeating_char_replacement.h>
+#include <matrix_01.h>
 #include <max_distance_pairs.h>
 #include <merge_nodes_zero.h>
 #include <min_area_cover.h>
@@ -1526,4 +1527,12 @@ TEST(Medium, city_smallest_number_neighbors)
 
     graph = {{0, 1, 2}, {0, 4, 8}, {1, 2, 3}, {1, 4, 2}, {2, 3, 1}, {3, 4, 1}};
     ASSERT_EQ(c.findTheCity(5, graph, 2), 0);
+}
+
+TEST(Medium, longest_repeating_char_replacement)
+{
+    Leet::Medium::LongestRepeatingReplace l;
+
+    ASSERT_EQ(l.characterReplacement("ABAB", 2), 4);
+    ASSERT_EQ(l.characterReplacement("AABABBA", 1), 4);
 }
