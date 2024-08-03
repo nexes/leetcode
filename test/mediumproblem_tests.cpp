@@ -60,9 +60,11 @@
 #include <min_jumps_home.h>
 #include <min_length_str.h>
 #include <min_max_critical_points.h>
+#include <min_stack.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
 #include <most_profit_work.h>
+#include <nodes_k_dist_binary_tree.h>
 #include <optimal_partition_string.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>

@@ -65,7 +65,6 @@
 #include <min_common_value.h>
 #include <min_depth_tree.h>
 #include <min_ops_increasing_array.h>
-#include <min_stack.h>
 #include <monotonic_array.h>
 #include <move_zeroes.h>
 #include <n_repeated_array.h>
@@ -437,20 +436,6 @@ TEST(Easy, greedy_sellstock)
 
     v = {1, 4, 2};
     ASSERT_EQ(s.maxProfit(v), 3);
-}
-
-TEST(Easy, min_stack)
-{
-    Leet::Easy::MinStack m;
-    m.push(-2);
-    m.push(0);
-    m.push(-3);
-
-    ASSERT_EQ(m.getMin(), -3);
-    m.pop();
-
-    ASSERT_EQ(m.top(), 0);
-    ASSERT_EQ(m.getMin(), -2);
 }
 
 TEST(Easy, kth_missing_number)
