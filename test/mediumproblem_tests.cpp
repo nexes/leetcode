@@ -71,6 +71,7 @@
 #include <queue_by_height.h>
 #include <recover_bst.h>
 #include <remove_duplicate_array2.h>
+#include <reverse_polish_notation.h>
 #include <reverse_string_parentheses.h>
 #include <rotate_list.h>
 #include <rotating_box.h>
@@ -1537,4 +1538,19 @@ TEST(Medium, longest_repeating_char_replacement)
 
     ASSERT_EQ(l.characterReplacement("ABAB", 2), 4);
     ASSERT_EQ(l.characterReplacement("AABABBA", 1), 4);
+}
+
+TEST(Medium, reverse_polish_notation)
+{
+    Leet::Medium::PolishNotation p;
+
+    vector<std::string> values{"2", "1", "+", "3", "*"};
+    ASSERT_EQ(p.evalRPN(values), 9);
+
+    values = {"4", "13", "5", "/", "+"};
+    ASSERT_EQ(p.evalRPN(values), 6);
+
+    values = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+    ASSERT_EQ(p.evalRPN(values), 22);
+}
 }
