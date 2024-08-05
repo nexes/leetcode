@@ -27,6 +27,7 @@
 #include <count_good_nodes.h>
 #include <count_sub_island.h>
 #include <counting_bits.h>
+#include <daily_temperatures.h>
 #include <decode_string.h>
 #include <delete_two_strings.h>
 #include <divide_integers.h>
@@ -1553,4 +1554,16 @@ TEST(Medium, reverse_polish_notation)
     values = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
     ASSERT_EQ(p.evalRPN(values), 22);
 }
+
+TEST(Medium, daily_temperatures)
+{
+    Leet::Medium::DailyTemps d;
+
+    vector<int> temps{73, 74, 75, 71, 69, 72, 76, 73};
+    vector<int> answer{1, 1, 4, 2, 1, 1, 0, 0};
+    ASSERT_EQ(d.dailyTemperatures(temps), answer);
+
+    temps = {30, 40, 50, 60};
+    answer = {1, 1, 1, 0};
+    ASSERT_EQ(d.dailyTemperatures(temps), answer);
 }
