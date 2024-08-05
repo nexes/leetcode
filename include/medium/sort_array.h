@@ -30,7 +30,7 @@ namespace Leet::Medium {
             if (start >= end)
                 return;
 
-            int mid = (start + end) / 2;
+            int mid = start + (end - start) / 2;
 
             merge_sort(nums, start, mid);
             merge_sort(nums, mid + 1, end);
@@ -39,34 +39,27 @@ namespace Leet::Medium {
 
         void merge(std::vector<int>& nums, int start, int mid, int end)
         {
-            int l = start;
-            int r = mid + 1;
-            int k = 0;
+            std::vector<int> left;
+            std::vector<int> right;
 
-            auto temp = std::vector<int>(end - start + 1);
+            for (int i = start; i <= mid; i++)
+                left.push_back(nums[i]);
+            for (int i = mid + 1; i <= end; i++)
+                right.push_back(nums[i]);
 
-            for (int i = start; i <= end; i++) {
-                if (l > mid)
-                    temp[k++] = nums[r++];
+            int li = 0;
+            int ri = 0;
+            int idx = start;
 
-                else if (r > end)
-                    temp[k++] = nums[l++];
+            while (li < left.size() || ri < right.size()) {
+                int lval = li < left.size() ? left[li] : INT_MAX;
+                int rval = ri < right.size() ? right[ri] : INT_MAX;
 
-                else if (nums[l] < nums[r])
-                    temp[k++] = nums[l++];
-
+                if (lval <= rval)
+                    nums[idx++] = left[li++];
                 else
-                    temp[k++] = nums[r++];
+                    nums[idx++] = right[ri++];
             }
-
-            for (int i = 0; i < k; i++)
-                nums[start++] = temp[i];
-        }
-
-        std::vector<int> sortArray_cheating(std::vector<int>& nums)
-        {
-            std::sort(nums.begin(), nums.end());
-            return nums;
         }
     };
 }  // namespace Leet::Medium
