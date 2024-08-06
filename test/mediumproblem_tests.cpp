@@ -48,6 +48,7 @@
 #include <integer_replacement.h>
 #include <jump_game.h>
 #include <jump_game2.h>
+#include <koko_bananas.h>
 #include <kth_factor.h>
 #include <kth_smallest_element_tree.h>
 #include <lca_tree.h>
