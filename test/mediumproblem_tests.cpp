@@ -20,6 +20,7 @@
 #include <browser_history.h>
 #include <bst_iterator.h>
 #include <bulls_cows.h>
+#include <car_fleet.h>
 #include <city_smallest_neighbors.h>
 #include <compare_versions.h>
 #include <container_most_water.h>
