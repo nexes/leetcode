@@ -33,7 +33,7 @@ namespace Leet::Easy {
             // don't introduce a memory leak'
             ListNode dummy;
             ListNode *curr = &dummy;
-            ListNode *merged = curr;
+            ListNode *merged = &dummy;
 
             while (list1 != nullptr && list2 != nullptr) {
                 if (list1->val <= list2->val) {

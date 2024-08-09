@@ -89,6 +89,7 @@
 #include <subarray_less_k.h>
 #include <subarray_sum_k.h>
 #include <sum_root_to_leaf.h>
+#include <time_based_keyvalue_store.h>
 #include <total_hamming_distance.h>
 #include <triangle.h>
 #include <unique_bst.h>
