@@ -62,6 +62,7 @@
 #include <merge_nodes_zero.h>
 #include <min_area_cover.h>
 #include <min_deletions_string_balance.h>
+#include <min_diff_three_moves.h>
 #include <min_jumps_home.h>
 #include <min_length_str.h>
 #include <min_max_critical_points.h>
@@ -1571,4 +1572,18 @@ TEST(Medium, daily_temperatures)
     temps = {30, 40, 50, 60};
     answer = {1, 1, 1, 0};
     ASSERT_EQ(d.dailyTemperatures(temps), answer);
+}
+
+TEST(Medium, min_diff_3_moves)
+{
+    Leet::Medium::MinDiff3Moves m;
+
+    vector<int> arr{5, 3, 2, 4};
+    ASSERT_EQ(m.minDifference(arr), 0);
+
+    arr = {1, 5, 0, 10, 14};
+    ASSERT_EQ(m.minDifference(arr), 1);
+
+    arr = {3, 100, 20};
+    ASSERT_EQ(m.minDifference(arr), 0);
 }
