@@ -82,6 +82,7 @@
 #include <reverse_string_parentheses.h>
 #include <rotate_list.h>
 #include <rotating_box.h>
+#include <shortest_dist_road_queries.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
 #include <sort_matrix_diagonal.h>
@@ -1587,4 +1588,17 @@ TEST(Medium, min_diff_3_moves)
 
     arr = {3, 100, 20};
     ASSERT_EQ(m.minDifference(arr), 0);
+}
+
+TEST(Medium, shortest_dist_road_query)
+{
+    Leet::Medium::ShortestDistRoadQuery s;
+
+    vector<vector<int>> queries{{2, 4}, {0, 2}, {0, 4}};
+    vector<int> dist{3, 2, 1};
+    ASSERT_EQ(s.shortestDistanceAfterQueries(5, queries), dist);
+
+    queries = {{0, 3}, {0, 2}};
+    dist = {1, 1};
+    ASSERT_EQ(s.shortestDistanceAfterQueries(4, queries), dist);
 }
