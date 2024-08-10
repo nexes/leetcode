@@ -50,6 +50,7 @@
 #include <kth_distinct_string_array.h>
 #include <kth_missing_number.h>
 #include <largest_odd_number_string.h>
+#include <largest_substring_between_chars.h>
 #include <length_last_word.h>
 #include <longest_palindrome.h>
 #include <majority_element.h>
@@ -1483,4 +1484,13 @@ TEST(Easy, find_if_path_exists)
 
     std::vector<std::vector<int>> g{{0, 1}, {1, 2}, {2, 0}};
     ASSERT_TRUE(f.validPath(3, g, 0, 2));
+}
+
+TEST(Easy, largest_substring_between_chars)
+{
+    Leet::Easy::LargestSubstringBetweenChars l;
+
+    ASSERT_EQ(l.maxLengthBetweenEqualCharacters("aa"), 0);
+    ASSERT_EQ(l.maxLengthBetweenEqualCharacters("abca"), 2);
+    ASSERT_EQ(l.maxLengthBetweenEqualCharacters("cbzxy"), -1);
 }
