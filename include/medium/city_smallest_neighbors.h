@@ -51,16 +51,6 @@ namespace Leet::Medium {
     // All pairs (fromi, toi) are distinct.
     struct CitySmallestNeighbors
     {
-        void print_graph(vector<vector<int>> &graph)
-        {
-            for (int i = 0; i < graph.size(); i++) {
-                for (int j = 0; j < graph[i].size(); j++) {
-                    std::cout << graph[i][j] << " ";
-                }
-                std::cout << "\n";
-            }
-        }
-
         // Floyd-Warshall algorithm
         // time: O(n^3)
         int findTheCity(int n, vector<vector<int>> &edges, int distanceThreshold)
@@ -110,30 +100,6 @@ namespace Leet::Medium {
             }
 
             return node;
-        }
-
-        int findTheCity_dijkstra(int n, vector<vector<int>> &edges, int distanceThreshold)
-        {
-            vector<vector<int>> graph(n, vector<int>(n, INT_MAX));
-
-            for (vector<int> edge : edges) {
-                graph[edge[0]][edge[1]] = edge[2];
-                graph[edge[1]][edge[2]] = edge[2];
-            }
-
-            for (int i = 0; i < n; i++)
-                graph[i][i] = 0;
-
-            for (int i = 0; i < n; i++) {
-                dijkstra(graph, i);
-            }
-
-            return -1;
-        }
-
-        int dijkstra(vector<vector<int>> &graph, int start)
-        {
-            return -1;
         }
     };
 }  // namespace Leet::Medium
