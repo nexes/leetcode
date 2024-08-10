@@ -59,6 +59,7 @@
 #include <longest_repeating_char_replacement.h>
 #include <matrix_01.h>
 #include <max_distance_pairs.h>
+#include <max_split_pos_ints.h>
 #include <merge_nodes_zero.h>
 #include <min_area_cover.h>
 #include <min_deletions_string_balance.h>
