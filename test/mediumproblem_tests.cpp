@@ -78,6 +78,7 @@
 #include <queue_by_height.h>
 #include <recover_bst.h>
 #include <remove_duplicate_array2.h>
+#include <remove_nth_linklist.h>
 #include <reverse_polish_notation.h>
 #include <reverse_string_parentheses.h>
 #include <rotate_list.h>
