@@ -3,7 +3,8 @@
 #include <edit_distance.h>
 #include <first_missing_positive.h>
 #include <gtest/gtest.h>
-#include <median.h>
+#include <largest_rect_histogram.h>
+#include <median_sorted_arrays.h>
 #include <merge_k_sorted.h>
 #include <min_window_substring.h>
 #include <serialize_deserialize_bt.h>
@@ -101,4 +102,15 @@ TEST(Hard, min_window_substring)
     ASSERT_EQ(m.minWindow("ADOBECODEBANC", "ABC"), "BANC");
     ASSERT_EQ(m.minWindow("a", "a"), "a");
     ASSERT_EQ(m.minWindow("a", "aa"), "");
+}
+
+TEST(Hard, largest_rectangle)
+{
+    Leet::Hard::LargestRectHistogram l;
+
+    std::vector<int> heights = {2, 1, 5, 6, 2, 3};
+    ASSERT_EQ(l.largestRectangleArea(heights), 10);
+
+    heights = {2, 4};
+    ASSERT_EQ(l.largestRectangleArea(heights), 4);
 }
