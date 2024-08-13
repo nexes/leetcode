@@ -4,6 +4,7 @@
 #include <first_missing_positive.h>
 #include <gtest/gtest.h>
 #include <largest_rect_histogram.h>
+#include <longest_happy_prefix.h>
 #include <median_sorted_arrays.h>
 #include <merge_k_sorted.h>
 #include <min_window_substring.h>
@@ -113,4 +114,12 @@ TEST(Hard, largest_rectangle)
 
     heights = {2, 4};
     ASSERT_EQ(l.largestRectangleArea(heights), 4);
+}
+
+TEST(Hard, longest_happy_prefix)
+{
+    Leet::Hard::LongestHappyPrefix l;
+
+    ASSERT_EQ(l.longestPrefix("level"), "l");
+    ASSERT_EQ(l.longestPrefix("ababab"), "abab");
 }
