@@ -1,6 +1,6 @@
 #pragma once
 
-#include <sstream>
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -28,24 +28,25 @@ namespace Leet::Easy {
     // s consists of lowercase English letters.
     struct RepeatedSubString
     {
+        // time: O(n^2)
+        // space: O(n)
         bool repeatedSubstringPattern(std::string s)
         {
-            int len = s.length() / 2;
-            std::stringstream substr;
+            int len = s.length();
+            std::queue<char> q1;
+            std::queue<char> q2;
 
-            for (int i = 0; i < len; i++) {
-                substr << s[i];
+            for (char c : s) {
+                q1.push(c);
+                q2.push(c);
+            }
 
-                if (s.length() % substr.str().length() == 0) {
-                    std::stringstream check_substr;
+            for (int i = 1; i <= len / 2; i++) {
+                q1.push(q1.front());
+                q1.pop();
 
-                    // see if we can build the string
-                    for (int j = 0; j < s.length() / substr.str().length(); j++)
-                        check_substr << substr.str();
-
-                    if (check_substr.str() == s)
-                        return true;
-                }
+                if (len % i == 0 && q1 == q2)
+                    return true;
             }
 
             return false;
