@@ -1,44 +1,76 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 namespace Leet::Easy {
-    // Return the index of the first occurrence of needle in haystack, or -1 if
-    // needle is not part of haystack.
+    // Given two strings needle and haystack, return the index of the first occurrence of
+    // needle in haystack, or -1 if needle is not part of haystack.
 
     // Example 1:
-    // Input: haystack = "hello", needle = "ll"
-    // Output: 2
+    // Input: haystack = "sadbutsad", needle = "sad"
+    // Output: 0
+    // Explanation: "sad" occurs at index 0 and 6.
+    // The first occurrence is at index 0, so we return 0.
 
     // Example 2:
-    // Input: haystack = "aaaaa", needle = "bba"
+    // Input: haystack = "leetcode", needle = "leeto"
     // Output: -1
+    // Explanation: "leeto" did not occur in "leetcode", so we return -1.
 
-    // Clarification:
-    // What should we return when needle is an empty string? This is a great
-    // question to ask during an interview. For the purpose of this problem, we
-    // will return 0 when needle is an empty string. This is consistent to C's
-    // strstr() and Java's indexOf().
+    // Constraints:
+    // 1 <= haystack.length, needle.length <= 104
+    // haystack and needle consist of only lowercase English characters.
     struct Str
     {
-        // works, but I'm not nuts about this solution.
+        // KMP algorithm, O(m + n): build the lsp
+        std::vector<int> buildlsp(std::string needle)
+        {
+            int i = 1;
+            int j = 0;
+            std::vector<int> lsp(needle.length(), 0);
+
+            while (i < needle.length()) {
+                if (needle[i] == needle[j]) {
+                    j++;
+                    lsp[j] = j;
+                    i++;
+                } else if (j != 0) {
+                    j = lsp[j - 1];
+                } else {
+                    lsp[i] = 0;
+                    i++;
+                }
+            }
+
+            return lsp;
+        }
+
+        // KMP algorithm, O(m + n): match the string
         int strStr(std::string haystack, std::string needle)
         {
-            if (needle.empty())
-                return 0;
+            int i = 0;
+            int j = 0;
+            std::vector<int> lsp = buildlsp(needle);
 
-            int stack_len = haystack.length();
-            int needle_len = needle.length();
-
-            for (int i = 0; i <= stack_len - needle_len; i++) {
-                if (haystack.substr(i, needle_len) == needle)
-                    return i;
+            while (i < haystack.length() && j < needle.length()) {
+                if (haystack[i] == needle[j]) {
+                    i++;
+                    j++;
+                } else if (j != 0) {
+                    j = lsp[j - 1];
+                } else {
+                    i++;
+                }
             }
+
+            if (j == needle.length())
+                return i - j;
 
             return -1;
         }
 
-        // sliding window naive solution
+        // naive solution
         int strStr_window(std::string haystack, std::string needle)
         {
             if (needle.empty())
@@ -59,6 +91,5 @@ namespace Leet::Easy {
 
             return -1;
         }
-
     };
 }  // namespace Leet::Easy
