@@ -47,6 +47,7 @@
 #include <inorder_traversal.h>
 #include <insert_binary_tree.h>
 #include <insert_delete_getrandom.h>
+#include <insert_interval.h>
 #include <insertion_sort_list.h>
 #include <integer_replacement.h>
 #include <jump_game.h>
