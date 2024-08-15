@@ -74,6 +74,7 @@
 #include <minimum_rotated_array.h>
 #include <most_profit_work.h>
 #include <nodes_k_dist_binary_tree.h>
+#include <number_good_splits.h>
 #include <optimal_partition_string.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>
@@ -1604,4 +1605,14 @@ TEST(Medium, shortest_dist_road_query)
     queries = {{0, 3}, {0, 2}};
     dist = {1, 1};
     ASSERT_EQ(s.shortestDistanceAfterQueries(4, queries), dist);
+}
+
+TEST(Medium, number_good_splits)
+{
+    Leet::Medium::NumberGoodSplits n;
+
+    ASSERT_EQ(n.numSplits("aacaba"), 2);
+    ASSERT_EQ(n.numSplits("abcd"), 1);
+}
+
 }
