@@ -39,6 +39,7 @@
 #include <first_last_elm_array.h>
 #include <flatten_binarytree_list.h>
 #include <gas_station.h>
+#include <generate_parentheses.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <h_index.h>

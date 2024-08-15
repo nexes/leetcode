@@ -3,6 +3,9 @@
 #include <string>
 #include <vector>
 
+using std::string;
+using std::vector;
+
 namespace Leet::Medium {
     // Given n pairs of parentheses, write a function to generate
     // all combinations of well-formed parentheses.
@@ -19,27 +22,30 @@ namespace Leet::Medium {
     // 1 <= n <= 8
     struct GenParentheses
     {
-        std::vector<std::string> generateParentheses(int n)
+        vector<string> generateParentheses(int n)
         {
-            auto parens = std::vector<std::string>{};
-
-            generate(parens, "", 0, 0, n);
+            vector<string> parens;
+            generate(parens, "", n, n);
 
             return parens;
         }
 
-        void generate(std::vector<std::string>& arr, std::string curr, int open,
-                      int close, int len)
+        void generate(vector<string>& parens, string paren, int open, int close)
         {
-            if (curr.length() == len * 2) {
-                arr.push_back(curr);
+            if (open == 0 && close == 0) {
+                parens.push_back(paren);
                 return;
             }
 
-            if (open < len)
-                generate(arr, curr + "(", open + 1, close, len);
-            if (close < open)
-                generate(arr, curr + ")", open, close + 1, len);
+            // if we have an open to use
+            if (open > 0) {
+                generate(parens, paren + "(", open - 1, close);
+            }
+
+            // only close if we have an open (open less then the closes)
+            if (open < close) {
+                generate(parens, paren + ")", open, close - 1);
+            }
         }
     };
 }  // namespace Leet::Medium
