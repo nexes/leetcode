@@ -70,6 +70,7 @@
 #include <min_jumps_home.h>
 #include <min_length_str.h>
 #include <min_max_critical_points.h>
+#include <min_rectangles_cover_points.h>
 #include <min_stack.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
