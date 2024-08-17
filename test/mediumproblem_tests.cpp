@@ -59,6 +59,7 @@
 #include <lca_tree.h>
 #include <longest_common_prefix.h>
 #include <longest_repeating_char_replacement.h>
+#include <longest_substr_k_repeating.h>
 #include <matrix_01.h>
 #include <max_distance_arrays.h>
 #include <max_distance_pairs.h>
@@ -1615,6 +1616,14 @@ TEST(Medium, number_good_splits)
 
     ASSERT_EQ(n.numSplits("aacaba"), 2);
     ASSERT_EQ(n.numSplits("abcd"), 1);
+}
+
+TEST(Medium, longest_substring_k_repeating)
+{
+    Leet::Medium::LongestSubstringKRepeating l;
+
+    ASSERT_EQ(l.longestSubstring("aaabb", 3), 3);
+    ASSERT_EQ(l.longestSubstring("ababbc", 2), 5);
 }
 
 
