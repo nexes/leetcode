@@ -3,6 +3,7 @@
 #include <LRUCache.h>
 #include <add_two_numbers.h>
 #include <additive_number.h>
+#include <alphabet_board_path.h>
 #include <anagrams_in_string.h>
 #include <array_nesting.h>
 #include <bag_of_tokens.h>
@@ -1626,6 +1627,13 @@ TEST(Medium, longest_substring_k_repeating)
     ASSERT_EQ(l.longestSubstring("ababbc", 2), 5);
 }
 
+TEST(Medium, alphabet_board_path)
+{
+    Leet::Medium::AlphabetBoardPath a;
+
+    ASSERT_EQ(a.alphabetBoardPath("leet"), "DDR!UURRR!!DDD!");
+    ASSERT_EQ(a.alphabetBoardPath("code"), "RR!DDRR!LUU!R!");
+}
 
 TEST(Medium, max_distance_arrays)
 {
