@@ -26,6 +26,7 @@
 #include <clone_graph.h>
 #include <compare_versions.h>
 #include <container_most_water.h>
+#include <copy_list_random.h>
 #include <count_and_say.h>
 #include <count_good_nodes.h>
 #include <count_sub_island.h>
