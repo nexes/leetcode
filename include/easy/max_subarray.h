@@ -17,6 +17,7 @@ namespace Leet::Easy {
     // using the divide and conquer approach, which is more subtle.
     struct MaxSubArray
     {
+        // Kadane's algorithm
         int maxSubArray(std::vector<int> &nums)
         {
             int sum = nums[0];
@@ -25,25 +26,6 @@ namespace Leet::Easy {
             for (int i = 1; i < nums.size(); i++) {
                 current_sum = std::max(current_sum + nums[i], nums[i]);
                 sum = std::max(sum, current_sum);
-            }
-
-            return sum;
-        }
-
-        // linear
-        int maxSubArray_(std::vector<int> &nums)
-        {
-            if (nums.empty())
-                return 0;
-
-            int sum = nums[0];
-            int curr = 0;
-
-            for (auto &val : nums) {
-                if (curr < 0)
-                    curr = 0;
-                curr += val;
-                sum = std::max(sum, curr);
             }
 
             return sum;
