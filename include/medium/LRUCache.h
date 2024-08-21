@@ -1,11 +1,21 @@
 #pragma once
 
-#include <iostream>
-#include <iterator>
-#include <list>
 #include <unordered_map>
 
 namespace Leet::Medium {
+    // LRU node (double linked list)
+    struct LRUNode
+    {
+        int key;
+        int value;
+        LRUNode *next;
+        LRUNode *prev;
+
+        LRUNode(int _key, int _value)
+            : key(_key), value(_value), next(nullptr), prev(nullptr)
+        {
+        }
+    };
     // Design and implement a data structure for Least Recently Used (LRU) cache.
     // It should support the following operations: get and put.
     //
@@ -14,7 +24,8 @@ namespace Leet::Medium {
     //
     // put(key, value) - Set or insert the value if the key is not already present.
     // When the cache reached its capacity, it should invalidate the least recently
-    // used item before inserting a new item. The cache is initialized with a positive capacity.
+    // used item before inserting a new item. The cache is initialized with a positive
+    // capacity.
     //
     // Follow up:
     // Could you do both operations in O(1) time complexity?
@@ -34,52 +45,82 @@ namespace Leet::Medium {
     class LRUCache
     {
     public:
-        // we can assument a negative capacity is not given for this problem
-        LRUCache(int capacity) : capacity(capacity), lru(), lookup(capacity) {}
-
-        // O(1)
-        int get(int key)
+        LRUCache(int capacity)
+            : capacity(capacity),
+              head(new LRUNode(-1, -1)),
+              tail(new LRUNode(-1, -1)),
+              indices()
         {
-            auto pos = lookup.find(key);
-
-            if (pos == lookup.end())
-                return -1;
-
-            auto new_pos = lru.insert(lru.begin(), {key, pos->second->second});
-
-            lru.erase(pos->second);
-            lookup[key] = new_pos;
-
-            return lru.front().second;
+            head->next = tail;
+            tail->prev = head;
         }
 
-        // O(1)
+        int get(int key)
+        {
+            int value = -1;
+
+            if (this->indices.count(key) == 1) {
+                LRUNode *curr = this->indices[key];
+                value = curr->value;
+
+                // move the node to the head of the list
+                curr->prev->next = curr->next;
+                curr->next->prev = curr->prev;
+                curr->prev = head;
+                curr->next = head->next;
+
+                head->next->prev = curr;
+                head->next = curr;
+            }
+
+            return value;
+        }
+
         void put(int key, int value)
         {
-            if (auto item = lookup.find(key); item != lookup.end())
-            {
-                lru.erase(lookup.at(key));
-                auto new_pos = lru.insert(lru.begin(), {key, value});
+            if (this->indices.count(key) == 0) {
+                LRUNode *node = new LRUNode(key, value);
+                node->prev = head;
+                node->next = head->next;
 
-                lookup[key] = new_pos;
-                return;
+                // insert new node at the head of the list
+                head->next->prev = node;
+                head->next = node;
+
+                this->indices[key] = node;
+            } else {
+                LRUNode *curr = this->indices[key];
+                curr->value = value;
+
+                // move the most recently accessed node to the head of the list
+                curr->prev->next = curr->next;
+                curr->next->prev = curr->prev;
+                curr->prev = head;
+                curr->next = head->next;
+
+                head->next->prev = curr;
+                head->next = curr;
             }
 
-            if (lru.size() >= capacity)
-            {
-                auto rem = lru.back();
+            if (this->indices.size() > this->capacity) {
+                // evict the tail of the list
+                LRUNode *evict = this->tail->prev;
+                int evict_key = evict->key;
 
-                lru.pop_back();
-                lookup.erase(rem.first);
+                this->tail->prev = evict->prev;
+                evict->prev->next = this->tail;
+                evict->next = nullptr;
+                evict->prev = nullptr;
+                delete evict;
+
+                this->indices.erase(evict_key);
             }
-
-            auto pos = lru.insert(lru.begin(), {key, value});
-            lookup[key] = pos;
         }
 
     private:
         int capacity;
-        std::list<std::pair<int, int>> lru;
-        std::unordered_map<int, std::list<std::pair<int, int>>::iterator> lookup;
+        LRUNode *head;
+        LRUNode *tail;
+        std::unordered_map<int, LRUNode *> indices;
     };
 }  // namespace Leet::Medium
