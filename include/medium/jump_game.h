@@ -1,7 +1,7 @@
 #pragma once
 
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 namespace Leet::Medium {
     // You are given an integer array nums. You are initially positioned at the
@@ -27,6 +27,20 @@ namespace Leet::Medium {
     // 0 <= nums[i] <= 105
     struct JumpGame
     {
+        // start from the end and move the goal as you go
+        bool canJump_move_goal(std::vector<int> &nums)
+        {
+            int goal = nums.size() - 1;
+
+            for (int i = nums.size() - 1; i >= 0; i--) {
+                if (nums[i] + i >= goal)
+                    goal = i;
+            }
+
+            return goal == 0;
+        }
+
+        // if we get to an index the out paces our jumps
         bool canJump(std::vector<int> &nums)
         {
             int len = nums.size();
