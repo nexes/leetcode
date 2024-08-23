@@ -32,23 +32,26 @@ namespace Leet::Medium {
     {
         int jump(std::vector<int> &nums)
         {
-            int count = 0;
-            int idx = 0;
+            int jumps = 0;
+            int furthest = 0;
+            int steps = 0;
 
-            for (int i = 1; i < nums.size(); i++) {
-                // nums[i] + i is the index we can reach from index i
-                // get the largest steps possible, what we calculated before or
-                // this one
-                nums[i] = std::max(nums[i] + i, nums[i - 1]);
+            if (nums.size() < 2)
+                return 0;
+
+            for (int i = 0; i < nums.size(); i++) {
+                jumps = std::max(jumps, nums[i] + i);
+
+                if (i >= furthest) {
+                    furthest = jumps;
+                    steps++;
+                }
+
+                if (furthest >= nums.size() - 1)
+                    break;
             }
 
-            while (idx < nums.size() - 1) {
-                // walk through the array
-                idx = nums[idx];
-                count++;
-            }
-
-            return count;
+            return steps;
         }
     };
 }  // namespace Leet::Medium
