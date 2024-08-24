@@ -61,6 +61,7 @@
 #include <max_population_year.h>
 #include <max_product_three.h>
 #include <max_subarray.h>
+#include <max_units_truck.h>
 #include <merge_sorted_array.h>
 #include <merge_sorted_lists.h>
 #include <middle_of_linked_list.h>
@@ -137,7 +138,6 @@
 #include <x_matrix.h>
 
 #include <vector>
-
 
 TEST(Easy, TwoSums)
 {
@@ -1495,4 +1495,15 @@ TEST(Easy, largest_substring_between_chars)
     ASSERT_EQ(l.maxLengthBetweenEqualCharacters("aa"), 0);
     ASSERT_EQ(l.maxLengthBetweenEqualCharacters("abca"), 2);
     ASSERT_EQ(l.maxLengthBetweenEqualCharacters("cbzxy"), -1);
+}
+
+TEST(Easy, max_unit_on_truck)
+{
+    Leet::Easy::MaxUnitonTruck m;
+
+    vector<vector<int>> boxtype = {{1, 3}, {2, 2}, {3, 1}};
+    ASSERT_EQ(m.maximumUnits(boxtype, 4), 8);
+
+    boxtype = {{5, 10}, {2, 5}, {4, 7}, {3, 9}};
+    ASSERT_EQ(m.maximumUnits(boxtype, 10), 91);
 }
