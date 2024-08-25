@@ -3,6 +3,7 @@
 #include <add_strings.h>
 #include <alien_dictionary.h>
 #include <array_from_integer.h>
+#include <array_k_multiplication.h>
 #include <average_level_tree.h>
 #include <balanced_binary_tree.h>
 #include <base7.h>
@@ -1506,4 +1507,17 @@ TEST(Easy, max_unit_on_truck)
 
     boxtype = {{5, 10}, {2, 5}, {4, 7}, {3, 9}};
     ASSERT_EQ(m.maximumUnits(boxtype, 10), 91);
+}
+
+TEST(Easy, final_array_k_multiplications)
+{
+    Leet::Easy::FinalArrayMultiply f;
+
+    vector<int> arr{2, 1, 3, 5, 6};
+    vector<int> output{8, 4, 6, 5, 6};
+    ASSERT_EQ(f.getFinalState(arr, 5, 2), output);
+
+    arr = {1, 2};
+    output = {16, 8};
+    ASSERT_EQ(f.getFinalState(arr, 3, 4), output);
 }
