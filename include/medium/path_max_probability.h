@@ -1,7 +1,9 @@
 #pragma once
 
+#include <queue>
 #include <vector>
 
+using std::priority_queue;
 using std::vector;
 
 namespace Leet::Medium {
@@ -39,6 +41,44 @@ namespace Leet::Medium {
     // There is at most one edge between every two nodes.
     struct MaxProbablity
     {
+        double maxProbability_dijkstra(int n, vector<vector<int>> &edges,
+                                       vector<double> &succProb, int start_node,
+                                       int end_node)
+        {
+            vector<vector<std::pair<int, double>>> graph(n);
+            priority_queue<std::pair<double, int>> q;
+            vector<double> dist(n);
+
+            // build graph
+            for (int i = 0; i < edges.size(); i++) {
+                int u = edges[i][0];
+                int v = edges[i][1];
+                graph[u].push_back({v, succProb[i]});
+                graph[v].push_back({u, succProb[i]});
+            }
+
+            dist[start_node] = 1.0;
+            q.push({1.0, start_node});
+
+            // search the graph
+            while (!q.empty()) {
+                auto [uprob, u] = q.top();
+                q.pop();
+
+                if (u == end_node)
+                    break;
+
+                for (auto [v, edge] : graph[u]) {
+                    if (uprob * edge > dist[v]) {
+                        dist[v] = uprob * edge;
+                        q.push({dist[v], v});
+                    }
+                }
+            }
+
+            return dist[end_node];
+        }
+
         // O(n*m)
         double maxProbability_bellman_ford(int n, vector<vector<int>> &edges,
                                            vector<double> &succProb, int start_node,
