@@ -81,6 +81,7 @@
 #include <nodes_k_dist_binary_tree.h>
 #include <number_good_splits.h>
 #include <optimal_partition_string.h>
+#include <path_max_probability.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>
 #include <queue_by_height.h>
