@@ -32,6 +32,7 @@
 #include <distribute_candies.h>
 #include <fibonacci_number.h>
 #include <find_first_occurrence.h>
+#include <find_key_of_numbers.h>
 #include <find_pivot.h>
 #include <find_pivot_int.h>
 #include <find_the_difference.h>
@@ -1520,4 +1521,13 @@ TEST(Easy, final_array_k_multiplications)
     arr = {1, 2};
     output = {16, 8};
     ASSERT_EQ(f.getFinalState(arr, 3, 4), output);
+}
+
+TEST(Easy, find_key_numbers)
+{
+    Leet::Easy::KeyOfNumbers k;
+
+    ASSERT_EQ(k.generateKey(1, 2, 1000), 0);
+    ASSERT_EQ(k.generateKey(987, 879, 798), 777);
+    ASSERT_EQ(k.generateKey(1, 2, 3), 1);
 }
