@@ -45,6 +45,7 @@
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <h_index.h>
+#include <hash_divide_string.h>
 #include <house_robber.h>
 #include <increasing_triplet_subseq.h>
 #include <inorder_traversal.h>
@@ -1644,4 +1645,12 @@ TEST(Medium, max_distance_arrays)
 
     vector<vector<int>> arr{{1, 2, 3}, {4, 5}, {1, 2, 3}};
     ASSERT_EQ(m.maxDistance(arr), 4);
+}
+
+TEST(Medium, hash_divided_string)
+{
+    Leet::Medium::HashDividedString h;
+
+    ASSERT_EQ(h.stringHash("abcd", 2), "bf");
+    ASSERT_EQ(h.stringHash("mxz", 3), "i");
 }
