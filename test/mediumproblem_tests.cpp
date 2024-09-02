@@ -101,6 +101,7 @@
 #include <sorted_list_to_bst.h>
 #include <spiral_matrix.h>
 #include <string_from_leaf.h>
+#include <students_replace_chalk.h>
 #include <subarray_less_k.h>
 #include <subarray_sum_k.h>
 #include <sum_root_to_leaf.h>
