@@ -121,6 +121,7 @@
 #include <strstr.h>
 #include <subsequence_k_len.h>
 #include <subtree_another_tree.h>
+#include <sum_digits_convert.h>
 #include <sum_left_leaves.h>
 #include <sum_of_values.h>
 #include <sum_xor_subset.h>
@@ -1530,4 +1531,12 @@ TEST(Easy, find_key_numbers)
     ASSERT_EQ(k.generateKey(1, 2, 1000), 0);
     ASSERT_EQ(k.generateKey(987, 879, 798), 777);
     ASSERT_EQ(k.generateKey(1, 2, 3), 1);
+}
+
+TEST(Easy, sum_digits_of_string)
+{
+    Leet::Easy::SumDigitsStringConvert s;
+
+    ASSERT_EQ(s.getLucky("iiii", 1), 36);
+    ASSERT_EQ(s.getLucky("leetcode", 2), 6);
 }
