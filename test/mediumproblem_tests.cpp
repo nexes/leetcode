@@ -110,6 +110,7 @@
 #include <triangle.h>
 #include <unique_bst.h>
 #include <valid_sudoku.h>
+#include <walking_robot_sim.h>
 // #include <integer_replacement.h>
 #include <interleave_string.h>
 #include <k_closest_elements.h>
