@@ -45,6 +45,7 @@
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <h_index.h>
+#include <hand_of_straights.h>
 #include <hash_divide_string.h>
 #include <house_robber.h>
 #include <increasing_triplet_subseq.h>
@@ -1655,4 +1656,15 @@ TEST(Medium, hash_divided_string)
 
     ASSERT_EQ(h.stringHash("abcd", 2), "bf");
     ASSERT_EQ(h.stringHash("mxz", 3), "i");
+}
+
+TEST(Medium, hand_of_straights)
+{
+    Leet::Medium::HandOfStraight h;
+
+    vector<int> hand{1, 2, 3, 6, 2, 3, 4, 7, 8};
+    ASSERT_TRUE(h.isNStraightHand(hand, 3));
+
+    hand = {1, 2, 3, 4, 5};
+    ASSERT_FALSE(h.isNStraightHand(hand, 3));
 }
