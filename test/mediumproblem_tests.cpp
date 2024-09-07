@@ -33,6 +33,7 @@
 #include <counting_bits.h>
 #include <daily_temperatures.h>
 #include <decode_string.h>
+#include <delete_node_from_list.h>
 #include <delete_two_strings.h>
 #include <divide_integers.h>
 #include <even_odd_tree.h>
