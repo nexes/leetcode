@@ -112,6 +112,7 @@
 #include <total_hamming_distance.h>
 #include <triangle.h>
 #include <unique_bst.h>
+#include <valid_parenthesis_str.h>
 #include <valid_sudoku.h>
 #include <walking_robot_sim.h>
 // #include <integer_replacement.h>
@@ -1669,4 +1670,13 @@ TEST(Medium, hand_of_straights)
 
     hand = {1, 2, 3, 4, 5};
     ASSERT_FALSE(h.isNStraightHand(hand, 3));
+}
+
+TEST(Medium, valid_parenthesis_str)
+{
+    Leet::Medium::ValidParenString v;
+
+    ASSERT_TRUE(v.checkValidString("()"));
+    ASSERT_TRUE(v.checkValidString("(*)"));
+    ASSERT_TRUE(v.checkValidString("(*))"));
 }
