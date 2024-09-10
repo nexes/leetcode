@@ -62,6 +62,7 @@
 #include <kth_factor.h>
 #include <kth_smallest_element_tree.h>
 #include <lca_tree.h>
+#include <linked_list_binary_tree.h>
 #include <longest_common_prefix.h>
 #include <longest_repeating_char_replacement.h>
 #include <longest_substr_k_repeating.h>
