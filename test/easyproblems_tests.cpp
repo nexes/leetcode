@@ -69,6 +69,7 @@
 #include <middle_of_linked_list.h>
 #include <min_absolute_diff.h>
 #include <min_common_value.h>
+#include <min_cost_climb_stairs.h>
 #include <min_depth_tree.h>
 #include <min_ops_increasing_array.h>
 #include <monotonic_array.h>
@@ -1539,4 +1540,15 @@ TEST(Easy, sum_digits_of_string)
 
     ASSERT_EQ(s.getLucky("iiii", 1), 36);
     ASSERT_EQ(s.getLucky("leetcode", 2), 6);
+}
+
+TEST(Easy, min_cost_climbing_stairs)
+{
+    Leet::Easy::MinCostStairs m;
+
+    vector<int> arr{10, 15, 20};
+    ASSERT_EQ(m.minCostClimbingStairs(arr), 15);
+
+    arr = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+    ASSERT_EQ(m.minCostClimbingStairs(arr), 6);
 }
