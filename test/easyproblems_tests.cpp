@@ -68,6 +68,7 @@
 #include <merge_sorted_lists.h>
 #include <middle_of_linked_list.h>
 #include <min_absolute_diff.h>
+#include <min_bits_flip.h>
 #include <min_common_value.h>
 #include <min_cost_climb_stairs.h>
 #include <min_depth_tree.h>
@@ -1551,4 +1552,12 @@ TEST(Easy, min_cost_climbing_stairs)
 
     arr = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
     ASSERT_EQ(m.minCostClimbingStairs(arr), 6);
+}
+
+TEST(Easy, min_bits_flip_convert)
+{
+    Leet::Easy::MinBitFlipConvert m;
+
+    ASSERT_EQ(m.minBitFlips(10, 7), 3);
+    ASSERT_EQ(m.minBitFlips(3, 4), 3);
 }
