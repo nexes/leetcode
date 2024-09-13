@@ -195,28 +195,19 @@
 #include <string>
 #include <vector>
 
-TEST(Medium, Palindrome_isPalindrome)
-{
-    Leet::Medium::PalindromeSubstr p;
-
-    ASSERT_TRUE(p.is_palindrome("dabbad", 0, 5));
-    ASSERT_FALSE(p.is_palindrome("daxbbad", 0, 6));
-}
-
 TEST(Medium, Palindrome_substring)
 {
-    Leet::Medium::PalindromeSubstr p;
+    Leet::Medium::LongestPalindromeSubstr p;
 
-    ASSERT_EQ(p.longestPalindrome_faster("cbbd"), "bb") << "bb";
-    ASSERT_EQ(p.longestPalindrome_faster("babad"), "bab") << "bab";
-    ASSERT_EQ(p.longestPalindrome_faster("abb"), "bb") << "bb";
-    ASSERT_EQ(p.longestPalindrome_faster("a"), "a") << "a";
-    ASSERT_EQ(p.longestPalindrome_faster("bb"), "bb") << "bb";
-    ASSERT_EQ(p.longestPalindrome_faster("bxb"), "bxb") << "bxb";
-    ASSERT_EQ(p.longestPalindrome_faster("ac"), "a") << "a";
-    ASSERT_EQ(
-        p.longestPalindrome_faster("dddddddddddddddddddddddddddddddddddddddddddddddd"),
-        "dddddddddddddddddddddddddddddddddddddddddddddddd");
+    ASSERT_EQ(p.longestPalindrome("cbbd"), "bb") << "bb";
+    ASSERT_EQ(p.longestPalindrome("babad"), "bab") << "bab";
+    ASSERT_EQ(p.longestPalindrome("abb"), "bb") << "bb";
+    ASSERT_EQ(p.longestPalindrome("a"), "a") << "a";
+    ASSERT_EQ(p.longestPalindrome("bb"), "bb") << "bb";
+    ASSERT_EQ(p.longestPalindrome("bxb"), "bxb") << "bxb";
+    ASSERT_EQ(p.longestPalindrome("ac"), "a") << "a";
+    ASSERT_EQ(p.longestPalindrome("dddddddddddddddddddddddddddddddddddddddddddddddd"),
+              "dddddddddddddddddddddddddddddddddddddddddddddddd");
 }
 
 TEST(Medium, Swap_Nodes)
