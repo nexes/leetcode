@@ -64,6 +64,7 @@
 #include <lca_tree.h>
 #include <linked_list_binary_tree.h>
 #include <longest_common_prefix.h>
+#include <longest_palindrom_subseq.h>
 #include <longest_repeating_char_replacement.h>
 #include <longest_substr_k_repeating.h>
 #include <matrix_01.h>
@@ -1680,4 +1681,20 @@ TEST(Medium, valid_parenthesis_str)
     ASSERT_TRUE(v.checkValidString("()"));
     ASSERT_TRUE(v.checkValidString("(*)"));
     ASSERT_TRUE(v.checkValidString("(*))"));
+}
+
+TEST(Medium, longest_palindrom_subseq)
+{
+    Leet::Medium::LongestPalindromSubSeq l;
+
+    ASSERT_EQ(l.longestPalindromeSubseq("bbbab"), 4);
+    ASSERT_EQ(l.longestPalindromeSubseq("cbbd"), 2);
+}
+
+TEST(Medium, count_palindrom_substring)
+{
+    Leet::Medium::PalindromicCountSubstr p;
+
+    ASSERT_EQ(p.countSubstrings("abc"), 3);
+    ASSERT_EQ(p.countSubstrings("aaa"), 6);
 }
