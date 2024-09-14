@@ -49,22 +49,20 @@ namespace Leet::Medium {
         // time: O(n), space: O(n)
         int subarraySum(std::vector<int>& nums, int k)
         {
+            std::unordered_map<int, int> sums;
             int count = 0;
             int sum = 0;
-            std::unordered_map<int, int> sums(nums.size());
 
-            sums.emplace(0, 1);
+            sums[0] = 1;
 
+            // simular to a prefix sum array, but we use a hashmap so we
+            // don't have to worry out indexing out of bounds. If we
+            // take the total sum so far and remove the value k from it, if
+            // we've seen that value before, we have another subarry == to k.
             for (int i = 0; i < nums.size(); i++) {
                 sum += nums[i];
-
-                if (auto it = sums.find(sum - k); it != sums.end()) {
-                    count += it->second;
-                }
-
-                if (auto it = sums.emplace(sum, 1); !it.second) {
-                    sums[sum]++;
-                }
+                count += sums[sum - k];
+                nums[sum]++;
             }
 
             return count;
