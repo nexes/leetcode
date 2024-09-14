@@ -21,6 +21,7 @@
 #include <browser_history.h>
 #include <bst_iterator.h>
 #include <bulls_cows.h>
+#include <buy_sell_stock_2.h>
 #include <car_fleet.h>
 #include <city_smallest_neighbors.h>
 #include <clone_graph.h>
