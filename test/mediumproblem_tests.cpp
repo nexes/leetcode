@@ -67,6 +67,7 @@
 #include <longest_common_prefix.h>
 #include <longest_palindrom_subseq.h>
 #include <longest_repeating_char_replacement.h>
+#include <longest_substr_even_vowels.h>
 #include <longest_substr_k_repeating.h>
 #include <matrix_01.h>
 #include <max_distance_arrays.h>
@@ -968,7 +969,7 @@ TEST(Medium, arithmetic_slices)
     ASSERT_EQ(a.numberOfArithmeticSlices(arr), 3);
 }
 
-TEST(Medium, subarry_sum_k)
+TEST(Medium, subarray_sum_k)
 {
     Leet::Medium::SubarraySum s;
 
@@ -1690,4 +1691,13 @@ TEST(Medium, count_palindrom_substring)
 
     ASSERT_EQ(p.countSubstrings("abc"), 3);
     ASSERT_EQ(p.countSubstrings("aaa"), 6);
+}
+
+TEST(Medium, longest_substr_even_vowels)
+{
+    Leet::Medium::LongestSubstrEvenVowels l;
+
+    ASSERT_EQ(l.findTheLongestSubstring("eleetminicoworoep"), 13);
+    ASSERT_EQ(l.findTheLongestSubstring("leetcodeisgreat"), 5);
+    ASSERT_EQ(l.findTheLongestSubstring("bcbcbc"), 6);
 }

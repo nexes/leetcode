@@ -62,7 +62,7 @@ namespace Leet::Medium {
             for (int i = 0; i < nums.size(); i++) {
                 sum += nums[i];
                 count += sums[sum - k];
-                nums[sum]++;
+                sums[sum]++;
             }
 
             return count;
