@@ -44,6 +44,7 @@
 #include <flatten_binarytree_list.h>
 #include <gas_station.h>
 #include <generate_parentheses.h>
+#include <graph_valid_tree.h>
 #include <gray_code.h>
 #include <group_anagrams.h>
 #include <h_index.h>
