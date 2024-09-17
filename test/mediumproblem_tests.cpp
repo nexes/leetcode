@@ -83,6 +83,7 @@
 #include <min_max_critical_points.h>
 #include <min_rectangles_cover_points.h>
 #include <min_stack.h>
+#include <min_time_difference.h>
 #include <minimum_path_sum.h>
 #include <minimum_rotated_array.h>
 #include <most_profit_work.h>
