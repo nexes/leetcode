@@ -29,6 +29,23 @@ namespace Leet::Medium {
     // 0 <= nums[i] <= 400
     struct HouseRobber
     {
+        int rob_dp(std::vector<int> &nums)
+        {
+            int len = nums.size();
+            std::vector<int> dp(len, 0);
+
+            if (len == 1)
+                return nums[0];
+
+            dp[0] = nums[0];
+            dp[1] = std::max(nums[0], nums[1]);
+
+            for (int i = 2; i < len; i++)
+                dp[i] = std::max(dp[i - 1], dp[i - 2] + nums[i]);
+
+            return dp[len - 1];
+        }
+
         int rob(std::vector<int> &nums)
         {
             int even = 0;
