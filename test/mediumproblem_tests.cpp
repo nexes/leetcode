@@ -76,6 +76,7 @@
 #include <max_distance_pairs.h>
 #include <max_split_pos_ints.h>
 #include <merge_nodes_zero.h>
+#include <merge_triplet_form_target.h>
 #include <min_area_cover.h>
 #include <min_deletions_string_balance.h>
 #include <min_diff_three_moves.h>
