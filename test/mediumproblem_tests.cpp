@@ -36,6 +36,7 @@
 #include <decode_string.h>
 #include <delete_node_from_list.h>
 #include <delete_two_strings.h>
+#include <diff_way_add_parens.h>
 #include <divide_integers.h>
 #include <even_odd_tree.h>
 #include <find_if_array_sort.h>
