@@ -7,6 +7,7 @@
 #include <longest_happy_prefix.h>
 #include <median_sorted_arrays.h>
 #include <merge_k_sorted.h>
+#include <min_rotated_array2.h>
 #include <min_window_substring.h>
 #include <serialize_deserialize_bt.h>
 #include <trapping_water.h>
@@ -122,4 +123,15 @@ TEST(Hard, longest_happy_prefix)
 
     ASSERT_EQ(l.longestPrefix("level"), "l");
     ASSERT_EQ(l.longestPrefix("ababab"), "abab");
+}
+
+TEST(Hard, min_rotated_array2)
+{
+    Leet::Hard::MinSortedArray2 m;
+
+    std::vector<int> nums{1, 3, 5};
+    ASSERT_EQ(m.findMin(nums), 1);
+
+    nums = {2, 2, 2, 0, 1};
+    ASSERT_EQ(m.findMin(nums), 0);
 }
