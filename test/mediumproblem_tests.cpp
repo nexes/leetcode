@@ -112,6 +112,7 @@
 #include <sort_matrix_diagonal.h>
 #include <sorted_list_to_bst.h>
 #include <spiral_matrix.h>
+#include <spiral_matrix_4.h>
 #include <string_from_leaf.h>
 #include <students_replace_chalk.h>
 #include <subarray_less_k.h>
