@@ -792,7 +792,7 @@ TEST(Medium, max_product_subarray)
     ASSERT_EQ(m.maxProduct(arr), 2);
 
     arr = {2, 3, -2, 4};
-    ASSERT_EQ(m.maxProduct_linear(arr), 6);
+    ASSERT_EQ(m.maxProduct(arr), 6);
 }
 
 TEST(Medium, largest_number)

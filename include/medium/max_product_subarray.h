@@ -1,64 +1,82 @@
 #pragma once
 
-#include <algorithm>
-#include <climits>
 #include <vector>
 
 namespace Leet::Medium {
-    // Given an integer array nums, find the contiguous subarray within an
-    // array (containing at least one number) which has the largest product.
+    // Given an integer array nums, find a
+    // subarray that has the largest product, and return the product.
+
+    // The test cases are generated so that the answer will fit in a 32-bit integer.
 
     // Example 1:
-    // Input: [2,3,-2,4]
+    // Input: nums = [2,3,-2,4]
     // Output: 6
     // Explanation: [2,3] has the largest product 6.
 
     // Example 2:
-    // Input: [-2,0,-1]
+    // Input: nums = [-2,0,-1]
     // Output: 0
     // Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+
+    // Constraints:
+    // 1 <= nums.length <= 2 * 104
+    // -10 <= nums[i] <= 10
+    // The product of any subarray of nums is guaranteed to fit in a 32-bit integer.
     struct MaxProduct
     {
-        int maxProduct(std::vector<int>& nums)
+        // time: O(n^2)
+        int maxProduct_bruteforce(std::vector<int>& nums)
         {
-            auto map = std::vector<std::vector<int>>(nums.size(), std::vector<int>(nums.size()));
-            int len = nums.size();
-            int max_prod = INT_MIN;
+            int maxProd = nums[0];
 
-            // set diagonal
-            for (int i = 0; i < len; i++)
-                map[i][i] = nums[i];
+            for (int i = 0; i < nums.size(); i++) {
+                int localProd = nums[i];
+                maxProd = std::max(maxProd, localProd);
 
-            // dp: O(n^2)
-            for (int i = 0; i < len; i++) {
-                for (int j = i + 1; j < len; j++) {
-                    map[i][j] = map[i][j - 1] * nums[j];
-                    max_prod = std::max(max_prod, map[i][j]);
+                for (int j = i + 1; j < nums.size(); j++) {
+                    localProd *= nums[j];
+                    maxProd = std::max(maxProd, localProd);
                 }
-
-                max_prod = std::max(max_prod, nums[i]);
             }
 
-            return max_prod;
+            return maxProd;
         }
 
-        int maxProduct_linear(std::vector<int>& nums)
+        // time: O(n)
+        // we need to travel from left to right and right to left. If we encounter a
+        // negative number, it could make the rest of the product negative from that point
+        // on. So we traverse the other direction too, to see if the product of the suffix
+        // is larger
+        int maxProduct(std::vector<int>& nums)
         {
-            if (nums.size() == 1)
-                return nums[0];
+            int prefixMax = INT_MIN;
+            int suffixMax = INT_MIN;
 
-            int max_prod = nums[0];
-            int max_here = nums[0];
-            int min_here = nums[0];
+            int localPrefix = 1;
+            for (int i = 0; i < nums.size(); i++) {
+                localPrefix *= nums[i];
+                prefixMax = std::max(prefixMax, localPrefix);
 
-            for (int i = 1; i < nums.size(); i++) {
-                int temp = max_here;
-                max_here = std::max(max_here * nums[i], std::max(nums[i], min_here * nums[i]));
-                min_here = std::min(min_here * nums[i], std::min(nums[i], temp * nums[i]));
-                max_prod = std::max(max_prod, max_here);
+                // if we find a 0, we need to restart our subarry (set to 1) otherwise the
+                // rest of the array will be 0
+                if (nums[i] == 0) {
+                    localPrefix = 1;
+                }
             }
 
-            return max_prod;
+            int localSuffix = 1;
+            for (int i = nums.size() - 1; i >= 0; i--) {
+                localSuffix *= nums[i];
+                prefixMax = std::max(prefixMax, localSuffix);
+
+                // if we find a 0, we need to restart our subarry (set to 1) otherwise the
+                // rest of the array will be 0
+                if (nums[i] == 0) {
+                    localSuffix = 1;
+                }
+            }
+
+            return std::max(prefixMax, suffixMax);
         }
     };
 }  // namespace Leet::Medium
