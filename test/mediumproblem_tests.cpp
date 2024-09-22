@@ -52,6 +52,7 @@
 #include <hand_of_straights.h>
 #include <hash_divide_string.h>
 #include <house_robber.h>
+#include <house_robber2.h>
 #include <increasing_triplet_subseq.h>
 #include <inorder_traversal.h>
 #include <insert_binary_tree.h>
