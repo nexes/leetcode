@@ -119,6 +119,7 @@
 #include <subarray_less_k.h>
 #include <subarray_sum_k.h>
 #include <sum_root_to_leaf.h>
+#include <sum_square_numbers.h>
 #include <surrounded_regions.h>
 #include <time_based_keyvalue_store.h>
 #include <total_hamming_distance.h>
@@ -1708,4 +1709,11 @@ TEST(Medium, longest_substr_even_vowels)
     ASSERT_EQ(l.findTheLongestSubstring("eleetminicoworoep"), 13);
     ASSERT_EQ(l.findTheLongestSubstring("leetcodeisgreat"), 5);
     ASSERT_EQ(l.findTheLongestSubstring("bcbcbc"), 6);
+
+TEST(Medium, sum_square_numbers)
+{
+    Leet::Medium::SumSquareNumbers s;
+
+    ASSERT_TRUE(s.judgeSquareSum(5));
+    ASSERT_FALSE(s.judgeSquareSum(3));
 }
