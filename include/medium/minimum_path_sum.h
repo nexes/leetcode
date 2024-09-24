@@ -26,7 +26,58 @@ namespace Leet::Medium {
     // 0 <= grid[i][j] <= 100
     struct MinPathSum
     {
-        // time: O(n^2), space: O(n)
+        // ---------- Recursion O(2^(n*m)): TLE --------------
+        int findPath_recursion(vector<vector<int>> &grid, int r, int c)
+        {
+            if (r == 0 && c == 0)
+                return grid[r][c];
+            if (r < 0 || c < 0)
+                return INT_MAX;
+
+            int sum = grid[r][c];
+            sum += std::min(findPath_recursion(grid, r - 1, c),
+                            findPath_recursion(grid, r, c - 1));
+
+            return sum;
+        }
+
+        int minPathSum_recursion(vector<vector<int>> &grid)
+        {
+            int r = grid.size();
+            int c = grid[0].size();
+
+            return findPath_recursion(grid, r - 1, c - 1);
+        }
+        // ---------- Top Down O(n*m): -----------------------
+        int findPath_topdown(vector<vector<int>> &grid, vector<vector<int>> &memo, int r,
+                             int c)
+        {
+            if (r == 0 && c == 0)
+                return grid[r][c];
+            if (r < 0 || c < 0)
+                return INT_MAX;
+
+            if (memo[r][c] != -1)
+                return memo[r][c];
+
+            int sum = grid[r][c];
+            sum += std::min(findPath_topdown(grid, memo, r - 1, c),
+                            findPath_topdown(grid, memo, r, c - 1));
+
+            memo[r][c] = sum;
+            return memo[r][c];
+        }
+
+        int minPathSum_topDown(vector<vector<int>> &grid)
+        {
+            int r = grid.size();
+            int c = grid[0].size();
+            vector<vector<int>> memo(r, vector<int>(c, -1));
+
+            return findPath_topdown(grid, memo, r - 1, c - 1);
+        }
+
+        // ---------- Bottom Up O(n*m): ----------------------
         int minPathSum(vector<vector<int>> &grid)
         {
             size_t colCount = grid.size();
@@ -46,8 +97,7 @@ namespace Leet::Medium {
             // find the min sum for the inner grid
             for (size_t i = 1; i < grid.size(); i++) {
                 for (size_t j = 1; j < grid[i].size(); j++) {
-                    dp[i][j] =
-                        grid[i][j] + std::min(dp[i - 1][j], +dp[i][j - 1]);
+                    dp[i][j] = grid[i][j] + std::min(dp[i - 1][j], +dp[i][j - 1]);
                 }
             }
 
