@@ -38,6 +38,65 @@ namespace Leet::Medium {
     // total number of rows in the triangle?
     struct Triangle
     {
+        // ------------ RECUSION : TLE -------------------
+        int findPath_recursion(vector<vector<int>> &triangle, int row, int col)
+        {
+            if (row == 0)
+                return triangle[row][0];
+            if (col < 0 || col >= triangle[row].size())
+                return INT_MAX;
+
+            return triangle[row][col] +
+                   std::min(findPath_recursion(triangle, row - 1, col),
+                            findPath_recursion(triangle, row - 1, col - 1));
+        }
+
+        int minimumTotal_recursion(vector<vector<int>> &triangle)
+        {
+            int rows = triangle.size();
+            int pathTotal = INT_MAX;
+
+            for (int i = 0; i < triangle[rows - 1].size(); i++)
+                pathTotal =
+                    std::min(pathTotal, findPath_recursion(triangle, rows - 1, i));
+
+            return pathTotal;
+        }
+
+        // ------------ TOP DOWN : DP -----------------------
+        int findPath_topdown(vector<vector<int>> &triangle, vector<vector<int>> &memo,
+                             int row, int col)
+        {
+            if (row == 0)
+                return triangle[row][0];
+            if (col < 0 || col >= triangle[row].size())
+                return INT_MAX;
+
+            if (memo[row][col] != INT_MAX)
+                return memo[row][col];
+
+            memo[row][col] = triangle[row][col] +
+                             std::min(findPath_topdown(triangle, memo, row - 1, col),
+                                      findPath_topdown(triangle, memo, row - 1, col - 1));
+
+            return memo[row][col];
+        }
+
+        int minimumTotal_topdown(vector<vector<int>> &triangle)
+        {
+            int rows = triangle.size();
+            int pathTotal = INT_MAX;
+            vector<vector<int>> memo(rows, vector<int>(rows, INT_MAX));
+
+            // do our top down search starting from each index from the bottom row
+            for (int i = 0; i < triangle[rows - 1].size(); i++)
+                pathTotal =
+                    std::min(pathTotal, findPath_topdown(triangle, memo, rows - 1, i));
+
+            return pathTotal;
+        }
+
+        // ------------ BOTTOM UP : DP -----------------------
         int minimumTotal(vector<vector<int>> &triangle)
         {
             vector<vector<int>> dp(triangle);
