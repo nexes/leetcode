@@ -37,6 +37,78 @@ namespace Leet::Medium {
     // 0 <= amount <= 104
     struct CoinChange
     {
+        // ------------ RECURSIVE solution, O(2^n) TLE ---------------
+        int makeChange_recursive(std::vector<int>& coins, int idx, int amount)
+        {
+            if (amount == 0)
+                return 0;
+
+            // if we're at the last (1st) index of coins, see if the amount left is
+            // divisible by that coin. If so return the number of coins it would take
+            if (idx == 0) {
+                if (amount % coins[idx] == 0)
+                    return amount / coins[idx];
+                return 1e9;
+            }
+
+            // we can always choose not to take a coin
+            int take = 1e9;
+            int dontTake = makeChange_recursive(coins, idx - 1, amount);
+
+            // we can only take a coin if it's smaller than the amount
+            if (coins[idx] <= amount)
+                take = makeChange_recursive(coins, idx, amount - coins[idx]) + 1;
+
+            return std::min(take, dontTake);
+        }
+
+        int coinChange_recursive(std::vector<int>& coins, int amount)
+        {
+            int count = makeChange_recursive(coins, coins.size() - 1, amount);
+            return count == 1e9 ? -1 : count;
+        }
+
+        // ------------- DP TOP DOWN : O(n) -----------------
+        // take our recursive solution and add memoization
+        int makeChange_topdown(std::vector<int>& coins,
+                               std::vector<std::vector<int>>& memo, int idx, int amount)
+        {
+            if (amount == 0)
+                return 0;
+
+            // if we're at the last (1st) index of coins, see if the amount left is
+            // divisible by that coin. If so return the number of coins it would take
+            if (idx == 0) {
+                if (amount % coins[idx] == 0)
+                    return amount / coins[idx];
+                return 1e9;
+            }
+
+            if (memo[idx][amount] != -1)
+                return memo[idx][amount];
+
+            // we can always choose not to take a coin
+            int take = 1e9;
+            int dontTake = makeChange_topdown(coins, memo, idx - 1, amount);
+
+            // we can only take a coin if it's smaller than the amount
+            if (coins[idx] <= amount)
+                take = makeChange_topdown(coins, memo, idx, amount - coins[idx]) + 1;
+
+            memo[idx][amount] = std::min(take, dontTake);
+            return memo[idx][amount];
+        }
+
+        int coinChange_topdown(std::vector<int>& coins, int amount)
+        {
+            std::vector<std::vector<int>> memo(coins.size(),
+                                               std::vector<int>(amount + 1, -1));
+
+            int ans = makeChange_topdown(coins, memo, coins.size() - 1, amount);
+            return ans == 1e9 ? -1 : ans;
+        }
+
+        // -------------- DP BOTTOM UP : O(n) -----------------
         int coinChange(std::vector<int>& coins, int amount)
         {
             std::vector<int> dp(amount + 1, amount + 1);
