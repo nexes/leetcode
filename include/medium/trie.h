@@ -1,11 +1,9 @@
 #pragma once
 
-#include <memory>
 #include <string>
 #include <unordered_map>
 
 namespace Leet::Medium {
-
     // Implement a trie with insert, search, and startsWith methods.
 
     // Example:
@@ -30,59 +28,57 @@ namespace Leet::Medium {
 
         void insert(std::string word)
         {
-            auto* curr = &root;
+            TrieNode* curr = &root;
 
-            for (auto& c : word)
-            {
-                if (curr->children.find(c) == curr->children.end())
-                    curr->children[c] = std::make_shared<node>();
+            for (char c : word) {
+                if (curr->children.count(c) == 0)
+                    curr->children[c] = TrieNode();
 
-                curr = curr->children[c].get();
+                curr = &curr->children[c];
             }
 
-            curr->is_word = true;
+            curr->isWord = true;
         }
 
         bool search(std::string word)
         {
-            auto* curr = &root;
+            TrieNode* curr = &root;
 
-            for (auto& c : word)
-            {
-                if (curr->children.find(c) == curr->children.end())
+            for (char c : word) {
+                if (curr->children.count(c) == 0)
                     return false;
 
-                curr = curr->children[c].get();
+                curr = &curr->children[c];
             }
 
-            return curr->is_word;
+            return curr->isWord;
         }
 
         bool startsWith(std::string prefix)
         {
-            auto* curr = &root;
+            TrieNode* curr = &root;
 
-            for (auto& c : prefix)
-            {
-                if (curr->children.find(c) == curr->children.end())
+            for (char c : prefix) {
+                if (curr->children.count(c) == 0)
                     return false;
 
-                curr = curr->children[c].get();
+                curr = &curr->children[c];
             }
 
             return true;
         }
 
     private:
-        struct node
+        struct TrieNode
         {
-            node() : is_word(false), children() {}
+            TrieNode() : isWord(false), children()
+            {
+            }
 
-            bool is_word;
-            std::unordered_map<char, std::shared_ptr<node>> children;
+            bool isWord;
+            std::unordered_map<char, TrieNode> children;
         };
 
-    private:
-        node root;
+        TrieNode root;
     };
 }  // namespace Leet::Medium
