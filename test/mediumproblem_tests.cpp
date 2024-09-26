@@ -82,6 +82,7 @@
 #include <min_area_cover.h>
 #include <min_deletions_string_balance.h>
 #include <min_diff_three_moves.h>
+#include <min_falling_path_sum.h>
 #include <min_jumps_home.h>
 #include <min_length_str.h>
 #include <min_max_critical_points.h>
