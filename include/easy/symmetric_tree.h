@@ -25,55 +25,52 @@ namespace Leet::Easy {
     // Follow up: Solve it both recursively and iteratively.
     struct SymmetricTree
     {
-        // iteratively - breadth first search
-        bool isSymmetric(Leet::TreeNode *root)
+        bool checkSubTree(TreeNode* left, TreeNode* right)
         {
-            std::queue<Leet::TreeNode *> q;
-
-            if (!root || !root->left && !root->right)
+            if (left == nullptr && right == nullptr)
                 return true;
+            if (left == nullptr || right == nullptr)
+                return false;
 
-            q.push(root->left);
-            q.push(root->right);
+            bool lcheck = checkSubTree(left->left, right->right);
+            bool rcheck = checkSubTree(left->right, right->left);
 
-            while (!q.empty()) {
-                auto topl = q.front();
-                q.pop();
-                auto topr = q.front();
-                q.pop();
+            return lcheck && rcheck && left->val == right->val;
+        }
 
-                if (!topl && !topr)
+        bool isSymmetric_recursive(TreeNode* root)
+        {
+            return checkSubTree(root->left, root->right);
+        }
+
+        bool isSymmetric(TreeNode* root)
+        {
+            std::queue<TreeNode*> lq;
+            std::queue<TreeNode*> rq;
+
+            lq.push(root->left);
+            rq.push(root->right);
+
+            while (!lq.empty()) {
+                TreeNode* lnode = lq.front();
+                TreeNode* rnode = rq.front();
+                lq.pop();
+                rq.pop();
+
+                if (lnode == nullptr && rnode == nullptr)
                     continue;
-                if (!topl || !topr)
-                    return false;
-                if (topl->val != topr->val)
+
+                if (lnode == nullptr || rnode == nullptr || lnode->val != rnode->val)
                     return false;
 
-                q.push(topl->left);
-                q.push(topr->right);
-                q.push(topl->right);
-                q.push(topr->left);
+                lq.push(lnode->left);
+                lq.push(lnode->right);
+
+                rq.push(rnode->right);
+                rq.push(rnode->left);
             }
 
             return true;
-        }
-
-        // recursively
-        bool isSymmetric_recursive(Leet::TreeNode *root)
-        {
-            return isSymmetric_recursive_helper(root, root);
-        }
-
-        bool isSymmetric_recursive_helper(Leet::TreeNode *left, Leet::TreeNode *right)
-        {
-            if (!left && !right)
-                return true;
-            if (!left || !right)
-                return false;
-
-            return (left->val == right->val) &&
-                   isSymmetric_recursive_helper(left->left, right->right) &&
-                   isSymmetric_recursive_helper(left->right, right->left);
         }
     };
 }  // namespace Leet::Easy
