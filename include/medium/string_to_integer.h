@@ -1,6 +1,5 @@
 #pragma once
 
-#include <algorithm>
 #include <string>
 
 namespace Leet::Medium {
@@ -58,37 +57,36 @@ namespace Leet::Medium {
     {
         int myAtoi(std::string s)
         {
-            constexpr long max = std::numeric_limits<int>::max();
-            constexpr long min = std::numeric_limits<int>::min();
-            long x = 0;
             int i = 0;
             int sign = 1;
+            int value = 0;
 
-            // remove whitespace
-            std::stringstream ss(s);
-            ss >> s;
+            // leading spaces
+            while (i < s.length() && s[i] == ' ')
+                i++;
 
-            if (s.empty())
-                return 0;
+            // leading sign
+            if (s[i] == '-' || s[i] == '+')
+                sign = s[i++] == '-' ? -1 : 1;
 
-            // get the sign
-            if (s.at(0) == '+' || s.at(0) == '-') {
-                i = 1;
-                if (s.at(0) == '-')
-                    sign = -1;
-            }
+            while (i < s.length()) {
+                int digit = s[i] - '0';
 
-            while (i < s.length() && isdigit(s.at(i))) {
-                x = x * 10 + s.at(i++) - '0';
-
-                if (x * sign >= max || x * sign <= min)
+                if (digit < 0 || digit > 9)
                     break;
+
+                // this is what the problem is about. handling int overflow without using
+                // long long
+                if (value > INT_MAX / 10 ||
+                    (value == INT_MAX / 10 && digit > INT_MAX % 10))
+                    return sign == 1 ? INT_MAX : INT_MIN;
+
+                value *= 10;
+                value += digit;
+                i++;
             }
 
-            x *= sign;
-            x = std::max(std::min(x, max), min);
-
-            return x;
+            return value * sign;
         }
     };
 }  // namespace Leet::Medium
