@@ -102,6 +102,7 @@
 #include <path_max_probability.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>
+#include <questions_brainpower.h>
 #include <queue_by_height.h>
 #include <recover_bst.h>
 #include <remove_duplicate_array2.h>
