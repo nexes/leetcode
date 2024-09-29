@@ -76,6 +76,7 @@
 #include <matrix_01.h>
 #include <max_distance_arrays.h>
 #include <max_distance_pairs.h>
+#include <max_good_subarray_sum.h>
 #include <max_split_pos_ints.h>
 #include <meeting_room2.h>
 #include <merge_nodes_zero.h>
