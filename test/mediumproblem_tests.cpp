@@ -69,6 +69,7 @@
 #include <lca_tree.h>
 #include <linked_list_binary_tree.h>
 #include <longest_common_prefix.h>
+#include <longest_nice_subarray.h>
 #include <longest_palindrom_subseq.h>
 #include <longest_repeating_char_replacement.h>
 #include <longest_substr_even_vowels.h>
