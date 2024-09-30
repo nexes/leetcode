@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <vector>
 
+using std::vector;
+
 namespace Leet::Medium {
     // Given an integer array nums, return the length of the longest strictly
     // increasing subsequence. A subsequence is a sequence that can be derived
@@ -32,6 +34,31 @@ namespace Leet::Medium {
     // Could you improve it to O(n log(n)) time complexity?
     struct IncreasingSubSeq
     {
+        // DP TOP DOWN
+        int findLongest_topdown(vector<int>& nums, vector<vector<int>>& memo, int idx,
+                                int prevIdx)
+        {
+            if (idx == nums.size())
+                return 0;
+
+            if (memo[idx][prevIdx + 1] != -1)
+                return memo[idx][prevIdx + 1];
+
+            int take = INT_MIN;
+            int dontTake = findLongest_topdown(nums, memo, idx + 1, prevIdx);
+
+            if (prevIdx == -1 || nums[prevIdx] < nums[idx])
+                take = findLongest_topdown(nums, memo, idx + 1, idx) + 1;
+
+            return memo[idx][prevIdx + 1] = std::max(take, dontTake);
+        }
+
+        int lengthOfLIS_topdown(vector<int>& nums)
+        {
+            vector<vector<int>> memo(nums.size(), vector<int>(nums.size() + 1, -1));
+            return findLongest_topdown(nums, memo, 0, -1);
+        }
+
         // O(n*log(n))
         int lengthOfLIS_binarysearch(std::vector<int>& nums)
         {
