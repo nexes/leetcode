@@ -67,6 +67,7 @@
 #include <kth_factor.h>
 #include <kth_smallest_element_tree.h>
 #include <lca_tree.h>
+#include <lexicographical_nums.h>
 #include <linked_list_binary_tree.h>
 #include <longest_common_prefix.h>
 #include <longest_nice_subarray.h>
