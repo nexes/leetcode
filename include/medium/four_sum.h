@@ -1,11 +1,10 @@
 #pragma once
 
-#include <algorithm>
 #include <vector>
 
-namespace Leet::Medium {
-    using std::vector;
+using std::vector;
 
+namespace Leet::Medium {
     // Given an array nums of n integers, return an array of all the
     // unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
 
@@ -30,33 +29,42 @@ namespace Leet::Medium {
     {
         vector<vector<int>> fourSum(vector<int>& nums, int target)
         {
-            vector<vector<int>> sums{};
+            vector<vector<int>> sums;
 
-            if (nums.size() < 3)
-                return sums;
+            sort(nums.begin(), nums.end());
 
-            std::sort(nums.begin(), nums.end());
+            // avoid duplicates
+            for (int i = 0; i < nums.size(); i++) {
+                if (i > 0 && nums[i - 1] == nums[i])
+                    continue;
 
-            for (int i = 0; i < nums.size() - 3; i++) {
-                for (int j = i + 1; j < nums.size() - 2; j++) {
+                for (int j = i + 1; j < nums.size(); j++) {
+                    if (j > i + 1 && nums[j - 1] == nums[j])
+                        continue;
+
                     int l = j + 1;
                     int r = nums.size() - 1;
-                    int sum = 0;
+                    long long need = target - (long long)nums[i] - (long long)nums[j];
 
                     while (l < r) {
-                        sum = nums[i] + nums[j] + nums[l] + nums[r];
-
-                        if (sum == target) {
-                            auto v = std::vector<int>{nums[i], nums[j], nums[l], nums[r]};
-                            if (std::find(sums.begin(), sums.end(), v) == sums.end())
-                                sums.push_back(v);
-
+                        if (nums[l] + nums[r] == need) {
+                            sums.push_back({nums[i], nums[j], nums[l], nums[r]});
                             l++;
                             r--;
-                        } else if (sum < target) {
-                            l++;
+
+                            while (l < r && nums[l] == nums[l - 1] &&
+                                   nums[r] == nums[r + 1]) {
+                                l++;
+                                r--;
+                            }
+                        } else if (nums[l] + nums[r] > need) {
+                            r--;
+                            while (l < r && nums[r] == nums[r + 1])
+                                r--;
                         } else {
-                            r--;
+                            l++;
+                            while (l < r && nums[l] == nums[l - 1])
+                                l++;
                         }
                     }
                 }
