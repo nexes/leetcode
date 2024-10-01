@@ -115,6 +115,7 @@
 #include <reverse_string_parentheses.h>
 #include <rotate_list.h>
 #include <rotating_box.h>
+#include <search_rotated_array2.h>
 #include <shortest_dist_road_queries.h>
 #include <single_element_sorted_array.h>
 #include <sort_list.h>
@@ -1724,4 +1725,15 @@ TEST(Medium, sum_square_numbers)
 
     ASSERT_TRUE(s.judgeSquareSum(5));
     ASSERT_FALSE(s.judgeSquareSum(3));
+}
+
+TEST(Medium, search_rotated_sorted_array_2)
+{
+    Leet::Medium::SearchRotatedArray2 s;
+
+    vector<int> arr{2, 5, 6, 0, 0, 1, 2};
+    ASSERT_TRUE(s.search(arr, 0));
+
+    arr = {2, 5, 6, 0, 0, 1, 2};
+    ASSERT_FALSE(s.search(arr, 3));
 }
