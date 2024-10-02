@@ -1,15 +1,19 @@
 #pragma once
 
-#include <algorithm>
-#include <cmath>
-#include <map>
+#include <queue>
 #include <vector>
 
+using std::priority_queue;
+using std::vector;
+
 namespace Leet::Medium {
-    // We have a list of points on the plane.  Find the K closest points to the origin (0,
-    // 0). (Here, the distance between two points on a plane is the Euclidean distance.)
-    // You may return the answer in any order.  The answer is guaranteed to be unique
-    // (except for the order that it is in.)
+    // Given an array of points where points[i] = [xi, yi] represents a point on the X-Y
+    // plane and an integer k, return the k closest points to the origin (0, 0). The
+    // distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1
+    // - x2)2 + (y1 - y2)2).
+
+    // You may return the answer in any order. The answer is guaranteed to be unique
+    // (except for the order that it is in).
 
     // Example 1:
     // Input: points = [[1,3],[-2,2]], K = 1
@@ -32,52 +36,31 @@ namespace Leet::Medium {
     // -10000 < points[i][1] < 10000
     struct KClosestPoint
     {
-        std::vector<std::vector<int>> kClosest(std::vector<std::vector<int>>& points,
-                                               int k)
+        vector<vector<int>> kClosest(vector<vector<int>>& points, int k)
         {
-            auto results = std::vector<std::vector<int>>{};
-            auto dist_map = std::map<double, std::vector<std::vector<int>>>{};
+            vector<vector<int>> closePoints;
+            priority_queue<std::pair<int, int>, vector<std::pair<int, int>>,
+                           std::greater<std::pair<int, int>>>
+                distQueue;
 
-            for (auto& point : points) {
-                double dist = std::sqrt((point[0] * point[0]) + (point[1] * point[1]));
-                auto point_bucket = std::vector<std::vector<int>>{
-                    point,
-                };
+            // O(n * log(n)) n = |points|,
+            for (int i = 0; i < points.size(); i++) {
+                int x = points[i][0];
+                int y = points[i][1];
+                int dist = (x * x) + (y * y);
 
-                if (auto it = dist_map.emplace(dist, point_bucket); !it.second) {
-                    // collision
-                    it.first->second.emplace_back(point);
-                }
+                distQueue.push({dist, i});
             }
 
-            for (auto it = dist_map.begin(); it != dist_map.end(), k > 0; it++, k--) {
-                if (it->second.size() == 1) {
-                    results.emplace_back(it->second[0]);
-                } else {
-                    for (int i = 0; i<it->second.size(), k> 0; i++, k--)
-                        results.emplace_back(it->second[i]);
-                }
+            // O(k * log(k))
+            for (int i = 0; i < k; i++) {
+                auto [dist, index] = distQueue.top();
+                distQueue.pop();
+
+                closePoints.push_back(points[index]);
             }
 
-            return results;
-        }
-
-        // cleaner but slower
-        std::vector<std::vector<int>> kClosest_cleaner(
-            std::vector<std::vector<int>>& points, int k)
-        {
-            auto results = std::vector<std::vector<int>>{};
-
-            std::sort(points.begin(), points.end(),
-                      [](const std::vector<int> a, const std::vector<int> b) {
-                          double dist_a = std::sqrt((a[0] * a[0]) + (a[1] * a[1]));
-                          double dist_b = std::sqrt((b[0] * b[0]) + (b[1] * b[1]));
-
-                          return dist_a < dist_b;
-                      });
-
-            results.insert(results.end(), points.begin(), points.begin() + k);
-            return results;
+            return closePoints;
         }
     };
 }  // namespace Leet::Medium
