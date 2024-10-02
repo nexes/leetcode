@@ -40,7 +40,7 @@ namespace Leet::Easy {
                     nums1[num1_idx] = nums2[0];
                     nums2[0] = temp;
 
-                    //O(n)
+                    // O(n)
                     for (int i = 0; i < n - 1; i++) {
                         if (nums2[i + 1] < nums2[i]) {
                             temp = nums2[i];
@@ -56,25 +56,23 @@ namespace Leet::Easy {
                 nums1[num1_idx++] = nums2[i];
         }
 
-        // a better approach to the problem. look at the last element in the two arrays that are not
-        // zero and place the larger of the two at the end of nums1.
+        // a better approach to the problem. look at the last element in the two arrays
+        // that are not zero and place the larger of the two at the end of nums1.
         void merge_better(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
         {
-            if (nums1.empty() || nums2.empty())
-                return;
+            int i = m - 1;
+            int j = n - 1;
+            int idx = nums1.size() - 1;
 
-            int first = m - 1;
-            int second = n - 1;
-
-            for (int i = m + n - 1; i >= 0; i--) {
-                if (second < 0)
-                    break;
-
-                if (nums1[first] > nums2[second])
-                    nums1[i] = nums1[first--];
+            while (i >= 0 && j >= 0) {
+                if (nums2[j] >= nums1[i])
+                    nums1[idx--] = nums2[j--];
                 else
-                    nums1[i] = nums2[second--];
+                    nums1[idx--] = nums1[i--];
             }
+
+            while (j >= 0)
+                nums1[idx--] = nums2[j--];
         }
     };
 }  // namespace Leet::Easy
