@@ -39,6 +39,7 @@
 #include <diff_way_add_parens.h>
 #include <divide_integers.h>
 #include <even_odd_tree.h>
+#include <find_dist_binary_tree.h>
 #include <find_if_array_sort.h>
 #include <find_replace_pattern.h>
 #include <first_last_elm_array.h>
