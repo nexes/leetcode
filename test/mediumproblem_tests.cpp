@@ -103,6 +103,7 @@
 #include <number_provinces.h>
 #include <optimal_partition_string.h>
 #include <palindromic_count_substrs.h>
+#include <partition_equal_subset_sum.h>
 #include <partition_labels.h>
 #include <path_max_probability.h>
 #include <preorder_serialization.h>
