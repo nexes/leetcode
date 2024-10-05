@@ -106,6 +106,7 @@
 #include <partition_equal_subset_sum.h>
 #include <partition_labels.h>
 #include <path_max_probability.h>
+#include <permutations2.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>
 #include <questions_brainpower.h>
