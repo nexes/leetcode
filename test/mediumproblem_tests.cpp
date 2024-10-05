@@ -35,6 +35,7 @@
 #include <counting_bits.h>
 #include <daily_temperatures.h>
 #include <decode_string.h>
+#include <decode_ways.h>
 #include <delete_node_from_list.h>
 #include <delete_two_strings.h>
 #include <diff_way_add_parens.h>
@@ -1741,4 +1742,13 @@ TEST(Medium, search_rotated_sorted_array_2)
 
     arr = {2, 5, 6, 0, 0, 1, 2};
     ASSERT_FALSE(s.search(arr, 3));
+}
+
+TEST(Medium, decode_ways)
+{
+    Leet::Medium::DecodeWays d;
+
+    ASSERT_EQ(d.numDecodings("12"), 2);
+    ASSERT_EQ(d.numDecodings("226"), 3);
+    ASSERT_EQ(d.numDecodings("06"), 0);
 }
