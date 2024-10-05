@@ -129,6 +129,7 @@
 #include <students_replace_chalk.h>
 #include <subarray_less_k.h>
 #include <subarray_sum_k.h>
+#include <subsets_2.h>
 #include <sum_root_to_leaf.h>
 #include <sum_square_numbers.h>
 #include <surrounded_regions.h>
