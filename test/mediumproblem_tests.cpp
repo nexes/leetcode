@@ -104,6 +104,7 @@
 #include <number_good_splits.h>
 #include <number_provinces.h>
 #include <optimal_partition_string.h>
+#include <palindrome_partition.h>
 #include <palindromic_count_substrs.h>
 #include <partition_equal_subset_sum.h>
 #include <partition_labels.h>
