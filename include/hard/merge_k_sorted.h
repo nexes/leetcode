@@ -1,7 +1,6 @@
 #pragma once
 
-#include <algorithm>
-#include <climits>
+#include <queue>
 #include <vector>
 
 #include "../listnode.h"
@@ -40,6 +39,44 @@ namespace Leet::Hard {
     // The sum of lists[i].length won't exceed 10^4.
     struct MergeKList
     {
+        // O(n log(k))
+        ListNode* mergeKLists_better(std::vector<ListNode*>& lists)
+        {
+            ListNode dummy = ListNode();
+            ListNode* curr = &dummy;
+            std::priority_queue<std::pair<int, ListNode*>,
+                                std::vector<std::pair<int, ListNode*>>,
+                                std::greater<std::pair<int, ListNode*>>>
+                nodeQueue;
+
+            if (lists.size() == 0)
+                return nullptr;
+
+            // add the head of each list into a minheap
+            for (int i = 0; i < lists.size(); i++) {
+                if (lists[i] != nullptr)
+                    nodeQueue.push({lists[i]->val, lists[i]});
+            }
+
+            // get the top of the min heap (smallest value) and add that node to our
+            // merged list we're building. push that nodes next node back on the heap and
+            // continue. because the lists started sorted, the min heap will keep the new
+            // nodes in their correct place
+            while (!nodeQueue.empty()) {
+                auto [_, node] = nodeQueue.top();
+                nodeQueue.pop();
+
+                curr->next = node;
+                if (node->next != nullptr)
+                    nodeQueue.push({node->next->val, node->next});
+
+                curr = curr->next;
+            }
+
+            return dummy.next;
+        }
+
+        // O(n * k)
         Leet::ListNode* mergeKList(std::vector<Leet::ListNode*>& lists)
         {
             Leet::ListNode* merged = nullptr;
