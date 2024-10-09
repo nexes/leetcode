@@ -80,6 +80,7 @@
 #include <longest_substr_even_vowels.h>
 #include <longest_substr_k_repeating.h>
 #include <matrix_01.h>
+#include <max_consecutive_ones2.h>
 #include <max_distance_arrays.h>
 #include <max_distance_pairs.h>
 #include <max_good_subarray_sum.h>
