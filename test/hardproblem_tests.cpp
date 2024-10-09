@@ -1,3 +1,4 @@
+#include <basic_calculator3.h>
 #include <binary_tree_max_path_sum.h>
 #include <candy.h>
 #include <edit_distance.h>
@@ -135,4 +136,13 @@ TEST(Hard, min_rotated_array2)
 
     nums = {2, 2, 2, 0, 1};
     ASSERT_EQ(m.findMin(nums), 0);
+}
+
+TEST(Hard, basic_calc_3)
+{
+    Leet::Hard::BasicCalc3 b;
+
+    ASSERT_EQ(b.calculate("2*(5+5*2)/3+(6/2+8)"), 21);
+    ASSERT_EQ(b.calculate("6-4/2"), 4);
+    ASSERT_EQ(b.calculate("1+1"), 2);
 }
