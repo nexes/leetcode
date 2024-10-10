@@ -33,6 +33,28 @@ namespace Leet::Medium {
     //  strs[i] consists of lower-case English letters.
     struct GroupAnagram
     {
+        // O(n * k) n = |strs|  k = |strs_i|
+        vector<vector<string>> groupAnagrams_faster(vector<string>& strs)
+        {
+            vector<vector<string>> anagrams;
+            unordered_map<string, vector<string>> anagMap;
+
+            // create a simple hash of the string that doesn't take into count the
+            // position of the char
+            for (string str : strs) {
+                string key(26, '*');
+                for (int i = 0; i < str.length(); i++)
+                    key[str[i] - 'a']++;
+
+                anagMap[key].push_back(str);
+            }
+
+            for (auto [_, value] : anagMap)
+                anagrams.push_back(value);
+
+            return anagrams;
+        }
+
         vector<vector<string>> groupAnagrams(vector<string>& strs)
         {
             unordered_map<string, vector<string>> group_map;
