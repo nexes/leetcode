@@ -3,6 +3,9 @@
 #include <stack>
 #include <vector>
 
+using std::stack;
+using std::vector;
+
 namespace Leet::Medium {
     // Given a circular array (the next element of the last element is
     // the first element of the array), print the Next Greater Number
@@ -19,7 +22,13 @@ namespace Leet::Medium {
     // The number 2 can't find next greater number;
     // The second 1's next greater number needs to search circularly, which is also 2.
 
-    // Note: The length of given array won't exceed 10000.
+    // Example 2:
+    // Input: nums = [1,2,3,4,3]
+    // Output: [2,3,4,-1,4]
+
+    // Constraints:
+    // 1 <= nums.length <= 104
+    // -109 <= nums[i] <= 109
     struct NextGreater2
     {
         // time: O(n^2)
@@ -43,10 +52,31 @@ namespace Leet::Medium {
         // time: O(n) space: O(n)
         std::vector<int> nextGreaterElements_faster(std::vector<int>& nums)
         {
-            int size = nums.size();
-            std::vector<int> greater(size, -1);
+            stack<int> nextLargest;
+            vector<int> values(nums.size(), -1);
 
-            return greater;
+            // monotonic decreasing stack L -> R
+            for (int i = 0; i < nums.size(); i++) {
+                while (!nextLargest.empty() && nums[nextLargest.top()] < nums[i]) {
+                    values[nextLargest.top()] = nums[i];
+                    nextLargest.pop();
+                }
+                nextLargest.push(i);
+            }
+
+            // when doing this kind of problem, whatever is left in our stack are values
+            // that we couldn't find a larger value for. Because we can loop around our
+            // array, we can make one more pass with our stack and try to match
+            // what's left
+            for (int i = 0; i < nums.size(); i++) {
+                while (!nextLargest.empty() && nums[nextLargest.top()] < nums[i]) {
+                    values[nextLargest.top()] = nums[i];
+                    nextLargest.pop();
+                }
+                nextLargest.push(i);
+            }
+
+            return values;
         }
     };
 }  // namespace Leet::Medium
