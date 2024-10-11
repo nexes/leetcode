@@ -8,6 +8,7 @@
 #include <array_nesting.h>
 #include <bag_of_tokens.h>
 #include <balance_parentheses.h>
+#include <basic_calc2.h>
 #include <binary_array_one.h>
 #include <binary_subarray_sum.h>
 #include <binary_tree_from_array.h>
