@@ -1,13 +1,15 @@
 #pragma once
 
-#include <algorithm>
-#include <iostream>
+#include <stack>
 #include <vector>
 
+using std::stack;
+using std::vector;
+
 namespace Leet::Medium {
-    // Given an array A of integers, a ramp is a tuple (i, j) for which i < j and A[i] <= A[j].
-    // The width of such a ramp is j - i. Find the maximum width of a ramp in A.
-    // If one doesn't exist, return 0.
+    // Given an array A of integers, a ramp is a tuple (i, j) for which i < j and A[i] <=
+    // A[j]. The width of such a ramp is j - i. Find the maximum width of a ramp in A. If
+    // one doesn't exist, return 0.
 
     // Example 1:
     // Input: [6,0,8,2,1,5]
@@ -26,30 +28,28 @@ namespace Leet::Medium {
     // 0 <= A[i] <= 50000
     struct MaxWidthRamp
     {
-        // a = [6, 0, 8, 2, 1, 5]
-        // idx_a = [1,4,3,-1,-1,5,0,-1,2]
-        // idx_a is the inverse of a. indx_a[a[i]] = i;
-        // the distance (width) from a[i] to a[j] is found by
-        // [1, 4, 3, -1, -1, 5, 0, -1, 2]
-        //  0, 1, 2,  3,  4, 5, 6, 7,  8
-        //
-        // distance from 0 -> 1 is indx_a[1] - indx_a[0] etc.
-        int maxWidthRamp(std::vector<int>& a)
+        int maxWidthRamp(vector<int>& nums)
         {
-            auto res = 0;
-            auto max = *std::max_element(a.begin(), a.end());
-            auto indx_arr = std::vector<int>(max + 1, -1);
+            int width = 0;
+            stack<int> indices;
 
-            for (int i = 0; i < a.size(); i++)
-                indx_arr[a[i]] = i;
+            // save the smallest values, so we can check them later, mono dec stack
+            for (int i = 0; i < nums.size(); i++) {
+                if (indices.empty() || nums[indices.top()] > nums[i])
+                    indices.push(i);
+            }
 
-            for (int i = indx_arr.size() - 1; i > 0; i--)
-                indx_arr[i - 1] = std::max(indx_arr[i - 1], indx_arr[i]);
+            // starting from the right (gives us the greatest widths) check the stack
+            for (int i = nums.size() - 1; i >= 0; i--) {
+                while (!indices.empty() && nums[i] >= nums[indices.top()]) {
+                    int j = indices.top();
+                    indices.pop();
 
-            for (int i = 0; i < a.size(); i++)
-                res = std::max(res, indx_arr[a[i]] - i);
+                    width = std::max(width, i - j);
+                }
+            }
 
-            return res;
+            return width;
         }
     };
 }  // namespace Leet::Medium
