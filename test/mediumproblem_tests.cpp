@@ -97,6 +97,7 @@
 #include <min_length_str.h>
 #include <min_max_critical_points.h>
 #include <min_rectangles_cover_points.h>
+#include <min_remove_valid_parens.h>
 #include <min_stack.h>
 #include <min_time_difference.h>
 #include <minimum_path_sum.h>
