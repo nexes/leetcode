@@ -140,11 +140,11 @@
 #include <valid_anagram.h>
 #include <valid_palindrome.h>
 #include <valid_parentheses.h>
+#include <verify_alien_dictionary.h>
 #include <word_pattern.h>
 #include <x_matrix.h>
 
 #include <vector>
-
 
 TEST(Easy, TwoSums)
 {
