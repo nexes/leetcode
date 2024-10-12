@@ -1,7 +1,8 @@
 #pragma once
 
-#include <iostream>
 #include <vector>
+
+using std::vector;
 
 namespace Leet::Medium {
     // Given an array nums of n integers, are there elements a, b, c in nums such
@@ -21,34 +22,25 @@ namespace Leet::Medium {
         // space: O(1)
         std::vector<std::vector<int>> threeSum(std::vector<int> &nums)
         {
-            std::vector<std::vector<int>> result;
-            int len = nums.size();
-            int l = 1;
-            int r = len - 1;
+            vector<vector<int>> triplets;
+            sort(nums.begin(), nums.end());
 
-            std::sort(nums.begin(), nums.end());
-
-            for (int i = 0; i < len - 1; i++) {
-                // skip duplicates from i
-                if (i > 0 && nums[i] == nums[i - 1])
+            for (int i = 0; i < nums.size(); i++) {
+                if (i > 0 && nums[i - 1] == nums[i]) {
                     continue;
+                }
 
-                l = i + 1;
-                r = len - 1;
+                int l = i + 1;
+                int r = nums.size() - 1;
                 while (l < r) {
-                    int check = nums[i] + nums[l] + nums[r];
-
-                    if (check == 0) {
-                        result.push_back({nums[i], nums[l], nums[r]});
+                    int sum = nums[i] + nums[l] + nums[r];
+                    if (sum == 0) {
+                        triplets.push_back({nums[i], nums[l], nums[r]});
                         l++;
                         r--;
-
-                        // skip duplicates for l and r
-                        while (l < r && nums[l] == nums[l - 1])
+                        while (l < r && nums[l - 1] == nums[l])
                             l++;
-                        while (l < r && nums[r] == nums[r + 1])
-                            r--;
-                    } else if (check < 0) {
+                    } else if (sum < 0) {
                         l++;
                     } else {
                         r--;
@@ -56,7 +48,7 @@ namespace Leet::Medium {
                 }
             }
 
-            return result;
+            return triplets;
         }
     };
 }  // namespace Leet::Medium
