@@ -41,6 +41,7 @@
 #include <delete_two_strings.h>
 #include <diff_way_add_parens.h>
 #include <divide_integers.h>
+#include <earliest_moment_friends.h>
 #include <even_odd_tree.h>
 #include <find_dist_binary_tree.h>
 #include <find_if_array_sort.h>
