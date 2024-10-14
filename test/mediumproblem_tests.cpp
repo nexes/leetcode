@@ -81,6 +81,7 @@
 #include <longest_repeating_char_replacement.h>
 #include <longest_substr_even_vowels.h>
 #include <longest_substr_k_repeating.h>
+#include <longest_substr_two_dist_chars.h>
 #include <matrix_01.h>
 #include <max_consecutive_ones2.h>
 #include <max_distance_arrays.h>
@@ -1733,6 +1734,15 @@ TEST(Medium, longest_substr_even_vowels)
     ASSERT_EQ(l.findTheLongestSubstring("eleetminicoworoep"), 13);
     ASSERT_EQ(l.findTheLongestSubstring("leetcodeisgreat"), 5);
     ASSERT_EQ(l.findTheLongestSubstring("bcbcbc"), 6);
+}
+
+TEST(Medium, longest_substr_2_distinct_chars)
+{
+    Leet::Medium::LongestSubStrTwoDistChars l;
+
+    ASSERT_EQ(l.lengthOfLongestSubstringTwoDistinct("eceba"), 3);
+    ASSERT_EQ(l.lengthOfLongestSubstringTwoDistinct("ccaabbb"), 5);
+}
 
 TEST(Medium, sum_square_numbers)
 {
