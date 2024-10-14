@@ -23,6 +23,44 @@ namespace Leet::Hard {
     // 0 <= heights[i] <= 104
     struct LargestRectHistogram
     {
+        // clean approach, use a heap to find the next smallest value and the previous
+        // smallest value.
+        // O(n) n = |heights|
+        int largestRectangleArea_nsv(std::vector<int> &heights)
+        {
+            int maxArea = 0;
+            std::vector<int> nextSmallIdx(heights.size(), heights.size());
+            std::vector<int> prevSmallIdx(heights.size(), -1);
+
+            // r -> l gives us nextSmallIdx
+            std::stack<int> nsHeap;
+            for (int i = 0; i < heights.size(); i++) {
+                while (!nsHeap.empty() && heights[nsHeap.top()] > heights[i]) {
+                    nextSmallIdx[nsHeap.top()] = i;
+                    nsHeap.pop();
+                }
+                nsHeap.push(i);
+            }
+
+            // r -> l gives us prevSmallIdx
+            std::stack<int> psHeap;
+            for (int i = heights.size() - 1; i >= 0; i--) {
+                while (!psHeap.empty() && heights[psHeap.top()] > heights[i]) {
+                    prevSmallIdx[psHeap.top()] = i;
+                    psHeap.pop();
+                }
+                psHeap.push(i);
+            }
+
+            // calculate the area
+            for (int i = 0; i < heights.size(); i++) {
+                int width = std::abs(nextSmallIdx[i] - prevSmallIdx[i]) - 1;
+                maxArea = std::max(maxArea, width * heights[i]);
+            }
+
+            return maxArea;
+        }
+
         // time: O(n)
         int largestRectangleArea(std::vector<int> &heights)
         {
