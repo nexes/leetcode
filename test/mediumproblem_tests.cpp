@@ -154,6 +154,7 @@
 #include <valid_parenthesis_str.h>
 #include <valid_sudoku.h>
 #include <walking_robot_sim.h>
+#include <walls_and_gates.h>
 #include <word_search.h>
 #include <xor_query_subarry.h>
 // #include <integer_replacement.h>
