@@ -85,6 +85,7 @@
 #include <longest_substr_k_repeating.h>
 #include <longest_substr_two_dist_chars.h>
 #include <matrix_01.h>
+#include <max_area_island.h>
 #include <max_consecutive_ones2.h>
 #include <max_distance_arrays.h>
 #include <max_distance_pairs.h>
