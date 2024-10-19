@@ -131,6 +131,7 @@
 #include <reverse_string_parentheses.h>
 #include <rotate_list.h>
 #include <rotating_box.h>
+#include <rotting_oranges.h>
 #include <search_rotated_array2.h>
 #include <shortest_dist_road_queries.h>
 #include <single_element_sorted_array.h>
