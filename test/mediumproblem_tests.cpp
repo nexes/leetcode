@@ -28,6 +28,7 @@
 #include <city_smallest_neighbors.h>
 #include <clone_graph.h>
 #include <combination_sum2.h>
+#include <combinations.h>
 #include <compare_versions.h>
 #include <container_most_water.h>
 #include <copy_list_random.h>
