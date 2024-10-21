@@ -95,6 +95,7 @@
 #include <meeting_room2.h>
 #include <merge_nodes_zero.h>
 #include <merge_triplet_form_target.h>
+#include <min_adjacent_swaps.h>
 #include <min_area_cover.h>
 #include <min_deletions_string_balance.h>
 #include <min_diff_three_moves.h>
@@ -1776,4 +1777,11 @@ TEST(Medium, decode_ways)
     ASSERT_EQ(d.numDecodings("12"), 2);
     ASSERT_EQ(d.numDecodings("226"), 3);
     ASSERT_EQ(d.numDecodings("06"), 0);
+
+TEST(Medium, min_adjacent_swaps)
+{
+    Leet::Medium::MinAdjacentSwapsValidArray m;
+
+    vector<int> arr{3, 4, 5, 5, 3, 1};
+    ASSERT_EQ(m.minimumSwaps(arr), 6);
 }
