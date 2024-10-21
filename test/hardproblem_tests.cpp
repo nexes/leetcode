@@ -10,6 +10,7 @@
 #include <merge_k_sorted.h>
 #include <min_rotated_array2.h>
 #include <min_window_substring.h>
+#include <n-queen.h>
 #include <serialize_deserialize_bt.h>
 #include <trapping_water.h>
 #include <word_ladder.h>
