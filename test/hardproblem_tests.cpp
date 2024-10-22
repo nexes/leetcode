@@ -14,6 +14,7 @@
 #include <serialize_deserialize_bt.h>
 #include <trapping_water.h>
 #include <word_ladder.h>
+#include <word_search2.h>
 
 #include <string>
 #include <vector>
