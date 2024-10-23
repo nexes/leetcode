@@ -36,6 +36,7 @@
 #include <count_good_nodes.h>
 #include <count_sub_islands.h>
 #include <counting_bits.h>
+#include <cousins_binary_tree2.h>
 #include <daily_temperatures.h>
 #include <decode_string.h>
 #include <decode_ways.h>
