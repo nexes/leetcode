@@ -2,10 +2,70 @@
 
 #include <algorithm>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 using std::string;
+using std::unordered_map;
 using std::vector;
+
+// CONSTRUCT a Trie data structure to find the common prefix
+struct TrieNode
+{
+    bool isWord;
+    unordered_map<char, TrieNode> children;
+
+    TrieNode() : isWord(false), children()
+    {
+    }
+};
+
+struct Trie
+{
+    TrieNode root;
+
+    Trie() : root()
+    {
+    }
+
+    void insert(string str)
+    {
+        TrieNode *curr = &root;
+
+        for (char c : str) {
+            if (curr->children.count(c) == 0)
+                curr->children[c] = TrieNode();
+
+            curr = &curr->children[c];
+        }
+
+        curr->isWord = true;
+    }
+
+    string getCommonPrefix()
+    {
+        string prefix = "";
+        commonPrefixSearch(root, prefix);
+
+        return prefix;
+    }
+
+    void commonPrefixSearch(TrieNode &node, string &prefix)
+    {
+        // once we find a level that has more than one char node
+        // we have split, and at the end of the *common* prefix
+        if (node.children.size() > 1)
+            return;
+
+        if (node.isWord)
+            return;
+
+        for (auto &[c, nextNode] : node.children) {
+            prefix.push_back(c);
+            commonPrefixSearch(nextNode, prefix);
+        }
+    }
+};
 
 namespace Leet::Medium {
     // Write a function to find the longest common prefix string amongst an
@@ -27,7 +87,22 @@ namespace Leet::Medium {
     // strs[i] consists of only lowercase English letters.
     struct LongestPrefix
     {
+        // using a trie data structure O(n)
         string longestCommonPrefix(vector<string> &strs)
+        {
+            Trie trie;
+
+            for (string word : strs) {
+                if (word.empty())
+                    return "";
+                trie.insert(word);
+            }
+
+            return trie.getCommonPrefix();
+        }
+
+        // O(nlog(n))
+        string longestCommonPrefix_sorting(vector<string> &strs)
         {
             string prefix = "";
 
