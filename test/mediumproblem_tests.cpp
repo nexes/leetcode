@@ -43,6 +43,7 @@
 #include <delete_node_from_list.h>
 #include <delete_two_strings.h>
 #include <design_search_word.h>
+#include <diameter_narry_tree.h>
 #include <diff_way_add_parens.h>
 #include <divide_integers.h>
 #include <earliest_moment_friends.h>
