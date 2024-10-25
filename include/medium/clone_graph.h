@@ -81,39 +81,31 @@ namespace Leet::Medium {
     {
         Node *cloneGraph(Node *node)
         {
+            unordered_map<int, Node *> nodeMap;
+            std::queue<Node *> nodeQ;
+
             if (node == nullptr)
                 return node;
 
-            std::queue<Node *> nodequeue;
-            unordered_set<int> seen;
-            unordered_map<int, Node *> nodemap;
+            nodeQ.push(node);
+            while (!nodeQ.empty()) {
+                Node *node = nodeQ.front();
+                nodeQ.pop();
 
-            nodequeue.push(node);
-            seen.insert(node->val);
+                if (!nodeMap.count(node->val))
+                    nodeMap[node->val] = new Node(node->val);
 
-            while (!nodequeue.empty()) {
-                Node *n = nodequeue.front();
-                nodequeue.pop();
-
-                if (nodemap.count(n->val) == 0)
-                    nodemap[n->val] = new Node(n->val);
-
-                for (int i = 0; i < n->neighbors.size(); i++) {
-                    int neighbor_val = n->neighbors[i]->val;
-
-                    if (nodemap.count(neighbor_val) == 0)
-                        nodemap[neighbor_val] = new Node(neighbor_val);
-
-                    nodemap[n->val]->neighbors.push_back(nodemap[neighbor_val]);
-
-                    if (seen.count(neighbor_val) == 0) {
-                        seen.insert(neighbor_val);
-                        nodequeue.push(n->neighbors[i]);
+                for (Node *neighbor : node->neighbors) {
+                    if (!nodeMap.count(neighbor->val)) {
+                        nodeMap[neighbor->val] = new Node(neighbor->val);
+                        nodeQ.push(neighbor);
                     }
+
+                    nodeMap[node->val]->neighbors.push_back(nodeMap[neighbor->val]);
                 }
             }
 
-            return nodemap[node->val];
+            return nodeMap[node->val];
         }
     };
 }  // namespace Leet::Medium
