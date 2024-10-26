@@ -29,24 +29,42 @@ namespace Leet::Medium {
         // meeting
         int minMeetingRooms(vector<vector<int>>& intervals)
         {
-            int roomCount = 1;
-            priority_queue<int, vector<int>, std::greater<int>> pq;
+            priority_queue<int, vector<int>, std::greater<int>> endTimes;
+            int rooms = 1;
 
             sort(intervals.begin(), intervals.end());
-            pq.push(intervals[0][1]);
+            for (int i = 0; i < intervals.size(); i++) {
+                while (!endTimes.empty() && endTimes.top() <= intervals[i][0])
+                    endTimes.pop();
 
-            for (int i = 1; i < intervals.size(); i++) {
-                int endSoon = pq.top();
-
-                if (intervals[i][0] < endSoon)
-                    roomCount++;
-                else
-                    pq.pop();
-
-                pq.push(intervals[i][1]);
+                endTimes.push(intervals[i][1]);
+                rooms = std::max(rooms, (int)endTimes.size());
             }
 
-            return pq.size();
+            return rooms;
+        }
+
+        // set all start times with a +1 and all end times with a -1. Place all start and
+        // end times in an array and sort. When we have a start time that overlaps, +1
+        // will tell us by how many. When an end time comes, it's decremented
+        int minMeetingRooms_linesweep(vector<vector<int>>& intervals)
+        {
+            int rooms = 0;
+            int totalRooms = 1;
+            vector<std::pair<int, int>> sweep;
+
+            for (vector<int> interval : intervals) {
+                sweep.push_back({interval[0], 1});
+                sweep.push_back({interval[1], -1});
+            }
+
+            sort(sweep.begin(), sweep.end());
+            for (std::pair<int, int> s : sweep) {
+                rooms += s.second;
+                totalRooms = std::max(totalRooms, rooms);
+            }
+
+            return totalRooms;
         }
     };
 }  // namespace Leet::Medium
