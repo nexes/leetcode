@@ -51,6 +51,7 @@
 #include <even_odd_tree.h>
 #include <find_dist_binary_tree.h>
 #include <find_if_array_sort.h>
+#include <find_max_num_elements.h>
 #include <find_replace_pattern.h>
 #include <first_last_elm_array.h>
 #include <flatten_binarytree_list.h>
@@ -1781,6 +1782,18 @@ TEST(Medium, decode_ways)
     ASSERT_EQ(d.numDecodings("12"), 2);
     ASSERT_EQ(d.numDecodings("226"), 3);
     ASSERT_EQ(d.numDecodings("06"), 0);
+}
+
+TEST(Medium, find_max_number_elements_subset)
+{
+    Leet::Medium::FindMaxElementsSubset f;
+
+    vector<int> arr{5, 4, 1, 2, 2};
+    ASSERT_EQ(f.maximumLength(arr), 3);
+
+    arr = {1, 3, 2, 4};
+    ASSERT_EQ(f.maximumLength(arr), 1);
+}
 
 TEST(Medium, min_adjacent_swaps)
 {
