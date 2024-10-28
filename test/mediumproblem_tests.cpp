@@ -87,6 +87,7 @@
 #include <longest_nice_subarray.h>
 #include <longest_palindrom_subseq.h>
 #include <longest_repeating_char_replacement.h>
+#include <longest_square_streak.h>
 #include <longest_substr_even_vowels.h>
 #include <longest_substr_k_repeating.h>
 #include <longest_substr_two_dist_chars.h>
