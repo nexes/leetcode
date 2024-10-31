@@ -25,6 +25,7 @@
 #include <bulls_cows.h>
 #include <buy_sell_stock_2.h>
 #include <car_fleet.h>
+#include <cheapest_flights_k_stops.h>
 #include <city_smallest_neighbors.h>
 #include <clone_graph.h>
 #include <combination_sum2.h>
