@@ -80,6 +80,7 @@
 #include <jump_game2.h>
 #include <koko_bananas.h>
 #include <kth_factor.h>
+#include <kth_largest_sum_tree.h>
 #include <kth_smallest_element_tree.h>
 #include <lca_binarytree.h>
 #include <lca_tree.h>
