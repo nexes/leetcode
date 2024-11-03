@@ -36,6 +36,7 @@
 #include <copy_list_random.h>
 #include <count_and_say.h>
 #include <count_good_nodes.h>
+#include <count_square_submatrix.h>
 #include <count_sub_islands.h>
 #include <counting_bits.h>
 #include <course_schedule.h>
