@@ -1,6 +1,5 @@
 #pragma once
 
-#include <algorithm>
 #include <vector>
 
 namespace Leet::Medium {
@@ -43,7 +42,8 @@ namespace Leet::Medium {
     // 1 <= target <= 500
     struct CombinationSum
     {
-        std::vector<std::vector<int>> combinationSum(std::vector<int>& candidates, int target)
+        std::vector<std::vector<int>> combinationSum(std::vector<int>& candidates,
+                                                     int target)
         {
             auto combos = std::vector<std::vector<int>>{};
             auto temp = std::vector<int>{};
@@ -53,7 +53,8 @@ namespace Leet::Medium {
             return combos;
         }
 
-        void find_combo(std::vector<std::vector<int>>& combos, std::vector<int>& curr, std::vector<int>& opts, int index, int target)
+        void find_combo(std::vector<std::vector<int>>& combos, std::vector<int>& curr,
+                        std::vector<int>& opts, int index, int target)
         {
             if (target < 0)
                 return;

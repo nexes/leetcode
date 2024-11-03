@@ -3,58 +3,62 @@
 #include <../listnode.h>
 
 namespace Leet::Medium {
-    // You are given two non-empty linked lists representing two non-negative
-    // integers. The digits are stored in reverse order and each of their nodes
-    // contain a single digit. Add the two numbers and return it as a linked
-    // list. You may assume the two numbers do not contain any leading zero,
-    // except the number 0 itself.
+    // You are given two non-empty linked lists representing two non-negative integers.
+    // The digits are stored in reverse order, and each of their nodes contains a single
+    // digit. Add the two numbers and return the sum as a linked list. You may assume the
+    // two numbers do not contain any leading zero, except the number 0 itself.
 
-    // Example:
-    // Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-    // Output: 7 -> 0 -> 8
+    // Example 1:
+    // Input: l1 = [2,4,3], l2 = [5,6,4]
+    // Output: [7,0,8]
     // Explanation: 342 + 465 = 807.
+
+    // Example 2:
+    // Input: l1 = [0], l2 = [0]
+    // Output: [0]
+
+    // Example 3:
+    // Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+    // Output: [8,9,9,9,0,0,0,1]
+
+    // Constraints:
+    // The number of nodes in each linked list is in the range [1, 100].
+    // 0 <= Node.val <= 9
+    // It is guaranteed that the list represents a number that does not have leading
+    // zeros.
     struct TwoNumbers
     {
         Leet::ListNode *addTwoNumbers(Leet::ListNode *l1, Leet::ListNode *l2)
         {
-            Leet::ListNode *head = new Leet::ListNode();
-            add(head, l1, l2, 0);
+            ListNode dummy;
+            ListNode *head = &dummy;
+            ListNode *curr = &dummy;
+            int carry = 0;
 
-            return head->next;
-        }
+            while (l1 != nullptr || l2 != nullptr) {
+                int lhs = l1 != nullptr ? l1->val : 0;
+                int rhs = l2 != nullptr ? l2->val : 0;
+                int sum = lhs + rhs + carry;
+                carry = 0;
 
-        void add(Leet::ListNode *head, Leet::ListNode *l1, Leet::ListNode *l2,
-                 int rem)
-        {
-            int n = rem;
-            rem = 0;
-
-            if (l1 == nullptr && l2 == nullptr) {
-                if (n > 0 && n < 10) {
-                    head->next = new Leet::ListNode(n);
-                } else if (n >= 10) {
-                    head->next = new Leet::ListNode(n % 10);
-                    head->next->next = new Leet::ListNode(n / 10);
+                if (sum > 9) {
+                    carry = 1;
+                    sum = sum % 10;
                 }
 
-                return;
+                curr->next = new ListNode(sum);
+                curr = curr->next;
+
+                if (l1 != nullptr)
+                    l1 = l1->next;
+                if (l2 != nullptr)
+                    l2 = l2->next;
             }
 
-            if (l1)
-                n += l1->val;
-            if (l2)
-                n += l2->val;
+            if (carry > 0)
+                curr->next = new ListNode(1);
 
-            if (n > 9) {
-                rem = n / 10;
-                n = n % 10;
-            }
-
-            head->next = new Leet::ListNode(n);
-
-            auto *ll = l1 ? l1->next : nullptr;
-            auto *rl = l2 ? l2->next : nullptr;
-            add(head->next, ll, rl, rem);
+            return head->next;
         }
     };
 }  // namespace Leet::Medium
