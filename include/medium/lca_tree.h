@@ -33,8 +33,7 @@ namespace Leet::Medium {
     // p and q will exist in the BST.
     struct LCATree
     {
-        Leet::TreeNode* lowestCommonAncestor(Leet::TreeNode* root,
-                                             Leet::TreeNode* p,
+        Leet::TreeNode* lowestCommonAncestor(Leet::TreeNode* root, Leet::TreeNode* p,
                                              Leet::TreeNode* q)
         {
             if (root == nullptr)
