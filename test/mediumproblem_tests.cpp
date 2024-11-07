@@ -45,6 +45,7 @@
 #include <daily_temperatures.h>
 #include <decode_string.h>
 #include <decode_ways.h>
+#include <delete_leaves_value.h>
 #include <delete_node_from_list.h>
 #include <delete_two_strings.h>
 #include <design_search_word.h>
