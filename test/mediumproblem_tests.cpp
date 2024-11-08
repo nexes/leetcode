@@ -108,6 +108,7 @@
 #include <max_good_subarray_sum.h>
 #include <max_number_moves_grid.h>
 #include <max_split_pos_ints.h>
+#include <max_xor_each_query.h>
 #include <meeting_room2.h>
 #include <merge_nodes_zero.h>
 #include <merge_triplet_form_target.h>
