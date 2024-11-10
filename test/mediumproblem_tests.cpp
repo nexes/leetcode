@@ -114,6 +114,7 @@
 #include <merge_triplet_form_target.h>
 #include <min_adjacent_swaps.h>
 #include <min_area_cover.h>
+#include <min_cost_connect_pairs.h>
 #include <min_deletions_string_balance.h>
 #include <min_diff_three_moves.h>
 #include <min_falling_path_sum.h>
