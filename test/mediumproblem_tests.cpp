@@ -131,6 +131,7 @@
 #include <network_delay_time.h>
 #include <next_permutation.h>
 #include <nodes_k_dist_binary_tree.h>
+#include <number_connected_comp.h>
 #include <number_good_splits.h>
 #include <number_provinces.h>
 #include <optimal_partition_string.h>
