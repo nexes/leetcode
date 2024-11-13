@@ -148,6 +148,7 @@
 #include <questions_brainpower.h>
 #include <queue_by_height.h>
 #include <recover_bst.h>
+#include <redundant_connection.h>
 #include <remove_dup_letters.h>
 #include <remove_duplicate_array2.h>
 #include <remove_nth_linklist.h>
