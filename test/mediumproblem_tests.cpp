@@ -143,6 +143,7 @@
 #include <path_max_probability.h>
 #include <path_sum3.h>
 #include <permutations2.h>
+#include <populate_next_right_pointer.h>
 #include <preorder_serialization.h>
 #include <product_array_except.h>
 #include <questions_brainpower.h>
