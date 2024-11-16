@@ -59,6 +59,7 @@
 #include <find_if_array_sort.h>
 #include <find_max_num_elements.h>
 #include <find_replace_pattern.h>
+#include <find_three_consecutive_sum.h>
 #include <first_last_elm_array.h>
 #include <flatten_binarytree_list.h>
 #include <gas_station.h>
