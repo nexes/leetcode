@@ -39,6 +39,7 @@
 #include <count_good_nodes.h>
 #include <count_square_submatrix.h>
 #include <count_sub_islands.h>
+#include <count_unguarded_cells.h>
 #include <counting_bits.h>
 #include <course_schedule.h>
 #include <cousins_binary_tree2.h>
