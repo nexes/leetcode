@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
 #include <../common.h>
+#include <gtest/gtest.h>
 
 TEST(Common, string_trim)
 {
@@ -21,7 +21,8 @@ TEST(Common, string_split)
     std::string s{"hello world leet code leetcode code what wat"};
     auto sv = algo.split(s);
 
-    std::vector<std::string> list{"hello", "world", "leet", "code", "leetcode", "code", "what", "wat"};
+    std::vector<std::string> list{"hello",    "world", "leet", "code",
+                                  "leetcode", "code",  "what", "wat"};
     ASSERT_EQ(sv, list);
 }
 
@@ -36,7 +37,8 @@ TEST(Common, reverse_lists)
     ASSERT_EQ(nums, rev_nums);
 
     std::vector<std::string> words{"the", "bear", "is", "sticky", "from", "the", "honey"};
-    std::vector<std::string> words_rev{"honey", "the", "from", "sticky", "is", "bear", "the"};
+    std::vector<std::string> words_rev{"honey", "the",  "from", "sticky",
+                                       "is",    "bear", "the"};
 
     algo.reverse(words);
     ASSERT_EQ(words, words_rev);

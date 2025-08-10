@@ -46,6 +46,7 @@
 #include <daily_temperatures.h>
 #include <decode_string.h>
 #include <decode_ways.h>
+#include <delete_and_earn.h>
 #include <delete_leaves_value.h>
 #include <delete_node_from_list.h>
 #include <delete_two_strings.h>
@@ -1776,6 +1777,17 @@ TEST(Medium, longest_substr_2_distinct_chars)
 
     ASSERT_EQ(l.lengthOfLongestSubstringTwoDistinct("eceba"), 3);
     ASSERT_EQ(l.lengthOfLongestSubstringTwoDistinct("ccaabbb"), 5);
+}
+
+TEST(Medium, delete_and_earn)
+{
+    Leet::Medium::DeleteAndEarn d;
+
+    vector<int> nums{3, 4, 2};
+    ASSERT_EQ(d.deleteAndEarn(nums), 6);
+
+    nums = {2, 2, 3, 3, 3, 4};
+    ASSERT_EQ(d.deleteAndEarn(nums), 9);
 }
 
 TEST(Medium, sum_square_numbers)

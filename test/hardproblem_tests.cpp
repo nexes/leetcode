@@ -23,15 +23,15 @@
 
 TEST(Hard, Median)
 {
-    Leet::Hard::Median m;
+    Leet::Hard::MedianSorted m;
 
-    std::vector<int> v1{1, 2, 3, 4, 5, 6, 7};
-    std::vector<int> v2{5, 6, 7, 8, 9};
+    std::vector<int> v1{1, 3};
+    std::vector<int> v2{2};
+    ASSERT_EQ(m.findMedianSortedArrays(v1, v2), 2.0);
 
-    m.findMedianSortedArrays_slower(v1, v2);
-
-    // force fail
-    // ASSERT_EQ(1, 2);
+    v1 = {1, 2};
+    v2 = {3, 4};
+    ASSERT_EQ(m.findMedianSortedArrays(v1, v2), 2.5);
 }
 
 TEST(Hard, edit_distance)
